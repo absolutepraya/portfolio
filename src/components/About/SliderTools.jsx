@@ -26,14 +26,14 @@ const SliderTools = () => {
 			speed='40'
 			gradient={true}
 			gradientColor='#0d0d0d'
-			gradientWidth={100}
+			gradientWidth={110}
 			autoFill={true}
 			direction='right'
 		>
 			{toolsList.map((tool, index) => (
 				<div
 					key={index}
-					className='mx-3 flex h-20 w-20 items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl'
+					className='mx-3 flex h-20 w-20 items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl border-2 border-[#2a2a2a] border-r-0 border-b-0'
 				>
 					<img
 						src={tool.src}

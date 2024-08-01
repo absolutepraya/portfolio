@@ -27,7 +27,7 @@ const NavBarButton = ({ icon, color, text, link }) => {
 			className='flex h-12 w-12 items-center justify-center rounded-xl border border-[#262626] cursor-pointer'
 			href={link}
 		>
-			<p className='text-white'>{text}</p>
+			<p className=''>{text}</p>
 		</div>
 	);
 };
