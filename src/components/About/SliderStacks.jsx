@@ -7,11 +7,12 @@ import Jest from '../../assets/stacks/jest.svg';
 import MongoDB from '../../assets/stacks/mongodb.svg';
 import NodeJS from '../../assets/stacks/nodejs.svg';
 import NPM from '../../assets/stacks/npm.svg';
+import Python from '../../assets/stacks/python.svg';
 import ReactJS from '../../assets/stacks/react.svg';
 import TailwindCSS from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
-import vitest from '../../assets/stacks/vitest.svg';
+import Vitest from '../../assets/stacks/vitest.svg';
 
 const stacksList = [
 	{ src: NodeJS, alt: 'NodeJS' },
@@ -24,8 +25,9 @@ const stacksList = [
 	{ src: Express, alt: 'Express' },
 	{ src: MongoDB, alt: 'MongoDB' },
 	{ src: Jest, alt: 'Jest' },
-	{ src: vitest, alt: 'Vitest' },
+	{ src: Vitest, alt: 'Vitest' },
 	{ src: Docker, alt: 'Docker' },
+	{ src: Python, alt: 'Python' },
 ];
 
 const SliderStacks = () => {
