@@ -1,9 +1,9 @@
 import Marquee from 'react-fast-marquee';
-import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconLockBolt, IconUrgent } from '@tabler/icons-react';
+import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconLockBolt, IconUrgent, IconPrompt } from '@tabler/icons-react';
 
-const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'Quality Assurance', 'Digital Forensics (CTF)', 'Web Exploitation (CTF)', 'Cyber Threat Intelligence', 'Risk Management'];
+const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'Quality Assurance', 'Digital Forensics (CTF)', 'Web Exploitation (CTF)', 'Cyber Threat Intelligence', 'Risk Management', 'Prompt Engineering'];
 
-const icons = [IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconLockBolt, IconUrgent];
+const icons = [IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconLockBolt, IconUrgent, IconPrompt];
 
 const SliderSkills = () => {
 	return (
