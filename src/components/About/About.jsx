@@ -8,7 +8,7 @@ import { IconSettings2, IconSparkles, IconBrandLinkedin, IconBrandGithub, IconBr
 
 const About = () => {
 	return (
-		<div className='mt-36 flex flex-col items-center'>
+		<div className='!mt-36 flex flex-col items-center w-[68rem]'>
 			<div className='border py-2 px-4 rounded-full flex flex-row items-center space-x-2'>
 				<IconPointFilled size={20} stroke={1.0} className='text-[#3643FC]'/>
 				<p className='text-lg'>Open to new opportunities</p>
@@ -51,8 +51,8 @@ const About = () => {
 				/>
 				<div className='!ml-6 h-0.5 w-28 bg-white opacity-20' />
 			</div>
-			<div className='mt-16 flex h-auto w-[75vw] flex-row space-x-6'>
-				<div className='flex h-full w-2/5 flex-col space-y-6 rounded-3xl border border-[#262626] p-6'>
+			<div className='mt-16 flex h-auto w-full flex-row space-x-6'>
+				<div className='flex h-full w-[40%] flex-col space-y-6 rounded-3xl border border-[#262626] p-6'>
 					<div className='flex h-[11.5rem] items-center justify-center'>
 						<SliderSkills />
 					</div>
@@ -66,11 +66,11 @@ const About = () => {
 							<p>My skills</p>
 						</div>
 						<p className='text-2xl'>
-							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>fullstack development</b>, also skilled in <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>CTF</i> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>Cybersecurity</i>.
+							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>CTF</i> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>Cybersecurity</i>.
 						</p>
 					</div>
 				</div>
-				<div className='flex h-full w-3/5 flex-col items-center space-y-6 rounded-3xl border border-[#262626] p-6'>
+				<div className='flex h-full w-[39.3rem] flex-col items-center space-y-6 rounded-3xl border border-[#262626] p-6'>
 					<SliderStacks />
 					<SliderTools />
 					<div className='flex w-full flex-col items-start space-y-4'>
