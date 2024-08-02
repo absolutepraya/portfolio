@@ -40,8 +40,8 @@ const stackIcons = {
 
 const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, github }) => {
 	return (
-		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border border-[#262626] py-0'>
-			<div className='h-[318px] w-full bg-[#3643FC]' />
+		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border border-[#262626] py-0 hover:-rotate-1 transition-all duration-300 ease-in-out'>
+			<div className='h-[318px] w-full bg-[#2d2d2d]' />
 			<div className='flex flex-col space-y-2 p-6'>
 				<div className='flex flex-row items-start justify-between'>
 					<div className='flex flex-row items-start space-x-3'>
