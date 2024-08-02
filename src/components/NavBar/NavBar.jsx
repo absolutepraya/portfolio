@@ -1,34 +1,50 @@
+import { IconDoor, IconBriefcase2, IconAppWindow, IconUser } from '@tabler/icons-react';
+
 const NavBar = () => {
 	return (
-		<div className='fixed top-8 flex h-16 w-[400px] flex-row items-center justify-between rounded-2xl border border-[#262626] bg-[#0f0f0f] bg-opacity-40 px-2 backdrop-blur-md z-10'>
-			<svg /> {/* Profile picture here */}
-			<div className='flex flex-row space-x-2'>
+		<div className='fixed top-8 z-10 flex h-[4.5rem] w-[55rem] flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-3 backdrop-blur-md'>
+			<div className='flex w-1/3 flex-row space-x-3'>
+				<NavBarButton />
+				<div className='flex flex-col items-start'>
+					<p className='text-start font-bold'>Daffa Abhipraya</p>
+					<p className='text-start'>Computer Science, UI</p>
+				</div>
+			</div>
+			<div className='flex w-1/3 flex-row space-x-3 justify-center'>
 				<NavBarButton
-					text='A'
-					link='/'
+					color='blurple'
+					icon={<IconDoor />}
 				/>
 				<NavBarButton
-					text='B'
-					link='/'
+					color='blurple'
+					icon={<IconBriefcase2 />}
 				/>
 				<NavBarButton
-					text='C'
-					link='/'
+					color='blurple'
+					icon={<IconAppWindow />}
+				/>
+				<NavBarButton
+					color='blurple'
+					icon={<IconUser />}
 				/>
 			</div>
-			<svg /> {/* Dark & light mode button */}
+			<div className='flex w-1/3 flex-row justify-end'>
+				<NavBarButton />
+			</div>
 		</div>
 	);
 };
 
-const NavBarButton = ({ icon, color, text, link }) => {
+const NavBarButton = ({ icon = null, image = null, color, text, link }) => {
+	const colorHover = `hover:bg-${color}`;
+
 	return (
-		<div
-			className='flex h-12 w-12 items-center justify-center rounded-xl border border-[#262626] cursor-pointer'
-			href={link}
-		>
-			<p className=''>{text}</p>
-		</div>
+		<a href={link}>
+			<div className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-2xl border border-[#262626] ${colorHover} transition-all duration-200 ease-in-out`}>
+				{icon}
+				<p className=''>{text}</p>
+			</div>
+		</a>
 	);
 };
 
