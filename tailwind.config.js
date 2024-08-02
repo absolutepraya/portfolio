@@ -9,6 +9,9 @@ export default {
 			},
 			colors: {
 				blurple: '#3643FC',
+				customblack: '#0d0d0d',
+				customgray: '#262626',
+				customwhite: '#cccccc'
 			},
 		},
 	},

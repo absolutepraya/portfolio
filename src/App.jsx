@@ -7,7 +7,7 @@ import Projects from './components/Projects/Projects';
 
 const App = () => {
 	return (
-		<div className={'flex flex-col items-center font-inter relative bg-[#0d0d0d] text-[#cccccc] space-y-16'}>
+		<div className={'relative flex flex-col items-center space-y-16 bg-[#0d0d0d] font-inter text-[#cccccc]'}>
 			<NavBar />
 			<About />
 			<Experience />
