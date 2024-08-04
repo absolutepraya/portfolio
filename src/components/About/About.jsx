@@ -1,10 +1,12 @@
+// TODO: Make a shine through effect in "Open for new opportunities" box
+
 import Marquee from 'react-fast-marquee';
 
 import SliderSkills from './SliderSkills';
 import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
 
-import { IconSettings2, IconSparkles, IconBrandLinkedin, IconBrandGithub, IconBrandInstagram, IconBrandDiscord, IconBrandSpotify, IconPointFilled } from '@tabler/icons-react';
+import { IconSettings2, IconSparkles, IconBrandSpotify } from '@tabler/icons-react';
 
 const About = () => {
 	return (
@@ -25,35 +27,6 @@ const About = () => {
 					<br />
 					Indonesia.
 				</p>
-			</div>
-			<div className='mt-16 flex w-auto flex-row items-center space-x-3'>
-				<div className='!mr-6 h-0.5 w-28 bg-white opacity-20' />
-				<IconBrandLinkedin
-					size={32}
-					stroke={1.4}
-					className='relative text-white opacity-50 transition-all duration-100 ease-in hover:opacity-100'
-				/>
-				<IconBrandGithub
-					size={32}
-					stroke={1.4}
-					className='relative text-white opacity-50 transition-all duration-100 ease-in hover:opacity-100'
-				/>
-				<IconBrandInstagram
-					size={32}
-					stroke={1.4}
-					className='relative text-white opacity-50 transition-all duration-100 ease-in hover:opacity-100'
-				/>
-				<IconBrandDiscord
-					size={32}
-					stroke={1.4}
-					className='relative text-white opacity-50 transition-all duration-100 ease-in hover:opacity-100'
-				/>
-				<IconBrandSpotify
-					size={32}
-					stroke={1.4}
-					className='relative text-white opacity-50 transition-all duration-100 ease-in hover:opacity-100'
-				/>
-				<div className='!ml-6 h-0.5 w-28 bg-white opacity-20' />
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-row space-x-6'>
 				<div className='flex h-full w-[40%] flex-col space-y-6 rounded-3xl border border-[#262626] p-6 shadow-lg'>
