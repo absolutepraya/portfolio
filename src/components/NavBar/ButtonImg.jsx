@@ -1,10 +1,13 @@
+// TODO: Make a bubble message "Hover on me!"
+
 import Laptop from '../../assets/creds/laptop.png';
 import Flag from '../../assets/creds/flag.png';
 import Globe from '../../assets/creds/globe.png';
 import Test from '../../assets/creds/test.png';
 import Indonesia from '../../assets/creds/indonesia.png';
+import UI from '../../assets/orgs/fasilkom.svg';
 import PFP from '../../assets/creds/pfp.png';
-const imgs = [Laptop, Flag, Globe, Test, Indonesia];
+const imgs = [Laptop, Flag, Globe, Test, Indonesia, UI];
 
 import { useState } from 'react';
 
