@@ -14,10 +14,10 @@ const NavBar = () => {
 				</div>
 			</div>
 			<div className='flex w-1/3 flex-row justify-center space-x-3'>
-				<Button icon={<IconHome />} text='Home'/>
-				<Button icon={<IconBriefcase2 />} text='Experience'/>
-				<Button icon={<IconBox />} text='Projects'/>
-				<Button icon={<IconMail />} text='Contacts'/>
+				<Button icon={<IconHome />} text='Home' link='#about'/>
+				<Button icon={<IconBriefcase2 />} text='Experience' link='#experience'/>
+				<Button icon={<IconBox />} text='Projects' link='#projects'/>
+				<Button icon={<IconMail />} text='Contacts'link='#contacts'/>
 			</div>
 			<div className='flex w-1/3 flex-row justify-end'>
 				<Button />

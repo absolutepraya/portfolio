@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import NavBar from './components/NavBar/NavBar';
 import About from './components/About/About';
@@ -9,7 +10,7 @@ import Copyright from './components/Copyright';
 
 const App = () => {
 	return (
-		<div className={'relative flex flex-col items-center space-y-24 bg-[#0d0d0d] font-inter text-[#cccccc]'}>
+		<div className={'relative flex flex-col items-center space-y-32 bg-[#0d0d0d] font-inter text-[#cccccc]'}>
 			<NavBar />
 			<About />
 			<Experience />

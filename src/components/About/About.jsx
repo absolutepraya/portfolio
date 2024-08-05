@@ -10,8 +10,9 @@ import { IconSettings2, IconSparkles, IconBrandSpotify } from '@tabler/icons-rea
 
 const About = () => {
 	return (
-		<div className='!mt-40 flex w-[68rem] flex-col items-center'>
-			<div className='hover:bg-customwhite hover:text-customblack flex flex-row items-center space-x-4 rounded-full border bg-[#131313] px-6 py-2 transition-all duration-300 ease-in-out border-customgray shadow-lg'>
+		<div className='!mt-40 flex w-[68rem] flex-col items-center relative'>
+			<div id='about' className='absolute -top-40'/> {/* To scroll to top of the page */}
+			<div className='shining-border flex flex-row items-center space-x-4 rounded-full border border-customgray bg-[#131313] px-6 py-2 shadow-lg transition-all duration-300 ease-in-out hover:bg-customwhite hover:text-customblack'>
 				{/* TODO: Make a shining effect, moving from left to right, either the text or the div */}
 				<span className='relative flex h-4 w-4 items-center justify-center'>
 					<span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
@@ -20,7 +21,7 @@ const About = () => {
 				<p className='text-lg'>Open for new opportunities</p>
 			</div>
 			<div className='mt-12 w-full'>
-				<p className='text-center font-instrument text-6xl bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-transparent'>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-6xl text-transparent'>
 					Abhip is a brilliant <i>fullstack engineer</i>,<br />a formidable <i>forensics CTF player</i>,<br />
 					and a comprehensive <i>problem solver</i>,<br />
 					developing from the lively city of Jakarta,

@@ -2,7 +2,8 @@ import ProjectBox from './ProjectBox';
 
 const Projects = () => {
 	return (
-		<div className='w-[68rem] flex-col space-y-12'>
+		<div className='w-[68rem] flex-col space-y-12 relative'>
+			<div id='projects' className='absolute -top-24'/>
 			<div className='flex flex-row items-center space-x-8'>
 				<p className='from-customwhite bg-gradient-to-br to-[#5c5c5a] bg-clip-text font-instrument text-7xl text-transparent'>Stuff I&apos;ve done</p>
 				<div className='mt-4 h-0.5 flex-grow bg-white opacity-20' />
