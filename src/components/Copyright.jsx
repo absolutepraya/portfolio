@@ -19,17 +19,17 @@ const Copyright = () => {
 	}, []);
 
 	return (
-		<div className='flex h-16 w-full flex-row items-center justify-between border-t bg-opacity-40  bg-customgray border-customgray px-32 text-sm'>
-			<div className='flex flex-row items-center space-x-1 w-1/3 justify-start'>
+		<div className='flex h-16 w-full flex-row items-center justify-between border-t border-customgray bg-customgray bg-opacity-40 px-32 text-sm'>
+			<div className='flex w-1/3 flex-row items-center justify-start space-x-1'>
 				<IconCopyright size={18} />
 				<p>2024 Daffa Abhipraya — All Rights Reserved.</p>
 			</div>
-			<div className='flex flex-row items-center space-x-1 w-1/3 justify-center'>
+			<div className='flex w-1/3 flex-row items-center justify-center space-x-1'>
 				<p>Jakarta, Indonesia</p>
 				<IconClock size={18} />
 				<p>{currentTime}</p>
 			</div>
-			<div className='flex flex-row items-center space-x-1 w-1/3 justify-end'>
+			<div className='flex w-1/3 flex-row items-center justify-end space-x-1'>
 				<p>Designed and built by me</p>
 				<IconBrandGithub size={18} />
 				<a href='https://github.com/absolutepraya/portfolio'>

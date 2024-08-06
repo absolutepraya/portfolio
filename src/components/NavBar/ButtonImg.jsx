@@ -25,7 +25,7 @@ const ButtonImg = ({ img = null, text, link }) => {
 	return (
 		<a href={link}>
 			<div
-				className='relative shadow-md flex h-14 w-14 border-[#424242] cursor-pointer items-center justify-center rounded-2xl border transition-all duration-200 ease-in-out hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
+				className='relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-2xl border border-[#424242] shadow-md transition-all duration-200 ease-in-out hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
 				onMouseEnter={() => changeEmoji()}
 				onMouseLeave={() => setHovered(false)}
 			>
@@ -36,7 +36,7 @@ const ButtonImg = ({ img = null, text, link }) => {
 				<div className='h-full w-full overflow-hidden rounded-2xl bg-white'>
 					<img
 						src={PFP2}
-						className={`grayscale filter transition-all duration-200 ease-in-out scale-[80%] ${hovered ? 'filter-none' : ''}`}
+						className={`scale-[80%] grayscale filter transition-all duration-200 ease-in-out ${hovered ? 'filter-none' : ''}`}
 					/>
 				</div>
 				<p className=''>{text}</p>

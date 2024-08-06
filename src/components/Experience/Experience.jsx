@@ -11,13 +11,19 @@ import BETIS from '../../assets/orgs/betis.svg';
 
 const Experience = () => {
 	return (
-		<section className='flex w-[68rem] flex-col relative' id='experiencesec'>
-			<div id='experience' className='absolute -top-36'/>
+		<section
+			className='relative flex w-[68rem] flex-col'
+			id='experiencesec'
+		>
+			<div
+				id='experience'
+				className='absolute -top-36'
+			/>
 			<div className='flex flex-row items-center space-x-8'>
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-7xl text-transparent'>The road so far</p>
 				<div className='mt-4 h-0.5 flex-grow bg-white opacity-20' />
 			</div>
-			<div className='flex flex-col items-center space-y-4 mt-32'>
+			<div className='mt-32 flex flex-col items-center space-y-4'>
 				<ExperienceBox
 					title='Teaching Assistant of Discrete Math 1'
 					org='Fasilkom UI'

@@ -33,12 +33,12 @@ const SliderTools = () => {
 			{toolsList.map((tool, index) => (
 				<div
 					key={index}
-					className='mx-3 flex h-20 w-20 items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl border-2 border-[#2a2a2a] border-r-0 border-b-0'
+					className='mx-3 flex h-20 w-20 items-center justify-center rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl'
 				>
 					<img
 						src={tool.src}
 						alt={tool.alt}
-						className='h-full w-full object-contain hover:scale-110 transition-all duration-100'
+						className='h-full w-full object-contain transition-all duration-100 hover:scale-110'
 					/>
 				</div>
 			))}

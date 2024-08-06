@@ -68,20 +68,20 @@ const Contact = () => {
 					/>
 					<p className='text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
 					<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
-						<div className='flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 hover:border-blurple hover:text-blurple transition-all duration-100'>
+						<div className='flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 transition-all duration-100 hover:border-blurple hover:text-blurple'>
 							<IconMail
 								size={20}
 								stroke={2}
 							/>
 							<p className='font-semibold'>daffaabhiprayaputra@gmail.com</p>
 						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] hover:bg-blurple hover:bg-opacity-30 hover:text-blurple transition-all duration-100'>
+						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
 							<IconSend
 								size={20}
 								stroke={2}
 							/>
 						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] hover:bg-blurple hover:bg-opacity-30 hover:text-blurple transition-all duration-100'>
+						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
 							<IconCopy
 								size={20}
 								stroke={2}
@@ -89,7 +89,7 @@ const Contact = () => {
 						</div>
 					</div>
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
-						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack hover:bg-blurple hover:text-customwhite transition-all duration-100'>
+						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
 							<p className='font-semibold'>
 								or hit me up on <a className='font-extrabold'>LinkedIn</a>
 							</p>
