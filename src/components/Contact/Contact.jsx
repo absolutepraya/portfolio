@@ -9,7 +9,7 @@ const Contact = () => {
 	return (
 		<section
 			id='contactsec'
-			className='relative flex h-[50vh] w-[68rem] flex-row rounded-3xl border-[#666666]'
+			className='relative flex h-[28rem] w-[68rem] flex-row rounded-3xl border-[#666666]'
 			style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0.01) 20%, rgba(54, 67, 252, 0.2))' }}
 		>
 			<div
@@ -59,12 +59,12 @@ const Contact = () => {
 					<img
 						src={Pin}
 						alt='pin'
-						className='absolute -right-8 -top-10 w-16'
+						className='absolute -right-8 -top-10 w-16 drop-shadow-md'
 					/>
 					<img
 						src={Hello}
 						alt='hello'
-						className='absolute -bottom-4 -left-6 w-12'
+						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
 					/>
 					<p className='text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
 					<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
@@ -91,7 +91,7 @@ const Contact = () => {
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
 						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack hover:bg-blurple hover:text-customwhite transition-all duration-100'>
 							<p className='font-semibold'>
-								or hit me on <a className='font-bold'>LinkedIn</a>
+								or hit me up on <a className='font-extrabold'>LinkedIn</a>
 							</p>
 							<IconBrandLinkedin
 								size={20}
@@ -108,7 +108,7 @@ const Contact = () => {
 									size={24}
 									stroke={2}
 								/>
-								<p className='underline underline-offset-2'>absolutepraya</p>
+								<p className='underline underline-offset-4'>absolutepraya</p>
 							</div>
 						</a>
 						<a href='https://www.instagram.com/___abhipraya/'>
@@ -117,7 +117,7 @@ const Contact = () => {
 									size={24}
 									stroke={2}
 								/>
-								<p className='underline underline-offset-2'>___abhipraya</p>
+								<p className='underline underline-offset-4'>___abhipraya</p>
 							</div>
 						</a>
 						<a href='https://open.spotify.com/user/daffaabhiprayaputra?si=b80aa3237c7440ed'>
@@ -126,7 +126,7 @@ const Contact = () => {
 									size={24}
 									stroke={2}
 								/>
-								<p className='underline underline-offset-2'>Daffa Abhipraya</p>
+								<p className='underline underline-offset-4'>Daffa Abhipraya</p>
 							</div>
 						</a>
 					</div>

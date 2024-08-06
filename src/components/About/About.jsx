@@ -10,15 +10,21 @@ import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
 const About = () => {
 	return (
-		<section className='!mt-40 flex w-[68rem] flex-col items-center relative' id='aboutsec'>
-			<div id='about' className='absolute -top-40'/> {/* To scroll to top of the page */}
-			<div className='shining-border flex flex-row items-center space-x-4 rounded-full border border-customgray bg-[#131313] px-6 py-2 shadow-lg transition-all duration-300 ease-in-out hover:bg-customwhite hover:text-customblack'>
-				{/* TODO: Make a shining effect, moving from left to right, either the text or the div */}
+		<section
+			className='relative !mt-40 flex w-[68rem] flex-col items-center'
+			id='aboutsec'
+		>
+			<div
+				id='about'
+				className='absolute -top-40'
+			/>{' '}
+			{/* To scroll to top of the page */}
+			<div className='shining-border flex flex-row items-center -space-x-[1rem] rounded-full border border-customgray bg-[#131313] py-2 pl-6 shadow-lg transition-all duration-300 ease-in-out'>
 				<span className='relative flex h-4 w-4 items-center justify-center'>
 					<span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
 					<span className='relative inline-flex h-3 w-3 rounded-full bg-blurple'></span>
 				</span>
-				<p className='text-lg'>Open for new opportunities</p>
+				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 			</div>
 			<div className='mt-12 w-full'>
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-6xl text-transparent'>

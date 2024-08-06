@@ -17,7 +17,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 			},
 			{
 				root: null,
-				rootMargin: '-30% 0px -30% 0px', // Adjust the viewport offset
+				rootMargin: '-40% 0px -40% 0px', // Adjust the viewport offset
 				threshold: 0, // Trigger as soon as the element enters/exits the viewport
 			}
 		);

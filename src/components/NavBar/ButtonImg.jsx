@@ -25,7 +25,7 @@ const ButtonImg = ({ img = null, text, link }) => {
 	return (
 		<a href={link}>
 			<div
-				className='relative flex h-14 w-14 cursor-pointer items-center justify-center rounded-2xl border border-[#262626] transition-all duration-200 ease-in-out hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
+				className='relative shadow-md flex h-14 w-14 border-[#424242] cursor-pointer items-center justify-center rounded-2xl border transition-all duration-200 ease-in-out hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
 				onMouseEnter={() => changeEmoji()}
 				onMouseLeave={() => setHovered(false)}
 			>

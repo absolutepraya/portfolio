@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import Button from './Button';
 import ButtonImg from './ButtonImg';
+import ButtonReach from './ButtonReach';
 
 import { IconHome, IconBriefcase2, IconBox, IconMail } from '@tabler/icons-react';
 
@@ -36,7 +37,7 @@ const NavBar = () => {
 	}, []);
 
 	return (
-		<div className='fixed top-8 z-10 flex h-[4.5rem] w-[55rem] flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-2 backdrop-blur-md'>
+		<div className='fixed top-8 z-10 flex h-[4.9rem] w-[55rem] flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-2.5 backdrop-blur-md'>
 			<div className='flex w-1/3 flex-row items-center space-x-4'>
 				<ButtonImg />
 				<div className='flex flex-col justify-start'>
@@ -71,7 +72,7 @@ const NavBar = () => {
 				/>
 			</div>
 			<div className='flex w-1/3 flex-row justify-end'>
-				<Button />
+				<ButtonReach />
 			</div>
 		</div>
 	);
