@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import NavBar from './components/NavBar/NavBar';
 import About from './components/About/About';

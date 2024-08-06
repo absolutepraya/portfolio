@@ -4,10 +4,10 @@ import Marquee from 'react-fast-marquee';
 
 const Contact = () => {
 	return (
-		<div className='relative flex h-[50vh] w-[68rem] flex-row rounded-3xl border-[#666666] p-8' style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0) 60%, rgba(54, 67, 252, 0.2))' }}>
+		<section id='contactsec' className='relative flex h-[50vh] w-[68rem] flex-row rounded-3xl border-[#666666] p-8' style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0) 60%, rgba(54, 67, 252, 0.2))' }}>
 			<div id='contacts' className='absolute -top-24'/>
 			<TopBorder />
-		</div>
+		</section>
 	);
 };
 

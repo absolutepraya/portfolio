@@ -10,7 +10,7 @@ import { IconSettings2, IconSparkles, IconBrandSpotify } from '@tabler/icons-rea
 
 const About = () => {
 	return (
-		<div className='!mt-40 flex w-[68rem] flex-col items-center relative'>
+		<section className='!mt-40 flex w-[68rem] flex-col items-center relative' id='aboutsec'>
 			<div id='about' className='absolute -top-40'/> {/* To scroll to top of the page */}
 			<div className='shining-border flex flex-row items-center space-x-4 rounded-full border border-customgray bg-[#131313] px-6 py-2 shadow-lg transition-all duration-300 ease-in-out hover:bg-customwhite hover:text-customblack'>
 				{/* TODO: Make a shining effect, moving from left to right, either the text or the div */}
@@ -66,7 +66,7 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

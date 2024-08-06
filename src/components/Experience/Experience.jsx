@@ -11,7 +11,7 @@ import BETIS from '../../assets/orgs/betis.svg';
 
 const Experience = () => {
 	return (
-		<div className='flex w-[68rem] flex-col relative'>
+		<section className='flex w-[68rem] flex-col relative' id='experiencesec'>
 			<div id='experience' className='absolute -top-36'/>
 			<div className='flex flex-row items-center space-x-8'>
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-7xl text-transparent'>The road so far</p>
@@ -58,7 +58,7 @@ const Experience = () => {
 					desc='Conducted interviews to select prospective tutors, created learning materials including modules, quizzes, try-outs, and PowerPoint presentations, and stepped in to teach the class when tutors are unable to teach.'
 				/>
 			</div>
-		</div>
+		</section>
 	);
 };
 

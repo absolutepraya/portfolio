@@ -6,7 +6,7 @@ import Globe from '../../assets/creds/globe.png';
 import Test from '../../assets/creds/test.png';
 import Indonesia from '../../assets/creds/indonesia.png';
 import UI from '../../assets/orgs/fasilkom.svg';
-import PFP from '../../assets/creds/pfp.png';
+import PFP2 from '../../assets/creds/pfp.svg';
 const imgs = [Laptop, Flag, Globe, Test, Indonesia, UI];
 
 import { useState } from 'react';
@@ -33,10 +33,10 @@ const ButtonImg = ({ img = null, text, link }) => {
 					src={currentEmoji}
 					className={`absolute -bottom-5 -right-6 z-20 ${hovered ? '-rotate-[4deg] scale-[50%]' : 'rotate-12 scale-[40%]'} transition-all duration-200 ease-in-out`}
 				/>
-				<div className='h-full w-full overflow-hidden rounded-2xl'>
+				<div className='h-full w-full overflow-hidden rounded-2xl bg-white'>
 					<img
-						src={PFP}
-						className='grayscale filter transition-all duration-200 ease-in-out hover:filter-none'
+						src={PFP2}
+						className={`grayscale filter transition-all duration-200 ease-in-out scale-[80%] ${hovered ? 'filter-none' : ''}`}
 					/>
 				</div>
 				<p className=''>{text}</p>
