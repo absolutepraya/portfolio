@@ -44,7 +44,7 @@ const About = () => {
 							<p>My skills</p>
 						</div>
 						<p className='text-2xl'>
-							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>CTF</i> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>Cybersecurity</i>.
+							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <b className='bg-gradient-to-br from-[#f4f4f9] to-[#3643FC] bg-clip-text text-transparent'>CTF</b> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>Cybersecurity</i>.
 						</p>
 					</div>
 				</div>
@@ -56,12 +56,11 @@ const About = () => {
 							<IconSettings2
 								size={16}
 								stroke={1.5}
-								color='#fff'
 							/>
 							<p>My tech stack & tools</p>
 						</div>
 						<p className='text-2xl'>
-							Achieving peak <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>efficiency</i> and <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>perfection</b> in every project.
+							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-[#3643FC] bg-clip-text text-transparent'>perfection</b> in every project.
 						</p>
 					</div>
 				</div>

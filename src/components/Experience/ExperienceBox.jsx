@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const ExperienceBox = ({ title, org, logo, date, desc }) => {
+const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 	const [isInView, setIsInView] = useState(false);
 	const divRef = useRef(null);
 
@@ -37,12 +37,18 @@ const ExperienceBox = ({ title, org, logo, date, desc }) => {
 	return (
 		<div
 			ref={divRef}
-			className={`relative flex w-[45rem] flex-col items-center space-y-3 rounded-3xl border-4 border-b-0 border-r-0 border-customgray bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-500 ease-in-out ${isInView ? 'shadow-glowblurple bg-gradient-to-br border-opacity-100' : 'border-opacity-20'}`}
+			className={`relative flex w-[45rem] flex-col items-center space-y-3 rounded-3xl border-4 border-b-0 border-r-0 border-customgray bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-500 ease-in-out ${isInView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-20'}`}
 		>
 			<div className='flex flex-col items-center space-y-1 text-center'>
-				<p className='font-instrument text-5xl'>{title}</p>
+				<p className='relative font-instrument text-5xl'>{title}</p>
 				<div className='flex flex-row items-center justify-center space-x-2 text-lg'>
-					<p className='w-45% font-inter'>{org}</p>
+					<a
+						className='w-45% relative font-inter'
+						href={url}
+					>
+						{org}
+						<div className='absolute bottom-[0.11rem] h-[1.75px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC]' />
+					</a>
 					<img
 						src={logo}
 						className='h-5 w-5'

@@ -21,6 +21,7 @@ const Experience = () => {
 				<ExperienceBox
 					title='Teaching Assistant of Discrete Math 1'
 					org='Fasilkom UI'
+					url='https://cs.ui.ac.id/'
 					logo={Fasilkom}
 					date='07/2024 - Present'
 					desc='Designing assignment questions while also grading them and assisting students taking Discrete Math 1 and teaching in assistance sessions before quizzes and exams.'
@@ -29,6 +30,7 @@ const Experience = () => {
 				<ExperienceBox
 					title='Student Mentor'
 					org='Dasar-Dasar Pemrograman 0'
+					url='https://www.linkedin.com/company/ddp-0/mycompany/'
 					logo={DDP0}
 					date='06/2024 - Present'
 					desc='Teaching freshmen of Fasilkom UI about Python Programming Language as a provision for DDP-1 course. The materials revolve around the basics of Python plus Python Turtle library.'
@@ -37,6 +39,7 @@ const Experience = () => {
 				<ExperienceBox
 					title='HRD & TC Staff for CTF Division'
 					org='COMPFEST16'
+					url='https://compfest.id/'
 					logo={COMPFEST}
 					date='03/2024 - Present'
 					desc='As HRD, keeps the staff tightly bonded, ensures all staff perform their duties correctly, and bridges communication between the CTF staff. As Technical Committee (TC), in charge of designing and maintaining the CTF website platform before and during the competition.'
@@ -45,6 +48,7 @@ const Experience = () => {
 				<ExperienceBox
 					title='Member of NetSOS SIG'
 					org='RISTEK Fasilkom UI'
+					url='https://www.ristek.cs.ui.ac.id/'
 					logo={RISTEK}
 					date='03/2024 - Present'
 					desc='NetSOS stands for Network, Security, and Operating System (OS). As a member, I attend classes for internal members, learn how to ace CTF competitions, participate in a cross-SIG project, and selected to join the company visit to Tiket.com, a leading Indonesian OTA.'
@@ -53,6 +57,7 @@ const Experience = () => {
 				<ExperienceBox
 					title='Acedemician & Lecturer'
 					org='BETIS Fasilkom UI'
+					url='https://www.instagram.com/betisfasilkomui/'
 					logo={BETIS}
 					date='12/2023 - 05/2024'
 					desc='Conducted interviews to select prospective tutors, created learning materials including modules, quizzes, try-outs, and PowerPoint presentations, and stepped in to teach the class when tutors are unable to teach.'
