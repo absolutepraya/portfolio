@@ -38,7 +38,7 @@ const SliderTools = () => {
 					<img
 						src={tool.src}
 						alt={tool.alt}
-						className='h-full w-full object-contain'
+						className='h-full w-full object-contain hover:scale-110 transition-all duration-100'
 					/>
 				</div>
 			))}

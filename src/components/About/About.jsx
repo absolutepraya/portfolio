@@ -6,7 +6,7 @@ import SliderSkills from './SliderSkills';
 import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
 
-import { IconSettings2, IconSparkles, IconBrandSpotify } from '@tabler/icons-react';
+import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
 const About = () => {
 	return (

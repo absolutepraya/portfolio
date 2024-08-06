@@ -1,9 +1,9 @@
 import TopBorder from './TopBorder';
 
-import Pin from '../../assets/creds/pin.png';
+import Pin from '../../assets/creds/pin2.png';
 import Hello from '../../assets/creds/hello.png';
 
-import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy } from '@tabler/icons-react';
+import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
 const Contact = () => {
 	return (
@@ -17,7 +17,7 @@ const Contact = () => {
 				className='absolute -top-24'
 			/>
 			<TopBorder />
-			<div className='flex w-1/2 flex-col items-center justify-center space-y-4 p-12'>
+			<div className='flex w-auto flex-col items-center justify-center space-y-4 p-12'>
 				<h1 className='w-full text-start font-instrument text-6xl'>I&apos;m always up for...</h1>
 				<div className='flex flex-col space-y-3 text-5xl font-semibold'>
 					<div className='flex items-center space-x-3 pl-0'>
@@ -55,64 +55,85 @@ const Contact = () => {
 				</div>
 			</div>
 			<div className='flex w-1/2 flex-col justify-center space-y-2 p-6'>
-				<div className='relative flex h-fit w-full flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-8 shadow-xl'>
+				<div className='relative flex h-fit w-full rotate-[-4deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-8 shadow-xl'>
+					<img
+						src={Pin}
+						alt='pin'
+						className='absolute -right-8 -top-10 w-16'
+					/>
+					<img
+						src={Hello}
+						alt='hello'
+						className='absolute -bottom-4 -left-6 w-12'
+					/>
 					<p className='text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
-					<div className='flex h-10 w-fit flex-row items-start justify-center space-x-2 rounded-2xl'>
-						{/* <IconMail
-							size={20}
-							stroke={2}
-							className='text-white'
-						/> */}
-						<div className='flex h-full items-center rounded-lg border border-customwhite px-3'>
-							<p className=''>daffaabhiprayaputra@gmail.com</p>
+					<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
+						<div className='flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 hover:border-blurple hover:text-blurple transition-all duration-100'>
+							<IconMail
+								size={20}
+								stroke={2}
+							/>
+							<p className='font-semibold'>daffaabhiprayaputra@gmail.com</p>
 						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem]'>
+						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] hover:bg-blurple hover:bg-opacity-30 hover:text-blurple transition-all duration-100'>
 							<IconSend
 								size={20}
 								stroke={2}
 							/>
 						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem]'>
+						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] hover:bg-blurple hover:bg-opacity-30 hover:text-blurple transition-all duration-100'>
 							<IconCopy
 								size={20}
 								stroke={2}
 							/>
 						</div>
 					</div>
-					<button className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg border border-customwhite px-4'>
-						<p>Hit me on LinkedIn</p>
-						<IconBrandLinkedin
-							size={20}
-							stroke={2}
-						/>
-					</button>
-					<div className='h-0.5 w-full bg-customgray !mt-6' />
-					<p className=''>Follow my socials!</p>
-					{/* TODO: Social medias */}
+					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
+						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack hover:bg-blurple hover:text-customwhite transition-all duration-100'>
+							<p className='font-semibold'>
+								or hit me on <a className='font-bold'>LinkedIn</a>
+							</p>
+							<IconBrandLinkedin
+								size={20}
+								stroke={2}
+							/>
+						</div>
+					</a>
+					<div className='!mt-6 h-0.5 w-full bg-customgray' />
+					<p className=''>Follow my other socials!</p>
+					<div className='flex flex-row items-center justify-between'>
+						<a href='https://github.com/absolutepraya'>
+							<div className='flex flex-row items-center space-x-1'>
+								<IconBrandGithub
+									size={24}
+									stroke={2}
+								/>
+								<p className='underline underline-offset-2'>absolutepraya</p>
+							</div>
+						</a>
+						<a href='https://www.instagram.com/___abhipraya/'>
+							<div className='flex flex-row items-center space-x-1'>
+								<IconBrandInstagram
+									size={24}
+									stroke={2}
+								/>
+								<p className='underline underline-offset-2'>___abhipraya</p>
+							</div>
+						</a>
+						<a href='https://open.spotify.com/user/daffaabhiprayaputra?si=b80aa3237c7440ed'>
+							<div className='flex flex-row items-center space-x-1'>
+								<IconBrandSpotify
+									size={24}
+									stroke={2}
+								/>
+								<p className='underline underline-offset-2'>Daffa Abhipraya</p>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
 	);
 };
-
-/*
-			<div className='flex w-[30rem] flex-col space-y-2'>
-				<h1 className='font-instrument text-6xl'>I&apos;m always up for...</h1>
-				<Marquee
-					speed='50'
-					gradient={true}
-					gradientColor='#0d0d0d'
-					gradientWidth={50}
-					autoFill={true}
-					direction='right'
-					style={{ height: '5rem' }}
-				>
-					<p className='!ml-20 text-6xl font-bold'>Hackathon</p>
-					<p className='!ml-20 text-6xl font-bold'>CTF</p>
-					<p className='!ml-20 text-6xl font-bold'>Project</p>
-					<p className='!ml-20 text-6xl font-bold'>Collaboration</p>
-				</Marquee>
-			</div>
-*/
 
 export default Contact;

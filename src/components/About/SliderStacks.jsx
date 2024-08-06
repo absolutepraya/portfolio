@@ -48,7 +48,7 @@ const SliderStacks = () => {
 					<img
 						src={stack.src}
 						alt={stack.alt}
-						className='h-full w-full object-contain'
+						className='h-full w-full object-contain hover:scale-110 transition-all duration-100'
 					/>
 				</div>
 			))}

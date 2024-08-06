@@ -40,14 +40,14 @@ const stackIcons = {
 
 const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, github }) => {
 	return (
-		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 hover:-rotate-[1.5deg] transition-all duration-300 ease-in-out shadow-lg'>
+		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out hover:rotate-[1.5deg]'>
 			<div className='h-[318px] w-full bg-[#2d2d2d]' />
 			<div className='flex flex-col space-y-2 p-6'>
 				<div className='flex flex-row items-start justify-between'>
 					<div className='flex flex-row items-start space-x-3'>
 						<p className='font-instrument text-3xl'>{title}</p>
-						<div className='bg-blurple border-blurple mt-[8px] rounded-md border bg-opacity-20 px-2'>
-							<p className='text-blurple text-sm'>{type}</p>
+						<div className='mt-[8px] rounded-md border border-blurple bg-blurple bg-opacity-20 px-2'>
+							<p className='text-sm text-blurple'>{type}</p>
 						</div>
 					</div>
 					<p className='mt-[10px] text-end font-extrabold opacity-50'>{date}</p>
@@ -66,7 +66,7 @@ const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, gith
 					</div>
 					<div className='flex h-10 w-auto flex-row space-x-3'>
 						<a href={url}>
-							<button className='hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-opacity-30'>
+							<button className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
 								<IconArrowUpRight
 									stroke={1.5}
 									size={24}
@@ -74,7 +74,7 @@ const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, gith
 							</button>
 						</a>
 						<a href={github}>
-							<button className='hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-opacity-30'>
+							<button className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
 								<IconBrandGithub
 									stroke={1.5}
 									size={24}

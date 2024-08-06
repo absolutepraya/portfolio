@@ -47,7 +47,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 						href={url}
 					>
 						{org}
-						<div className='absolute bottom-[0.11rem] h-[1.75px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC]' />
+						<div className='absolute bottom-[0.11rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC]' />
 					</a>
 					<img
 						src={logo}
