@@ -36,7 +36,7 @@ const About = () => {
 				</p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-row space-x-6'>
-				<div className='flex h-full w-[40%] flex-col space-y-6 rounded-3xl border border-[#262626] p-6 shadow-lg'>
+				<div className='flex h-full w-[40%] flex-col space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg'>
 					<div className='flex h-[11.5rem] items-center justify-center'>
 						<SliderSkills />
 					</div>
@@ -54,7 +54,7 @@ const About = () => {
 						</p>
 					</div>
 				</div>
-				<div className='flex h-full w-[39.3rem] flex-col items-center space-y-6 rounded-3xl border border-[#262626] p-6 shadow-lg'>
+				<div className='flex h-full w-[39.3rem] flex-col items-center space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg'>
 					<SliderStacks />
 					<SliderTools />
 					<div className='flex w-full flex-col items-start space-y-4'>

@@ -18,7 +18,9 @@ body {
 	color: #ffffff;
 	background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);
 	background-position: 0;
-	-webkit-background-clip: text;
+    -webkit-background-clip: text; /* For Safari and Chrome */
+    -moz-background-clip: text;    /* For Firefox */
+    background-clip: text;         /* Standard property */
 	-webkit-text-fill-color: transparent;
 	animation: shine 6s infinite linear;
 	animation-fill-mode: forwards;
