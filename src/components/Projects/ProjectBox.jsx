@@ -16,6 +16,8 @@ import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 
+import NoImage from '../../assets/projects/noimage.jpg';
+
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 
 const stackIcons = {
@@ -38,11 +40,22 @@ const stackIcons = {
 	openai: OpenAI,
 };
 
-const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, github }) => {
+const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
+	// If URL or GitHub is not provided, change the button to disabled
+	var urlVisibility, githubVisibility;
+	if (!url) urlVisibility = 'opacity-30 cursor-not-allowed';
+	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
+
 	return (
 		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out hover:rotate-[1.5deg]'>
-			<div className='h-[318px] w-full bg-[#2d2d2d]' />
-			<div className='flex flex-col space-y-2 p-6'>
+			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
+				{/* Aspect ratio 10:7 */}
+				<img
+					src={image ? image : NoImage}
+					className='h-full w-full object-cover'
+				/>
+			</div>
+			<div className='relative flex flex-col space-y-2 p-6'>
 				<div className='flex flex-row items-start justify-between'>
 					<div className='flex flex-row items-start space-x-3'>
 						<p className='font-instrument text-3xl'>{title}</p>
@@ -66,7 +79,7 @@ const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, gith
 					</div>
 					<div className='flex h-10 w-auto flex-row space-x-3'>
 						<a href={url}>
-							<button className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
+							<button className={`flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconArrowUpRight
 									stroke={1.5}
 									size={24}
@@ -74,7 +87,7 @@ const ProjectBox = ({ image, title, type, date, subtitle, stacks = [], url, gith
 							</button>
 						</a>
 						<a href={github}>
-							<button className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
+							<button className={`flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconBrandGithub
 									stroke={1.5}
 									size={24}
