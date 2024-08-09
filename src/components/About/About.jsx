@@ -11,7 +11,7 @@ import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 const About = ({ deviceMobile }) => {
 	return (
 		<section
-			className='relative !mt-40 flex w-[23.5rem] flex-col items-center md:w-[68rem]'
+			className='relative !mt-40 flex w-[24rem] flex-col items-center md:w-[68rem]'
 			id='aboutsec'
 		>
 			<div
