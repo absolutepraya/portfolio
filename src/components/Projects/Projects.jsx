@@ -6,7 +6,7 @@ import DM2Calc from '../../assets/projects/dm2calc.jpg';
 import ValentineLetter from '../../assets/projects/valentineletter.jpg';
 import GusDur from '../../assets/projects/gusdur.jpg';
 
-const Projects = () => {
+const Projects = ({ deviceMobile }) => {
 	return (
 		<section
 			className='relative w-[68rem] flex-col space-y-12'

@@ -9,7 +9,7 @@ import Fasilkom from '../../assets/orgs/fasilkom.svg';
 import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 
-const Experience = () => {
+const Experience = ({ deviceMobile }) => {
 	return (
 		<section
 			className='relative flex w-[68rem] flex-col'

@@ -8,10 +8,10 @@ import SliderTools from './SliderTools';
 
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
-const About = () => {
+const About = ({ deviceMobile }) => {
 	return (
 		<section
-			className='relative !mt-40 flex w-[68rem] flex-col items-center'
+			className='relative !mt-40 flex md:w-[68rem] w-[22rem] flex-col items-center'
 			id='aboutsec'
 		>
 			<div
@@ -26,13 +26,9 @@ const About = () => {
 				</span>
 				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 			</div>
-			<div className='mt-12 w-full'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-6xl text-transparent'>
-					Abhip is a brilliant <i>fullstack engineer</i>,<br />a formidable <i>forensics CTF player</i>,<br />
-					and a comprehensive <i>problem solver</i>,<br />
-					developing from the lively city of Jakarta,
-					<br />
-					Indonesia.
+			<div className='mt-12 md:w-[55vw]'>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument md:text-6xl text-5xl text-transparent'>
+					Abhip is a brilliant <i>fullstack engineer</i>, a formidable <i>CTF player</i>, and a comprehensive <i>problem solver</i>, developing from the lively city of Jakarta, Indonesia.
 				</p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-row space-x-6'>

@@ -5,7 +5,7 @@ import Hello from '../../assets/creds/hello.png';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
-const Contact = () => {
+const Contact = ({ deviceMobile }) => {
 	return (
 		<section
 			id='contactsec'
