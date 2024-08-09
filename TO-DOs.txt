@@ -1,2 +1,0 @@
-# UX
-- Add loading screen when loading website
