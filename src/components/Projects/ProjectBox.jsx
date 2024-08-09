@@ -63,7 +63,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
 
 	return (
-		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out md:hover:rotate-[1.5deg] md:w-1/2'>
+		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out md:w-1/2 md:hover:rotate-[1.5deg]'>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
 				<img
@@ -76,7 +76,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 					<div className='flex flex-row items-start space-x-3'>
 						<p className='font-instrument text-2xl md:text-3xl'>{title}</p>
 						<div className='mt-[8px] rounded-md border border-blurple bg-blurple bg-opacity-20 px-2'>
-							<p className='md:text-sm text-xs text-blurple'>{type}</p>
+							<p className='text-xs text-blurple md:text-sm'>{type}</p>
 						</div>
 					</div>
 					<p className='mt-[6px] text-end font-extrabold opacity-50 md:mt-[10px]'>{date}</p>

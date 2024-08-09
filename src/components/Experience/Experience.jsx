@@ -19,11 +19,11 @@ const Experience = ({ desktopView }) => {
 				id='experience'
 				className='absolute -top-36'
 			/>
-			<div className='flex md:flex-row flex-col items-center md:space-x-8'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-transparent md:text-7xl text-6xl'>The road so far</p>
-				<div className={`md:mt-3 md:flex-grow w-full md:w-auto mt-1 rounded-full  ${desktopView ? 'bg-white opacity-20 h-0.5' : ' bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60 h-0.5'}`} />
+			<div className='flex flex-col items-center md:flex-row md:space-x-8'>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'>The road so far</p>
+				<div className={`mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`} />
 			</div>
-			<div className='md:mt-32 mt-24 flex flex-col items-center space-y-4'>
+			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
 				<ExperienceBox
 					title='Teaching Assistant (TA)'
 					org='Fasilkom UI'

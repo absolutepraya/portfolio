@@ -50,7 +50,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 	return (
 		<div
 			ref={divRef}
-			className={`relative flex flex-col items-center space-y-3 rounded-3xl border-4 border-b-0 border-r-0 border-customgray bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-[480ms] ease-in-out md:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'shadow-glowsmall border-opacity-100 bg-gradient-to-br') : 'border-opacity-20'}`}
+			className={`relative flex flex-col items-center space-y-3 rounded-3xl border-4 border-b-0 border-r-0 border-customgray bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-[480ms] ease-in-out md:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowsmall') : 'border-opacity-20'}`}
 		>
 			<div className='flex flex-col items-center space-y-0 text-center md:space-y-0'>
 				<p className='relative font-instrument text-4xl md:text-5xl'>{title}</p>
@@ -74,7 +74,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 								href={url}
 							>
 								{org}
-								<div className={`absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC] opacity-0 transition-all ease-in duration-[480ms] ${isInView ? 'opacity-100' : ''}`} />
+								<div className={`absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC] opacity-0 transition-all duration-[480ms] ease-in ${isInView ? 'opacity-100' : ''}`} />
 							</a>
 						</div>
 					)}

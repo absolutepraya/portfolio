@@ -26,11 +26,11 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className={'relative flex flex-col items-center md:space-y-32 space-y-20 overflow-hidden bg-[#0d0d0d] font-inter text-[#cccccc]'}>
+		<div className={'relative flex flex-col items-center space-y-20 overflow-hidden bg-[#0d0d0d] font-inter text-[#cccccc] md:space-y-32'}>
 			<NavBar desktopView={desktopView} />
 			<img
 				src={desktopView ? Grid : GridMobile}
-				className='absolute left-1/2 z-0 -translate-x-1/2 md:opacity-65 opacity-75 md:-top-96 -top-[44rem] w-[88rem]'
+				className='absolute -top-[44rem] left-1/2 z-0 w-[88rem] -translate-x-1/2 opacity-75 md:-top-96 md:opacity-65'
 			/>
 			<About desktopView={desktopView} />
 			<Experience desktopView={desktopView} />

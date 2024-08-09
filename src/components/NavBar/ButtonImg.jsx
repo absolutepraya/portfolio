@@ -11,7 +11,7 @@ const imgs = [Laptop, Flag, Globe, Test, Indonesia, UI];
 
 import { useState } from 'react';
 
-const ButtonImg = ({ img = null, text, link }) => {
+const ButtonImg = ({ text, link }) => {
 	const [hovered, setHovered] = useState(false);
 	const [counter, setCounter] = useState(0);
 
