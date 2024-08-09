@@ -74,7 +74,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 								href={url}
 							>
 								{org}
-								<div className='absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC]' />
+								<div className={`absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC] opacity-0 transition-all ease-in duration-[480ms] ${isInView ? 'opacity-100' : ''}`} />
 							</a>
 						</div>
 					)}

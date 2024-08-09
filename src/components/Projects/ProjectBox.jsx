@@ -63,7 +63,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
 
 	return (
-		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out hover:rotate-[1.5deg] md:w-1/2'>
+		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out md:hover:rotate-[1.5deg] md:w-1/2'>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
 				<img

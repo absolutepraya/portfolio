@@ -5,11 +5,11 @@ import Hello from '../../assets/creds/hello.png';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
-const Contact = ({ deviceMobile }) => {
+const Contact = ({ desktopView }) => {
 	return (
 		<section
 			id='contactsec'
-			className='relative flex h-[28rem] w-[68rem] flex-row rounded-3xl border-[#666666]'
+			className='relative flex md:h-[28rem] md:w-[68rem] w-[90vw] md:flex-row flex-col rounded-3xl border-[#666666]'
 			style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0.01) 20%, rgba(54, 67, 252, 0.2))' }}
 		>
 			<div
@@ -17,36 +17,36 @@ const Contact = ({ deviceMobile }) => {
 				className='absolute -top-24'
 			/>
 			<TopBorder />
-			<div className='flex w-auto flex-col items-center justify-center space-y-4 p-12'>
-				<h1 className='w-full text-start font-instrument text-6xl'>I&apos;m always up for...</h1>
-				<div className='flex flex-col space-y-3 text-5xl font-semibold'>
+			<div className='flex w-auto flex-col items-center justify-center space-y-4 md:p-12 p-8'>
+				<h1 className='w-full text-start font-instrument md:text-6xl text-5xl'>I&apos;m always up for...</h1>
+				<div className='md:w-auto w-full flex flex-col md:space-y-3 space-y-2 md:text-5xl text-4xl font-semibold'>
 					<div className='flex items-center space-x-3 pl-0'>
 						<IconPointer
-							size={20}
+							size={desktopView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
 						<p className=''>a project</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-12'>
+					<div className='flex items-center space-x-3 pl-8 md:pl-12'>
 						<IconPointer
-							size={20}
+							size={desktopView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
 						<p className=''>a collab</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-24'>
+					<div className='flex items-center space-x-3 pl-16 md:pl-24'>
 						<IconPointer
-							size={20}
+							size={desktopView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
 						<p className=''>CTFs</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-36'>
+					<div className='flex items-center space-x-3 pl-24 md:pl-36'>
 						<IconPointer
-							size={20}
+							size={desktopView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
