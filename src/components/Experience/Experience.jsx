@@ -23,7 +23,7 @@ const Experience = ({ desktopView }) => {
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-transparent md:text-7xl text-6xl'>The road so far</p>
 				<div className={`md:mt-3 md:flex-grow w-full md:w-auto mt-1 rounded-full  ${desktopView ? 'bg-white opacity-20 h-0.5' : ' bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60 h-0.5'}`} />
 			</div>
-			<div className='mt-32 flex flex-col items-center space-y-4'>
+			<div className='md:mt-32 mt-24 flex flex-col items-center space-y-4'>
 				<ExperienceBox
 					title='Teaching Assistant (TA)'
 					org='Fasilkom UI'

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import APIDog from '../../assets/stacks/apidog.svg';
 import Bard from '../../assets/stacks/bard.svg';
 import Docker from '../../assets/stacks/docker.svg';
@@ -41,13 +43,27 @@ const stackIcons = {
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
+	const [desktopView, setDesktopView] = useState(window.innerWidth >= 768);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setDesktopView(window.innerWidth > 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
 	// If URL or GitHub is not provided, change the button to disabled
 	var urlVisibility, githubVisibility;
 	if (!url) urlVisibility = 'opacity-30 cursor-not-allowed';
 	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
 
 	return (
-		<div className='flex h-auto w-1/2 flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out hover:rotate-[1.5deg]'>
+		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out hover:rotate-[1.5deg] md:w-1/2'>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
 				<img
@@ -58,12 +74,12 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 			<div className='relative flex flex-col space-y-2 p-6'>
 				<div className='flex flex-row items-start justify-between'>
 					<div className='flex flex-row items-start space-x-3'>
-						<p className='font-instrument text-3xl'>{title}</p>
+						<p className='font-instrument text-2xl md:text-3xl'>{title}</p>
 						<div className='mt-[8px] rounded-md border border-blurple bg-blurple bg-opacity-20 px-2'>
-							<p className='text-sm text-blurple'>{type}</p>
+							<p className='md:text-sm text-xs text-blurple'>{type}</p>
 						</div>
 					</div>
-					<p className='mt-[10px] text-end font-extrabold opacity-50'>{date}</p>
+					<p className='mt-[6px] text-end font-extrabold opacity-50 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
@@ -73,7 +89,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 								key={index}
 								src={stackIcons[stack]}
 								alt={stack}
-								className='h-5 w-5 object-contain'
+								className={desktopView ? 'h-5 w-5 object-contain' : 'h-[1rem] w-[1rem] object-contain'}
 							/>
 						))}
 					</div>

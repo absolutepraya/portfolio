@@ -6,22 +6,22 @@ import DM2Calc from '../../assets/projects/dm2calc.jpg';
 import ValentineLetter from '../../assets/projects/valentineletter.jpg';
 import GusDur from '../../assets/projects/gusdur.jpg';
 
-const Projects = ({ deviceMobile }) => {
+const Projects = ({ desktopView }) => {
 	return (
 		<section
-			className='relative w-[68rem] flex-col space-y-12'
+			className='relative w-[24rem] flex-col space-y-12 md:w-[68rem]'
 			id='projectssec'
 		>
 			<div
 				id='projects'
 				className='absolute -top-24'
 			/>
-			<div className='flex flex-row items-center space-x-8'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-7xl text-transparent'>Stuff I&apos;ve done</p>
-				<div className='mt-4 h-0.5 flex-grow bg-white opacity-20' />
+			<div className='flex flex-col items-center md:flex-row md:space-x-8'>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'>Stuff I&apos;ve done</p>
+				<div className={`mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`} />
 			</div>
 			<div className='flex h-auto w-full flex-col space-y-8'>
-				<div className='flex flex-row space-x-8'>
+				<div className='flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
 					<ProjectBox
 						image=''
 						title='Portfolio'
@@ -43,10 +43,10 @@ const Projects = ({ deviceMobile }) => {
 						github='https://github.com/Tianrider/GrabAuto'
 					/>
 				</div>
-				<div className='flex flex-row space-x-8'>
+				<div className='flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
 					<ProjectBox
 						image={MIPAOpenHouse}
-						title='Open House FMIPA UI 2024'
+						title='OH FMIPA UI 2024'
 						type='Website'
 						date='06/2024'
 						subtitle='Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.'
@@ -56,7 +56,7 @@ const Projects = ({ deviceMobile }) => {
 					/>
 					<ProjectBox
 						image={DM2Calc}
-						title='DM2 Calculator w/ Steps'
+						title={desktopView ? 'Discrete Math 2 Calculator' : 'DM2 Calculator'}
 						type='Terminal App'
 						date='02/2024'
 						subtitle="A collection of tools for solving Discrete Math 2 problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more."
@@ -65,7 +65,7 @@ const Projects = ({ deviceMobile }) => {
 						github='https://github.com/absolutepraya/dm2-calculator'
 					/>
 				</div>
-				<div className='flex flex-row space-x-8'>
+				<div className='flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
 					<ProjectBox
 						image={ValentineLetter}
 						title='Valentine Letter'
@@ -79,7 +79,7 @@ const Projects = ({ deviceMobile }) => {
 					<ProjectBox
 						image={GusDur}
 						title='The Legend of Gus Dur'
-						type='Video Game'
+						type={desktopView ? 'Video Game' : 'Game'}
 						date='12/2022'
 						subtitle="A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency."
 						stacks={[]}

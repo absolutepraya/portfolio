@@ -26,7 +26,7 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className={'relative flex flex-col items-center space-y-32 overflow-hidden bg-[#0d0d0d] font-inter text-[#cccccc]'}>
+		<div className={'relative flex flex-col items-center md:space-y-32 space-y-20 overflow-hidden bg-[#0d0d0d] font-inter text-[#cccccc]'}>
 			<NavBar desktopView={desktopView} />
 			<img
 				src={desktopView ? Grid : GridMobile}
