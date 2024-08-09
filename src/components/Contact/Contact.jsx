@@ -1,15 +1,20 @@
 import TopBorder from './TopBorder';
 
-import Pin from '../../assets/creds/pin2.png';
+import Pin from '../../assets/creds/pin.png';
 import Hello from '../../assets/creds/hello.png';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
 const Contact = ({ desktopView }) => {
+	const handleCopy = () => {
+		const textToCopy = 'daffaabhiprayaputra@gmail.com';
+		navigator.clipboard.writeText(textToCopy);
+	};
+
 	return (
 		<section
 			id='contactsec'
-			className='relative flex md:h-[28rem] md:w-[68rem] w-[90vw] md:flex-row flex-col rounded-3xl border-[#666666]'
+			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] md:h-[28rem] md:w-[68rem] md:flex-row'
 			style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0.01) 20%, rgba(54, 67, 252, 0.2))' }}
 		>
 			<div
@@ -17,9 +22,9 @@ const Contact = ({ desktopView }) => {
 				className='absolute -top-24'
 			/>
 			<TopBorder />
-			<div className='flex w-auto flex-col items-center justify-center space-y-4 md:p-12 p-8'>
-				<h1 className='w-full text-start font-instrument md:text-6xl text-5xl'>I&apos;m always up for...</h1>
-				<div className='md:w-auto w-full flex flex-col md:space-y-3 space-y-2 md:text-5xl text-4xl font-semibold'>
+			<div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
+				<h1 className='w-full text-start font-instrument text-5xl md:text-6xl'>I&apos;m always up for...</h1>
+				<div className='flex w-full flex-col space-y-2 text-4xl font-semibold md:w-auto md:space-y-3 md:text-5xl'>
 					<div className='flex items-center space-x-3 pl-0'>
 						<IconPointer
 							size={desktopView ? 20 : 16}
@@ -54,43 +59,53 @@ const Contact = ({ desktopView }) => {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-1/2 flex-col justify-center space-y-2 p-6'>
-				<div className='relative flex h-fit w-full rotate-[-4deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-8 shadow-xl'>
+			<div className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'>
+				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 pt-2 shadow-xl md:rotate-[-4deg] md:p-8'>
 					<img
 						src={Pin}
 						alt='pin'
-						className='absolute -right-8 -top-10 w-16 drop-shadow-md'
+						className='absolute -right-8 -top-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
 					/>
 					<img
 						src={Hello}
 						alt='hello'
 						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
 					/>
-					<p className='text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
+					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
 					<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
 						<div className='flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 transition-all duration-100 hover:border-blurple hover:text-blurple'>
 							<IconMail
-								size={20}
+								size={desktopView ? 20 : 16}
 								stroke={2}
 							/>
-							<p className='font-semibold'>daffaabhiprayaputra@gmail.com</p>
+							<p className='text-sm font-semibold'>daffaabhiprayaputra@gmail.com</p>
 						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
-							<IconSend
-								size={20}
-								stroke={2}
-							/>
-						</div>
-						<div className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'>
-							<IconCopy
-								size={20}
-								stroke={2}
-							/>
-						</div>
+						{desktopView && (
+							<a
+								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+								href='mailto:daffaabhiprayaputra@gmail.com'
+							>
+								<IconSend
+									size={20}
+									stroke={2}
+								/>
+							</a>
+						)}
+						{desktopView && (
+							<div
+								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+								onClick={() => handleCopy()}
+							>
+								<IconCopy
+									size={20}
+									stroke={2}
+								/>
+							</div>
+						)}
 					</div>
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
 						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
-							<p className='font-semibold'>
+							<p className='text-sm font-semibold'>
 								or hit me up on <a className='font-extrabold'>LinkedIn</a>
 							</p>
 							<IconBrandLinkedin
@@ -101,7 +116,7 @@ const Contact = ({ desktopView }) => {
 					</a>
 					<div className='!mt-6 h-0.5 w-full bg-customgray' />
 					<p className=''>Follow my other socials!</p>
-					<div className='flex flex-row items-center justify-between'>
+					<div className='flex w-full flex-col space-y-2 md:flex-row md:justify-between md:space-y-0'>
 						<a href='https://github.com/absolutepraya'>
 							<div className='flex flex-row items-center space-x-1'>
 								<IconBrandGithub

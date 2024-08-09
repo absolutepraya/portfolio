@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 
 import { IconCopyright, IconBrandGithub, IconClock } from '@tabler/icons-react';
 
-const Copyright = () => {
+const Copyright = ({ desktopView }) => {
 	const [currentTime, setCurrentTime] = useState('');
 
 	useEffect(() => {
@@ -19,19 +19,19 @@ const Copyright = () => {
 	}, []);
 
 	return (
-		<div className='flex h-16 w-full flex-row items-center justify-between border-t border-customgray bg-customgray bg-opacity-40 px-32 text-sm'>
-			<div className='flex w-1/3 flex-row items-center justify-start space-x-1'>
-				<IconCopyright size={18} />
+		<div className='flex md:h-16 py-4 md:py-0 w-full md:flex-row flex-col items-center justify-between border-t border-customgray bg-customgray bg-opacity-40 md:px-32 md:text-sm text-xs md:space-y-0 space-y-2'>
+			<div className='flex md:w-1/3 flex-row items-center justify-start space-x-1'>
+				<IconCopyright size={desktopView ? 18 : 14} />
 				<p>2024 Daffa Abhipraya — All Rights Reserved.</p>
 			</div>
-			<div className='flex w-1/3 flex-row items-center justify-center space-x-1'>
+			<div className='flex md:w-1/3 flex-row items-center justify-center space-x-1'>
 				<p>Jakarta, Indonesia</p>
-				<IconClock size={18} />
+				<IconClock size={desktopView ? 18 : 14} />
 				<p>{currentTime}</p>
 			</div>
-			<div className='flex w-1/3 flex-row items-center justify-end space-x-1'>
+			<div className='flex md:w-1/3 flex-row items-center justify-end space-x-1'>
 				<p>Designed and built by me</p>
-				<IconBrandGithub size={18} />
+				<IconBrandGithub size={desktopView ? 18 : 14} />
 				<a href='https://github.com/absolutepraya/portfolio'>
 					<p className='underline underline-offset-2'>Source code here.</p>
 				</a>
