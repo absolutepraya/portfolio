@@ -16,6 +16,7 @@ export default {
 			},
 			boxShadow: {
 				'glowblurple': '0px 0px 2000px -7px rgba(54,67,252,0.7)',
+				'glowsmall': '0px 0px 130px -7px rgba(54,67,252,0.9)'
 			}
 		},
 	},

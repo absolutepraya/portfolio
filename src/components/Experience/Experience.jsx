@@ -9,28 +9,28 @@ import Fasilkom from '../../assets/orgs/fasilkom.svg';
 import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 
-const Experience = ({ deviceMobile }) => {
+const Experience = ({ desktopView }) => {
 	return (
 		<section
-			className='relative flex w-[68rem] flex-col'
+			className='relative flex w-[24rem] flex-col md:w-[68rem]'
 			id='experiencesec'
 		>
 			<div
 				id='experience'
 				className='absolute -top-36'
 			/>
-			<div className='flex flex-row items-center space-x-8'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-7xl text-transparent'>The road so far</p>
-				<div className='mt-4 h-0.5 flex-grow bg-white opacity-20' />
+			<div className='flex md:flex-row flex-col items-center md:space-x-8'>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-transparent md:text-7xl text-6xl'>The road so far</p>
+				<div className={`md:mt-3 md:flex-grow w-full md:w-auto mt-1 rounded-full  ${desktopView ? 'bg-white opacity-20 h-0.5' : ' bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60 h-0.5'}`} />
 			</div>
 			<div className='mt-32 flex flex-col items-center space-y-4'>
 				<ExperienceBox
-					title='Teaching Assistant of Discrete Math 1'
+					title='Teaching Assistant (TA)'
 					org='Fasilkom UI'
 					url='https://cs.ui.ac.id/'
 					logo={Fasilkom}
 					date='07/2024 - Present'
-					desc='Designing assignment questions while also grading them and assisting students taking Discrete Math 1 and teaching in assistance sessions before quizzes and exams.'
+					desc='Teaching assistant of Discrete Math 1. Designing assignment questions while also grading them and assisting students taking Discrete Math 1 and teaching in assistance sessions before quizzes and exams.'
 				/>
 				<Line />
 				<ExperienceBox
@@ -43,7 +43,7 @@ const Experience = ({ deviceMobile }) => {
 				/>
 				<Line />
 				<ExperienceBox
-					title='HRD & TC Staff for CTF Division'
+					title='HRD & TC Staff for CTF'
 					org='COMPFEST16'
 					url='https://compfest.id/'
 					logo={COMPFEST}
