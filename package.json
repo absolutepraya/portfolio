@@ -16,6 +16,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-fast-marquee": "^1.6.5",
+		"serve": "^14.2.3",
 		"tech-stack-icons": "^2.0.3"
 	},
 	"devDependencies": {
