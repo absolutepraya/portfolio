@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"start": "serve -s dist"
 	},
 	"dependencies": {
 		"@tabler/icons-react": "^3.11.0",
