@@ -26,9 +26,7 @@ const About = ({ deviceMobile }) => {
 				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 			</div>
 			<div className='mt-12 md:w-[55vw]'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-6xl'>
-					Abhip is a brilliant <i>fullstack engineer</i>, a formidable <i>CTF player</i>, and a comprehensive <i>problem solver</i>, developing from the lively city of Jakarta, Indonesia.
-				</p>
+				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-6xl'>An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.</p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<div className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg md:w-[40%]'>
