@@ -2,6 +2,7 @@
 
 - Code has not been refactored yet, because it was done quickly in ~1 week
 - Motion element and animations are not implemented yet
+- Responsive design has only been implemented for mobile and desktop, not for tablets
 
 ## Initial Setup
 
