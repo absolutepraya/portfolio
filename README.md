@@ -1,3 +1,8 @@
+## 📌 Notes:
+
+- Code has not been refactored yet, because it was done quickly in ~1 week
+- Motion element and animations are not implemented yet
+
 ## Initial Setup
 
 Make sure you have installed Node.js and npm on your machine.
@@ -49,4 +54,9 @@ $ npx prettier --write src
 - Build for production:
 ```bash
 $ npm run build
+```
+
+- Build for production (Heroku):
+```bash
+$ npm start
 ```
