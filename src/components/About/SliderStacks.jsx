@@ -44,7 +44,7 @@ const SliderStacks = () => {
 			{stacksList.map((stack, index) => (
 				<div
 					key={index}
-					className='md:mx-3 mx-2 flex md:h-20 md:w-20 h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl'
+					className='mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
 				>
 					<img
 						src={stack.src}

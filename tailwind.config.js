@@ -12,12 +12,12 @@ export default {
 				blurpleopa: 'rgba(54, 67, 252, 0.4)',
 				customblack: '#0d0d0d',
 				customgray: '#262626',
-				customwhite: '#cccccc'
+				customwhite: '#cccccc',
 			},
 			boxShadow: {
-				'glowblurple': '0px 0px 2000px -7px rgba(54,67,252,0.7)',
-				'glowsmall': '0px 0px 130px -7px rgba(54,67,252,0.9)'
-			}
+				glowblurple: '0px 0px 2000px -7px rgba(54,67,252,0.7)',
+				glowsmall: '0px 0px 130px -7px rgba(54,67,252,0.9)',
+			},
 		},
 	},
 	plugins: [],

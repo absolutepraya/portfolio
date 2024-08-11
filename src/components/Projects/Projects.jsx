@@ -1,10 +1,10 @@
 import ProjectBox from './ProjectBox';
 
-import GrabAuto from '../../assets/projects/grabauto.jpg';
-import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.jpg';
-import DM2Calc from '../../assets/projects/dm2calc.jpg';
-import ValentineLetter from '../../assets/projects/valentineletter.jpg';
-import GusDur from '../../assets/projects/gusdur.jpg';
+import GrabAuto from '../../assets/projects/grabauto.webp';
+import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
+import DM2Calc from '../../assets/projects/dm2calc.webp';
+import ValentineLetter from '../../assets/projects/valentineletter.webp';
+import GusDur from '../../assets/projects/gusdur.webp';
 
 const Projects = ({ desktopView }) => {
 	return (

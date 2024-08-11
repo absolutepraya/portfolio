@@ -7,8 +7,8 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Copyright from './components/Copyright';
 
-import Grid from './assets/bg/1.jpeg';
-import GridMobile from './assets/bg/2.jpeg';
+import Grid from './assets/bg/1.webp';
+import GridMobile from './assets/bg/2.webp';
 
 const App = () => {
 	const [desktopView, setDesktopView] = useState(window.innerWidth >= 768);

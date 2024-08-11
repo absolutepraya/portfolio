@@ -1,7 +1,7 @@
 import TopBorder from './TopBorder';
 
-import Pin from '../../assets/creds/pin.png';
-import Hello from '../../assets/creds/hello.png';
+import Pin from '../../assets/creds/pin.webp';
+import Hello from '../../assets/creds/hello.webp';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
@@ -60,7 +60,7 @@ const Contact = ({ desktopView }) => {
 				</div>
 			</div>
 			<div className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'>
-				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 !pt-2 shadow-xl md:rotate-[-4deg] md:p-8'>
+				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
 					<img
 						src={Pin}
 						alt='pin'
@@ -72,13 +72,13 @@ const Contact = ({ desktopView }) => {
 						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
 					/>
 					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
-					<div className='flex md:h-10 h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
-						<div className='flex h-full items-center space-x-2 md:py-0 py-2 rounded-lg border border-customwhite px-3 transition-all duration-100 hover:border-blurple hover:text-blurple relative'>
+					<div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
+						<div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 hover:border-blurple hover:text-blurple md:py-0'>
 							<IconMail
 								size={desktopView ? 20 : 16}
 								stroke={2}
 							/>
-							<p className='text-sm font-semibold break-all'>daffaabhiprayaputra@gmail.com</p>
+							<p className='break-all text-sm font-semibold'>daffaabhiprayaputra@gmail.com</p>
 						</div>
 						{desktopView && (
 							<a
@@ -104,7 +104,7 @@ const Contact = ({ desktopView }) => {
 						)}
 					</div>
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
-						<div className='flex md:h-10 h-auto md:py-0 py-2 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite md:px-3 px-3 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
+						<div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
 							<p className='text-sm font-semibold'>
 								or hit me up on <span className='font-extrabold'>LinkedIn</span>
 							</p>

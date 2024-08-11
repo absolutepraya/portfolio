@@ -18,7 +18,7 @@ import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 
-import NoImage from '../../assets/projects/noimage.jpg';
+import NoImage from '../../assets/projects/noimage.webp';
 
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 
@@ -79,11 +79,11 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							<p className='text-xs text-blurple md:text-sm'>{type}</p>
 						</div>
 					</div>
-					<p className='mt-[6px] text-end font-extrabold md:text-md text-sm opacity-50 md:mt-[10px]'>{date}</p>
+					<p className='md:text-md mt-[6px] text-end text-sm font-extrabold opacity-50 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
-					<div className='flex w-fit flex-row md:space-x-3 space-x-2 rounded'>
+					<div className='flex w-fit flex-row space-x-2 rounded md:space-x-3'>
 						{stacks.map((stack, index) => (
 							<img
 								key={index}
@@ -93,9 +93,9 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							/>
 						))}
 					</div>
-					<div className='flex md:h-10 h-[9vw] w-auto flex-row md:space-x-3 space-x-2'>
+					<div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
 						<a href={url}>
-							<button className={`flex h-full md:w-10 w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+							<button className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconArrowUpRight
 									stroke={1.5}
 									size={desktopView ? 24 : 22}
@@ -103,7 +103,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							</button>
 						</a>
 						<a href={github}>
-							<button className={`flex h-full md:w-10 w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+							<button className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconBrandGithub
 									stroke={1.5}
 									size={desktopView ? 24 : 22}
