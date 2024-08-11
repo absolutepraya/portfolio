@@ -2,7 +2,7 @@
 
 ### Implemented:
 
--   Converted and optimized all images to `WEBP` format, also optimized `SVG` files
+-   Converted then optimized all images to `WEBP` format and also optimized `SVG` files with [compress-optimize.sh](https://github.com/absolutepraya/portfolio/blob/optimize/compress-optimize.sh)
 
 ### Soon to be implemented:
 
