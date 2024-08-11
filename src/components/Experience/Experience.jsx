@@ -61,7 +61,7 @@ const Experience = ({ desktopView }) => {
 				/>
 				<Line />
 				<ExperienceBox
-					title='Acedemician & Lecturer'
+					title='Academician & Lecturer'
 					org='BETIS Fasilkom UI'
 					url='https://www.instagram.com/betisfasilkomui/'
 					logo={BETIS}
