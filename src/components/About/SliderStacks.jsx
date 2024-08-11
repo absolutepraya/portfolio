@@ -39,6 +39,7 @@ const SliderStacks = () => {
 			gradientWidth={110}
 			autoFill={true}
 			direction='left'
+			pauseOnClick={true}
 		>
 			{stacksList.map((stack, index) => (
 				<div

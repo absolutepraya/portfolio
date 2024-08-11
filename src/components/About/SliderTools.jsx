@@ -29,6 +29,7 @@ const SliderTools = () => {
 			gradientWidth={110}
 			autoFill={true}
 			direction='right'
+			pauseOnClick={true}
 		>
 			{toolsList.map((tool, index) => (
 				<div

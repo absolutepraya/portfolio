@@ -32,7 +32,14 @@ const About = ({ desktopView }) => {
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<div className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg md:w-[40%]'>
-					<div className='flex md:h-[11.5rem] items-center justify-center'>
+					<div className='flex md:h-[11.5rem] items-center justify-center relative'>
+						{/* To fix transparent shadow gap for in Marquee for mobile */}
+						{!desktopView && (
+							<div className='absolute z-10 w-1 -top-2 -left-[1px] h-[105%] bg-customblack'/>
+						)}
+						{!desktopView && (
+							<div className='absolute z-10 w-1 -top-2 -right-[1px] h-[105%] bg-customblack'/>
+						)}
 						<SliderSkills />
 					</div>
 					<div className='flex w-full flex-col items-start space-y-4'>
@@ -50,7 +57,14 @@ const About = ({ desktopView }) => {
 					</div>
 				</div>
 				<div className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg md:w-[39.3rem]'>
-					<div className='flex flex-col md:space-y-6 space-y-5 w-full'>
+					<div className='flex flex-col md:space-y-[0.24rem] gap-y-5 w-full relative'>
+						{/* To fix transparent shadow gap for in Marquee for mobile */}
+						{!desktopView && (
+							<div className='absolute z-10 w-1 -top-2 -left-[1px] h-[105%] bg-customblack'/>
+						)}
+						{!desktopView && (
+							<div className='absolute z-10 w-1 -top-2 -right-[1px] h-[105%] bg-customblack'/>
+						)}
 						<SliderStacks />
 						<SliderTools />
 					</div>

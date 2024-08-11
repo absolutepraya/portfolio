@@ -14,6 +14,7 @@ const SliderSkills = () => {
 			gradientWidth={110}
 			autoFill={true}
 			direction='left'
+			pauseOnClick={true}
 		>
 			{skills.map((skill, index) => {
 				const IconComponent = icons[index];
