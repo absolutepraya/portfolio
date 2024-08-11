@@ -18,7 +18,7 @@ import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 
-import NoImage from '../../assets/projects/noimage.jpg';
+import NoImage from '../../assets/projects/noimage.webp';
 
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 

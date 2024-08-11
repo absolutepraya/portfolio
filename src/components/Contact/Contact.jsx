@@ -1,7 +1,7 @@
 import TopBorder from './TopBorder';
 
-import Pin from '../../assets/creds/pin.png';
-import Hello from '../../assets/creds/hello.png';
+import Pin from '../../assets/creds/pin.webp';
+import Hello from '../../assets/creds/hello.webp';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 

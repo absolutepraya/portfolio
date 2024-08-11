@@ -1,10 +1,10 @@
 // TODO: Make a bubble message "Hover on me!"
 
-import Laptop from '../../assets/creds/laptop.png';
-import Flag from '../../assets/creds/flag.png';
-import Globe from '../../assets/creds/globe.png';
-import Test from '../../assets/creds/test.png';
-import Indonesia from '../../assets/creds/indonesia.png';
+import Laptop from '../../assets/creds/laptop.webp';
+import Flag from '../../assets/creds/flag.webp';
+import Globe from '../../assets/creds/globe.webp';
+import Test from '../../assets/creds/test.webp';
+import Indonesia from '../../assets/creds/indonesia.webp';
 import UI from '../../assets/orgs/fasilkom.svg';
 import PFP2 from '../../assets/creds/pfp.svg';
 const imgs = [Laptop, Flag, Globe, Test, Indonesia, UI];
