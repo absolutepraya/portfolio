@@ -56,7 +56,7 @@ const Projects = ({ desktopView }) => {
 					/>
 					<ProjectBox
 						image={DM2Calc}
-						title={desktopView ? 'Discrete Math 2 Calculator' : 'DM2 Calculator'}
+						title={desktopView ? 'Discrete Math 2 Calculator' : 'DM2 Calc'}
 						type='Terminal App'
 						date='02/2024'
 						subtitle="A collection of tools for solving Discrete Math 2 problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more."

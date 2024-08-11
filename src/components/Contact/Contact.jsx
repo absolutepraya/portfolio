@@ -33,7 +33,7 @@ const Contact = ({ desktopView }) => {
 						/>
 						<p className=''>a project</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-8 md:pl-12'>
+					<div className='flex items-center space-x-3 pl-6 md:pl-12'>
 						<IconPointer
 							size={desktopView ? 20 : 16}
 							stroke={2}
@@ -41,7 +41,7 @@ const Contact = ({ desktopView }) => {
 						/>
 						<p className=''>a collab</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-16 md:pl-24'>
+					<div className='flex items-center space-x-3 pl-12 md:pl-24'>
 						<IconPointer
 							size={desktopView ? 20 : 16}
 							stroke={2}
@@ -49,7 +49,7 @@ const Contact = ({ desktopView }) => {
 						/>
 						<p className=''>CTFs</p>
 					</div>
-					<div className='flex items-center space-x-3 pl-24 md:pl-36'>
+					<div className='flex items-center space-x-3 pl-[4.5rem] md:pl-36'>
 						<IconPointer
 							size={desktopView ? 20 : 16}
 							stroke={2}
@@ -60,7 +60,7 @@ const Contact = ({ desktopView }) => {
 				</div>
 			</div>
 			<div className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'>
-				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 pt-2 shadow-xl md:rotate-[-4deg] md:p-8'>
+				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 !pt-2 shadow-xl md:rotate-[-4deg] md:p-8'>
 					<img
 						src={Pin}
 						alt='pin'
@@ -72,13 +72,13 @@ const Contact = ({ desktopView }) => {
 						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
 					/>
 					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
-					<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
-						<div className='flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 transition-all duration-100 hover:border-blurple hover:text-blurple'>
+					<div className='flex md:h-10 h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl'>
+						<div className='flex h-full items-center space-x-2 md:py-0 py-2 rounded-lg border border-customwhite px-3 transition-all duration-100 hover:border-blurple hover:text-blurple relative'>
 							<IconMail
 								size={desktopView ? 20 : 16}
 								stroke={2}
 							/>
-							<p className='text-sm font-semibold'>daffaabhiprayaputra@gmail.com</p>
+							<p className='text-sm font-semibold break-all'>daffaabhiprayaputra@gmail.com</p>
 						</div>
 						{desktopView && (
 							<a
@@ -86,7 +86,7 @@ const Contact = ({ desktopView }) => {
 								href='mailto:daffaabhiprayaputra@gmail.com'
 							>
 								<IconSend
-									size={20}
+									size={desktopView ? 20 : 16}
 									stroke={2}
 								/>
 							</a>
@@ -104,7 +104,7 @@ const Contact = ({ desktopView }) => {
 						)}
 					</div>
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
-						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
+						<div className='flex md:h-10 h-auto md:py-0 py-2 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite md:px-3 px-3 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
 							<p className='text-sm font-semibold'>
 								or hit me up on <span className='font-extrabold'>LinkedIn</span>
 							</p>

@@ -36,7 +36,7 @@ const NavBar = ({ desktopView }) => {
 	}, []);
 
 	return (
-		<div className='fixed top-8 z-10 flex h-[4.9rem] w-auto flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem]'>
+		<div className='fixed top-8 z-10 flex h-[4.9rem] w-auto flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100 scale-[97%]'>
 			<div className='flex flex-row items-center space-x-4 md:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (

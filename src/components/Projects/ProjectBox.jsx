@@ -79,34 +79,34 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							<p className='text-xs text-blurple md:text-sm'>{type}</p>
 						</div>
 					</div>
-					<p className='mt-[6px] text-end font-extrabold opacity-50 md:mt-[10px]'>{date}</p>
+					<p className='mt-[6px] text-end font-extrabold md:text-md text-sm opacity-50 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
-					<div className='flex w-fit flex-row space-x-3 rounded'>
+					<div className='flex w-fit flex-row md:space-x-3 space-x-2 rounded'>
 						{stacks.map((stack, index) => (
 							<img
 								key={index}
 								src={stackIcons[stack]}
 								alt={stack}
-								className={desktopView ? 'h-5 w-5 object-contain' : 'h-[1rem] w-[1rem] object-contain'}
+								className={desktopView ? 'h-5 w-5 object-contain' : 'h-[4vw] w-[4vw] object-contain'}
 							/>
 						))}
 					</div>
-					<div className='flex h-10 w-auto flex-row space-x-3'>
+					<div className='flex md:h-10 h-[9vw] w-auto flex-row md:space-x-3 space-x-2'>
 						<a href={url}>
-							<button className={`flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+							<button className={`flex h-full md:w-10 w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconArrowUpRight
 									stroke={1.5}
-									size={24}
+									size={desktopView ? 24 : 22}
 								/>
 							</button>
 						</a>
 						<a href={github}>
-							<button className={`flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+							<button className={`flex h-full md:w-10 w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
 								<IconBrandGithub
 									stroke={1.5}
-									size={24}
+									size={desktopView ? 24 : 22}
 								/>
 							</button>
 						</a>
