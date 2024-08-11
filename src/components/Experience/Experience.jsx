@@ -12,7 +12,7 @@ import BETIS from '../../assets/orgs/betis.svg';
 const Experience = ({ desktopView }) => {
 	return (
 		<section
-			className='relative flex w-[24rem] flex-col md:w-[68rem]'
+			className='relative flex w-[90vw] flex-col md:w-[68rem]'
 			id='experiencesec'
 		>
 			<div
@@ -61,7 +61,7 @@ const Experience = ({ desktopView }) => {
 				/>
 				<Line />
 				<ExperienceBox
-					title='Acedemician & Lecturer'
+					title='Academician & Lecturer'
 					org='BETIS Fasilkom UI'
 					url='https://www.instagram.com/betisfasilkomui/'
 					logo={BETIS}

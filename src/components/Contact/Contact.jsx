@@ -106,7 +106,7 @@ const Contact = ({ desktopView }) => {
 					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
 						<div className='flex h-10 w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-4 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite'>
 							<p className='text-sm font-semibold'>
-								or hit me up on <a className='font-extrabold'>LinkedIn</a>
+								or hit me up on <span className='font-extrabold'>LinkedIn</span>
 							</p>
 							<IconBrandLinkedin
 								size={20}

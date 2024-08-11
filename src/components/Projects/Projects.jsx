@@ -9,7 +9,7 @@ import GusDur from '../../assets/projects/gusdur.jpg';
 const Projects = ({ desktopView }) => {
 	return (
 		<section
-			className='relative w-[24rem] flex-col space-y-12 md:w-[68rem]'
+			className='relative w-[90vw] flex-col space-y-12 md:w-[68rem]'
 			id='projectssec'
 		>
 			<div
