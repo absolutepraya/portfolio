@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"start": "serve -s dist"
+		"start": "serve -s dist --cache 31536000"
 	},
 	"dependencies": {
 		"@tabler/icons-react": "^3.11.0",
