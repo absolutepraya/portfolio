@@ -12,16 +12,12 @@
 	"dependencies": {
 		"@tabler/icons-react": "^3.11.0",
 		"moment-timezone": "^0.5.45",
-		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-fast-marquee": "^1.6.5",
-		"serve": "^14.2.3",
-		"tech-stack-icons": "^2.0.3"
+		"serve": "^14.2.3"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.15",
-		"@types/react-dom": "^18.2.7",
 		"@vitejs/plugin-react": "^4.0.3",
 		"autoprefixer": "^10.4.19",
 		"eslint": "^8.45.0",
