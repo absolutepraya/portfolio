@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const app = express();
-const PORT = 5000;
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 5000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
