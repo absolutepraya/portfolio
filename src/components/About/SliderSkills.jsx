@@ -1,4 +1,5 @@
 import Marquee from 'react-fast-marquee';
+
 import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconLockBolt, IconUrgent, IconPrompt } from '@tabler/icons-react';
 
 const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'Quality Assurance', 'Digital Forensics (CTF)', 'Web Exploitation (CTF)', 'Cyber Threat Intelligence', 'Risk Management', 'Prompt Engineering'];

@@ -1,11 +1,14 @@
 import TopBorder from './TopBorder';
+import DesktopView from '../../DesktopView';
 
 import Pin from '../../assets/creds/pin.webp';
 import Hello from '../../assets/creds/hello.webp';
 
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
 
-const Contact = ({ desktopView }) => {
+const Contact = () => {
+	const desktopView = DesktopView();
+
 	const handleCopy = () => {
 		const textToCopy = 'daffaabhiprayaputra@gmail.com';
 		navigator.clipboard.writeText(textToCopy);

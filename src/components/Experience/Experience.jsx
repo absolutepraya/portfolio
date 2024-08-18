@@ -2,6 +2,7 @@
 
 import Line from './Line';
 import ExperienceBox from './ExperienceBox';
+import DesktopView from '../../DesktopView';
 
 import COMPFEST from '../../assets/orgs/compfest.svg';
 import RISTEK from '../../assets/orgs/ristek.svg';
@@ -9,7 +10,9 @@ import Fasilkom from '../../assets/orgs/fasilkom.svg';
 import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 
-const Experience = ({ desktopView }) => {
+const Experience = () => {
+	const desktopView = DesktopView();
+
 	return (
 		<section
 			className='relative flex w-[90vw] flex-col md:w-[68rem]'

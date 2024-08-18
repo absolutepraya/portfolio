@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
+import DesktopView from '../DesktopView';
 
 import { IconCopyright, IconBrandGithub, IconClock } from '@tabler/icons-react';
 
-const Copyright = ({ desktopView }) => {
+const Copyright = () => {
 	const [currentTime, setCurrentTime] = useState('');
+	const desktopView = DesktopView();
 
 	useEffect(() => {
 		const updateTime = () => {

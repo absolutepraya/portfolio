@@ -1,4 +1,5 @@
 import ProjectBox from './ProjectBox';
+import DesktopView from '../../DesktopView';
 
 import GrabAuto from '../../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
@@ -6,7 +7,9 @@ import DM2Calc from '../../assets/projects/dm2calc.webp';
 import ValentineLetter from '../../assets/projects/valentineletter.webp';
 import GusDur from '../../assets/projects/gusdur.webp';
 
-const Projects = ({ desktopView }) => {
+const Projects = () => {
+	const desktopView = DesktopView();
+
 	return (
 		<section
 			className='relative w-[90vw] flex-col space-y-12 md:w-[68rem]'
@@ -50,7 +53,7 @@ const Projects = ({ desktopView }) => {
 						type='Website'
 						date='06/2024'
 						subtitle='Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.'
-						stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'express', 'apidog']}
+						stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'express', 'supabase']}
 						url='https://mipaopenhouse.com'
 						github=''
 					/>

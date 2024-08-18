@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import DesktopView from '../../DesktopView';
 
-import APIDog from '../../assets/stacks/apidog.svg';
 import Bard from '../../assets/stacks/bard.svg';
 import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
@@ -17,13 +16,13 @@ import TailwindCSS from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
+import Supabase from '../../assets/stacks/supabase.svg';
 
 import NoImage from '../../assets/projects/noimage.webp';
 
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 
 const stackIcons = {
-	apidog: APIDog,
 	docker: Docker,
 	express: Express,
 	javascript: JavaScript,
@@ -40,22 +39,11 @@ const stackIcons = {
 	bard: Bard,
 	gemini: Gemini,
 	openai: OpenAI,
+	supabase: Supabase,
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
-	const [desktopView, setDesktopView] = useState(window.innerWidth >= 768);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setDesktopView(window.innerWidth > 768);
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
+	const desktopView = DesktopView();
 
 	// If URL or GitHub is not provided, change the button to disabled
 	var urlVisibility, githubVisibility;
@@ -63,7 +51,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
 
 	return (
-		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-[#262626] py-0 shadow-lg transition-all duration-300 ease-in-out md:w-1/2 md:hover:rotate-[1.5deg]'>
+		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-300 ease-in-out md:w-1/2 md:hover:rotate-[1.5deg]'>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
 				<img

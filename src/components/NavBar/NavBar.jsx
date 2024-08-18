@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import DesktopView from '../../DesktopView';
 
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';
 
-const NavBar = ({ desktopView }) => {
+const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
+	const desktopView = DesktopView();
 
 	useEffect(() => {
 		const sections = document.querySelectorAll('section');
@@ -36,7 +38,7 @@ const NavBar = ({ desktopView }) => {
 	}, []);
 
 	return (
-		<div className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border border-[#262626] bg-[#262626] bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'>
+		<div className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'>
 			<div className='flex flex-row items-center space-x-4 md:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (

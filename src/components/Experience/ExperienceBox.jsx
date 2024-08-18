@@ -1,21 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import DesktopView from '../../DesktopView';
 
 const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
-	const [desktopView, setDesktopView] = useState(window.innerWidth >= 768);
 	const [isInView, setIsInView] = useState(false);
 	const divRef = useRef(null);
-
-	useEffect(() => {
-		const handleResize = () => {
-			setDesktopView(window.innerWidth > 768);
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
+	const desktopView = DesktopView();
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -61,7 +50,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 							href={url}
 						>
 							{org}
-							<div className='absolute bottom-[0.11rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC]' />
+							<div className='absolute bottom-[0.11rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-blurple' />
 						</a>
 					) : (
 						<div className='flex flex-row items-center space-x-2'>
@@ -74,7 +63,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 								href={url}
 							>
 								{org}
-								<div className={`absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-[#3643FC] opacity-0 transition-all duration-[480ms] ease-in ${isInView ? 'opacity-100' : ''}`} />
+								<div className={`absolute bottom-[0.040rem] h-[1.8px] w-full bg-gradient-to-br from-[#d3d3ee] to-blurple opacity-0 transition-all duration-[480ms] ease-in ${isInView ? 'opacity-100' : ''}`} />
 							</a>
 						</div>
 					)}

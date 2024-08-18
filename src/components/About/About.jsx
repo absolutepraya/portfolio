@@ -1,7 +1,7 @@
 import SliderSkills from './SliderSkills';
 import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
-import DesktopView from '../../desktopView';
+import DesktopView from '../../DesktopView';
 
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
@@ -30,7 +30,7 @@ const About = () => {
 				</p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
-				<div className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg md:w-[40%]'>
+				<div className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg md:w-[40%]'>
 					<div className='relative flex items-center justify-center md:h-[11.5rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
 						{!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
@@ -47,11 +47,11 @@ const About = () => {
 							<p className='md:text-md text-sm'>My skills</p>
 						</div>
 						<p className='text-xl md:text-2xl'>
-							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-[#3643FC] bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <b className='bg-gradient-to-br from-[#f4f4f9] to-[#3643FC] bg-clip-text text-transparent'>CTF</b> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>Cybersecurity</i>.
+							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>CTF</b> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text text-transparent'>Cybersecurity</i>.
 						</p>
 					</div>
 				</div>
-				<div className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-[#262626] bg-customblack p-6 shadow-lg md:w-[39.3rem]'>
+				<div className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg md:w-[39.3rem]'>
 					<div className='relative flex w-full flex-col gap-y-5 md:space-y-[0.24rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
 						{!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
@@ -68,7 +68,7 @@ const About = () => {
 							<p className='md:text-md text-sm'>My tech stack & tools</p>
 						</div>
 						<p className='text-xl md:text-2xl'>
-							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-[#3643FC] bg-clip-text text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-[#3643FC] bg-clip-text text-transparent'>perfection</b> in every project.
+							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
 						</p>
 					</div>
 				</div>
