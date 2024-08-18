@@ -1,5 +1,3 @@
-// TODO: Add a easter egg on bottom left
-
 import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
 

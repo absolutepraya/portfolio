@@ -1,14 +1,13 @@
-// TODO: Make a shine through effect in "Open for new opportunities" box
-
-import Marquee from 'react-fast-marquee';
-
 import SliderSkills from './SliderSkills';
 import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
+import DesktopView from '../../desktopView';
 
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
-const About = ({ desktopView }) => {
+const About = () => {
+	const desktopView = DesktopView();
+
 	return (
 		<section
 			className='relative !mt-40 flex w-[90vw] flex-col items-center md:w-[68rem]'
