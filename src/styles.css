@@ -1,10 +1,35 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@font-face {
+	font-family: 'Inter';
+	src: url('/src/assets/fonts/Inter/Inter-VariableFont.ttf') format('truetype');
+	font-display: swap;
+	font-weight: 100 900;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Inter';
+	src: url('/src/assets/fonts/Inter/Inter-Italic-VariableFont.ttf') format('truetype');
+	font-display: swap;
+	font-weight: 100 900;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Instrument Serif';
+	src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Regular.ttf') format('truetype');
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Instrument Serif';
+	src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Italic.ttf') format('truetype');
+	font-display: swap;
+	font-weight: 400;
+	font-style: italic;
+}
 
 html,
 body {
@@ -13,7 +38,6 @@ body {
 }
 
 .shine-through {
-	/* position: absolute; */
 	padding: 0 34px;
 	color: #ffffff;
 	background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);

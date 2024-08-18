@@ -1,5 +1,3 @@
-// TODO: Make the vertical line shines blurple, it updates as you scroll
-
 const Line = () => {
 	return (
 		<div className='flex flex-col'>
