@@ -85,6 +85,10 @@ const Contact = () => {
 							<a
 								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								href='mailto:daffaabhiprayaputra@gmail.com'
+								target='_blank'
+								rel='noreferrer'
+								aria-label='Send me an email!'
+								title='Send me an email!'
 							>
 								<IconSend
 									size={desktopView ? 20 : 16}
@@ -96,6 +100,8 @@ const Contact = () => {
 							<div
 								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								onClick={() => handleCopy()}
+								aria-label='Copy my email address!'
+								title='Copy my email address!'
 							>
 								<IconCopy
 									size={20}
@@ -104,7 +110,13 @@ const Contact = () => {
 							</div>
 						)}
 					</div>
-					<a href='https://www.linkedin.com/in/daffaabhipraya/'>
+					<a
+						href='https://www.linkedin.com/in/daffaabhipraya/'
+						target='_blank'
+						rel='noreferrer'
+						aria-label='Reach me out on LinkedIn!'
+						title='Reach me out on LinkedIn!'
+					>
 						<div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
 							<p className='text-sm font-semibold'>
 								or hit me up on <span className='font-extrabold'>LinkedIn</span>
@@ -118,7 +130,13 @@ const Contact = () => {
 					<div className='!mt-6 h-0.5 w-full bg-customgray' />
 					<p className=''>Follow my other socials!</p>
 					<div className='flex w-full flex-col space-y-2 md:flex-row md:justify-between md:space-y-0'>
-						<a href='https://github.com/absolutepraya'>
+						<a
+							href='https://github.com/absolutepraya'
+							target='_blank'
+							rel='noreferrer'
+							aria-label='absolutepraya on GitHub'
+							title='absolutepraya on GitHub'
+						>
 							<div className='flex flex-row items-center space-x-1'>
 								<IconBrandGithub
 									size={24}
@@ -127,7 +145,13 @@ const Contact = () => {
 								<p className='underline underline-offset-4'>absolutepraya</p>
 							</div>
 						</a>
-						<a href='https://www.instagram.com/___abhipraya/'>
+						<a
+							href='https://www.instagram.com/___abhipraya/'
+							target='_blank'
+							rel='noreferrer'
+							aria-label='___abhipraya on Instagram'
+							title='___abhipraya on Instagram'
+						>
 							<div className='flex flex-row items-center space-x-1'>
 								<IconBrandInstagram
 									size={24}
@@ -136,7 +160,13 @@ const Contact = () => {
 								<p className='underline underline-offset-4'>___abhipraya</p>
 							</div>
 						</a>
-						<a href='https://open.spotify.com/user/daffaabhiprayaputra?si=b80aa3237c7440ed'>
+						<a
+							href='https://open.spotify.com/user/daffaabhiprayaputra?si=b80aa3237c7440ed'
+							target='_blank'
+							rel='noreferrer'
+							aria-label='Daffa Abhipraya on Spotify'
+							title='Daffa Abhipraya on Spotify'
+						>
 							<div className='flex flex-row items-center space-x-1'>
 								<IconBrandSpotify
 									size={24}
