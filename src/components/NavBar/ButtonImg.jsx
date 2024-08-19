@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import DesktopView from '../../DesktopView';
-import Arrow from '../../assets/elements/arrow.png';
+import Arrow from '../../assets/elements/arrow.webp';
 import Laptop from '../../assets/creds/laptop.webp';
 import Flag from '../../assets/creds/flag.webp';
 import Globe from '../../assets/creds/globe.webp';
