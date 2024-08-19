@@ -2,7 +2,6 @@ import SliderSkills from './SliderSkills';
 import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
 import DesktopView from '../../DesktopView';
-
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 
 const About = () => {
@@ -24,7 +23,7 @@ const About = () => {
 				</span>
 				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 			</div>
-			<div className='mt-12 md:w-[55vw]'>
+			<div className='mt-12 md:w-[45rem]'>
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-6xl'>
 					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
 				</p>
