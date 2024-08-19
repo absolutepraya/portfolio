@@ -1,12 +1,15 @@
 ## 📌 Notes:
 
-### Implemented:
+Current website analysis score with [PageSpeed](https://pagespeed.web.dev/):
 
--   Converted then optimized all images to `WEBP` format and also optimized `SVG` files with [compress-optimize.sh](https://github.com/absolutepraya/portfolio/blob/optimize/compress-optimize.sh)
+<div align='center'>
+
+![Optimization](./src/assets/readme/pagespeed.png)
+
+</div>
 
 ### Soon to be implemented:
 
--   Code has not been refactored yet, because it was done quickly in ~1 week
 -   Motion element and animations are not implemented yet
 -   Responsive design has only been implemented for mobile and desktop, not for tablets
 
