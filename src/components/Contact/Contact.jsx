@@ -64,12 +64,12 @@ const Contact = () => {
 				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
 					<img
 						src={Pin}
-						alt='pin'
+						alt='Pin'
 						className='absolute -right-8 -top-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
 					/>
 					<img
 						src={Hello}
-						alt='hello'
+						alt='Hello'
 						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
 					/>
 					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
