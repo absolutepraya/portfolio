@@ -1,6 +1,5 @@
 import ProjectBox from './ProjectBox';
 import DesktopView from '../../DesktopView';
-
 import GrabAuto from '../../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../../assets/projects/dm2calc.webp';

@@ -1,5 +1,4 @@
 import Marquee from 'react-fast-marquee';
-
 import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';

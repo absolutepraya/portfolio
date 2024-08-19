@@ -4,7 +4,7 @@ const Button = ({ icon = null, text, link, isActive }) => {
 	const [isHovered, setIsHovered] = useState(false);
 
 	return (
-		<a href={link}>
+		<a href={link} aria-label={'Scroll to ' + text} title={'Scroll to ' + text}>
 			<div
 				className={`relative flex h-14 w-14 cursor-pointer flex-col items-center justify-center rounded-2xl border border-[#424242] shadow-md transition-all ${isActive ? 'bg-blurple bg-opacity-85 active:bg-opacity-50' : 'bg-[#3f3f3f] bg-opacity-40 hover:bg-blurple hover:bg-opacity-40 active:bg-opacity-20'}`}
 				onMouseEnter={() => setIsHovered(true)}

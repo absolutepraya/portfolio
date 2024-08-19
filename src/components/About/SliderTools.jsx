@@ -1,5 +1,4 @@
 import Marquee from 'react-fast-marquee';
-
 import Bash from '../../assets/tools/bash.svg';
 import Canva from '../../assets/tools/canva.svg';
 import Figma from '../../assets/tools/figma.svg';

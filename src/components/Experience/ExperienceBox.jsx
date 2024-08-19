@@ -57,6 +57,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 							<img
 								src={logo}
 								className='h-5 w-5'
+								alt={org}
 							/>
 							<a
 								className='w-45% relative font-inter font-semibold'
@@ -71,9 +72,10 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 						<img
 							src={logo}
 							className='h-5 w-5'
+							alt={org}
 						/>
 					)}
-					<p className='w-45% font-semibold opacity-40'>{date}</p>
+					<p className='w-45% font-semibold opacity-60'>{date}</p>
 				</div>
 			</div>
 			<p className='text-center md:text-lg'>{desc}</p>

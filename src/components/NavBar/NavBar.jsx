@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import DesktopView from '../../DesktopView';
-
 import Button from './Button';
 import ButtonImg from './ButtonImg';
-
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';
 
 const NavBar = () => {
@@ -80,6 +78,8 @@ const NavBar = () => {
 					<a
 						href='https://www.linkedin.com/in/daffaabhipraya/'
 						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border border-[#424242] bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-md transition-all hover:bg-customwhite hover:text-customblack'
+						aria-label='Reach me out on LinkedIn!'
+						title='Reach me out on LinkedIn!'
 					>
 						{/* TODO: Make the LinkedIn icon go up, going away, replaced by IconSend */}
 						<p className='text text-end font-semibold leading-4'>Reach out</p>
