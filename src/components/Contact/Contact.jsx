@@ -100,7 +100,6 @@ const Contact = () => {
 							<div
 								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								onClick={() => handleCopy()}
-								aria-label='Copy my email address!'
 								title='Copy my email address!'
 							>
 								<IconCopy
