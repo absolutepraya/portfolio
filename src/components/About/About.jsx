@@ -23,9 +23,9 @@ const About = () => {
 				</span>
 				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 			</div>
-			<div className='mt-12 md:w-[45rem]'>
+			<div className='mt-12 md:w-[44rem]'>
 				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-6xl'>
-					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
+					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF Forensics Player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
 				</p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
