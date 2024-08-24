@@ -18,6 +18,7 @@ import Vitest from '../../assets/stacks/vitest.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import NoImage from '../../assets/projects/noimage.webp';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 const stackIcons = {
 	docker: { src: Docker, name: 'Docker' },
@@ -48,7 +49,13 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
 
 	return (
-		<div className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-300 ease-in-out md:w-1/2 md:hover:rotate-[1.5deg]'>
+		<motion.div
+			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg md:w-1/2'
+			initial={{ opacity: 0, y: '50px' }}
+			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
+			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
+			whileHover={{ rotate: desktopView ? 1.5 : 0, transition: { duration: 0.3, ease: 'easeInOut' } }}
+		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
 				<img
@@ -111,7 +118,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
