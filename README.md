@@ -1,23 +1,29 @@
 ## 📌 Notes:
 
-Current website analysis score with [PageSpeed](https://pagespeed.web.dev/):
+Current website analysis score with [PageSpeed](https://pagespeed.web.dev/analysis/https-abhipraya-dev/j7zj1ndu5g?form_factor=desktop):
 
 <div align='center'>
 
-![Optimization](./src/assets/readme/pagespeed.png)
+Desktop:
+
+![PageSpeed Desktop](/src/assets/readme/pagespeed_desktop.png)
+
+Mobile:
+
+![PageSpeed Mobile](/src/assets/readme/pagespeed_mobile.png)
 
 </div>
 
 ### Soon to be implemented:
 
--   Motion element and animations are not implemented yet
--   Responsive design has only been implemented for mobile and desktop, not for tablets
+- Motion element and animations are not implemented yet.
+- Responsive design has only been implemented for mobile and desktop, not for tablets.
 
 ## Initial Setup
 
 Make sure you have installed Node.js and npm on your machine.
 
--   To install Node modules:
+- To install Node modules:
 
 ```bash
 $ npm install
@@ -25,7 +31,7 @@ $ npm install
 
 ## Development
 
--   Run development server:
+- Run development server:
 
 ```bash
 $ npm run dev
@@ -33,7 +39,7 @@ $ npm run dev
 
 or
 
--   Run development server to be accessible from other devices (like phones):
+- Run development server to be accessible from other devices (like phones):
 
 ```bash
 $ npm run dev -- --host
@@ -43,7 +49,7 @@ $ npm run dev -- --host
 
 This project uses ESLint, Prettier, and Prettier for TailwindCSS for linting and formatting. Please install the respective plugins for your code editor.
 
--   Run ESLint:
+- Run ESLint:
 
 ```bash
 $ npm run lint
@@ -55,7 +61,7 @@ If there are any errors, you can try to fix them automatically by running:
 $ npm run lint -- --fix
 ```
 
--   Run Prettier and Prettier for TailwindCSS (just for src):
+- Run Prettier and Prettier for TailwindCSS (just for src):
 
 ```bash
 $ npx prettier --check src
@@ -77,7 +83,7 @@ Install `webp` and `svgo` globally on your machine.
 $ sudo apt install webp svgo -y
 ```
 
--   To optimize images:
+- To optimize images:
 
 ```bash
 $ ./compress-optimize.sh
@@ -85,13 +91,13 @@ $ ./compress-optimize.sh
 
 ## Production
 
--   Build for production:
+- Build for production:
 
 ```bash
 $ npm run build
 ```
 
--   Build for production (Heroku):
+- Build for production (Heroku):
 
 ```bash
 $ npm start
