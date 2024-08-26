@@ -13,11 +13,12 @@ export default {
 				customblack: '#0d0d0d',
 				customgray: '#262626',
 				customwhite: '#cccccc',
+				customlightgray: '#3e3e3e',
 			},
 			boxShadow: {
 				glowblurple: '0px 0px 2000px -7px rgba(54,67,252,0.7)',
 				glowblurplesmall: '0px 0px 130px -7px rgba(54,67,252,0.9)',
-				glowcustomblack: '-41px -1px 35px 23px rgba(13,13,13,1)',
+				glowcustomblack: '-41px 30px 35px 23px rgba(13,13,13,1)',
 			},
 		},
 	},

@@ -41,9 +41,9 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 		<motion.div
 			ref={divRef}
 			className={`relative flex flex-col items-center space-y-3 rounded-3xl border-4 border-b-0 border-r-0 border-customgray bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-[480ms] ease-in-out md:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: 'circOut' } }}
-			viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+			initial={desktopView ? { opacity: 0 } : {}}
+			whileInView={desktopView ? { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'circOut' } } : {}}
+			viewport={desktopView ? { marginTop: '-100px', marginBottom: '-100px', once: true } : {}}
 		>
 			<div className='flex flex-col items-center space-y-0 text-center md:space-y-0'>
 				<p className={`relative font-instrument text-4xl md:text-5xl ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}>{title}</p>
@@ -67,7 +67,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 								alt={org}
 							/>
 							<a
-								className='w-45% relative font-inter font-semibold'
+								className={`w-45% relative font-inter font-semibold ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
 								href={url}
 								target='_blank'
 								rel='noreferrer'
