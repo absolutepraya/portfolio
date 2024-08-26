@@ -5,6 +5,7 @@ import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../../assets/projects/dm2calc.webp';
 import ValentineLetter from '../../assets/projects/valentineletter.webp';
 import GusDur from '../../assets/projects/gusdur.webp';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
 	const desktopView = DesktopView();
@@ -19,8 +20,21 @@ const Projects = () => {
 				className='absolute -top-24'
 			/>
 			<div className='flex flex-col items-center md:flex-row md:space-x-8'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'>Stuff I&apos;ve done</p>
-				<div className={`mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`} />
+				<motion.p
+					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+					initial={{ opacity: 0, y: '50px' }}
+					whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
+					viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+				>
+					Stuff I&apos;ve done
+				</motion.p>
+				<div className={`relative mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+					<motion.div
+						className='shadow-glowcustomblack absolute -top-2 h-4 w-full bg-customblack'
+						whileInView={{ x: '760px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
+						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+					/>
+				</div>
 			</div>
 			<div className='flex h-auto w-full flex-col space-y-8'>
 				<div className='flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
