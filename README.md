@@ -14,6 +14,10 @@ Mobile:
 
 </div>
 
+### Found problems:
+
+- Site can't be accessed via Universitas Indonesia's Hotspot WiFi.
+
 ### Soon to be implemented:
 
 - Motion element and animations are not implemented yet.
