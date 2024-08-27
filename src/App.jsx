@@ -5,8 +5,8 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Copyright from './components/Copyright';
 import DesktopView from './DesktopView';
-import Grid from './assets/bg/1.webp';
-import GridMobile from './assets/bg/2.webp';
+import Grid from './assets/elements/bg1.webp';
+import GridMobile from './assets/elements/bg2.webp';
 
 const App = () => {
 	const desktopView = DesktopView();
