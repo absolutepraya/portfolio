@@ -3,6 +3,7 @@ import DesktopView from '../../DesktopView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
@@ -36,7 +37,11 @@ const NavBar = () => {
 	}, []);
 
 	return (
-		<div className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'>
+		<motion.div
+			className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
+			initial={{ y: '-300px' }}
+			animate={{ y: 0, transition: { duration: 0.8, ease: 'circOut', delay: 0.2 } }}
+		>
 			<div className='flex flex-row items-center space-x-4 md:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (
@@ -90,7 +95,7 @@ const NavBar = () => {
 					</a>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

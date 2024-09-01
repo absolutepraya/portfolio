@@ -3,6 +3,7 @@ import SliderStacks from './SliderStacks';
 import SliderTools from './SliderTools';
 import DesktopView from '../../DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 const About = () => {
 	const desktopView = DesktopView();
@@ -16,17 +17,26 @@ const About = () => {
 				id='about'
 				className='absolute -top-40'
 			/>
-			<div className='shining-border flex flex-row items-center -space-x-[1rem] rounded-full border border-customgray bg-[#131313] py-2 pl-6 shadow-lg transition-all duration-300 ease-in-out'>
+			<motion.div
+				className='shining-border flex flex-row items-center -space-x-[1rem] rounded-full border border-customgray bg-[#131313] py-2 pl-6 shadow-lg transition-all duration-300 ease-in-out'
+				initial={{ y: '-300px' }}
+				animate={{ y: 0, transition: { duration: 0.5, ease: 'linear', delay: 0.1 } }}
+			>
 				<span className='relative flex h-4 w-4 items-center justify-center'>
 					<span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
 					<span className='relative inline-flex h-3 w-3 rounded-full bg-blurple'></span>
 				</span>
 				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
-			</div>
-			<div className='mt-12 md:w-[44rem]'>
-				<p className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-6xl'>
+			</motion.div>
+			<div className='mt-12 md:w-[53rem]'>
+				<motion.p
+					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-5xl text-transparent md:text-7xl'
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1, transition: { duration: 1, ease: 'circOut', delay: 1.1 } }}
+					viewport={{ once: true }}
+				>
 					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF Forensics Player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
-				</p>
+				</motion.p>
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<div className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg md:w-[40%]'>
@@ -43,7 +53,7 @@ const About = () => {
 								stroke={1.5}
 								color='#fff'
 							/>
-							<p className='md:text-md text-sm'>My skills</p>
+							<p className='md:text-md text-sm'>My skillsets</p>
 						</div>
 						<p className='text-xl md:text-2xl'>
 							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Development</b>, also skilled in <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>CTF</b> challenges and passionate about <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text text-transparent'>Cybersecurity</i>.

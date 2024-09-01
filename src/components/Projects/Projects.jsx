@@ -30,7 +30,7 @@ const Projects = () => {
 				</motion.p>
 				<div className={`relative mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
 					<motion.div
-						className='shadow-glowcustomblack absolute -top-2 h-4 w-full bg-customblack'
+						className='md:shadow-glowcustomblack shadow-glowcustomblacksmall absolute md:-top-2 h-1 md:h-4 w-full bg-customblack'
 						whileInView={{ x: '760px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
 						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 					/>
