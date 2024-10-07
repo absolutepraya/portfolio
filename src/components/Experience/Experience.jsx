@@ -33,13 +33,22 @@ const Experience = () => {
 				</motion.p>
 				<div className={`relative mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
 					<motion.div
-						className='md:shadow-glowcustomblack shadow-glowcustomblacksmall absolute md:-top-2 h-1 md:h-4 w-full bg-customblack'
+						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall md:-top-2 md:h-4 md:shadow-glowcustomblack'
 						whileInView={{ x: '760px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
 						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 					/>
 				</div>
 			</div>
 			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
+				<ExperienceBox
+					title='PIC of NetSOS Open Class'
+					org='RISTEK Fasilkom UI'
+					url='https://www.ristek.cs.ui.ac.id/'
+					logo={RISTEK}
+					date='09/2024 - Present'
+					desc='Responsible for managing the class, creating the learning materials, and also teaching the class. The class is open to all Fasilkom UI students and covers various topics in the field of Capture The Flag (CTF) competition.'
+				/>
+				<Line />
 				<ExperienceBox
 					title='Teaching Assistant (TA)'
 					org='Fasilkom UI'
@@ -54,7 +63,7 @@ const Experience = () => {
 					org='Dasar-Dasar Pemrograman 0'
 					url='https://www.linkedin.com/company/ddp-0/mycompany/'
 					logo={DDP0}
-					date='06/2024 - Present'
+					date='06/2024 - 09/2024'
 					desc='Teaching freshmen of Fasilkom UI about Python Programming Language as a provision for DDP-1 course. The materials revolve around the basics of Python plus Python Turtle library.'
 				/>
 				<Line />
@@ -63,7 +72,7 @@ const Experience = () => {
 					org='COMPFEST16'
 					url='https://compfest.id/'
 					logo={COMPFEST}
-					date='03/2024 - Present'
+					date='03/2024 - 10/2024'
 					desc='As HRD, keeps the staff tightly bonded, ensures all staff perform their duties correctly, and bridges communication between the CTF staff. As Technical Committee (TC), in charge of designing and maintaining the CTF website platform before and during the competition.'
 				/>
 				<Line />

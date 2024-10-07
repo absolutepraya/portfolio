@@ -54,7 +54,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 			initial={{ opacity: 0, y: '50px' }}
 			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
 			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
-			whileHover={{ rotate: desktopView ? 1.5 : 0, transition: { duration: 0.3, ease: 'easeInOut' } }}
+			whileHover={{ rotate: desktopView ? 1 : 0, transition: { duration: 0.3, ease: 'easeInOut' } }}
 		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
