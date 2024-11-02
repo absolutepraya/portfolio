@@ -38,7 +38,7 @@ const NavBar = () => {
 
 	return (
 		<motion.div
-			className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
+			className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
 			initial={{ y: '-300px' }}
 			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
 		>
@@ -82,16 +82,18 @@ const NavBar = () => {
 				{desktopView && (
 					<a
 						href='https://www.linkedin.com/in/daffaabhipraya/'
-						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border border-[#424242] bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-md transition-all hover:bg-customwhite hover:text-customblack'
+						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242] bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-md transition-all hover:bg-customwhite hover:text-customblack'
 						aria-label='Reach me out on LinkedIn!'
 						title='Reach me out on LinkedIn!'
 					>
 						{/* TODO: Make the LinkedIn icon go up, going away, replaced by IconSend */}
 						<p className='text text-end font-semibold leading-4'>Reach out</p>
-						<IconBrandLinkedin
-							size={28}
-							stroke={2}
-						/>
+						<div>
+							<IconBrandLinkedin
+								size={28}
+								stroke={2}
+							/>
+						</div>
 					</a>
 				)}
 			</div>

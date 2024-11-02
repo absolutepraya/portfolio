@@ -40,9 +40,12 @@ const ButtonImg = () => {
 		}
 	}, [hoveredOnce]);
 
-	const changeEmoji = () => {
+	const hoverEmoji = () => {
 		setHovered(true);
 		setHoveredOnce(true);
+	};
+
+	const changeEmoji = () => {
 		setCounter((counter + 1) % imgs.length);
 	};
 
@@ -57,7 +60,7 @@ const ButtonImg = () => {
 							alt='Arrow'
 						/>
 						<div className='customgray -rotate-[8deg] rounded-lg border border-customgray bg-[#161616] px-2 py-1'>
-							<p className='text-nowrap text-sm'>Hover me!</p>
+							<p className='text-nowrap text-sm'>Click me!</p>
 						</div>
 					</div>
 				)}
@@ -68,7 +71,8 @@ const ButtonImg = () => {
 				/>
 				<div
 					className='h-full w-full cursor-pointer overflow-hidden rounded-2xl bg-white'
-					onMouseEnter={() => changeEmoji()}
+					onMouseEnter={() => hoverEmoji()}
+					onClick={() => changeEmoji()}
 					onMouseLeave={() => setHovered(false)}
 					aria-label='Profile picture'
 					title='Profile picture'

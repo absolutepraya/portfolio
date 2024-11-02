@@ -40,7 +40,7 @@ const About = () => {
 			</div>
 			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<motion.div
-					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg md:w-[40%]'
+					className='hover:shadow-glowblurpleextrasmall flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 hover:border-blurple md:w-[40%]'
 					initial={{ y: '200px' }}
 					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
 				>
@@ -51,7 +51,7 @@ const About = () => {
 						<SliderSkills />
 					</div>
 					<div className='flex w-full flex-col items-start space-y-4'>
-						<div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2'>
+						<div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
 							<IconSparkles
 								size={16}
 								stroke={1.5}
@@ -65,7 +65,7 @@ const About = () => {
 					</div>
 				</motion.div>
 				<motion.div
-					className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg md:w-[39.3rem]'
+					className='hover:shadow-glowblurpleextrasmall flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 hover:border-blurple md:w-[39.3rem]'
 					initial={{ y: '200px' }}
 					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
 				>
@@ -77,7 +77,7 @@ const About = () => {
 						<SliderTools />
 					</div>
 					<div className='flex w-full flex-col items-start space-y-4'>
-						<div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2'>
+						<div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
 							<IconSettings2
 								size={16}
 								stroke={1.5}

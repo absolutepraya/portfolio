@@ -50,7 +50,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
 	return (
 		<motion.div
-			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg md:w-1/2'
+			className='hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple md:w-1/2'
 			initial={{ opacity: 0, y: '50px' }}
 			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
 			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}

@@ -135,7 +135,7 @@ const Contact = () => {
 							aria-label='absolutepraya on GitHub'
 							title='absolutepraya on GitHub'
 						>
-							<div className='flex flex-row items-center space-x-1'>
+							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandGithub
 									size={24}
 									stroke={2}
@@ -150,7 +150,7 @@ const Contact = () => {
 							aria-label='___abhipraya on Instagram'
 							title='___abhipraya on Instagram'
 						>
-							<div className='flex flex-row items-center space-x-1'>
+							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandInstagram
 									size={24}
 									stroke={2}
@@ -165,7 +165,7 @@ const Contact = () => {
 							aria-label='Daffa Abhipraya on Spotify'
 							title='Daffa Abhipraya on Spotify'
 						>
-							<div className='flex flex-row items-center space-x-1'>
+							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandSpotify
 									size={24}
 									stroke={2}
