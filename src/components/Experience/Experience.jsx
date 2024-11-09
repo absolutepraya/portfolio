@@ -8,6 +8,7 @@ import RISTEK from '../../assets/orgs/ristek.svg';
 import Fasilkom from '../../assets/orgs/fasilkom.svg';
 import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
+import GDG from '../../assets/orgs/gdg.svg';
 import { motion } from 'framer-motion';
 
 const Experience = () => {
@@ -41,6 +42,15 @@ const Experience = () => {
 			</div>
 			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
 				<ExperienceBox
+					title='Software Engineering Core Team'
+					org='GDGoC Universitas Indonesia'
+					url='https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/'
+					logo={GDG}
+					date='11/2024 - Present'
+					desc='Organizing 2 main work programs: GDG Study Jams and WebDev Mini Competition. Study Jams is a series of workshops for students to learn about Google technologies, e.g. Flutter and Firebase. WebDev Mini Competition is a competition for students to create a website based on a given theme.'
+				/>
+				<Line />
+				<ExperienceBox
 					title='PIC of NetSOS Open Class'
 					org='RISTEK Fasilkom UI'
 					url='https://www.ristek.cs.ui.ac.id/'
@@ -72,7 +82,7 @@ const Experience = () => {
 					org='COMPFEST16'
 					url='https://compfest.id/'
 					logo={COMPFEST}
-					date='03/2024 - 10/2024'
+					date='03/2024 - 11/2024'
 					desc='As HRD, keeps the staff tightly bonded, ensures all staff perform their duties correctly, and bridges communication between the CTF staff. As Technical Committee (TC), in charge of designing and maintaining the CTF website platform before and during the competition.'
 				/>
 				<Line />

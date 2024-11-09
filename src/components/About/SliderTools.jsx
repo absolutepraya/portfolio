@@ -6,18 +6,24 @@ import Figma from '../../assets/tools/figma.svg';
 import GitHub from '../../assets/tools/github.svg';
 import Heroku from '../../assets/tools/heroku.svg';
 import Railway from '../../assets/tools/railway.svg';
+import Vercel from '../../assets/tools/vercel.svg';
 import Ubuntu from '../../assets/tools/ubuntu.svg';
+import Azure from '../../assets/tools/azure.svg';
+import OpenAI from '../../assets/tools/openai.svg';
 import VSCode from '../../assets/tools/vscode.svg';
 
+
 const toolsList = [
-	{ src: VSCode, alt: 'VSCode' },
-	{ src: GitHub, alt: 'GitHub' },
-	{ src: Ubuntu, alt: 'Ubuntu' },
-	{ src: Bash, alt: 'Bash' },
-	{ src: Figma, alt: 'Figma' },
-	{ src: Canva, alt: 'Canva' },
-	{ src: Heroku, alt: 'Heroku' },
+	{ src: Azure, alt: 'Azure' },
+	{ src: Vercel, alt: 'Vercel' },
 	{ src: Railway, alt: 'Railway' },
+	{ src: Heroku, alt: 'Heroku' },
+	{ src: Canva, alt: 'Canva' },
+	{ src: Figma, alt: 'Figma' },
+	{ src: Bash, alt: 'Bash' },
+	{ src: Ubuntu, alt: 'Ubuntu' },
+	{ src: GitHub, alt: 'GitHub' },
+	{ src: VSCode, alt: 'VSCode' },
 ];
 
 const SliderTools = () => {

@@ -14,12 +14,12 @@ import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import NextJS from '../../assets/stacks/nextjs.svg';
+import Flutter from '../../assets/stacks/flutter.svg';
 import Django from '../../assets/stacks/django.svg';
 
 const stacksList = [
 	{ src: NodeJS, alt: 'NodeJS' },
 	{ src: NPM, alt: 'NPM' },
-	{ src: ViteJS, alt: 'ViteJS' },
 	{ src: ReactJS, alt: 'ReactJS' },
 	{ src: NextJS, alt: 'NextJS' },
 	{ src: JavaScript, alt: 'JavaScript' },
@@ -32,6 +32,7 @@ const stacksList = [
 	{ src: Vitest, alt: 'Vitest' },
 	{ src: Docker, alt: 'Docker' },
 	{ src: Python, alt: 'Python' },
+	{ src: Flutter, alt: 'Flutter' },
 ];
 
 const SliderStacks = () => {
