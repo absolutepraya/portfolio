@@ -42,7 +42,7 @@ const Experience = () => {
 			</div>
 			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
 				<ExperienceBox
-					title='Software Engineering Core Team'
+					title='Software Engineering'
 					org='GDGoC Universitas Indonesia'
 					url='https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/'
 					logo={GDG}
