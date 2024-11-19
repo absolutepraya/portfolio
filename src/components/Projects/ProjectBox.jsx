@@ -4,19 +4,23 @@ import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
-import Jest from '../../assets/stacks/jest.svg';
+import Jest from '../../assets/tools/jest.svg';
 import MongoDB from '../../assets/stacks/mongodb.svg';
 import NodeJS from '../../assets/stacks/nodejs.svg';
 import NPM from '../../assets/stacks/npm.svg';
-import OpenAI from '../../assets/stacks/openai.svg';
 import Python from '../../assets/stacks/python.svg';
 import ReactJS from '../../assets/stacks/react.svg';
 import TailwindCSS from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import ViteJS from '../../assets/stacks/vitejs.svg';
-import Vitest from '../../assets/stacks/vitest.svg';
+import Vitest from '../../assets/tools/vitest.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import NoImage from '../../assets/projects/noimage.webp';
+import Azure from '../../assets/tools/azure.svg';
+import OpenAI from '../../assets/tools/openai.svg';
+import NextJS from '../../assets/stacks/nextjs.svg';
+import Firebase from '../../assets/stacks/firebase.svg';
+
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
@@ -36,8 +40,11 @@ const stackIcons = {
 	vitest: { src: Vitest, name: 'Vitest' },
 	bard: { src: Bard, name: 'Bard' },
 	gemini: { src: Gemini, name: 'Gemini' },
-	openai: { src: OpenAI, name: 'OpenAI' },
 	supabase: { src: Supabase, name: 'Supabase' },
+	azure: { src: Azure, name: 'Azure' },
+	openai: { src: OpenAI, name: 'OpenAI' },
+	nextjs: { src: NextJS, name: 'NextJS' },
+	firebase: { src: Firebase, name: 'Firebase' },
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
@@ -50,11 +57,11 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
 	return (
 		<motion.div
-			className='hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple md:w-1/2'
+			className='hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple'
 			initial={{ opacity: 0, y: '50px' }}
 			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
 			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
-			whileHover={{ rotate: desktopView ? 1 : 0, transition: { duration: 0.3, ease: 'easeInOut' } }}
+			whileHover={{ rotate: desktopView ? 1 : 0, transition: { duration: 0.1, ease: 'easeInOut' } }}
 		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}

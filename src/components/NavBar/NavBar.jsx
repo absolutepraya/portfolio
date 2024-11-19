@@ -38,7 +38,7 @@ const NavBar = () => {
 
 	return (
 		<motion.div
-			className='fixed top-8 z-20 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
+			className='fixed top-8 z-50 flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
 			initial={{ y: '-300px' }}
 			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
 		>
