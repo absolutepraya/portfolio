@@ -6,8 +6,8 @@ import DM2Calc from '../../assets/projects/dm2calc.webp';
 import ValentineLetter from '../../assets/projects/valentineletter.webp';
 import GusDur from '../../assets/projects/gusdur.webp';
 import Portfolio from '../../assets/projects/portfolio.webp';
-import DesaKedisan from '../../assets/projects/desakedisan.png';
-import NuSantap from '../../assets/projects/nusantap.png';
+import DesaKedisan from '../../assets/projects/desakedisan.webp';
+import NuSantap from '../../assets/projects/nusantap.webp';
 import { motion } from 'framer-motion';
 
 const Projects = () => {
