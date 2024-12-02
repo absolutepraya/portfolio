@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 
 const Line = () => {
 	const desktopView = DesktopView();

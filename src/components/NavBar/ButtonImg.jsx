@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import Arrow from '../../assets/elements/arrow.webp';
 import Laptop from '../../assets/creds/laptop.webp';
 import Flag from '../../assets/creds/flag.webp';
@@ -70,7 +70,7 @@ const ButtonImg = () => {
 					alt='Emoji'
 				/>
 				<div
-					className='h-full w-full cursor-pointer overflow-hidden rounded-2xl bg-white'
+					className='clickable h-full w-full overflow-hidden rounded-2xl bg-white'
 					onMouseEnter={() => hoverEmoji()}
 					onClick={() => changeEmoji()}
 					onMouseLeave={() => setHovered(false)}

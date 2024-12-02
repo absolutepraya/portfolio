@@ -1,5 +1,5 @@
 import TopBorder from './TopBorder';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import Pin from '../../assets/creds/pin.webp';
 import Hello from '../../assets/creds/hello.webp';
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
@@ -97,7 +97,7 @@ const Contact = () => {
 						)}
 						{desktopView && (
 							<div
-								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple clickable'
 								onClick={() => handleCopy()}
 								title='Copy my email address!'
 							>

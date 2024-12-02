@@ -1,6 +1,6 @@
 import Marquee from 'react-fast-marquee';
 import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconPrompt, IconApi } from '@tabler/icons-react';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 
 const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'API Integration and Automation', 'Quality Assurance', 'Penetration Testing', 'Prompt Engineering', 'Digital Forensics (DFIR)'];
 

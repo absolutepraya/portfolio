@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';

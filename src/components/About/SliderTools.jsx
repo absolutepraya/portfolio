@@ -15,7 +15,7 @@ import Vitest from '../../assets/tools/vitest.svg';
 import Jest from '../../assets/tools/jest.svg';
 import Selenium from '../../assets/tools/selenium.svg';
 import Tableau from '../../assets/tools/tableau.svg';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 
 
 const toolsList = [
@@ -52,7 +52,8 @@ const SliderTools = () => {
 			{toolsList.map((tool, index) => (
 				<div
 					key={index}
-					className='mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl hover:cursor-pointer md:mx-3 md:h-20 md:w-20'
+					// hover:cursor-pointer
+					className='small-clickable mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
 					onMouseEnter={() => setHoveredIndex(index)}
 					onMouseLeave={() => setHoveredIndex(null)}
 				>

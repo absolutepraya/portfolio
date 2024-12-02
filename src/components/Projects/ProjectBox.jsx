@@ -1,4 +1,4 @@
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import Bard from '../../assets/stacks/bard.svg';
 import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
@@ -52,16 +52,16 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
 	// If URL or GitHub is not provided, change the button to disabled
 	var urlVisibility, githubVisibility;
-	if (!url) urlVisibility = 'opacity-30 cursor-not-allowed';
-	if (!github) githubVisibility = 'opacity-30 cursor-not-allowed';
+	if (!url) urlVisibility = 'opacity-30';
+	if (!github) githubVisibility = 'opacity-30';
 
 	return (
 		<motion.div
-			className='hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple'
+			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple hover:shadow-glowblurpleextrasmall'
 			initial={{ opacity: 0, y: '50px' }}
 			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
 			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
-			whileHover={{ rotate: desktopView ? 1 : 0, transition: { duration: 0.1, ease: 'easeInOut' } }}
+			whileHover={{ scale: desktopView ? 1.02 : 0, transition: { duration: 0.05, ease: 'easeInOut' } }}
 		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
@@ -94,34 +94,52 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 						))}
 					</div>
 					<div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
-						<a
-							href={url}
-							target='_blank'
-							rel='noreferrer'
-							aria-label='Open deployed project URL'
-							title='Open deployed project URL'
-						>
-							<div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+						{url === '' ? (
+							<div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
 								<IconArrowUpRight
 									stroke={1.5}
 									size={desktopView ? 24 : 22}
 								/>
 							</div>
-						</a>
-						<a
-							href={github}
-							target='_blank'
-							rel='noreferrer'
-							aria-label='View project source code on GitHub'
-							title='View project source code on GitHub'
-						>
-							<div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+						) : (
+							<a
+								href={url}
+								target='_blank'
+								rel='noreferrer'
+								aria-label='Open deployed project URL'
+								title='Open deployed project URL'
+							>
+								<div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+									<IconArrowUpRight
+										stroke={1.5}
+										size={desktopView ? 24 : 22}
+									/>
+								</div>
+							</a>
+						)}
+						{github === '' ? (
+							<div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
 								<IconBrandGithub
 									stroke={1.5}
 									size={desktopView ? 24 : 22}
 								/>
 							</div>
-						</a>
+						) : (
+							<a
+								href={github}
+								target='_blank'
+								rel='noreferrer'
+								aria-label='View project source code on GitHub'
+								title='View project source code on GitHub'
+							>
+								<div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+									<IconBrandGithub
+										stroke={1.5}
+										size={desktopView ? 24 : 22}
+									/>
+								</div>
+							</a>
+						)}
 					</div>
 				</div>
 			</div>

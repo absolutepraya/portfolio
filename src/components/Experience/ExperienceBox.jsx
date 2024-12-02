@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
 
 const ExperienceBox = ({ title, org, logo, date, desc, url }) => {

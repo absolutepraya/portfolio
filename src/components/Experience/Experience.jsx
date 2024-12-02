@@ -2,7 +2,7 @@
 
 import Line from './Line';
 import ExperienceBox from './ExperienceBox';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import COMPFEST from '../../assets/orgs/compfest.svg';
 import RISTEK from '../../assets/orgs/ristek.svg';
 import Fasilkom from '../../assets/orgs/fasilkom.svg';

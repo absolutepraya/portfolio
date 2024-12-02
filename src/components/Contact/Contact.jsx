@@ -1,4 +1,4 @@
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import ContactBox from './ContactBox';
 import { motion } from 'framer-motion';
 

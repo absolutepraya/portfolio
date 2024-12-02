@@ -4,7 +4,7 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Copyright from './components/Copyright';
-import DesktopView from './DesktopView';
+import DesktopView from './lib/DesktopView';
 import Grid from './assets/elements/bg1.webp';
 import GridMobile from './assets/elements/bg2.webp';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
-import DesktopView from '../DesktopView';
+import DesktopView from '../lib/DesktopView';
 import { IconCopyright, IconBrandGithub, IconClock } from '@tabler/icons-react';
 
 const Copyright = () => {

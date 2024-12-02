@@ -1,5 +1,5 @@
 import ProjectBox from './ProjectBox';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 import GrabAuto from '../../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../../assets/projects/dm2calc.webp';
@@ -117,8 +117,10 @@ const Projects = () => {
 					date='01/2024'
 					subtitle="An interactive Valentine's Letter that allows user to customize and send it to their significant others. It features conversation-style messages and interactive elements such as “Yes” and “No”, enabling the receiver to “talk” to the sender."
 					stacks={['javascript']}
-					url='https://absolutepraya.github.io/valentine-letter/'
-					github='https://github.com/absolutepraya/valentine-letter'
+					// url='https://absolutepraya.github.io/valentine-letter/'
+					// github='https://github.com/absolutepraya/valentine-letter'
+					url=''
+					github=''
 				/>
 				<ProjectBox
 					image={GusDur}

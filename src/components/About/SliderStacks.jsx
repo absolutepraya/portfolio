@@ -16,7 +16,7 @@ import Flutter from '../../assets/stacks/flutter.svg';
 import Django from '../../assets/stacks/django.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
-import DesktopView from '../../DesktopView';
+import DesktopView from '../../lib/DesktopView';
 
 const stacksList = [
 	// { src: NodeJS, alt: 'NodeJS' },
@@ -53,7 +53,8 @@ const SliderStacks = () => {
 			{stacksList.map((stack, index) => (
 				<div
 					key={index}
-					className='relative mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl hover:cursor-pointer md:mx-3 md:h-20 md:w-20'
+					// hover:cursor-pointer
+					className='small-clickable relative mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
 					onMouseEnter={() => setHoveredIndex(index)}
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
