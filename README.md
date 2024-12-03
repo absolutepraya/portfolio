@@ -6,11 +6,11 @@ Current website analysis score with [PageSpeed](https://pagespeed.web.dev/analys
 
 Desktop:
 
-![PageSpeed Desktop](/src/assets/readme/pagespeed_desktop.png)
+![PageSpeed Desktop](/src/assets/readme/pagespeed_desktop.webp)
 
 Mobile:
 
-![PageSpeed Mobile](/src/assets/readme/pagespeed_mobile.png)
+![PageSpeed Mobile](/src/assets/readme/pagespeed_mobile.webp)
 
 </div>
 
