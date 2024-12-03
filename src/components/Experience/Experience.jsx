@@ -10,6 +10,7 @@ import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 import GDG from '../../assets/orgs/gdg.svg';
 import { motion } from 'framer-motion';
+import { GlobeDemo } from './GlobeSection';
 
 const Experience = () => {
 	const desktopView = DesktopView();
@@ -40,6 +41,9 @@ const Experience = () => {
 					/>
 				</div>
 			</div>
+
+			{desktopView && <GlobeDemo />}
+
 			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
 				<ExperienceBox
 					title='Software Engineering'
