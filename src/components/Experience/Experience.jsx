@@ -42,9 +42,9 @@ const Experience = () => {
 				</div>
 			</div>
 
-			{desktopView && <GlobeDemo />}
+			<GlobeDemo />
 
-			<div className='mt-24 flex flex-col items-center space-y-4 md:mt-32'>
+			<div className='z-50 flex flex-col items-center space-y-4 md:mt-[6rem]'>
 				<ExperienceBox
 					title='Software Engineering'
 					org='GDGoC Universitas Indonesia'

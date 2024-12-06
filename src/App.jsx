@@ -16,7 +16,7 @@ const App = () => {
 			<NavBar desktopView={desktopView} />
 			<img
 				src={desktopView ? Grid : GridMobile}
-				className='absolute -top-[44rem] left-1/2 z-0 w-[88rem] -translate-x-1/2 opacity-80 md:-top-80 md:opacity-80'
+				className='absolute -top-[41rem] left-1/2 z-0 w-[88rem] -translate-x-1/2 opacity-50 md:scale-100 scale-[120%] md:-top-80 md:opacity-80'
 				alt='Grid background'
 			/>
 			<About desktopView={desktopView} />

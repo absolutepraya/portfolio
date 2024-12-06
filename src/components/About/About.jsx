@@ -57,9 +57,11 @@ const About = () => {
 					viewport={{ once: true }}
 				>
 					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF Forensics Player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
+					<br />
+					<span className='text-[0]'>X</span>
 				</motion.p>
 			</div>
-			<div className='mt-16 flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
+			<div className='flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<motion.div
 					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[40%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
 					initial={{ y: '200px' }}

@@ -392,29 +392,13 @@ export function GlobeDemo() {
 	];
 
 	return (
-		<div className='relative -mt-12 flex w-full flex-row items-center justify-center md:h-auto h-[40rem] mb-12'>
+		<div className='relative mt-12 flex h-[30rem] w-full flex-row items-center justify-center md:h-auto'>
 			<div className='relative mx-auto flex h-full w-full max-w-7xl overflow-hidden md:h-[45rem]'>
-				{/* <motion.div
-					initial={{
-						opacity: 0,
-						y: 20,
-					}}
-					animate={{
-						opacity: 1,
-						y: 0,
-					}}
-					transition={{
-						duration: 1,
-					}}
-					className='div'
-				>
-					<h2 className='text-center text-xl font-bold text-black md:text-4xl dark:text-white'>We sell soap worldwide</h2>
-					<p className='mx-auto mt-2 max-w-md text-center text-base font-normal text-neutral-700 md:text-lg dark:text-neutral-200'>This globe is interactive and customizable. Have fun with it, and don&apos;t forget to share it. :)</p>
-				</motion.div> */}
-				<div className='pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-customblack' />
-				<div className='absolute -bottom-20 z-10 h-72 w-full md:h-full'>
+				<div className='pointer-events-none absolute inset-x-0 bottom-16 md:bottom-12 z-40 md:h-40 h-32 w-full select-none bg-gradient-to-b from-transparent to-customblack' />
+				<div className='pointer-events-none absolute inset-x-0 bottom-0 z-40 md:h-12 h-16 w-full select-none bg-customblack' />
+				<div className='absolute z-10 h-[28rem] w-full md:h-full'>
 					{/* Wrap the World component with Suspense */}
-					<Suspense fallback={<div className='flex w-full justify-center text-customwhite text-opacity-70'>Loading Globe...</div>}>
+					<Suspense fallback={<div className='flex w-full justify-center text-customwhite text-opacity-0'>Mapping the globe, one pixel at a time...</div>}>
 						<World
 							data={sampleArcs}
 							globeConfig={globeConfig}
