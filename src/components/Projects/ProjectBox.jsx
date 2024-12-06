@@ -90,6 +90,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 								src={stackIcons[stack].src}
 								alt={stackIcons[stack].name}
 								className={desktopView ? 'h-5 w-5 object-contain' : 'h-[4vw] w-[4vw] object-contain'}
+								draggable='false'
 							/>
 						))}
 					</div>

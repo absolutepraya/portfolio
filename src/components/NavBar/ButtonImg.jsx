@@ -68,9 +68,10 @@ const ButtonImg = () => {
 					src={currentEmoji}
 					className={`absolute -bottom-5 -right-6 z-20 ${hovered ? '-rotate-[4deg] scale-[50%]' : 'rotate-12 scale-[35%]'} transition duration-200 ease-in-out`}
 					alt='Emoji'
+					draggable='false'
 				/>
 				<div
-					className='clickable h-full w-full overflow-hidden rounded-2xl bg-white'
+					className='clickable h-full w-full cursor-help overflow-hidden rounded-2xl bg-white'
 					onMouseEnter={() => hoverEmoji()}
 					onClick={() => changeEmoji()}
 					onMouseLeave={() => setHovered(false)}
@@ -79,8 +80,9 @@ const ButtonImg = () => {
 				>
 					<img
 						src={PFP2}
-						className={`scale-[80%] grayscale filter transition duration-200 ease-in-out ${hovered ? 'filter-none' : ''}`}
+						className={`scale-[80%] select-none grayscale filter transition duration-200 ease-in-out ${hovered ? 'filter-none' : ''}`}
 						alt='Profile picture'
+						draggable='false'
 					/>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ import SliderTools from './SliderTools';
 import DesktopView from '../../lib/DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import AnimatedCursor from 'react-animated-cursor';
+// import AnimatedCursor from 'react-animated-cursor';
 
 const About = () => {
 	const desktopView = DesktopView();
@@ -14,7 +14,7 @@ const About = () => {
 			className='relative !mt-40 flex w-[90vw] flex-col items-center md:w-[68rem]'
 			id='aboutsec'
 		>
-			{desktopView && (
+			{/* {desktopView && (
 				<AnimatedCursor
 					innerSize={8}
 					outerSize={25}
@@ -33,7 +33,7 @@ const About = () => {
 						// mixBlendMode: 'exclusion',
 					}}
 				/>
-			)}
+			)} */}
 			<div
 				id='about'
 				className='absolute -top-40'

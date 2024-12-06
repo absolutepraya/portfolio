@@ -65,11 +65,13 @@ const Contact = () => {
 						src={Pin}
 						alt='Pin'
 						className='absolute -right-8 -top-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
+						draggable='false'
 					/>
 					<img
 						src={Hello}
 						alt='Hello'
 						className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
+						draggable='false'
 					/>
 					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
 					<div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>

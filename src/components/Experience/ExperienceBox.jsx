@@ -66,6 +66,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 								src={logo}
 								className={`h-5 w-5 ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
 								alt={org}
+								draggable='false'
 							/>
 							<a
 								className={`w-45% relative font-inter font-semibold ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
@@ -84,6 +85,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 							src={logo}
 							className={`h-5 w-5 ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
 							alt={org}
+							draggable='false'
 						/>
 					)}
 					<p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} transition-all duration-[380ms] ease-in-out`}>{date}</p>

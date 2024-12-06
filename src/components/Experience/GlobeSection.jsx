@@ -392,7 +392,7 @@ export function GlobeDemo() {
 	];
 
 	return (
-		<div className='relative mt-12 flex h-[30rem] w-full flex-row items-center justify-center md:h-auto'>
+		<div className='relative mt-12 flex h-[30rem] w-full flex-row items-center justify-center md:h-auto cursor-move'>
 			<div className='relative mx-auto flex h-full w-full max-w-7xl overflow-hidden md:h-[45rem]'>
 				<div className='pointer-events-none absolute inset-x-0 bottom-16 md:bottom-12 z-40 md:h-40 h-32 w-full select-none bg-gradient-to-b from-transparent to-customblack' />
 				<div className='pointer-events-none absolute inset-x-0 bottom-0 z-40 md:h-12 h-16 w-full select-none bg-customblack' />

@@ -17,7 +17,6 @@ import Selenium from '../../assets/tools/selenium.svg';
 import Tableau from '../../assets/tools/tableau.svg';
 import DesktopView from '../../lib/DesktopView';
 
-
 const toolsList = [
 	{ src: Azure, alt: 'Azure' },
 	{ src: Vercel, alt: 'Vercel' },
@@ -52,8 +51,7 @@ const SliderTools = () => {
 			{toolsList.map((tool, index) => (
 				<div
 					key={index}
-					// hover:cursor-pointer
-					className='small-clickable mx-2 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
+					className='small-clickable mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
 					onMouseEnter={() => setHoveredIndex(index)}
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
@@ -62,7 +60,8 @@ const SliderTools = () => {
 					<img
 						src={tool.src}
 						alt={tool.alt}
-						className={`h-full w-full object-contain transition-all duration-200 ${hoveredIndex === index ? 'blur-sm' : ''}`}
+						className={`h-full w-full select-none object-contain transition-all duration-200 ${hoveredIndex === index ? 'blur-sm' : ''}`}
+						draggable='false'
 					/>
 				</div>
 			))}
