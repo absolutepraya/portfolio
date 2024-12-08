@@ -4,7 +4,7 @@ import SliderTools from './SliderTools';
 import DesktopView from '../../lib/DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-// import AnimatedCursor from 'react-animated-cursor';
+import AnimatedCursor from 'react-animated-cursor';
 
 const About = () => {
 	const desktopView = DesktopView();
@@ -14,26 +14,28 @@ const About = () => {
 			className='relative !mt-40 flex w-[90vw] flex-col items-center md:w-[68rem]'
 			id='aboutsec'
 		>
-			{/* {desktopView && (
+			{desktopView && (
 				<AnimatedCursor
-					innerSize={8}
+					innerSize={0}
 					outerSize={25}
-					innerScale={0.7}
+					innerScale={0}
 					outerScale={1.8}
-					outerAlpha={0}
-					hasBlendMode={true}
+					showSystemCursor={true}
+					trailingSpeed={10}
+					// outerAlpha={0}
+					// hasBlendMode={true}
 					clickables={['a', 'button', '.clickable', '.small-clickable']}
-					innerStyle={{
-						backgroundColor: 'rgba(255, 255, 255, 1)',
-						boxShadow: '0px 0px 6px 2px rgba(0,0,0,0.2)',
-						// mixBlendMode: 'exclusion',
-					}}
+					// innerStyle={{
+					// 	backgroundColor: 'rgba(255, 255, 255, 1)',
+					// 	boxShadow: '0px 0px 6px 2px rgba(0,0,0,0.2)',
+					// 	// mixBlendMode: 'exclusion',
+					// }}
 					outerStyle={{
 						backgroundColor: 'rgba(255, 255, 255, 0.4)',
 						// mixBlendMode: 'exclusion',
 					}}
 				/>
-			)} */}
+			)}
 			<div
 				id='about'
 				className='absolute -top-40'
