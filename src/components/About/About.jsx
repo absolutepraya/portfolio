@@ -56,7 +56,7 @@ const About = () => {
 					animate={{ opacity: 1, transition: { duration: 1, ease: 'easeOut', delay: 1.3 } }}
 					viewport={{ once: true }}
 				>
-					An excellent <i>Full Stack Engineer</i>, a dynamic <i>CTF Forensics Player</i>, and to the core, a <i>problem solver</i>, crafting solutions from the lively city of Jakarta, Indonesia.
+					An excellent <i>Software Architect</i>,{desktopView && <br />} a versatile <i>Full-Stack Engineer</i>,{desktopView && <br />} and to the core, a <i>problem solver</i>, crafting innovative IT solutions from the lively city of Jakarta, Indonesia.
 					<br />
 					<span className='text-[0]'>X</span>
 				</motion.p>
