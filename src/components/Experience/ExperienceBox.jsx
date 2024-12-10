@@ -88,7 +88,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url }) => {
 							draggable='false'
 						/>
 					)}
-					<p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} transition-all duration-[380ms] ease-in-out`}>{date}</p>
+					<p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} transition-all font-jetbrainsmono duration-[380ms] ease-in-out`}>{date}</p>
 				</div>
 			</div>
 			<p className={`z-20 text-center md:text-lg ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
