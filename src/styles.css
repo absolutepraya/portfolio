@@ -30,6 +30,13 @@
 	font-weight: 400;
 	font-style: italic;
 }
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/src/assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+	font-display: swap;
+	font-weight: 100 900;
+	font-style: normal;
+}
 
 html,
 body {
@@ -38,7 +45,7 @@ body {
 }
 
 .shine-through {
-	padding: 0 34px;
+	padding: 0 37px;
 	color: #ffffff;
 	background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);
 	background-position: 0;
@@ -57,10 +64,10 @@ body {
 
 @keyframes shine {
 	0% {
-		background-position: 0;
+		background-position: -20px;
 	}
 	60% {
-		background-position: 240px;
+		background-position: 120px;
 	}
 	100% {
 		background-position: 240px;

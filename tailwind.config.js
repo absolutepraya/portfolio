@@ -5,6 +5,7 @@ export const theme = {
 		fontFamily: {
 			inter: ['Inter', 'sans-serif'],
 			instrument: ['Instrument Serif', 'serif'],
+			jetbrainsmono: ['JetBrains Mono', 'monospace'],
 		},
 		colors: {
 			blurple: '#3643FC',
@@ -20,6 +21,22 @@ export const theme = {
 			glowblurpleextrasmall: '0px 0px 40px -7px rgba(54,67,252,0.9)',
 			glowcustomblack: '-41px 30px 35px 23px rgba(13,13,13,1)',
 			glowcustomblacksmall: '-56px -1px 40px -8px rgba(13,13,13,1)',
+		},
+		animation: {
+			shine: "shine var(--duration) infinite linear",
+		},
+		keyframes: {
+			shine: {
+				"0%": {
+					"background-position": "0% 0%",
+				},
+				"50%": {
+					"background-position": "100% 100%",
+				},
+				to: {
+					"background-position": "0% 0%",
+				},
+			},
 		},
 	},
 };
