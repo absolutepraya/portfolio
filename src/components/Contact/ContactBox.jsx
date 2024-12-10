@@ -31,7 +31,7 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p className=''>a project</p>
+						<p>projects</p>
 					</div>
 					<div className='flex items-center space-x-3 pl-6 md:pl-12'>
 						<IconPointer
@@ -39,7 +39,7 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p className=''>a collab</p>
+						<p>collabs</p>
 					</div>
 					<div className='flex items-center space-x-3 pl-12 md:pl-24'>
 						<IconPointer
@@ -47,7 +47,7 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p className=''>CTFs</p>
+						<p>CTFs</p>
 					</div>
 					<div className='flex items-center space-x-3 pl-[4.5rem] md:pl-36'>
 						<IconPointer
@@ -55,7 +55,7 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p className=''>hackathons</p>
+						<p>hackathons</p>
 					</div>
 				</div>
 			</div>
@@ -99,7 +99,7 @@ const Contact = () => {
 						)}
 						{desktopView && (
 							<div
-								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple clickable'
+								className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								onClick={() => handleCopy()}
 								title='Copy my email address!'
 							>
