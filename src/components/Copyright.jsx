@@ -18,17 +18,17 @@ const Copyright = () => {
 	}, []);
 
 	return (
-		<div className='flex w-full flex-col items-center justify-between space-y-2 border-t border-customgray bg-customgray bg-opacity-40 py-4 text-xs md:h-16 md:flex-row md:space-y-0 md:px-32 md:py-0 md:text-sm'>
-			<div className='flex flex-row items-center justify-start space-x-1 md:w-1/3'>
+		<div className='flex font-jetbrainsmono w-full flex-col items-center justify-between space-y-2 border-t border-customgray bg-customgray bg-opacity-40 py-4 text-xs md:h-16 md:flex-row md:space-y-0 md:px-32 md:py-0 md:text-sm'>
+			<div className='flex flex-row items-center justify-start space-x-2 md:w-1/3'>
 				<IconCopyright size={desktopView ? 18 : 14} />
 				<p>2024 Daffa Abhipraya — All Rights Reserved.</p>
 			</div>
-			<div className='flex flex-row items-center justify-center space-x-1 md:w-1/3'>
+			<div className='flex flex-row items-center justify-center space-x-2 md:w-1/3'>
 				<p>Jakarta, Indonesia</p>
 				<IconClock size={desktopView ? 18 : 14} />
 				<p>{currentTime}</p>
 			</div>
-			<div className='flex flex-row items-center justify-end space-x-1 md:w-1/3'>
+			<div className='flex flex-row items-center justify-end space-x-2 md:w-1/3'>
 				<p>Designed and built by me</p>
 				<IconBrandGithub size={desktopView ? 18 : 14} />
 				<a href='https://github.com/absolutepraya/portfolio'>

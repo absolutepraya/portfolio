@@ -51,7 +51,7 @@ const ButtonImg = () => {
 
 	return (
 		<div>
-			<div className='relative flex h-14 w-14 items-center justify-center rounded-2xl border border-[#424242] shadow-md hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'>
+			<div className='relative flex h-14 w-14 items-center justify-center rounded-2xl border border-[#424242] shadow-xl hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'>
 				{desktopView && (
 					<div className={`absolute -bottom-16 -left-6 flex flex-col space-y-1 transition-all duration-[1000ms] ease-out ${showMessage ? 'opacity-100' : 'opacity-0'}`}>
 						<img

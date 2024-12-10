@@ -2,7 +2,7 @@ import Marquee from 'react-fast-marquee';
 import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconPrompt, IconApi } from '@tabler/icons-react';
 import DesktopView from '../../lib/DesktopView';
 
-const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'API Integration and Automation', 'Quality Assurance', 'Penetration Testing', 'Prompt Engineering', 'Digital Forensics (DFIR)'];
+const skills = ['Front-End Development', 'Back-End Development', 'Back-End Testing', 'API and Automation', 'Quality Assurance', 'Penetration Testing', 'Prompt Engineering', 'Digital Forensics'];
 
 //  'Cyber Threat Intelligence', 'Risk Management',
 
@@ -32,7 +32,7 @@ const SliderSkills = () => {
 					>
 						<div className='absolute h-[144px] w-[192px] rounded-xl border-2 border-b-0 border-r-0 border-[#2a2a2a]' />
 						<IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
-						<p className='z-20 text-center text-xl'>{skill}</p>
+						<p className='z-20 text-center text-lg font-jetbrainsmono'>{skill}</p>
 					</div>
 				);
 			})}

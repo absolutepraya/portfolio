@@ -7,7 +7,7 @@ const World = lazy(() => import('./Globe').then((m) => ({ default: m.World })));
 export function GlobeDemo() {
 	const globeConfig = {
 		pointSize: 4,
-		globeColor: '#1c238a',
+		globeColor: '#191f75',
 		showAtmosphere: true,
 		atmosphereColor: '#FFFFFF',
 		atmosphereAltitude: 0.1,

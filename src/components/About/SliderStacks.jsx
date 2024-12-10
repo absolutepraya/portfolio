@@ -58,7 +58,7 @@ const SliderStacks = () => {
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
 					<div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-					{hoveredIndex === index && <div className='absolute z-30 rounded bg-black px-1 py-1 text-xs text-[#cccccc]'>{stack.alt}</div>}
+					{hoveredIndex === index && <div className='absolute z-30 rounded bg-black px-1 py-1 font-jetbrainsmono text-xs text-[#cccccc]'>{stack.alt}</div>}
 					<img
 						src={stack.src}
 						alt={stack.alt}

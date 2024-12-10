@@ -2,15 +2,21 @@ import TopBorder from './TopBorder';
 import DesktopView from '../../lib/DesktopView';
 import Pin from '../../assets/creds/pin.webp';
 import Hello from '../../assets/creds/hello.webp';
-import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify } from '@tabler/icons-react';
+import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify, IconCheck } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const Contact = () => {
 	const desktopView = DesktopView();
+	const [copied, setCopied] = useState(false);
 
 	const handleCopy = () => {
 		const textToCopy = 'daffaabhiprayaputra@gmail.com';
 		navigator.clipboard.writeText(textToCopy);
+		setCopied(true);
+		setTimeout(() => {
+			setCopied(false);
+		}, 2000);
 	};
 
 	return (
@@ -75,7 +81,7 @@ const Contact = () => {
 					/>
 					<p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
 					<div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
-						<div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 hover:border-blurple hover:text-blurple md:py-0'>
+						<div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 md:py-0'>
 							<IconMail
 								size={desktopView ? 20 : 16}
 								stroke={2}
@@ -103,10 +109,17 @@ const Contact = () => {
 								onClick={() => handleCopy()}
 								title='Copy my email address!'
 							>
-								<IconCopy
-									size={20}
-									stroke={2}
-								/>
+								{copied ? (
+									<IconCheck
+										size={desktopView ? 20 : 16}
+										stroke={2}
+									/>
+								) : (
+									<IconCopy
+										size={desktopView ? 20 : 16}
+										stroke={2}
+									/>
+								)}
 							</div>
 						)}
 					</div>
@@ -129,7 +142,7 @@ const Contact = () => {
 					</a>
 					<div className='!mt-6 h-0.5 w-full bg-customgray' />
 					<p className=''>Follow my other socials!</p>
-					<div className='flex w-full flex-col space-y-2 md:flex-row md:justify-between md:space-y-0'>
+					<div className='flex w-full flex-col space-y-2 md:flex-row md:justify-between md:space-y-0 font-jetbrainsmono text-[0.850rem]'>
 						<a
 							href='https://github.com/absolutepraya'
 							target='_blank'
@@ -161,7 +174,7 @@ const Contact = () => {
 							</div>
 						</a>
 						<a
-							href='https://open.spotify.com/user/daffaabhiprayaputra?si=b80aa3237c7440ed'
+							href='https://open.spotify.com/user/daffaabhiprayaputra'
 							target='_blank'
 							rel='noreferrer'
 							aria-label='Daffa Abhipraya on Spotify'

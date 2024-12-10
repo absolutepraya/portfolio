@@ -5,6 +5,8 @@ import DesktopView from '../../lib/DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import AnimatedCursor from 'react-animated-cursor';
+import BlurInDesc from './BlurInDesc';
+import HoverBorderGradient from '../AceternityUI/HoverBorderGradient';
 
 const About = () => {
 	const desktopView = DesktopView();
@@ -41,33 +43,32 @@ const About = () => {
 				className='absolute -top-40'
 			/>
 			<motion.div
-				className='shining-border flex flex-row items-center -space-x-[1rem] rounded-full border border-customgray bg-[#131313] py-2 pl-6 shadow-lg transition-all duration-300 ease-in-out'
 				initial={{ scale: 0 }}
-				animate={{ scale: desktopView ? 1 : 0.95, transition: { duration: 0.5, ease: 'easeInOut', delay: 2 } }}
+				animate={{
+					scale: desktopView ? 1 : 0.95,
+					transition: { duration: 0.5, ease: 'easeInOut', delay: 2.9 },
+				}}
 			>
-				<span className='relative flex h-4 w-4 items-center justify-center'>
-					<span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
-					<span className='relative inline-flex h-3 w-3 rounded-full bg-blurple'></span>
-				</span>
-				<p className='shine-through !-mr-2 text-lg transition-all ease-in-out'>Open for new opportunities</p>
-			</motion.div>
-			<div className='mt-12 md:w-[53rem]'>
-				<motion.p
-					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.4rem] leading-[3.2rem] text-transparent md:text-7xl'
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1, transition: { duration: 1, ease: 'easeOut', delay: 1.3 } }}
-					viewport={{ once: true }}
+				<HoverBorderGradient
+					containerClassName='rounded-full'
+					as='button'
+					className='flex items-center border border-customgray bg-[#131313]'
 				>
-					An excellent <i>Software Architect</i>,{desktopView && <br />} a versatile <i>Full-Stack Engineer</i>,{desktopView && <br />} and to the core, a <i>problem solver</i>, crafting innovative IT solutions from the lively city of Jakarta, Indonesia.
-					<br />
-					<span className='text-[0]'>X</span>
-				</motion.p>
+					<span className='relative !ml-6 flex h-4 w-4 items-center justify-center'>
+						<span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
+						<span className='relative inline-flex h-3 w-3 rounded-full bg-blurple'></span>
+					</span>
+					<p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Open for new opportunities</p>
+				</HoverBorderGradient>
+			</motion.div>
+			<div className='mt-12 w-[23rem] md:w-[53rem]'>
+				<BlurInDesc />
 			</div>
 			<div className='flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
 				<motion.div
 					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[40%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
 					initial={{ y: '200px' }}
-					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
+					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.75 } }}
 				>
 					<div className='relative flex items-center justify-center md:h-[11.5rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
@@ -82,17 +83,17 @@ const About = () => {
 								stroke={1.5}
 								color='#fff'
 							/>
-							<p className='md:text-md text-sm'>My skillsets</p>
+							<p className='md:text-md font-jetbrainsmono text-sm'>My skillsets</p>
 						</div>
 						<p className='text-xl md:text-2xl'>
-							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Development</b>, regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i> and <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>CTF</i> competitions.
+							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Full-Stack Development</b>, regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i> and <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>CTF</i> competitions.
 						</p>
 					</div>
 				</motion.div>
 				<motion.div
 					className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[39.3rem] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
 					initial={{ y: '200px' }}
-					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.2 } }}
+					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.75 } }}
 				>
 					<div className='relative flex w-full flex-col gap-y-5 md:space-y-[0.24rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
@@ -107,7 +108,7 @@ const About = () => {
 								size={16}
 								stroke={1.5}
 							/>
-							<p className='md:text-md text-sm'>My tech stack & tools</p>
+							<p className='md:text-md font-jetbrainsmono text-sm'>My tech stack & tools</p>
 						</div>
 						<p className='text-xl md:text-2xl'>
 							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.

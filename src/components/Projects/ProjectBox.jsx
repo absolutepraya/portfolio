@@ -77,7 +77,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							<p className='text-xs text-blurple md:text-sm'>{type}</p>
 						</div>
 					</div>
-					<p className='md:text-md mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+					<p className='md:text-md mt-[6px] text-end text-sm font-extrabold font-jetbrainsmono opacity-70 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
