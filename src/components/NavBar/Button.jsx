@@ -12,7 +12,7 @@ const Button = ({ icon = null, text, link, isActive }) => {
 			title={'Scroll to ' + text}
 		>
 			<div
-				className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border-l border-t border-[#424242] shadow-xl transition-all hover:scale-105 ${isActive ? 'border-blurple border-t-0 border-l-0 bg-blurple bg-opacity-85 active:bg-opacity-50' : 'border-[#424242] bg-[#3f3f3f] bg-opacity-40 hover:bg-blurple hover:bg-opacity-40 active:bg-opacity-20'}`}
+				className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border-l border-t border-[#424242]/40 shadow-xl transition-all hover:scale-105 ${isActive ? 'border-blurple border-t-0 border-l-0 bg-blurple bg-opacity-85 active:bg-opacity-50' : 'border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 hover:bg-blurple hover:bg-opacity-40 active:bg-opacity-20'}`}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 			>

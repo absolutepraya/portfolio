@@ -4,7 +4,6 @@ import Button from './Button';
 import ButtonImg from './ButtonImg';
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import HoverBorderGradient from '../AceternityUI/HoverBorderGradient';
 
 const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
@@ -39,7 +38,7 @@ const NavBar = () => {
 
 	return (
 		<motion.div
-			className='fixed top-8 !z-[100] flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
+			className='fixed top-8 !z-[100] flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
 			initial={{ y: '-300px' }}
 			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 1 } }}
 		>
@@ -83,7 +82,7 @@ const NavBar = () => {
 				{desktopView && (
 					<a
 						href='https://www.linkedin.com/in/daffaabhipraya/'
-						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242] bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105 hover:bg-customwhite hover:text-customblack'
+						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105 hover:bg-customwhite hover:text-customblack'
 						aria-label='Reach me out on LinkedIn!'
 						title='Reach me out on LinkedIn!'
 					>
