@@ -22,7 +22,7 @@ import NextJS from '../../assets/stacks/nextjs.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
 
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import BlurFade from '../MagicUI/BlurFade';
 
 const stackIcons = {
 	docker: { src: Docker, name: 'Docker' },
@@ -56,12 +56,10 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	if (!github) githubVisibility = 'opacity-30';
 
 	return (
-		<motion.div
+		<BlurFade
 			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple hover:shadow-glowblurpleextrasmall'
-			initial={{ opacity: 0, y: '50px' }}
-			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
-			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
-			whileHover={{ scale: desktopView ? 1.02 : 0, transition: { duration: 0.05, ease: 'easeInOut' } }}
+			delay={0.25 + 0.05}
+			inView
 		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
 				{/* Aspect ratio 10:7 */}
@@ -144,7 +142,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</BlurFade>
 	);
 };
 
