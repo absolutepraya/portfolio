@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import DesktopView from '../../lib/DesktopView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
-import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin } from '@tabler/icons-react';
+import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
 	const desktopView = DesktopView();
+	const [isHover, setIsHover] = useState(false);
 
 	useEffect(() => {
 		const sections = document.querySelectorAll('section');
@@ -42,7 +43,7 @@ const NavBar = () => {
 			initial={{ y: '-300px' }}
 			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 1 } }}
 		>
-			<div className='font-jetbrainsmono flex flex-row items-center space-x-4 md:w-1/3'>
+			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono md:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (
 					<div className='flex flex-col justify-start'>
@@ -82,17 +83,26 @@ const NavBar = () => {
 				{desktopView && (
 					<a
 						href='https://www.linkedin.com/in/daffaabhipraya/'
-						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105 hover:bg-customwhite hover:text-customblack'
+						className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105'
 						aria-label='Reach me out on LinkedIn!'
 						title='Reach me out on LinkedIn!'
+						onMouseEnter={() => setIsHover(true)}
+						onMouseLeave={() => setIsHover(false)}
 					>
-						{/* TODO: Make the LinkedIn icon go up, going away, replaced by IconSend */}
 						<p className='text text-end font-semibold leading-4'>Reach out</p>
-						<div>
-							<IconBrandLinkedin
-								size={28}
-								stroke={2}
-							/>
+						<div className='relative h-[20px] w-[20px] overflow-hidden !mr-1'>
+							<div className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}>
+								<IconBrandLinkedin
+									size={20}
+									stroke={2}
+								/>
+							</div>
+							<div className={`absolute ${isHover ? 'translate-y-0' : 'translate-y-40'} transition-all duration-200`}>
+								<IconSend
+									size={20}
+									stroke={2}
+								/>
+							</div>
 						</div>
 					</a>
 				)}
