@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 // Lazy load the World component
 const World = lazy(() => import('./Globe').then((m) => ({ default: m.World })));
