@@ -11,7 +11,7 @@ const Contact = () => {
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = () => {
-		const textToCopy = 'daffaabhiprayaputra@gmail.com';
+		const textToCopy = 'daffa@abhipraya.dev';
 		navigator.clipboard.writeText(textToCopy);
 		setCopied(true);
 		setTimeout(() => {
@@ -86,12 +86,12 @@ const Contact = () => {
 								size={desktopView ? 20 : 16}
 								stroke={2}
 							/>
-							<p className='break-all text-sm font-semibold'>daffaabhiprayaputra@gmail.com</p>
+							<p className='break-all text-sm font-semibold font-jetbrainsmono tracking-wider'>daffa@abhipraya.dev</p>
 						</div>
 						{desktopView && (
 							<a
 								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
-								href='mailto:daffaabhiprayaputra@gmail.com'
+								href='mailto:daffa@abhipraya.dev'
 								target='_blank'
 								rel='noreferrer'
 								aria-label='Send me an email!'

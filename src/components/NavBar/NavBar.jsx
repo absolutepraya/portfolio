@@ -43,7 +43,7 @@ const NavBar = () => {
 			initial={{ y: '-300px' }}
 			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 1 } }}
 		>
-			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono md:w-1/3'>
+			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight md:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (
 					<div className='flex flex-col justify-start'>
