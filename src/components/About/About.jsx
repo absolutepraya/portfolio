@@ -4,7 +4,7 @@ import SliderTools from './SliderTools';
 import DesktopView from '../../lib/DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import AnimatedCursor from 'react-animated-cursor';
+// import AnimatedCursor from 'react-animated-cursor';
 import BlurInDesc from './BlurInDesc';
 import HoverBorderGradient from '../AceternityUI/HoverBorderGradient';
 
@@ -16,7 +16,7 @@ const About = () => {
 			className='relative !mt-40 flex w-[90vw] flex-col items-center md:w-[68rem]'
 			id='aboutsec'
 		>
-			{desktopView && (
+			{/* {desktopView && (
 				<AnimatedCursor
 					innerSize={0}
 					outerSize={25}
@@ -37,7 +37,7 @@ const About = () => {
 						// mixBlendMode: 'exclusion',
 					}}
 				/>
-			)}
+			)} */}
 			<div
 				id='about'
 				className='absolute -top-40'
