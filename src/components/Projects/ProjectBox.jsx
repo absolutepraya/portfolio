@@ -20,9 +20,10 @@ import Azure from '../../assets/tools/azure.svg';
 import OpenAI from '../../assets/tools/openai.svg';
 import NextJS from '../../assets/stacks/nextjs.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
-
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../MagicUI/BlurFade';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const stackIcons = {
 	docker: { src: Docker, name: 'Docker' },
@@ -49,6 +50,7 @@ const stackIcons = {
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
 	const desktopView = DesktopView();
+	const [hovered, setHovered] = useState('');
 
 	// If URL or GitHub is not provided, change the button to disabled
 	var urlVisibility, githubVisibility;
@@ -57,7 +59,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
 	return (
 		<BlurFade
-			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 hover:border-blurple hover:shadow-glowblurpleextrasmall'
+			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
 			delay={0.25 + 0.05}
 			inView
 		>
@@ -77,19 +79,38 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 							<p className='text-xs text-blurple md:text-sm'>{type}</p>
 						</div>
 					</div>
-					<p className='md:text-md mt-[6px] text-end text-sm font-extrabold font-jetbrainsmono opacity-70 md:mt-[10px]'>{date}</p>
+					<p className='md:text-md mt-[6px] text-end font-jetbrainsmono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
 					<div className='flex w-fit flex-row space-x-2 rounded md:space-x-3'>
 						{stacks.map((stack, index) => (
-							<img
+							<motion.div
 								key={index}
-								src={stackIcons[stack].src}
-								alt={stackIcons[stack].name}
-								className={desktopView ? 'h-5 w-5 object-contain' : 'h-[4vw] w-[4vw] object-contain'}
-								draggable='false'
-							/>
+								className='relative hover:cursor-pointer'
+								onHoverStart={() => setHovered(stack)}
+								onHoverEnd={() => setHovered('')}
+							>
+								<AnimatePresence>
+									{hovered === stack && (
+										<motion.div
+											initial={{ opacity: 0, y: 3 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 3 }}
+											transition={{ duration: 0.15, ease: 'easeInOut' }}
+											className='absolute -bottom-[32px] rounded border-[0.5px] bg-black px-[6px] py-[3px] font-jetbrainsmono text-xs'
+										>
+											<p>{stackIcons[stack].name}</p>
+										</motion.div>
+									)}
+								</AnimatePresence>
+								<img
+									src={stackIcons[stack].src}
+									alt={stackIcons[stack].name}
+									className={desktopView ? 'h-5 w-5 object-contain' : 'h-[4vw] w-[4vw] object-contain'}
+									draggable='false'
+								/>
+							</motion.div>
 						))}
 					</div>
 					<div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
