@@ -42,7 +42,10 @@ const Experience = () => {
 				</div>
 			</div>
 
-			{/* <GlobeDemo /> */}
+			{/* Solve performance issue for now, only show the globe on mobile */}
+			{!desktopView && (
+				<GlobeDemo />
+			)}
 
 			<div className='z-50 flex flex-col items-center space-y-4 md:mt-[6rem]'>
 				<ExperienceBox
