@@ -1,6 +1,6 @@
-import SliderSkills from './SliderSkills';
-import SliderStacks from './SliderStacks';
-import SliderTools from './SliderTools';
+import { SliderSkills } from './SliderSkills';
+import { SliderStacks, stacksList } from './SliderStacks';
+import { SliderTools, toolsList } from './SliderTools';
 import DesktopView from '../../lib/DesktopView';
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
@@ -91,7 +91,7 @@ const About = () => {
 					</div>
 				</motion.div>
 				<motion.div
-					className='flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[39.3rem] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
+					className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[39.3rem] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
 					initial={{ y: '200px' }}
 					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.75 } }}
 				>
@@ -99,8 +99,8 @@ const About = () => {
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
 						{!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
 						{!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
-						<SliderStacks />
-						<SliderTools />
+						<SliderStacks></SliderStacks>
+						<SliderTools></SliderTools>
 					</div>
 					<div className='flex w-full flex-col items-start space-y-4'>
 						<div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
@@ -114,6 +114,9 @@ const About = () => {
 							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
 						</p>
 					</div>
+					{/* To improve SEO, write all skills in a hidden p under this div */}
+					<p className='absolute -z-10 w-[20rem] text-xs'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
+					<p className='absolute -z-10 w-[20rem] text-xs'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
 				</motion.div>
 			</div>
 		</section>

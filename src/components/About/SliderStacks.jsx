@@ -18,7 +18,7 @@ import Supabase from '../../assets/stacks/supabase.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
 import DesktopView from '../../lib/DesktopView';
 
-const stacksList = [
+export const stacksList = [
 	// { src: NodeJS, alt: 'NodeJS' },
 	{ src: NPM, alt: 'NPM' },
 	{ src: ReactJS, alt: 'ReactJS' },
@@ -36,7 +36,7 @@ const stacksList = [
 	{ src: Flutter, alt: 'Flutter' },
 ];
 
-const SliderStacks = () => {
+export const SliderStacks = () => {
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const desktopView = DesktopView();
 
@@ -70,5 +70,3 @@ const SliderStacks = () => {
 		</Marquee>
 	);
 };
-
-export default SliderStacks;

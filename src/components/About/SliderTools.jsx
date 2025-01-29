@@ -17,7 +17,7 @@ import Selenium from '../../assets/tools/selenium.svg';
 import Tableau from '../../assets/tools/tableau.svg';
 import DesktopView from '../../lib/DesktopView';
 
-const toolsList = [
+export const toolsList = [
 	{ src: Azure, alt: 'Azure' },
 	{ src: Vercel, alt: 'Vercel' },
 	{ src: Heroku, alt: 'Heroku' },
@@ -34,7 +34,7 @@ const toolsList = [
 	{ src: VSCode, alt: 'VSCode' },
 ];
 
-const SliderTools = () => {
+export const SliderTools = () => {
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const desktopView = DesktopView();
 
@@ -68,5 +68,3 @@ const SliderTools = () => {
 		</Marquee>
 	);
 };
-
-export default SliderTools;
