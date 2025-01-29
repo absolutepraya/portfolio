@@ -10,7 +10,7 @@ import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 import GDG from '../../assets/orgs/gdg.svg';
 import { motion } from 'framer-motion';
-// import { GlobeDemo } from '../AceternityUI/GlobeSection';
+import { GlobeDemo } from '../AceternityUI/GlobeSection';
 
 const Experience = () => {
 	const desktopView = DesktopView();
