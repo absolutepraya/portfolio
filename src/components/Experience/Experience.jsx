@@ -9,6 +9,7 @@ import Fasilkom from '../../assets/orgs/fasilkom.svg';
 import DDP0 from '../../assets/orgs/ddp0.svg';
 import BETIS from '../../assets/orgs/betis.svg';
 import GDG from '../../assets/orgs/gdg.svg';
+import CO80 from '../../assets/orgs/80co.webp';
 import { motion } from 'framer-motion';
 import { GlobeDemo } from '../AceternityUI/GlobeSection';
 
@@ -43,11 +44,19 @@ const Experience = () => {
 			</div>
 
 			{/* Solve performance issue for now, only show the globe on mobile */}
-			{!desktopView && (
-				<GlobeDemo />
-			)}
+			{!desktopView && <GlobeDemo />}
 
 			<div className='z-50 flex flex-col items-center space-y-4 md:mt-[6rem]'>
+				{/* TODO: Load only top 4 */}
+				<ExperienceBox
+					title='Front-End Engineer'
+					org='80&Company'
+					url='https://80and.co/en/company/'
+					logo={CO80}
+					date='01/2025 - Present'
+					desc='Working on a project to create a web-based platform for a client using NextJS.'
+				/>
+				<Line />
 				<ExperienceBox
 					title='Software Engineering'
 					org='GDGoC Universitas Indonesia'
@@ -55,42 +64,19 @@ const Experience = () => {
 					logo={GDG}
 					date='11/2024 - Present'
 					desc='Organizing 2 main work programs: GDG Study Jams and WebDev Mini Competition. Study Jams is a series of workshops for students to learn about Google technologies, e.g. Flutter and Firebase. WebDev Mini Competition is a competition for students to create a website based on a given theme.'
+					previousTitles={['Member']}
+					previousDates={['09/2023 - 08/2024']}
 				/>
 				<Line />
 				<ExperienceBox
-					title='PIC of NetSOS Open Class'
-					org='RISTEK Fasilkom UI'
-					url='https://www.ristek.cs.ui.ac.id/'
-					logo={RISTEK}
-					date='09/2024 - Present'
-					desc='Responsible for managing the class, creating the learning materials, and also teaching the class. The class is open to all Fasilkom UI students and covers various topics in the field of Capture The Flag (CTF) competition.'
-				/>
-				<Line />
-				<ExperienceBox
-					title='Teaching Assistant (TA)'
+					title='TA for Linear Algebra'
 					org='Fasilkom UI'
 					url='https://cs.ui.ac.id/'
 					logo={Fasilkom}
-					date='07/2024 - Present'
-					desc='Teaching assistant of Discrete Math 1. Designing assignment questions while also grading them and assisting students taking Discrete Math 1 and teaching in assistance sessions before quizzes and exams.'
-				/>
-				<Line />
-				<ExperienceBox
-					title='Student Mentor'
-					org='Dasar-Dasar Pemrograman 0'
-					url='https://www.linkedin.com/company/ddp-0/mycompany/'
-					logo={DDP0}
-					date='06/2024 - 09/2024'
-					desc='Teaching freshmen of Fasilkom UI about Python Programming Language as a provision for DDP-1 course. The materials revolve around the basics of Python plus Python Turtle library.'
-				/>
-				<Line />
-				<ExperienceBox
-					title='HRD & TC Staff for CTF'
-					org='COMPFEST16'
-					url='https://compfest.id/'
-					logo={COMPFEST}
-					date='03/2024 - 11/2024'
-					desc='As HRD, keeps the staff tightly bonded, ensures all staff perform their duties correctly, and bridges communication between the CTF staff. As Technical Committee (TC), in charge of designing and maintaining the CTF website platform before and during the competition.'
+					date='01/2025 - Present'
+					desc='Designs assignment questions while also grading them, hosts a weekly forum discussion, and teaching in assistance sessions before quizzes and exams.'
+					previousTitles={['TA for Discrete Math 1']}
+					previousDates={['07/2024 - 12/2024']}
 				/>
 				<Line />
 				<ExperienceBox
@@ -99,7 +85,27 @@ const Experience = () => {
 					url='https://www.ristek.cs.ui.ac.id/'
 					logo={RISTEK}
 					date='03/2024 - Present'
-					desc='NetSOS stands for Network, Security, and Operating System (OS). As a member, I attend classes for internal members, learn how to ace CTF competitions, participate in a cross-SIG project, and selected to join the company visit to Tiket.com, a leading Indonesian OTA.'
+					desc='NetSOS stands for Network, Security, and Operating System (OS). As a member, I attend CTF classes for internal members, participate in a cross-SIG project as NextJS FE developer, and contribute to the NetSOS Open Class as the PIC for a 3-day class with over 110 registrants.'
+					previousTitles={['PIC of Open Class', 'Mentee of Open Class']}
+					previousDates={['09/2024 - 11/2024', '10/2023 - 10/2023']}
+				/>
+				<Line />
+				<ExperienceBox
+					title='Student Mentor'
+					org='Dasar-Dasar Pemrograman 0'
+					url='https://www.linkedin.com/company/ddp-0/mycompany/'
+					logo={DDP0}
+					date='06/2024 - 09/2024'
+					desc='Teaching a group of Fasilkom UI freshmen about Python Language as a provision for DDP-1 course. The materials revolve around the basics of Python plus Python Turtle library.'
+				/>
+				<Line />
+				<ExperienceBox
+					title='Web Infra. & HRD Staff'
+					org='COMPFEST16'
+					url='https://compfest.id/'
+					logo={COMPFEST}
+					date='03/2024 - 11/2024'
+					desc='As Infrastructure Committee, in charge of designing and maintaining the CTF website platform before and during the competition. As HRD, keeps the staff tightly bonded, ensures all staff perform their duties correctly, and bridges communication between the CTF staff.'
 				/>
 				<Line />
 				<ExperienceBox
