@@ -115,8 +115,8 @@ const About = () => {
 						</p>
 					</div>
 					{/* To improve SEO, write all skills in a hidden p under this div */}
-					<p className='absolute -z-10 w-[20rem] text-xs'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
-					<p className='absolute -z-10 w-[20rem] text-xs'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
+					<p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
+					<p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
 				</motion.div>
 			</div>
 		</section>
