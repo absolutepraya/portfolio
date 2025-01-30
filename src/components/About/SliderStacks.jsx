@@ -48,7 +48,8 @@ export const SliderStacks = () => {
 			gradientWidth={110}
 			autoFill={true}
 			direction='left'
-			pauseOnClick={desktopView ? true : false}
+			pauseOnClick={desktopView ? false : true}
+			pauseOnHover={desktopView ? true : false}
 		>
 			{stacksList.map((stack, index) => (
 				<div

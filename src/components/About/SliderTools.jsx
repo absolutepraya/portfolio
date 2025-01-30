@@ -46,7 +46,8 @@ export const SliderTools = () => {
 			gradientWidth={110}
 			autoFill={true}
 			direction='right'
-			pauseOnClick={desktopView ? true : false}
+			pauseOnClick={desktopView ? false : true}
+			pauseOnHover={desktopView ? true : false}
 		>
 			{toolsList.map((tool, index) => (
 				<div
