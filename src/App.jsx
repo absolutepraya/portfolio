@@ -4,6 +4,7 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Copyright from './components/Copyright';
+import Achievements from './components/Achievements/Achievements';
 import DesktopView from './lib/DesktopView';
 import Grid from './assets/elements/bg1.webp';
 import GridMobile from './assets/elements/bg2.webp';
@@ -23,6 +24,8 @@ const App = () => {
 			<About desktopView={desktopView} />
 			<Experience desktopView={desktopView} />
 			<Projects desktopView={desktopView} />
+			{/* TODO: Mobile-view */}
+			{desktopView && <Achievements desktopView={desktopView} />}
 			<Contact desktopView={desktopView} />
 			<Copyright desktopView={desktopView} />
 		</div>
