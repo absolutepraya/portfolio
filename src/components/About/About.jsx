@@ -6,7 +6,7 @@ import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 // import AnimatedCursor from 'react-animated-cursor';
 import BlurInDesc from './BlurInDesc';
-import HoverBorderGradient from '../UIComponents/HoverBorderGradient';
+import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient/HoverBorderGradient';
 
 const About = () => {
 	const desktopView = DesktopView();

@@ -21,7 +21,7 @@ import OpenAI from '../../assets/tools/openai.svg';
 import NextJS from '../../assets/stacks/nextjs.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
-import BlurFade from '../UIComponents/BlurFade';
+import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
