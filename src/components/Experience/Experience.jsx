@@ -11,7 +11,7 @@ import BETIS from '../../assets/orgs/betis.svg';
 import GDG from '../../assets/orgs/gdg.svg';
 import CO80 from '../../assets/orgs/80co.webp';
 import { motion } from 'framer-motion';
-import { GlobeDemo } from '../AceternityUI/GlobeSection';
+// import { GlobeDemo } from '../AceternityUI/GlobeSection';
 
 const Experience = () => {
 	const desktopView = DesktopView();
@@ -44,7 +44,7 @@ const Experience = () => {
 			</div>
 
 			{/* Solve performance issue for now, only show the globe on mobile */}
-			{!desktopView && <GlobeDemo />}
+			{/* {!desktopView && <GlobeDemo />} */}
 
 			<div className='z-50 flex flex-col items-center space-y-4 md:mt-[6rem]'>
 				{/* TODO: Load only top 4 */}

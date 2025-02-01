@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import DesktopView from '../../lib/DesktopView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
-import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend } from '@tabler/icons-react';
+import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend, IconTrophy } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 const NavBar = () => {
@@ -48,7 +48,7 @@ const NavBar = () => {
 				{desktopView && (
 					<div className='flex flex-col justify-start'>
 						<p className='text-start font-bold'>Daffa Abhipraya</p>
-						<p className='text-start'>Computer Science @ UI</p>
+						<p className='text-start'>SWE, CS @ UI</p>
 					</div>
 				)}
 			</div>
@@ -90,7 +90,7 @@ const NavBar = () => {
 						onMouseLeave={() => setIsHover(false)}
 					>
 						<p className='text text-end font-semibold leading-4'>Reach out</p>
-						<div className='relative h-[20px] w-[20px] overflow-hidden !mr-1'>
+						<div className='relative !mr-1 h-[20px] w-[20px] overflow-hidden'>
 							<div className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}>
 								<IconBrandLinkedin
 									size={20}
