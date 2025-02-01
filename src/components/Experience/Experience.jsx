@@ -46,7 +46,7 @@ const Experience = () => {
 			{/* Solve performance issue for now, only show the globe on mobile */}
 			{/* {!desktopView && <GlobeDemo />} */}
 
-			<div className='z-50 flex flex-col items-center space-y-4 md:mt-[6rem]'>
+			<div className='z-50 flex flex-col items-center space-y-4 mt-[6rem]'>
 				{/* TODO: Load only top 4 */}
 				<ExperienceBox
 					title='Front-End Engineer'
