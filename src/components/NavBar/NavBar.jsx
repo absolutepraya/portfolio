@@ -3,7 +3,7 @@ import DesktopView from '../../lib/DesktopView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend, IconTrophy } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 
 const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
@@ -38,10 +38,12 @@ const NavBar = () => {
 	}, []);
 
 	return (
-		<motion.div
+		<BlurFade
 			className='fixed top-8 !z-[100] flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
-			initial={{ y: '-300px' }}
-			animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 1 } }}
+			delay={0.6}
+			offset={40}
+			duration={0.6}
+			direction='down'
 		>
 			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight md:w-1/3'>
 				{desktopView && <ButtonImg />}
@@ -72,6 +74,14 @@ const NavBar = () => {
 					link='#projects'
 					isActive={activeSection === 'projectssec'}
 				/>
+				{desktopView && (
+					<Button
+						icon={<IconTrophy />}
+						text='Achievements'
+						link='#achievements'
+						isActive={activeSection === 'achievementssec'}
+					/>
+				)}
 				<Button
 					icon={<IconMail />}
 					text='Contacts'
@@ -107,7 +117,7 @@ const NavBar = () => {
 					</a>
 				)}
 			</div>
-		</motion.div>
+		</BlurFade>
 	);
 };
 

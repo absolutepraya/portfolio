@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 // import AnimatedCursor from 'react-animated-cursor';
 import BlurInDesc from './BlurInDesc';
 import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient/HoverBorderGradient';
+import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 
 const About = () => {
 	const desktopView = DesktopView();
@@ -46,7 +47,7 @@ const About = () => {
 				initial={{ scale: 0 }}
 				animate={{
 					scale: desktopView ? 1 : 0.95,
-					transition: { duration: 0.5, ease: 'easeInOut', delay: 2.9 },
+					transition: { duration: 0.5, ease: 'easeInOut', delay: 2.3 },
 				}}
 			>
 				<HoverBorderGradient
@@ -65,10 +66,11 @@ const About = () => {
 				<BlurInDesc />
 			</div>
 			<div className='flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
-				<motion.div
+				<BlurFade
 					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[40%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
-					initial={{ y: '200px' }}
-					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.75 } }}
+					delay={0.6}
+					offset={40}
+					duration={0.6}
 				>
 					<div className='relative flex items-center justify-center md:h-[11.5rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
@@ -89,11 +91,12 @@ const About = () => {
 							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Full-Stack Development</b>, regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i> and <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>CTF</i> competitions.
 						</p>
 					</div>
-				</motion.div>
-				<motion.div
+				</BlurFade>
+				<BlurFade
 					className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[39.3rem] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
-					initial={{ y: '200px' }}
-					animate={{ y: 0, transition: { duration: 1, ease: 'circOut', delay: 0.75 } }}
+					delay={0.6}
+					offset={40}
+					duration={0.6}
 				>
 					<div className='relative flex w-full flex-col gap-y-5 md:space-y-[0.24rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
@@ -117,7 +120,7 @@ const About = () => {
 					{/* To improve SEO, write all skills in a hidden p under this div */}
 					<p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
 					<p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
-				</motion.div>
+				</BlurFade>
 			</div>
 		</section>
 	);
