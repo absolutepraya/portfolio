@@ -35,7 +35,7 @@ const AchievementsBox = ({ achievementData }) => {
 					<BlurFade
 						key={index}
 						className={`flex h-auto w-full ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} relative gap-x-8 p-8`}
-						delay={0.6 + index * 0.2}
+						delay={0.8 + index * 0.2}
 						offset={8}
 						inView
 						inViewMargin='-200px'
