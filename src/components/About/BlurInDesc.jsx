@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 import DesktopView from '../../lib/DesktopView';
 
-export default function BlurInDesc({ className, variant, duration = 1 }) {
+export default function BlurInDesc({ className, variant, duration = 0.8 }) {
 	const defaultVariants = {
 		hidden: { filter: 'blur(10px)', opacity: 0 },
 		visible: { filter: 'blur(0px)', opacity: 1 },
@@ -14,7 +14,7 @@ export default function BlurInDesc({ className, variant, duration = 1 }) {
 		<motion.h1
 			initial='hidden'
 			animate='visible'
-			transition={{ duration, delay: 1.9 }}
+			transition={{ duration, delay: 1.5 }}
 			variants={combinedVariants}
 			className={cn('bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.4rem] leading-[3.2rem] text-transparent md:text-7xl', className)}
 		>

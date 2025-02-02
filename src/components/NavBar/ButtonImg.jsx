@@ -53,14 +53,9 @@ const ButtonImg = () => {
 		<div>
 			<div className='relative flex h-14 w-14 items-center justify-center rounded-2xl border border-[#424242] shadow-xl hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'>
 				{desktopView && (
-					<div className={`absolute -bottom-16 -left-6 flex flex-col space-y-1 transition-all duration-[1000ms] ease-out ${showMessage ? 'opacity-100' : 'opacity-0'}`}>
-						<img
-							src={Arrow}
-							className='h-10 w-10'
-							alt='Arrow'
-						/>
-						<div className='customgray -rotate-[8deg] rounded-lg border border-customgray bg-[#161616] px-2 py-1'>
-							<p className='text-nowrap text-sm'>Click me!</p>
+					<div className={`absolute -bottom-8 -left-6 flex flex-col space-y-1 transition-all duration-[1000ms] ease-out ${showMessage ? 'opacity-100' : 'opacity-0'}`}>
+						<div className='customgray rotate-[4deg] rounded-lg border border-customgray bg-[#161616] px-2 py-1 shadow-md'>
+							<p className='text-nowrap text-xs'>Click me!</p>
 						</div>
 					</div>
 				)}

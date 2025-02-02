@@ -60,7 +60,8 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 	return (
 		<BlurFade
 			className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
-			delay={0.25 + 0.05}
+			delay={0.2}
+			offset={15}
 			inView
 		>
 			<div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
