@@ -9,14 +9,9 @@ export default defineConfig({
 	optimizeDeps: {
 		include: [
 			'@tabler/icons-react',
-			'@react-three/drei',
-			'three',
-			'three-globe',
 			'moment-timezone',
 			'framer-motion',
-			'@react-three/fiber',
 			'react-dom',
-			// Add any other large dependencies here
 		]
 	},
 	cache: {
