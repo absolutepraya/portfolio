@@ -1,17 +1,19 @@
 import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
 import AchievementsBox from './AchievementsBox';
+import Kemenkeu from '../../assets/orgs/kemenkeu.webp';
 
 const achievementsData = [
 	{
 		title: 'Gov-AI Hackathon 2024',
 		organizer: 'Kementerian Keuangan (Ministry of Finance) RI',
-		organizerLogo: '',
+		organizerUrl: 'https://www.kemenkeu.go.id/',
+		organizerLogo: Kemenkeu,
 		date: '11/2024',
-		desc: 'A hackathon held by the Indonesian Ministry of Finance...',
+		desc: 'Securing victory among 500 participants from 3 countries across three stages (proposal, 5-minute pitch, and 7-minute final pitch) as the youngest finalist team, competing against professionals and academics, with an AI-driven solution.',
 		award: '1st Place',
 		awardInt: 1,
-		prize: 'Rp 50.000.000',
+		prizeCurr: 'IDR',
 		prizeInt: 50000000,
 		location: 'Jakarta, Indonesia',
 		articles: [
@@ -24,8 +26,8 @@ const achievementsData = [
 				url: 'https://news.microsoft.com/id-id/2024/11/18/govai-hackathon-produces-five-generative-ai-solutions-to-improve-the-quality-of-government-services-in-indonesia/',
 			},
 			{
-				platform: 'Kemahasiswaan CS UI',
-				url: 'https://cs.ui.ac.id/2024/12/06/tim-uinnovator-raih-juara-1-pada-govai-kementerian-keuangan-hackathon-2024/',
+				platform: 'Kemahasiswaan UI',
+				url: 'https://kemahasiswaan.ui.ac.id/tim-uinnovator-raih-juara-1-pada-govai-kementerian-keuangan-hackathon-2024-2/',
 			},
 		],
 	},
