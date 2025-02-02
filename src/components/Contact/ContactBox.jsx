@@ -3,8 +3,10 @@ import DesktopView from '../../lib/DesktopView';
 import Pin from '../../assets/creds/pin.webp';
 import Hello from '../../assets/creds/hello.webp';
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify, IconCheck } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
+import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
+import BlurText from '../../blocks/TextAnimations/BlurText/BlurText';
+import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 
 const Contact = () => {
 	const desktopView = DesktopView();
@@ -20,12 +22,12 @@ const Contact = () => {
 	};
 
 	return (
-		<motion.div
-			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] md:h-[28rem] md:w-[68rem] md:flex-row'
-			style={{ background: 'linear-gradient(to bottom, rgba(54, 67, 252, 0.01) 20%, rgba(54, 67, 252, 0.2))' }}
-			initial={{ opacity: 0, y: '50px' }}
-			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
-			viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
+		<BlurFade
+			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] md:h-[28rem] md:w-[68rem] md:flex-row'
+			delay={0.3}
+			inView
+			inViewMargin='-200px'
+			offset={20}
 		>
 			<TopBorder />
 			<div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
@@ -37,7 +39,10 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p>projects</p>
+						<SplitText
+							animateBy='letters'
+							text='projects'
+						/>
 					</div>
 					<div className='flex items-center space-x-3 pl-6 md:pl-12'>
 						<IconPointer
@@ -45,7 +50,10 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p>collabs</p>
+						<SplitText
+							animateBy='letters'
+							text='works'
+						/>
 					</div>
 					<div className='flex items-center space-x-3 pl-12 md:pl-24'>
 						<IconPointer
@@ -53,7 +61,10 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p>CTFs</p>
+						<SplitText
+							animateBy='letters'
+							text='collabs'
+						/>
 					</div>
 					<div className='flex items-center space-x-3 pl-[4.5rem] md:pl-36'>
 						<IconPointer
@@ -61,12 +72,23 @@ const Contact = () => {
 							stroke={2}
 							className='fill-black text-white'
 						/>
-						<p>hackathons</p>
+						<SplitText
+							animateBy='letters'
+							text='hackathons'
+						/>
 					</div>
 				</div>
 			</div>
-			<div className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'>
-				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+			<BlurFade
+				className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'
+				delay={0.8}
+				duration={0.6}
+				inView
+				inViewMargin='-200px'
+				offset={30}
+			>
+				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+					<div className='absolute left-0 top-0 h-full w-full rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] !z-[-1]' />
 					<img
 						src={Pin}
 						alt='Pin'
@@ -86,7 +108,7 @@ const Contact = () => {
 								size={desktopView ? 20 : 16}
 								stroke={2}
 							/>
-							<p className='break-all text-sm font-semibold font-jetbrainsmono tracking-wider'>daffa@abhipraya.dev</p>
+							<p className='break-all font-jetbrainsmono text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
 						</div>
 						{desktopView && (
 							<a
@@ -142,7 +164,7 @@ const Contact = () => {
 					</a>
 					<div className='!mt-6 h-0.5 w-full bg-customgray' />
 					<p className=''>Follow my other socials!</p>
-					<div className='flex w-full flex-col space-y-2 md:flex-row md:justify-between md:space-y-0 font-jetbrainsmono text-[0.850rem]'>
+					<div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
 						<a
 							href='https://github.com/absolutepraya'
 							target='_blank'
@@ -152,7 +174,7 @@ const Contact = () => {
 						>
 							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandGithub
-									size={24}
+									size={21}
 									stroke={2}
 								/>
 								<p className='underline underline-offset-4'>absolutepraya</p>
@@ -167,7 +189,7 @@ const Contact = () => {
 						>
 							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandInstagram
-									size={24}
+									size={21}
 									stroke={2}
 								/>
 								<p className='underline underline-offset-4'>___abhipraya</p>
@@ -182,7 +204,7 @@ const Contact = () => {
 						>
 							<div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
 								<IconBrandSpotify
-									size={24}
+									size={21}
 									stroke={2}
 								/>
 								<p className='underline underline-offset-4'>Daffa Abhipraya</p>
@@ -190,8 +212,8 @@ const Contact = () => {
 						</a>
 					</div>
 				</div>
-			</div>
-		</motion.div>
+			</BlurFade>
+		</BlurFade>
 	);
 };
 
