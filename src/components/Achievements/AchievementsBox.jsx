@@ -3,11 +3,9 @@ import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/Flickerin
 import { IconAward, IconLaurelWreath, IconNews, IconMap2, IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
 import BotBorder from './BotBorder';
-import { useState } from 'react';
 import DesktopView from '../../lib/DesktopView';
 
 const AchievementsBox = ({ achievementData }) => {
-	const [isHover, setIsHover] = useState(false);
 	const desktopView = DesktopView();
 
 	return (
@@ -23,7 +21,7 @@ const AchievementsBox = ({ achievementData }) => {
 			<FlickeringGrid
 				squareSize={4}
 				gridGap={6}
-				color={isHover ? '#3643FC' : '#6B7280'}
+				color={'#6B7280'}
 				maxOpacity={0.5}
 				flickerChance={0.2}
 				className={`absolute left-0 top-0.5 !z-[-20] h-full w-full`}
