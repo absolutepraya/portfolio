@@ -1,10 +1,10 @@
 import Marquee from 'react-fast-marquee';
-import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconBrowserX, IconPrompt, IconApi, IconBrain } from '@tabler/icons-react';
+import { IconBrowser, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconMessageCode, IconBrowserX, IconPrompt, IconApi, IconBrain } from '@tabler/icons-react';
 import DesktopView from '../../lib/DesktopView';
 
-const skills = ['Front-End Development', 'Back-End Development', 'AI Engineering Integration', 'API and Automation', 'Quality Assurance', 'Penetration Testing', 'Digital Forensics'];
+const skills = ['Front-End Development', 'Back-End Development', 'AI App Integration', 'AI Prompt Engineering', 'API and Automation', 'Quality Assurance', 'Penetration Testing', 'Digital Forensics'];
 
-const icons = [IconBrowser, IconServerCog, IconBrain, IconTestPipe, IconApi, IconChecklist, IconBrowserX, IconPrompt, IconZoomCode];
+const icons = [IconBrowser, IconServerCog, IconBrain, IconMessageCode, IconTestPipe, IconApi, IconChecklist, IconBrowserX, IconPrompt, IconZoomCode];
 
 export const SliderSkills = () => {
 	const desktopView = DesktopView();
