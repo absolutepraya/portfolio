@@ -1,28 +1,28 @@
 import DesktopView from '../../lib/DesktopView';
-import Bard from '../../assets/stacks/bard.svg';
 import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
 import Jest from '../../assets/tools/jest.svg';
 import MongoDB from '../../assets/stacks/mongodb.svg';
-import NodeJS from '../../assets/stacks/nodejs.svg';
+import Node from '../../assets/stacks/nodejs.svg';
 import NPM from '../../assets/stacks/npm.svg';
 import Python from '../../assets/stacks/python.svg';
-import ReactJS from '../../assets/stacks/react.svg';
+import React from '../../assets/stacks/react.svg';
 import TailwindCSS from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
-import ViteJS from '../../assets/stacks/vitejs.svg';
+import Vite from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/tools/vitest.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import NoImage from '../../assets/projects/noimage.webp';
 import Azure from '../../assets/tools/azure.svg';
 import OpenAI from '../../assets/tools/openai.svg';
-import NextJS from '../../assets/stacks/nextjs.svg';
+import Next from '../../assets/stacks/nextjs.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
 import Dart from '../../assets/stacks/dart.svg';
 import Django from '../../assets/stacks/django.svg';
 import Flutter from '../../assets/stacks/flutter.svg';
+import Nest from '../../assets/stacks/nestjs.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
@@ -34,24 +34,24 @@ const stackIcons = {
 	javascript: { src: JavaScript, name: 'JavaScript' },
 	jest: { src: Jest, name: 'Jest' },
 	mongodb: { src: MongoDB, name: 'MongoDB' },
-	nodejs: { src: NodeJS, name: 'NodeJS' },
+	nodejs: { src: Node, name: 'Node.js' },
 	npm: { src: NPM, name: 'NPM' },
 	python: { src: Python, name: 'Python' },
-	reactjs: { src: ReactJS, name: 'ReactJS' },
+	reactjs: { src: React, name: 'React.js' },
 	tailwindcss: { src: TailwindCSS, name: 'TailwindCSS' },
 	typescript: { src: TypeScript, name: 'TypeScript' },
-	vitejs: { src: ViteJS, name: 'ViteJS' },
+	vitejs: { src: Vite, name: 'Vite.js' },
 	vitest: { src: Vitest, name: 'Vitest' },
-	bard: { src: Bard, name: 'Bard' },
 	gemini: { src: Gemini, name: 'Gemini' },
 	supabase: { src: Supabase, name: 'Supabase' },
 	azure: { src: Azure, name: 'Azure' },
 	openai: { src: OpenAI, name: 'OpenAI' },
-	nextjs: { src: NextJS, name: 'NextJS' },
+	nextjs: { src: Next, name: 'Next.js' },
 	firebase: { src: Firebase, name: 'Firebase' },
 	dart: { src: Dart, name: 'Dart' },
 	django: { src: Django, name: 'Django' },
 	flutter: { src: Flutter, name: 'Flutter' },
+	nestjs: { src: Nest, name: 'Nest.js' },
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {

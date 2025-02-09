@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 // import Bash from '../../assets/tools/bash.svg';
-import Canva from '../../assets/tools/canva.svg';
 import Figma from '../../assets/tools/figma.svg';
 import GitHub from '../../assets/tools/github.svg';
 import Heroku from '../../assets/tools/heroku.svg';
@@ -10,11 +9,12 @@ import Vercel from '../../assets/tools/vercel.svg';
 import Ubuntu from '../../assets/tools/ubuntu.svg';
 import Azure from '../../assets/tools/azure.svg';
 import OpenAI from '../../assets/tools/openai.svg';
-import VSCode from '../../assets/tools/vscode.svg';
 import Vitest from '../../assets/tools/vitest.svg';
 import Jest from '../../assets/tools/jest.svg';
 import Selenium from '../../assets/tools/selenium.svg';
 import Tableau from '../../assets/tools/tableau.svg';
+import Gemini from '../../assets/stacks/gemini.svg';
+import DeepSeek from '../../assets/tools/deepseek.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const toolsList = [
@@ -26,12 +26,12 @@ export const toolsList = [
 	{ src: Vitest, alt: 'Vitest' },
 	{ src: Jest, alt: 'Jest' },
 	{ src: Tableau, alt: 'Tableau' },
-	{ src: Canva, alt: 'Canva' },
 	{ src: Figma, alt: 'Figma' },
-	// { src: Bash, alt: 'Bash' },
 	{ src: Ubuntu, alt: 'Ubuntu' },
 	{ src: GitHub, alt: 'GitHub' },
-	{ src: VSCode, alt: 'VSCode' },
+	{ src: OpenAI, alt: 'OpenAI API' },
+	{ src: Gemini, alt: 'Gemini API' },
+	{ src: DeepSeek, alt: 'DeepSeek API' },
 ];
 
 export const SliderTools = () => {
@@ -57,7 +57,7 @@ export const SliderTools = () => {
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
 					<div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-					{hoveredIndex === index && <div className='absolute z-30 rounded bg-black px-1 py-1 text-xs text-[#cccccc]'>{tool.alt}</div>}
+					{hoveredIndex === index && <div className='absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] md:max-w-[4rem] md:text-xs'>{tool.alt}</div>}
 					<img
 						src={tool.src}
 						alt={tool.alt}

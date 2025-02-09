@@ -68,7 +68,7 @@ const Projects = () => {
 					type='Mobile & Web App'
 					date='11/2024'
 					subtitle='Ngandung is an application that makes it easy for users to find information about foods and stores in Bandung, leave reviews, and save favorite stores.'
-					stacks={['django', 'python', 'tailwindcss', 'flutter', 'dart']}
+					stacks={['django', 'python', 'javascript', 'tailwindcss', 'flutter', 'dart']}
 					url=''
 					github='https://github.com/Kelompok-9-PBP-Ganjil-2024-2025/ngandung-mobile'
 				/>
@@ -98,7 +98,7 @@ const Projects = () => {
 					type='App Feature'
 					date='07/2024'
 					subtitle="Grab feature that uses gen-AI to diagnose vehicle issues (even when the user has no idea what's wrong), find the nearest mechanics, book a repair service, and predict the cost. Built in 23 hours during hackjakarta."
-					stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'typescript', 'tailwindcss', 'bard']}
+					stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'typescript', 'tailwindcss', 'gemini']}
 					url=''
 					github='https://github.com/Tianrider/GrabAuto'
 				/>
@@ -108,7 +108,7 @@ const Projects = () => {
 					type='Website'
 					date='06/2024'
 					subtitle='Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.'
-					stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'express', 'supabase']}
+					stacks={['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'nestjs', 'supabase']}
 					url='https://mipaopenhouse.com'
 					github=''
 				/>

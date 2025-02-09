@@ -4,36 +4,42 @@ import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
 import MongoDB from '../../assets/stacks/mongodb.svg';
-// import NodeJS from '../../assets/stacks/nodejs.svg';
-import NPM from '../../assets/stacks/npm.svg';
+import npm from '../../assets/stacks/npm.svg';
 import Python from '../../assets/stacks/python.svg';
-import ReactJS from '../../assets/stacks/react.svg';
+import Reactjs from '../../assets/stacks/react.svg';
 import Tailwind from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
-// import ViteJS from '../../assets/stacks/vitejs.svg';
-import NextJS from '../../assets/stacks/nextjs.svg';
+import Next from '../../assets/stacks/nextjs.svg';
 import Flutter from '../../assets/stacks/flutter.svg';
 import Django from '../../assets/stacks/django.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
+import Nest from '../../assets/stacks/nestjs.svg';
+import Discord from '../../assets/stacks/discord.svg';
+import X from '../../assets/stacks/x.svg';
+import Dart from '../../assets/stacks/dart.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const stacksList = [
-	// { src: NodeJS, alt: 'NodeJS' },
-	{ src: NPM, alt: 'NPM' },
-	{ src: ReactJS, alt: 'ReactJS' },
-	{ src: NextJS, alt: 'NextJS' },
+	// { src: Node.js, alt: 'Node.js' },
+	// { src: npm, alt: 'npm' },
+	{ src: Reactjs, alt: 'React.js' },
+	{ src: Next, alt: 'Next.js' },
 	{ src: JavaScript, alt: 'JavaScript' },
 	{ src: TypeScript, alt: 'TypeScript' },
-	{ src: Django, alt: 'Django' },
-	{ src: Tailwind, alt: 'Tailwind' },
+	{ src: Tailwind, alt: 'TailwindC' },
 	{ src: Express, alt: 'Express' },
+	{ src: Nest, alt: 'Nest.js' },
 	{ src: MongoDB, alt: 'MongoDB' },
+	{ src: Django, alt: 'Django' },
 	{ src: Firebase, alt: 'Firebase' },
 	{ src: Supabase, alt: 'Supabase' },
 	{ src: Docker, alt: 'Docker' },
 	{ src: Python, alt: 'Python' },
 	{ src: Flutter, alt: 'Flutter' },
+	{ src: Dart, alt: 'Dart' },
+	{ src: Discord, alt: 'Discord Bot' },
+	{ src: X, alt: 'Twitter Bot' },
 ];
 
 export const SliderStacks = () => {
@@ -59,7 +65,7 @@ export const SliderStacks = () => {
 					onMouseLeave={() => setHoveredIndex(null)}
 				>
 					<div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-					{hoveredIndex === index && <div className='absolute z-30 rounded bg-black px-1 py-1 font-jetbrainsmono text-xs text-[#cccccc]'>{stack.alt}</div>}
+					{hoveredIndex === index && <div className='absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] md:max-w-[4rem] md:text-xs'>{stack.alt}</div>}
 					<img
 						src={stack.src}
 						alt={stack.alt}
