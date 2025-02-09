@@ -1,20 +1,31 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		react(),
-	],
+	plugins: [react()],
+	server: {
+		hmr: {
+			overlay: false,
+		}
+	},
 	optimizeDeps: {
 		include: [
-			'@tabler/icons-react',
-			'moment-timezone',
-			'framer-motion',
+			'react',
 			'react-dom',
+			'@react-spring/web',
+			'framer-motion',
+			'react-animated-cursor',
+			'react-fast-marquee'
 		]
 	},
-	cache: {
-		dir: 'node_modules/.vite', // Optional custom cache directory
-	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					'react-vendor': ['react', 'react-dom'],
+					'animation-vendor': ['@react-spring/web', 'framer-motion'],
+				}
+			}
+		}
+	}
 });

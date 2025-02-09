@@ -8,7 +8,9 @@ import GusDur from '../../assets/projects/gusdur.webp';
 import Portfolio from '../../assets/projects/portfolio.webp';
 import DesaKedisan from '../../assets/projects/desakedisan.webp';
 import NuSantap from '../../assets/projects/nusantap.webp';
+import Ngandung from '../../assets/projects/ngandung.webp';
 import { motion } from 'framer-motion';
+
 
 const Projects = () => {
 	const desktopView = DesktopView();
@@ -59,6 +61,16 @@ const Projects = () => {
 					stacks={['nodejs', 'npm', 'nextjs', 'typescript', 'tailwindcss', 'firebase', 'azure', 'openai']}
 					url='https://nusantap-dashboard.vercel.app/'
 					github=''
+				/>
+				<ProjectBox
+					image={Ngandung}
+					title='Ngandung'
+					type='Mobile & Web App'
+					date='11/2024'
+					subtitle='Ngandung is an application that makes it easy for users to find information about foods and stores in Bandung, leave reviews, and save favorite stores.'
+					stacks={['django', 'python', 'tailwindcss', 'flutter', 'dart']}
+					url=''
+					github='https://github.com/Kelompok-9-PBP-Ganjil-2024-2025/ngandung-mobile'
 				/>
 				<ProjectBox
 					image={DesaKedisan}
