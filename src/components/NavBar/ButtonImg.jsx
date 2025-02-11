@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import DesktopView from '../../lib/DesktopView';
-import Arrow from '../../assets/elements/arrow.webp';
+// import Arrow from '../../assets/elements/arrow.webp';
 import Laptop from '../../assets/creds/laptop.webp';
-import Flag from '../../assets/creds/flag.webp';
+// import Flag from '../../assets/creds/flag.webp';
 import Globe from '../../assets/creds/globe.webp';
-import Test from '../../assets/creds/test.webp';
+// import Test from '../../assets/creds/test.webp';
 import Indonesia from '../../assets/creds/indonesia.webp';
-import PFP2 from '../../assets/creds/pfp.svg';
+// import PFP2 from '../../assets/creds/pfp.svg';
+import PFP3 from '../../assets/creds/pfp.webp';
 import Fasilkom from '../../assets/orgs/fasilkom.svg';
+import Lift from '../../assets/creds/lift.webp';
 
-const imgs = [Fasilkom, Laptop, Flag, Globe, Test, Indonesia];
+const imgs = [Laptop, Lift, Indonesia, Fasilkom];
 
 const ButtonImg = () => {
 	const [hovered, setHovered] = useState(false);
@@ -74,8 +76,8 @@ const ButtonImg = () => {
 					title='Profile picture'
 				>
 					<img
-						src={PFP2}
-						className={`scale-[80%] select-none grayscale filter transition duration-200 ease-in-out ${hovered ? 'filter-none' : ''}`}
+						src={PFP3}
+						className={`scale-[100%] select-none grayscale filter transition duration-200 ease-in-out ${hovered ? 'filter-none' : ''}`}
 						alt='Profile picture'
 						draggable='false'
 					/>
