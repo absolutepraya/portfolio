@@ -16,7 +16,8 @@ export default defineConfig({
 			'framer-motion',
 			'react-animated-cursor',
 			'react-fast-marquee'
-		]
+		],
+		exclude: ['react-scan']
 	},
 	build: {
 		rollupOptions: {

@@ -19,6 +19,7 @@
 		"react-animated-cursor": "^2.11.2",
 		"react-dom": "^18.3.1",
 		"react-fast-marquee": "^1.6.5",
+		"react-scan": "^0.2.4",
 		"serve": "^14.2.4",
 		"tailwind-merge": "^2.5.5"
 	},
