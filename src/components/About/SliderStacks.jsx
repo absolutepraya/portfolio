@@ -27,7 +27,7 @@ export const stacksList = [
 	{ src: Next, alt: 'Next.js' },
 	{ src: JavaScript, alt: 'JavaScript' },
 	{ src: TypeScript, alt: 'TypeScript' },
-	{ src: Tailwind, alt: 'TailwindC' },
+	{ src: Tailwind, alt: 'Tailwind' },
 	{ src: Express, alt: 'Express' },
 	{ src: Nest, alt: 'Nest.js' },
 	{ src: MongoDB, alt: 'MongoDB' },
