@@ -46,7 +46,7 @@ const Experience = () => {
 			{/* Solve performance issue for now, only show the globe on mobile */}
 			{/* {!desktopView && <GlobeDemo />} */}
 
-			<div className='z-50 flex flex-col items-center space-y-4 mt-[6rem]'>
+			<div className='z-50 mt-[6rem] flex flex-col items-center space-y-4'>
 				{/* TODO: Load only top 4 */}
 				<ExperienceBox
 					title='Front-End Engineer'
@@ -54,7 +54,7 @@ const Experience = () => {
 					url='https://80and.co/en/company/'
 					logo={CO80}
 					date='01/2025 - Present'
-					desc='Working on a project to create a web-based platform for a client using NextJS.'
+					desc='Working on a front-end interface using Next.js, while also developing a BaaS AI chat service powered by Dify AI and OpenAI’s 4o-mini model, seamlessly integrated with Python to efficiently gather customer insights. '
 				/>
 				<Line />
 				<ExperienceBox
