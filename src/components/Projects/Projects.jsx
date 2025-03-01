@@ -1,5 +1,6 @@
 import ProjectBox from './ProjectBox';
 import DesktopView from '../../lib/DesktopView';
+import TabletView from '../../lib/TabletView';
 import GrabAuto from '../../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../../assets/projects/dm2calc.webp';
@@ -14,34 +15,35 @@ import { motion } from 'framer-motion';
 
 const Projects = () => {
 	const desktopView = DesktopView();
+	const tabletView = TabletView();
 
 	return (
 		<section
-			className='relative w-[90vw] flex-col space-y-12 md:w-[68rem]'
+			className='relative w-[90vw] flex-col space-y-12 xl:w-[68rem]'
 			id='projectssec'
 		>
 			<div
 				id='projects'
 				className='absolute -top-24'
 			/>
-			<div className='flex flex-col items-center md:flex-row md:space-x-8'>
+			<div className='flex flex-col items-center xl:flex-row xl:space-x-8'>
 				<motion.p
 					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
-					initial={{ opacity: 0, y: '50px' }}
+					initial={{ opacity: 0, y: '40px' }}
 					whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
 					viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 				>
 					Stuff I&apos;ve done
 				</motion.p>
-				<div className={`relative mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+				<div className={`relative mt-1 w-full max-w-[35rem] rounded-full xl:mt-3 xl:w-auto xl:max-w-[1000rem] xl:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
 					<motion.div
-						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall md:-top-2 md:h-4 md:shadow-glowcustomblack'
-						whileInView={{ x: '760px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
+						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall xl:-top-2 xl:h-4 xl:shadow-glowcustomblack'
+						whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
 						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 					/>
 				</div>
 			</div>
-			<div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+			<div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
 				<ProjectBox
 					image={NuSantap}
 					title='NuSantap'
@@ -114,8 +116,8 @@ const Projects = () => {
 				/>
 				<ProjectBox
 					image={DM2Calc}
-					title={desktopView ? 'Discrete Math 2 Calculator' : 'DM2 Calc'}
-					type='Terminal App'
+					title='DM2 Calculator'
+					type='CLI App'
 					date='02/2024'
 					subtitle="A collection of tools for solving Discrete Math 2 problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more."
 					stacks={['python']}
@@ -136,8 +138,8 @@ const Projects = () => {
 				/>
 				<ProjectBox
 					image={GusDur}
-					title='The Legend of Gus Dur'
-					type={desktopView ? 'Video Game' : 'Game'}
+					title='TLo Gus Dur: EotR'
+					type='Game'
 					date='12/2022'
 					subtitle="A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency."
 					stacks={[]}

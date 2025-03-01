@@ -1,4 +1,5 @@
 import DesktopView from '../../lib/DesktopView';
+import TabletView from '../../lib/TabletView';
 import Docker from '../../assets/stacks/docker.svg';
 import Express from '../../assets/stacks/express.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
@@ -56,6 +57,7 @@ const stackIcons = {
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
 	const desktopView = DesktopView();
+	const tabletView = TabletView();
 	const [hovered, setHovered] = useState('');
 
 	// If URL or GitHub is not provided, change the button to disabled
@@ -115,7 +117,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 								<img
 									src={stackIcons[stack].src}
 									alt={stackIcons[stack].name}
-									className={desktopView ? 'h-5 w-5 object-contain' : 'h-[4vw] w-[4vw] object-contain'}
+									className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
 									draggable='false'
 								/>
 							</motion.div>
