@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment-timezone';
 import DesktopView from '../lib/DesktopView';
 import { IconCopyright, IconBrandGithub, IconClock } from '@tabler/icons-react';
-import MagnetLines from '../blocks/Animations/MagnetLines/MagnetLines';
 
 const Copyright = () => {
 	const [currentTime, setCurrentTime] = useState('');
@@ -20,7 +19,7 @@ const Copyright = () => {
 
 	return (
 		<div className='flex w-full flex-col'>
-			<div className='flex w-full flex-col items-center justify-between space-y-2 border-t border-customgray bg-customgray bg-opacity-40 py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:space-y-0 md:px-32 md:py-0 md:text-xs'>
+			<div className='flex w-full flex-col items-center justify-between space-y-2 border-t border-customgray bg-customgray bg-opacity-40 py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:space-y-0 md:px-8 lg:px-32 md:py-0 md:text-xs'>
 				<div className='flex flex-row items-center justify-start space-x-2 md:w-1/3'>
 					<IconCopyright size={desktopView ? 16 : 14} />
 					<p>2024 — All Rights Reserved.</p>

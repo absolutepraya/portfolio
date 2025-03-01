@@ -1,5 +1,6 @@
 import TopBorder from './TopBorder';
 import DesktopView from '../../lib/DesktopView';
+import TabletView from '../../lib/TabletView';
 import Pin from '../../assets/creds/pin.webp';
 import Hello from '../../assets/creds/hello.webp';
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify, IconCheck } from '@tabler/icons-react';
@@ -10,6 +11,7 @@ import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 
 const Contact = () => {
 	const desktopView = DesktopView();
+	const tabletView = TabletView();
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = () => {
@@ -23,19 +25,18 @@ const Contact = () => {
 
 	return (
 		<BlurFade
-			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] md:h-[28rem] md:w-[68rem] md:flex-row'
+			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
 			delay={0.3}
 			inView
-			inViewMargin='-200px'
 			offset={20}
 		>
 			<TopBorder />
 			<div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
-				<h1 className='w-full text-start font-instrument text-5xl md:text-6xl'>I&apos;m always up for...</h1>
+				<p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>I&apos;m always up for...</p>
 				<div className='flex w-full flex-col space-y-2 text-4xl font-semibold md:w-auto md:space-y-3 md:text-5xl'>
 					<div className='flex items-center space-x-3 pl-0'>
 						<IconPointer
-							size={desktopView ? 20 : 16}
+							size={tabletView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
@@ -46,7 +47,7 @@ const Contact = () => {
 					</div>
 					<div className='flex items-center space-x-3 pl-6 md:pl-12'>
 						<IconPointer
-							size={desktopView ? 20 : 16}
+							size={tabletView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
@@ -57,7 +58,7 @@ const Contact = () => {
 					</div>
 					<div className='flex items-center space-x-3 pl-12 md:pl-24'>
 						<IconPointer
-							size={desktopView ? 20 : 16}
+							size={tabletView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
@@ -68,7 +69,7 @@ const Contact = () => {
 					</div>
 					<div className='flex items-center space-x-3 pl-[4.5rem] md:pl-36'>
 						<IconPointer
-							size={desktopView ? 20 : 16}
+							size={tabletView ? 20 : 16}
 							stroke={2}
 							className='fill-black text-white'
 						/>
@@ -80,15 +81,14 @@ const Contact = () => {
 				</div>
 			</div>
 			<BlurFade
-				className='flex flex-col justify-center space-y-2 p-6 md:w-1/2'
-				delay={0.8}
+				className='flex w-full flex-col items-center justify-center space-y-2 p-6 xl:w-1/2'
+				delay={desktopView ? 0.8 : 0.3}
 				duration={0.6}
 				inView
-				inViewMargin='-200px'
 				offset={30}
 			>
-				<div className='relative flex h-fit w-full rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-					<div className='absolute left-0 top-0 h-full w-full rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a] !z-[-1]' />
+				<div className='relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+					<div className='absolute left-0 top-0 !z-[-1] h-full w-full rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a]' />
 					<img
 						src={Pin}
 						alt='Pin'
@@ -110,7 +110,7 @@ const Contact = () => {
 							/>
 							<p className='break-all font-jetbrainsmono text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
 						</div>
-						{desktopView && (
+						{tabletView && (
 							<a
 								className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								href='mailto:daffa@abhipraya.dev'
@@ -120,12 +120,12 @@ const Contact = () => {
 								title='Send me an email!'
 							>
 								<IconSend
-									size={desktopView ? 20 : 16}
+									size={tabletView ? 20 : 16}
 									stroke={2}
 								/>
 							</a>
 						)}
-						{desktopView && (
+						{tabletView && (
 							<div
 								className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
 								onClick={() => handleCopy()}
@@ -133,12 +133,12 @@ const Contact = () => {
 							>
 								{copied ? (
 									<IconCheck
-										size={desktopView ? 20 : 16}
+										size={tabletView ? 20 : 16}
 										stroke={2}
 									/>
 								) : (
 									<IconCopy
-										size={desktopView ? 20 : 16}
+										size={tabletView ? 20 : 16}
 										stroke={2}
 									/>
 								)}

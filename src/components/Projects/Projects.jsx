@@ -127,7 +127,7 @@ const Projects = () => {
 				id='projects'
 				className='absolute -top-24'
 			/>
-			<div className='flex flex-col items-center xl:flex-row xl:space-x-8'>
+			<div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
 				<motion.p
 					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
 					initial={{ opacity: 0, y: '40px' }}
@@ -136,9 +136,9 @@ const Projects = () => {
 				>
 					Stuff I&apos;ve done
 				</motion.p>
-				<div className={`relative mt-1 w-full max-w-[35rem] rounded-full xl:mt-3 xl:w-auto xl:max-w-[1000rem] xl:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+				<div className={`relative mt-1 md:mt-8 w-full max-w-[35rem] rounded-full lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
 					<motion.div
-						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall xl:-top-2 xl:h-4 xl:shadow-glowcustomblack'
+						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
 						whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
 						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 					/>
