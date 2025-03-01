@@ -82,14 +82,14 @@ const Experience = () => {
 
 	return (
 		<section
-			className='relative flex w-[90vw] flex-col md:w-[68rem]'
+			className='relative flex w-[90vw] flex-col xl:w-[68rem]'
 			id='experiencesec'
 		>
 			<div
 				id='experience'
 				className='absolute -top-36'
 			/>
-			<div className='flex flex-col items-center md:flex-row md:space-x-8'>
+			<div className='flex flex-col items-center xl:flex-row xl:space-x-8'>
 				<motion.p
 					className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
 					initial={{ opacity: 0, y: '40px' }}
@@ -98,10 +98,10 @@ const Experience = () => {
 				>
 					The road so far
 				</motion.p>
-				<div className={`relative mt-1 w-full rounded-full md:mt-3 md:w-auto md:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+				<div className={`relative mt-1 xl:max-w-[1000rem] max-w-[35rem] w-full rounded-full xl:mt-3 xl:w-auto xl:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
 					<motion.div
-						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall md:-top-2 md:h-4 md:shadow-glowcustomblack'
-						whileInView={{ x: '760px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
+						className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall xl:-top-2 xl:h-4 xl:shadow-glowcustomblack'
+						whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
 						viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
 					/>
 				</div>
@@ -110,7 +110,7 @@ const Experience = () => {
 			{/* Solve performance issue for now, only show the globe on mobile */}
 			{/* {!desktopView && <GlobeDemo />} */}
 
-			<div className='z-50 mt-[6rem] flex flex-col items-center space-y-4'>
+			<div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
 				{/* TODO: Load only top 4 */}
 				{experienceData.map((experience, index) => (
 					<React.Fragment key={index}>

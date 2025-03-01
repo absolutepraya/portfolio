@@ -40,7 +40,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
 	return (
 		<motion.div
 			ref={divRef}
-			className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-4 transition-all duration-[480ms] ease-in-out md:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
+			className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-4 transition-all duration-[480ms] ease-in-out lg:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
 		>
 			<div
 				ref={divRef}
