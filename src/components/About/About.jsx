@@ -14,7 +14,7 @@ const About = () => {
 
 	return (
 		<section
-			className='relative !mt-40 flex w-[90vw] flex-col items-center md:w-[68rem]'
+			className='relative !mt-40 flex w-[90vw] flex-col items-center xl:w-[68rem]'
 			id='aboutsec'
 		>
 			{/* {desktopView && (
@@ -62,17 +62,17 @@ const About = () => {
 					<p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Open for new opportunities</p>
 				</HoverBorderGradient>
 			</motion.div>
-			<div className='mt-12 w-[23rem] md:w-[53rem]'>
+			<div className='mt-12 max-w-[23rem] px-2 md:w-[53rem] md:max-w-[1000rem] md:px-0'>
 				<BlurInDesc />
 			</div>
-			<div className='flex h-auto w-full flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0'>
+			<div className='flex h-auto w-full flex-col space-y-6 xl:flex-row xl:space-x-6 xl:space-y-0'>
 				<BlurFade
-					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[40%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
+					className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 xl:w-[40%] xl:hover:border-blurple xl:hover:shadow-glowblurpleextrasmall'
 					delay={0.6}
 					offset={40}
 					duration={0.6}
 				>
-					<div className='relative flex items-center justify-center md:h-[11.5rem]'>
+					<div className='relative flex items-center justify-center xl:h-[11.5rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
 						{!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
 						{!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
@@ -85,20 +85,20 @@ const About = () => {
 								stroke={1.5}
 								color='#fff'
 							/>
-							<p className='md:text-md font-jetbrainsmono text-sm'>My skillsets</p>
+							<p className='xl:text-md font-jetbrainsmono text-sm'>My skillsets</p>
 						</div>
-						<p className='text-xl md:text-2xl'>
+						<p className='text-xl xl:text-2xl'>
 							Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Full-Stack Development</b>, regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i> and <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>CTF</i> competitions.
 						</p>
 					</div>
 				</BlurFade>
 				<BlurFade
-					className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 md:w-[39.3rem] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
+					className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 xl:w-[39.3rem] xl:hover:border-blurple xl:hover:shadow-glowblurpleextrasmall'
 					delay={0.6}
 					offset={40}
 					duration={0.6}
 				>
-					<div className='relative flex w-full flex-col gap-y-5 md:space-y-[0.24rem]'>
+					<div className='relative flex w-full flex-col gap-y-5 xl:space-y-[0.24rem]'>
 						{/* To fix transparent shadow gap for in Marquee for mobile */}
 						{!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
 						{!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
@@ -111,9 +111,9 @@ const About = () => {
 								size={16}
 								stroke={1.5}
 							/>
-							<p className='md:text-md font-jetbrainsmono text-sm'>My tech stack & tools</p>
+							<p className='xl:text-md font-jetbrainsmono text-sm'>My tech stack & tools</p>
 						</div>
-						<p className='text-xl md:text-2xl'>
+						<p className='text-xl xl:text-2xl'>
 							Achieving peak <i>efficiency</i> and <i>productivity</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
 						</p>
 					</div>
