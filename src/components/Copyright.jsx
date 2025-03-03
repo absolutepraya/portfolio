@@ -37,21 +37,6 @@ const Copyright = () => {
 					</a>
 				</div>
 			</div>
-
-			{/* TODO: Add something interesting here to spice it up */}
-			{/* {desktopView && (
-				<div className='flex h-36 w-full items-center justify-center bg-customgray bg-opacity-40 px-8 pb-4'>
-					<MagnetLines
-						rows={5}
-						columns={28}
-						lineWidth='2px'
-						lineHeight='24px'
-						containerW='100%'
-						containerH='100%'
-						lineColor='#cccccc'
-					/>
-				</div>
-			)} */}
 		</div>
 	);
 };

@@ -67,6 +67,7 @@ const Achievements = () => {
 			</div>
 
 			<div className='relative w-fit rounded-3xl'>
+				{/* TODO: Add inView animation to flickering grid */}
 				{tabletView && (
 					<FlickeringGrid
 						squareSize={6}

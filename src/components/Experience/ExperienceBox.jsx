@@ -98,8 +98,6 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
 					<div className={`mb-4 mt-2 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`} />
 					<p className={`${isInView ? '' : 'opacity-30'} mb-2 text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>Previous/other roles:</p>
 					<div className='flex w-full flex-col space-y-2'>
-						{/* TODO: Implement directory tree-like listing visual */}
-
 						{previousTitles.map((previousTitle, index) => (
 							<div
 								className='flex w-full flex-row items-center justify-between'
