@@ -68,23 +68,16 @@ const Achievements = () => {
 
 			<div className='relative w-fit rounded-3xl'>
 				{tabletView && (
-					<BlurFade
-						delay={0.12}
-						inView
-						inViewMargin='-1px'
-						offset={20}
-					>
-						<FlickeringGrid
-							squareSize={6}
-							gridGap={6}
-							color={'#6B7280'}
-							maxOpacity={0.3}
-							flickerChance={0.2}
-							className={`absolute left-0 top-0 !z-[10] h-full w-full`}
-						></FlickeringGrid>
-						<div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
-					</BlurFade>
+					<FlickeringGrid
+						squareSize={6}
+						gridGap={6}
+						color={'#6B7280'}
+						maxOpacity={0.3}
+						flickerChance={0.2}
+						className={`absolute left-0 top-0 !z-[10] h-full w-full`}
+					></FlickeringGrid>
 				)}
+				<div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
 				<AchievementsBox achievementData={achievementsData} />
 			</div>
 		</section>
