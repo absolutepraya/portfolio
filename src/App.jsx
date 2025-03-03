@@ -26,8 +26,7 @@ const App = () => {
 			<About />
 			<Experience />
 			<Projects />
-			{/* TODO: Mobile-view */}
-			{desktopView && <Achievements />}
+			<Achievements />
 			<Contact />
 			<Copyright />
 		</div>

@@ -83,7 +83,6 @@ const Contact = () => {
 			<BlurFade
 				className='flex w-full flex-col items-center justify-center space-y-2 p-6 xl:w-1/2'
 				delay={desktopView ? 0.8 : 0.3}
-				duration={0.6}
 				inView
 				offset={30}
 			>

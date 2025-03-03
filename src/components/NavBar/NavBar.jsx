@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import DesktopView from '../../lib/DesktopView';
+import TabletView from '../../lib/TabletView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend, IconTrophy } from '@tabler/icons-react';
@@ -8,6 +9,7 @@ import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 const NavBar = () => {
 	const [activeSection, setActiveSection] = useState('aboutsec');
 	const desktopView = DesktopView();
+	const tabletView = TabletView();
 	const [isHover, setIsHover] = useState(false);
 
 	useEffect(() => {
@@ -39,13 +41,14 @@ const NavBar = () => {
 
 	return (
 		<BlurFade
-			className='fixed top-8 !z-[100] flex h-[4.9rem] w-auto scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:w-[55rem] md:scale-100'
+			className='fixed top-8 !z-[100] flex h-[4.9rem] scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md lg:w-[55rem] md:scale-100'
 			delay={0.6}
 			offset={40}
 			duration={0.6}
 			direction='down'
+			scale={tabletView ? 1 : 0.87}
 		>
-			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight md:w-1/3'>
+			<div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
 				{desktopView && <ButtonImg />}
 				{desktopView && (
 					<div className='flex flex-col justify-start'>
@@ -74,14 +77,12 @@ const NavBar = () => {
 					link='#projects'
 					isActive={activeSection === 'projectssec'}
 				/>
-				{desktopView && (
-					<Button
-						icon={<IconTrophy />}
-						text='Achievements'
-						link='#achievements'
-						isActive={activeSection === 'achievementssec'}
-					/>
-				)}
+				<Button
+					icon={<IconTrophy />}
+					text='Achievements'
+					link='#achievements'
+					isActive={activeSection === 'achievementssec'}
+				/>
 				<Button
 					icon={<IconMail />}
 					text='Contacts'
@@ -89,7 +90,7 @@ const NavBar = () => {
 					isActive={activeSection === 'contactsec'}
 				/>
 			</div>
-			<div className='flex flex-row justify-end md:w-1/3'>
+			<div className='flex flex-row justify-end lg:w-1/3'>
 				{desktopView && (
 					<a
 						href='https://www.linkedin.com/in/daffaabhipraya/'
