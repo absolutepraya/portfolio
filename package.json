@@ -7,7 +7,7 @@
 		"dev": "bun run vite",
 		"build": "bun run vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"start": "bunx --bun serve -s dist"
+		"start": "bun run serve -s dist"
 	},
 	"dependencies": {
 		"@react-spring/web": "^9.7.5",
