@@ -4,10 +4,10 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
+		"dev": "bun run vite",
+		"build": "bun run vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"start": "serve -s dist"
+		"start": "bunx --bun serve -s dist"
 	},
 	"dependencies": {
 		"@react-spring/web": "^9.7.5",
@@ -33,6 +33,10 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-tailwindcss": "^0.6.9",
 		"tailwindcss": "^3.4.16",
-		"vite": "^6.0.3"
+		"vite": "^6.0.3",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
 	}
 }
