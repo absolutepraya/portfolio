@@ -6,7 +6,6 @@ import Hello from '../../assets/creds/hello.webp';
 import { IconPointer, IconBrandLinkedin, IconMail, IconSend, IconCopy, IconBrandGithub, IconBrandInstagram, IconBrandSpotify, IconCheck } from '@tabler/icons-react';
 import { useState } from 'react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
-import BlurText from '../../blocks/TextAnimations/BlurText/BlurText';
 import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 
 const Contact = () => {
@@ -25,7 +24,7 @@ const Contact = () => {
 
 	return (
 		<BlurFade
-			className='relative flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
+			className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
 			delay={0.3}
 			inView
 			offset={20}

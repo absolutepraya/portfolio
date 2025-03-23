@@ -24,6 +24,7 @@ import Dart from '../../assets/stacks/dart.svg';
 import Django from '../../assets/stacks/django.svg';
 import Flutter from '../../assets/stacks/flutter.svg';
 import Nest from '../../assets/stacks/nestjs.svg';
+import Bun from '../../assets/stacks/bun.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
@@ -38,6 +39,7 @@ const stackIcons = {
 	nodejs: { src: Node, name: 'Node.js' },
 	npm: { src: NPM, name: 'NPM' },
 	python: { src: Python, name: 'Python' },
+	bun: { src: Bun, name: 'Bun' },
 	reactjs: { src: React, name: 'React.js' },
 	tailwindcss: { src: TailwindCSS, name: 'TailwindCSS' },
 	typescript: { src: TypeScript, name: 'TypeScript' },
@@ -80,7 +82,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 					alt={title + ' image preview'}
 				/>
 			</div>
-			<div className='relative flex flex-col space-y-2 p-6 h-full'>
+			<div className='relative flex h-full flex-col space-y-2 p-6'>
 				<div className='flex flex-row items-start justify-between'>
 					<div className='flex flex-row items-start space-x-3'>
 						<p className='font-instrument text-2xl md:text-3xl'>{title}</p>
@@ -91,7 +93,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 					<p className='md:text-md mt-[6px] text-end font-jetbrainsmono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
 				</div>
 				<p className='text-justify'>{subtitle}</p>
-				<div className='flex flex-grow'/>
+				<div className='flex flex-grow' />
 				<div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
 					<div className='flex w-fit flex-row space-x-2 rounded md:space-x-3'>
 						{stacks.map((stack, index) => (

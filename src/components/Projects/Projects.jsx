@@ -13,6 +13,13 @@ import Ngandung from '../../assets/projects/ngandung.webp';
 import { motion } from 'framer-motion';
 
 const projectsData = [
+	// {
+	// 	title: 'ALSA E-Comp 2025',
+	// 	type: 'Web App',
+	// 	date: '02/2025',
+	// 	subtitle: 'A web application for ALSA E-Comp 2025, a national competition held by ALSA LC UI. The app features a registration system, a submission system, and a dashboard for the committee to manage the competition.',
+	// 	stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss']
+	// },
 	{
 		image: NuSantap,
 		title: 'NuSantap',
@@ -58,7 +65,7 @@ const projectsData = [
 		type: 'Website',
 		date: '08/2024',
 		subtitle: 'Personal portfolio website, showcasing skills, experiences, and projects. Contents are to be updated regularly. Future update will showcase achievements section, certifications section, and some other cool stuff.',
-		stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
+		stacks: ['bun', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
 		url: 'https://abhipraya.dev/',
 		github: 'https://github.com/absolutepraya/portfolio'
 	},

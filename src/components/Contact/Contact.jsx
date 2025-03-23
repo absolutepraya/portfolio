@@ -1,9 +1,14 @@
 import DesktopView from '../../lib/DesktopView';
 import ContactBox from './ContactBox';
 import { motion } from 'framer-motion';
+import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
+import TvView from '../../lib/TvView';
+import TabletView from '../../lib/TabletView';
 
 const Contact = () => {
 	const desktopView = DesktopView();
+	const tvView = TvView();
+	const tabletView = TabletView();
 
 	return (
 		<section
@@ -32,7 +37,59 @@ const Contact = () => {
 				</div>
 			</div>
 
-			<ContactBox />
+			<div className='relative rounded-3xl'>
+				<ContactBox />
+				{tvView ? (
+					<div className='absolute bottom-0 left-0 !z-0 h-1/2 w-full overflow-hidden rounded-3xl'>
+						<div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-customblack to-transparent'></div>
+						<FlickeringGrid
+							squareSize={6}
+							gridGap={6}
+							color={'#6B7280'}
+							maxOpacity={0.3}
+							flickerChance={0.2}
+							className={`h-full w-full`}
+						></FlickeringGrid>
+					</div>
+				) : tabletView ? (
+					<div>
+						<div className='absolute top-0 !z-0 h-full w-1/3 overflow-hidden rounded-3xl'>
+							<div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-transparent to-customblack'></div>
+							<FlickeringGrid
+								squareSize={6}
+								gridGap={6}
+								color={'#6B7280'}
+								maxOpacity={0.3}
+								flickerChance={0.2}
+								className={`h-full w-full`}
+							></FlickeringGrid>
+						</div>
+						<div className='absolute right-0 top-0 !z-0 h-full w-1/3 overflow-hidden'>
+							<div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-customblack to-transparent'></div>
+							<FlickeringGrid
+								squareSize={6}
+								gridGap={6}
+								color={'#6B7280'}
+								maxOpacity={0.3}
+								flickerChance={0.2}
+								className={`h-full w-full`}
+							></FlickeringGrid>
+						</div>
+					</div>
+				) : (
+					<div className='absolute bottom-0 left-0 !z-0 h-2/3 w-full overflow-hidden rounded-3xl'>
+						<div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-customblack to-transparent'></div>
+						<FlickeringGrid
+							squareSize={5}
+							gridGap={5}
+							color={'#6B7280'}
+							maxOpacity={0.3}
+							flickerChance={0.2}
+							className={`h-full w-full`}
+						></FlickeringGrid>
+					</div>
+				)}
+			</div>
 		</section>
 	);
 };

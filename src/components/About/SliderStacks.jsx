@@ -18,6 +18,7 @@ import Nest from '../../assets/stacks/nestjs.svg';
 import Discord from '../../assets/stacks/discord.svg';
 import X from '../../assets/stacks/x.svg';
 import Dart from '../../assets/stacks/dart.svg';
+import Bun from '../../assets/stacks/bun.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const stacksList = [
@@ -25,6 +26,7 @@ export const stacksList = [
 	// { src: npm, alt: 'npm' },
 	{ src: Reactjs, alt: 'React.js' },
 	{ src: Next, alt: 'Next.js' },
+	{ src: Bun, alt: 'Bun' },
 	{ src: JavaScript, alt: 'JavaScript' },
 	{ src: TypeScript, alt: 'TypeScript' },
 	{ src: Tailwind, alt: 'Tailwind' },
