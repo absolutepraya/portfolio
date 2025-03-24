@@ -67,16 +67,22 @@ const Achievements = () => {
 			</div>
 
 			<div className='relative w-fit rounded-3xl'>
-				{/* TODO: Add inView animation to flickering grid */}
 				{tabletView && (
-					<FlickeringGrid
-						squareSize={6}
-						gridGap={6}
-						color={'#6B7280'}
-						maxOpacity={0.3}
-						flickerChance={0.2}
-						className={`absolute left-0 top-0 !z-[10] h-full w-full`}
-					></FlickeringGrid>
+					<motion.div
+						initial={{ opacity: 0 }}
+						whileInView={{ opacity: 1 }}
+						transition={{ duration: 0.8, delay: 1 }}
+						viewport={{ once: true, margin: '0px 0px 20px 0px' }}
+					>
+						<FlickeringGrid
+							squareSize={6}
+							gridGap={6}
+							color={'#6B7280'}
+							maxOpacity={0.3}
+							flickerChance={0.2}
+							className={`absolute left-0 top-0 !z-[10] h-full w-full`}
+						></FlickeringGrid>
+					</motion.div>
 				)}
 				<div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
 				<AchievementsBox achievementData={achievementsData} />
