@@ -3,73 +3,73 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-	font-family: 'Inter';
-	src: url('/src/assets/fonts/Inter/Inter-VariableFont.ttf') format('truetype');
-	font-display: swap;
-	font-weight: 100 900;
-	font-style: normal;
+  font-family: 'Inter';
+  src: url('/src/assets/fonts/Inter/Inter-VariableFont.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
 }
 @font-face {
-	font-family: 'Inter';
-	src: url('/src/assets/fonts/Inter/Inter-Italic-VariableFont.ttf') format('truetype');
-	font-display: swap;
-	font-weight: 100 900;
-	font-style: italic;
+  font-family: 'Inter';
+  src: url('/src/assets/fonts/Inter/Inter-Italic-VariableFont.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: italic;
 }
 @font-face {
-	font-family: 'Instrument Serif';
-	src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Regular.ttf') format('truetype');
-	font-display: swap;
-	font-weight: 400;
-	font-style: normal;
+  font-family: 'Instrument Serif';
+  src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-	font-family: 'Instrument Serif';
-	src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Italic.ttf') format('truetype');
-	font-display: swap;
-	font-weight: 400;
-	font-style: italic;
+  font-family: 'Instrument Serif';
+  src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Italic.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
 }
 @font-face {
-	font-family: 'JetBrains Mono';
-	src: url('/src/assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
-	font-display: swap;
-	font-weight: 100 900;
-	font-style: normal;
+  font-family: 'JetBrains Mono';
+  src: url('/src/assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 html,
 body {
-	overscroll-behavior: none;
-	scroll-behavior: smooth;
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
 }
 
 .shine-through {
-	padding: 0 37px;
-	color: #ffffff;
-	background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);
-	background-position: 0;
-	-webkit-background-clip: text; /* For Safari and Chrome */
-	-moz-background-clip: text; /* For Firefox */
-	background-clip: text; /* Standard property */
-	-webkit-text-fill-color: transparent;
-	animation: shine 6s infinite linear;
-	animation-fill-mode: forwards;
-	-webkit-text-size-adjust: none;
-	font-weight: 600;
-	font-size: 16px;
-	text-decoration: none;
-	white-space: nowrap;
+  padding: 0 37px;
+  color: #ffffff;
+  background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);
+  background-position: 0;
+  -webkit-background-clip: text; /* For Safari and Chrome */
+  -moz-background-clip: text; /* For Firefox */
+  background-clip: text; /* Standard property */
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 @keyframes shine {
-	0% {
-		background-position: -20px;
-	}
-	60% {
-		background-position: 120px;
-	}
-	100% {
-		background-position: 240px;
-	}
+  0% {
+    background-position: -20px;
+  }
+  60% {
+    background-position: 120px;
+  }
+  100% {
+    background-position: 240px;
+  }
 }
