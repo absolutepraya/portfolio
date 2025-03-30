@@ -14,9 +14,7 @@ import Flutter from '../../assets/stacks/flutter.svg';
 import Django from '../../assets/stacks/django.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
-import Nest from '../../assets/stacks/nestjs.svg';
-import Discord from '../../assets/stacks/discord.svg';
-import X from '../../assets/stacks/x.svg';
+import Nest from '../../assets/stacks/nestjs.svg'
 import Dart from '../../assets/stacks/dart.svg';
 import Bun from '../../assets/stacks/bun.svg';
 import DesktopView from '../../lib/DesktopView';
@@ -40,8 +38,6 @@ export const stacksList = [
   { src: Python, alt: 'Python' },
   { src: Flutter, alt: 'Flutter' },
   { src: Dart, alt: 'Dart' },
-  { src: Discord, alt: 'Discord Bot' },
-  { src: X, alt: 'Twitter Bot' },
 ];
 
 export const SliderStacks = () => {

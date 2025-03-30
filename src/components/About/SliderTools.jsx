@@ -14,6 +14,8 @@ import Jest from '../../assets/tools/jest.svg';
 import Selenium from '../../assets/tools/selenium.svg';
 import Tableau from '../../assets/tools/tableau.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
+import Discord from '../../assets/stacks/discord.svg';
+import X from '../../assets/stacks/x.svg';
 import DeepSeek from '../../assets/tools/deepseek.svg';
 import DesktopView from '../../lib/DesktopView';
 
@@ -32,6 +34,8 @@ export const toolsList = [
   { src: OpenAI, alt: 'OpenAI API' },
   { src: Gemini, alt: 'Gemini API' },
   { src: DeepSeek, alt: 'DeepSeek API' },
+  { src: Discord, alt: 'Discord Bot' },
+  { src: X, alt: 'Twitter Bot' },
 ];
 
 export const SliderTools = () => {
