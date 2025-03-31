@@ -28,7 +28,7 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
       {tabletView && <br />}
       Transforming ideas into solutions&nbsp;
       {tabletView && <br />}
-      powered by the latest technology&nbsp;
+      powered by the <i>latest technology</i> &nbsp;
       {tabletView && <br />}
       from Jakarta, Indonesia.
       <br />
