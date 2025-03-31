@@ -20,7 +20,17 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
       variants={combinedVariants}
       className={cn('bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.2rem] leading-[3.2rem] text-transparent md:text-6xl lg:text-7xl', className)}
     >
-      An excellent <i>Software Architect</i>,{tabletView && <br />} a versatile <i>Full-Stack Engineer</i>,{tabletView && <br />} and to the core, a <i>problem solver</i>,{tabletView && <br />} crafting innovative IT solutions{tabletView && <br />} from the lively city of Jakarta,{tabletView && <br />} Indonesia.
+      An excellent <i>Software Engineer&nbsp;</i>
+      {tabletView && <br />}
+      with expertise across Frontend,&nbsp;
+      {tabletView && <br />}
+      Backend, DevOps, and AI.&nbsp;
+      {tabletView && <br />}
+      Transforming ideas into solutions&nbsp;
+      {tabletView && <br />}
+      powered by the latest technology&nbsp;
+      {tabletView && <br />}
+      from Jakarta, Indonesia.
       <br />
       <span className='text-[0]'>X</span>
     </motion.h1>
