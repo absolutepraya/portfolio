@@ -207,6 +207,7 @@ const Projects = () => {
                 fontFamily: 'Maple Mono',
                 '&:hover': {
                   bgcolor: 'rgba(62, 62, 62, 0.2)',
+                  color: 'rgba(204, 204, 204, 0.3)',
                 },
               },
               '& .MuiTab-root': {
