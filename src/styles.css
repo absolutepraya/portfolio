@@ -37,6 +37,20 @@
   font-weight: 100 900;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('/src/assets/fonts/Maple_Mono/MapleMono[wght].ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('/src/assets/fonts/Maple_Mono/MapleMono-Italic[wght].ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: italic;
+}
 
 html,
 body {

@@ -28,10 +28,10 @@ const AchievementsBox = ({ achievementData }) => {
             inView
             inViewMargin='-1px'
           >
-            {/* <div className='absolute right-8 top-8 font-jetbrainsmono font-extrabold opacity-70'>{achievement.date}</div> */}
+            {/* <div className='absolute right-8 top-8 font-maplemono font-extrabold opacity-70'>{achievement.date}</div> */}
             <div className='flex h-fit w-full justify-center lg:w-fit'>
               <div className='relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80 lg:h-56 lg:w-56'>
-                <p className='font-jetbrainsmono text-lg font-bold opacity-40'>(under dev lol)</p>
+                <p className='font-maplemono text-lg font-bold opacity-40'>(under dev lol)</p>
                 <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
                   <div className='flex h-full w-fit items-center justify-center rounded-lg transition-all duration-100 ease-in-out md:w-10'>
                     <IconChevronLeft
@@ -77,7 +77,7 @@ const AchievementsBox = ({ achievementData }) => {
                 </div>
               </div>
               <p className='text'>{achievement.desc}</p>
-              <div className='flex flex-col space-y-1 font-jetbrainsmono'>
+              <div className='font-maplemono flex flex-col space-y-1'>
                 <div className='flex items-center space-x-2'>
                   <IconAward
                     size={20}
@@ -139,7 +139,7 @@ const AchievementsBox = ({ achievementData }) => {
           </BlurFade>
         ))}
         <BlurFade
-          className='flex w-full items-center justify-center pb-8 pt-4 font-jetbrainsmono text-sm'
+          className='font-maplemono flex w-full items-center justify-center pb-8 pt-4 text-sm'
           delay={1.1 + achievementData.length * 0.3}
           offset={8}
           inView

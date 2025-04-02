@@ -11,6 +11,9 @@ import DesaKedisan from '../../assets/projects/desakedisan.webp';
 import NuSantap from '../../assets/projects/nusantap.webp';
 import Ngandung from '../../assets/projects/ngandung.webp';
 import { motion } from 'framer-motion';
+import { Tab, Tabs, TabList, tabClasses, TabPanel, tabPanelClasses } from '@mui/joy';
+import SepBorder from './SepBorder';
+import { IconBox } from '@tabler/icons-react';
 
 const projectsData = [
   // {
@@ -151,6 +154,80 @@ const Projects = () => {
           />
         </div>
       </div>
+
+      <div className='relative flex w-full flex-col items-center py-6'>
+        {/* <SepBorder bot={false} text={""} /> */}
+        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-customblack px-4 text-customlightgray'>
+          {/* <IconBox size={20} /> */}
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            class='lucide lucide-list-filter-icon lucide-list-filter'
+          >
+            <path d='M3 6h18' />
+            <path d='M7 12h10' />
+            <path d='M10 18h4' />
+          </svg>
+          <p>Filter by type:</p>
+        </div>
+
+        <Tabs
+          defaultValue={0}
+          sx={{
+            bgcolor: '#0d0d0d',
+            display: 'flex',
+          }}
+        >
+          <TabList
+            disableUnderline
+            sx={{
+              p: 0.5,
+              gap: 1.5,
+              borderRadius: 'full',
+              bgcolor: 'transparent',
+              width: 'fit-content',
+              border: '2px solid transparent',
+              [`& .${tabClasses.root}[aria-selected="true"]`]: {
+                color: '#3643FC',
+                border: '1px solid #3643FC',
+                borderRadius: 'full',
+                bgcolor: 'rgba(54, 67, 252, 0.1)',
+              },
+              [`& .${tabClasses.root}[aria-selected="false"]`]: {
+                color: 'rgba(204, 204, 204, 0.3)',
+                border: '1px solid transparent',
+                borderRadius: 'full',
+                fontFamily: 'Maple Mono',
+                '&:hover': {
+                  bgcolor: 'rgba(62, 62, 62, 0.2)',
+                },
+              },
+              '& .MuiTab-root': {
+                fontFamily: 'JetBrains Mono',
+                borderRadius: 'md',
+              },
+            }}
+          >
+            <Tab disableIndicator>All</Tab>
+            <Tab disableIndicator>Fullstack</Tab>
+            <Tab disableIndicator>Frontend</Tab>
+            <Tab disableIndicator>Backend</Tab>
+            <Tab disableIndicator>Mobile</Tab>
+            <Tab disableIndicator>CLI</Tab>
+            <Tab disableIndicator>Video Game</Tab>
+          </TabList>
+        </Tabs>
+
+        <SepBorder bot={true} />
+      </div>
+
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         {projectsData.map((project, index) => (
           <ProjectBox

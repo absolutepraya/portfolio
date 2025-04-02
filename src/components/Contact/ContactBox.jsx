@@ -106,7 +106,7 @@ const Contact = () => {
                 size={desktopView ? 20 : 16}
                 stroke={2}
               />
-              <p className='break-all font-jetbrainsmono text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
+              <p className='font-maplemono break-all text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
             </div>
             {tabletView && (
               <a
@@ -162,7 +162,7 @@ const Contact = () => {
           </a>
           <div className='!mt-6 h-0.5 w-full bg-customgray' />
           <p className=''>Follow my other socials!</p>
-          <div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
+          <div className='font-maplemono flex w-full flex-col space-y-2 text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
               target='_blank'

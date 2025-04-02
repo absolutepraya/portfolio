@@ -48,7 +48,7 @@ const NavBar = () => {
       direction='down'
       scale={tabletView ? 1 : 0.87}
     >
-      <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
+      <div className='font-maplemono flex flex-row items-center space-x-4 tracking-tight lg:w-1/3'>
         {desktopView && <ButtonImg />}
         {desktopView && (
           <div className='flex flex-col justify-start'>

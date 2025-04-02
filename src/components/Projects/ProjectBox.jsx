@@ -90,7 +90,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
               <p className='text-xs text-blurple md:text-sm'>{type}</p>
             </div>
           </div>
-          <p className='md:text-md mt-[6px] text-end font-jetbrainsmono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+          <p className='md:text-md font-maplemono mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
         </div>
         <p className='text-justify'>{subtitle}</p>
         <div className='flex flex-grow' />
@@ -110,7 +110,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 3 }}
                       transition={{ duration: 0.15, ease: 'easeInOut' }}
-                      className='absolute -bottom-[32px] rounded border-[0.5px] bg-black px-[6px] py-[3px] font-jetbrainsmono text-xs'
+                      className='font-maplemono absolute -bottom-[32px] rounded border-[0.5px] bg-black px-[6px] py-[3px] text-xs'
                     >
                       <p>{stackIcons[stack].name}</p>
                     </motion.div>

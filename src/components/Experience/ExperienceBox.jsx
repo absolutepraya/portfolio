@@ -88,7 +88,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
               draggable='false'
             />
           )}
-          <p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-jetbrainsmono transition-all duration-[380ms] ease-in-out`}>{date}</p>
+          <p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
         </div>
       </div>
       <p className={`z-20 text-center md:text-lg ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
@@ -104,7 +104,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
                 key={index}
               >
                 <p className={`${isInView ? '' : 'opacity-30'} font-instrument text-xl transition-all duration-[380ms] ease-in-out md:text-2xl`}>{previousTitle}</p>
-                <p className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-jetbrainsmono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>{previousDates[index]}</p>
+                <p className={`font-maplemono font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>{previousDates[index]}</p>
               </div>
             ))}
           </div>
