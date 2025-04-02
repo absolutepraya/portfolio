@@ -10,6 +10,16 @@
     "github": "https://github.com/absolutepraya/alsa-ecomp"
   },
   {
+    "imagePath": "",
+    "title": "Rumble Backend",
+    "type": ["Backend"],
+    "date": "01/2025",
+    "subtitle": "Rumble is an On-Chain Solana Battle Royale Game. This is the backend server for Rumble, handling user authentication, game logic, player management, etc.",
+    "stacks": ["nodejs", "npm", "express", "javascript", "supabase", "x"],
+    "url": "https://rumble-landing.vercel.app/",
+    "github": ""
+  },
+  {
     "imagePath": "nusantap.webp",
     "title": "NuSantap (Gov-AI Hackathon 2024)",
     "type": ["Fullstack", "Mobile"],

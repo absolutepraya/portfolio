@@ -11,9 +11,8 @@ import DesaKedisan from '../../assets/projects/desakedisan.webp';
 import NuSantap from '../../assets/projects/nusantap.webp';
 import Ngandung from '../../assets/projects/ngandung.webp';
 import { motion } from 'framer-motion';
-import { Tab, Tabs, TabList, tabClasses, TabPanel, tabPanelClasses } from '@mui/joy';
+import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
 import SepBorder from './SepBorder';
-import { IconBox } from '@tabler/icons-react';
 import projectsData from '../../data/projects_data.json';
 
 // Map image paths to imported images
@@ -132,15 +131,22 @@ const Projects = () => {
                 border: '1px solid #3643FC',
                 borderRadius: 'full',
                 bgcolor: 'rgba(54, 67, 252, 0.1)',
+                transform: 'scale(1)',
+                transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
               },
               [`& .${tabClasses.root}[aria-selected="false"]`]: {
                 color: '#cccccc',
                 border: '1px solid transparent',
                 borderRadius: 'full',
                 fontFamily: 'Maple Mono',
+                transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
                 '&:hover': {
                   bgcolor: 'rgba(62, 62, 62, 0.2)',
                   color: '#cccccc',
+                  transform: 'scale(1.05)',
+                },
+                '&:active': {
+                  transform: 'scale(0.95)',
                 },
               },
               '& .MuiTab-root': {

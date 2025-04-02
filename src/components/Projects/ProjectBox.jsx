@@ -25,6 +25,7 @@ import Django from '../../assets/stacks/django.svg';
 import Flutter from '../../assets/stacks/flutter.svg';
 import Nest from '../../assets/stacks/nestjs.svg';
 import Bun from '../../assets/stacks/bun.svg';
+import X from '../../assets/stacks/x.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
@@ -55,6 +56,7 @@ const stackIcons = {
   django: { src: Django, name: 'Django' },
   flutter: { src: Flutter, name: 'Flutter' },
   nestjs: { src: Nest, name: 'Nest.js' },
+  x: { src: X, name: 'X (Twitter) Bot' }
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
@@ -69,8 +71,8 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
   return (
     <BlurFade
-      className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-200 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
-      delay={0.2}
+      className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-100 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
+      delay={0.05}
       offset={15}
       inView
     >
@@ -128,7 +130,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                       transition={{ duration: 0.15, ease: 'easeInOut' }}
                       className='font-maplemono absolute -bottom-[32px] rounded border-[0.5px] bg-black px-[6px] py-[3px] text-xs'
                     >
-                      <p>{stackIcons[stack].name}</p>
+                      <p className='text-nowrap'>{stackIcons[stack].name}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
