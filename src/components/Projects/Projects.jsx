@@ -14,119 +14,30 @@ import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel, tabPanelClasses } from '@mui/joy';
 import SepBorder from './SepBorder';
 import { IconBox } from '@tabler/icons-react';
+import projectsData from '../../data/projects_data.json';
 
-const projectsData = [
-  // {
-  // 	title: 'ALSA E-Comp 2025',
-  // 	type: 'Web App',
-  // 	date: '02/2025',
-  // 	subtitle: 'A web application for ALSA E-Comp 2025, a national competition held by ALSA LC UI. The app features a registration system, a submission system, and a dashboard for the committee to manage the competition.',
-  // 	stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss']
-  // },
-  {
-    image: NuSantap,
-    title: 'NuSantap',
-    type: 'Mobile & Web App',
-    date: '11/2024',
-    subtitle: 'NuSantap is an app that uses AI and Computer Vision to provide personalized meal recommendations based on nutritional needs and local food availability, optimizing the "Makan Bergizi Gratis" program.',
-    stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss', 'firebase', 'azure', 'openai'],
-    url: 'https://www.nusantap.id/',
-    github: '',
-  },
-  {
-    title: 'NuSantap Dashboard',
-    type: 'Web App',
-    date: '11/2024',
-    subtitle: 'A dashboard for NuSantap, featuring analytics graphs, user meal QR scans, and a stunting prevalence map at both provincial and national levels, with the ability to generate and manage weekly meal plans.',
-    stacks: ['nodejs', 'npm', 'nextjs', 'typescript', 'tailwindcss', 'firebase', 'azure', 'openai'],
-    url: 'https://nusantap-dashboard.vercel.app/',
-    github: '',
-  },
-  {
-    image: Ngandung,
-    title: 'Ngandung',
-    type: 'Mobile & Web App',
-    date: '11/2024',
-    subtitle: 'Ngandung is an application that makes it easy for users to find information about foods and stores in Bandung, leave reviews, and save favorite stores.',
-    stacks: ['django', 'python', 'javascript', 'tailwindcss', 'flutter', 'dart'],
-    url: '',
-    github: 'https://github.com/Kelompok-9-PBP-Ganjil-2024-2025/ngandung-mobile',
-  },
-  {
-    image: DesaKedisan,
-    title: 'Desa Kedisan',
-    type: 'Website',
-    date: '10/2024',
-    subtitle: 'A front-end website that serves as information center of Desa Kedisan, a small tourism village in Gianyar, Bali. This website showcases the essence of the village, its culture, and its tourism spots.',
-    stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
-    url: 'https://desa-kedisan.vercel.app/',
-    github: 'https://github.com/absolutepraya/desa-kedisan',
-  },
-  {
-    image: Portfolio,
-    title: 'Portfolio',
-    type: 'Website',
-    date: '08/2024',
-    subtitle: 'Personal portfolio website, showcasing skills, experiences, and projects. Contents are to be updated regularly. Future update will showcase achievements section, certifications section, and some other cool stuff.',
-    stacks: ['bun', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
-    url: 'https://abhipraya.dev/',
-    github: 'https://github.com/absolutepraya/portfolio',
-  },
-  {
-    image: GrabAuto,
-    title: 'GrabAuto',
-    type: 'App Feature',
-    date: '07/2024',
-    subtitle: "Grab feature that uses gen-AI to diagnose vehicle issues (even when the user has no idea what's wrong), find the nearest mechanics, book a repair service, and predict the cost. Built in 23 hours during hackjakarta.",
-    stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'typescript', 'tailwindcss', 'gemini'],
-    url: '',
-    github: 'https://github.com/Tianrider/GrabAuto',
-  },
-  {
-    image: MIPAOpenHouse,
-    title: 'OH FMIPA UI 2024',
-    type: 'Website',
-    date: '06/2024',
-    subtitle: 'Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.',
-    stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'nestjs', 'supabase'],
-    url: 'https://mipaopenhouse.com',
-    github: '',
-  },
-  {
-    image: DM2Calc,
-    title: 'DM2 Calculator',
-    type: 'CLI App',
-    date: '02/2024',
-    subtitle: "A collection of tools for solving Discrete Math 2 problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more.",
-    stacks: ['python'],
-    url: '',
-    github: 'https://github.com/absolutepraya/dm2-calculator',
-  },
-  {
-    image: ValentineLetter,
-    title: 'Valentine Letter',
-    type: 'Website',
-    date: '01/2024',
-    subtitle: 'An interactive Valentine\'s Letter that allows user to customize and send it to their significant others. It features conversation-style messages and interactive elements such as "Yes" and "No", enabling the receiver to "talk" to the sender.',
-    stacks: ['javascript'],
-    url: '',
-    github: '',
-  },
-  {
-    image: GusDur,
-    title: 'TLo Gus Dur: EotR',
-    type: 'Game',
-    date: '12/2022',
-    subtitle: "A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency.",
-    stacks: [],
-    url: '',
-    github: '',
-  },
-];
+// Map image paths to imported images
+const imageMap = {
+  'grabauto.webp': GrabAuto,
+  'mipaopenhouse.webp': MIPAOpenHouse,
+  'dm2calc.webp': DM2Calc,
+  'valentineletter.webp': ValentineLetter,
+  'gusdur.webp': GusDur,
+  'portfolio.webp': Portfolio,
+  'desakedisan.webp': DesaKedisan,
+  'nusantap.webp': NuSantap,
+  'ngandung.webp': Ngandung,
+};
 
 const Projects = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
+
+  // Map the image paths to actual imported images
+  const projectsWithImages = projectsData.map((project) => ({
+    ...project,
+    image: project.imagePath ? imageMap[project.imagePath] : undefined,
+  }));
 
   return (
     <section
@@ -156,9 +67,7 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        {/* <SepBorder bot={false} text={""} /> */}
         <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-customblack px-4 text-customlightgray'>
-          {/* <IconBox size={20} /> */}
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='20'
@@ -175,7 +84,7 @@ const Projects = () => {
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p>Filter by type:</p>
+          <p className='font-semibold'>Filter by type:</p>
         </div>
 
         <Tabs
@@ -201,13 +110,13 @@ const Projects = () => {
                 bgcolor: 'rgba(54, 67, 252, 0.1)',
               },
               [`& .${tabClasses.root}[aria-selected="false"]`]: {
-                color: 'rgba(204, 204, 204, 0.3)',
+                color: '#cccccc',
                 border: '1px solid transparent',
                 borderRadius: 'full',
                 fontFamily: 'Maple Mono',
                 '&:hover': {
                   bgcolor: 'rgba(62, 62, 62, 0.2)',
-                  color: 'rgba(204, 204, 204, 0.3)',
+                  color: '#cccccc',
                 },
               },
               '& .MuiTab-root': {
@@ -221,7 +130,7 @@ const Projects = () => {
             <Tab disableIndicator>Frontend</Tab>
             <Tab disableIndicator>Backend</Tab>
             <Tab disableIndicator>Mobile</Tab>
-            <Tab disableIndicator>CLI</Tab>
+            <Tab disableIndicator>CLI App</Tab>
             <Tab disableIndicator>Video Game</Tab>
           </TabList>
         </Tabs>
@@ -230,7 +139,7 @@ const Projects = () => {
       </div>
 
       <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
-        {projectsData.map((project, index) => (
+        {projectsWithImages.map((project, index) => (
           <ProjectBox
             key={index}
             image={project.image}

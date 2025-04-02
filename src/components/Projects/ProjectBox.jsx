@@ -86,11 +86,27 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
         <div className='flex flex-row items-start justify-between'>
           <div className='flex flex-row items-start space-x-3'>
             <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
-            <div className='mt-[8px] rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
-              <p className='text-xs text-blurple md:text-sm'>{type}</p>
-            </div>
           </div>
           <p className='md:text-md font-maplemono mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+        </div>
+        <div className='flex flex-row items-center space-x-2'>
+          <p className='font-bold'>Type: </p>
+          <div className='flex flex-row flex-wrap gap-2'>
+            {Array.isArray(type) ? (
+              type.map((t, index) => (
+                <div
+                  key={index}
+                  className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
+                >
+                  <p className='font-maplemono text-xs text-blurple md:text-sm'>{t}</p>
+                </div>
+              ))
+            ) : (
+              <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
+                <p className='font-maplemono text-xs text-blurple md:text-sm'>{type}</p>
+              </div>
+            )}
+          </div>
         </div>
         <p className='text-justify'>{subtitle}</p>
         <div className='flex flex-grow' />
