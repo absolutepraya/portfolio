@@ -39,6 +39,25 @@ const Projects = () => {
     image: project.imagePath ? imageMap[project.imagePath] : undefined,
   }));
 
+  // Filter projects by type
+  const getFilteredProjects = (type) => {
+    if (type === 'All') return projectsWithImages;
+
+    return projectsWithImages.filter((project) => {
+      if (Array.isArray(project.type)) {
+        return project.type.includes(type);
+      }
+      return project.type === type;
+    });
+  };
+
+  const fullstackProjects = getFilteredProjects('Fullstack');
+  const frontendProjects = getFilteredProjects('Frontend');
+  const backendProjects = getFilteredProjects('Backend');
+  const mobileProjects = getFilteredProjects('Mobile');
+  const cliProjects = getFilteredProjects('CLI App');
+  const gameProjects = getFilteredProjects('Video Game');
+
   return (
     <section
       className='relative w-[90vw] flex-col space-y-12 xl:w-[68rem]'
@@ -75,10 +94,10 @@ const Projects = () => {
             viewBox='0 0 24 24'
             fill='none'
             stroke='currentColor'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            class='lucide lucide-list-filter-icon lucide-list-filter'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            className='lucide lucide-list-filter-icon lucide-list-filter'
           >
             <path d='M3 6h18' />
             <path d='M7 12h10' />
@@ -92,12 +111,17 @@ const Projects = () => {
           sx={{
             bgcolor: '#0d0d0d',
             display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            alignItems: 'center',
           }}
         >
           <TabList
             disableUnderline
             sx={{
               p: 0.5,
+              pb: 4,
+              mb: 3,
               gap: 1.5,
               borderRadius: 'full',
               bgcolor: 'transparent',
@@ -132,26 +156,157 @@ const Projects = () => {
             <Tab disableIndicator>Mobile</Tab>
             <Tab disableIndicator>CLI App</Tab>
             <Tab disableIndicator>Video Game</Tab>
+
+            <SepBorder bot={true} />
           </TabList>
+
+          <TabPanel
+            value={0}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {projectsWithImages.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={1}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {fullstackProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={2}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {frontendProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={3}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {backendProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={4}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {mobileProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={5}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {cliProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={6}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {gameProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
         </Tabs>
-
-        <SepBorder bot={true} />
-      </div>
-
-      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
-        {projectsWithImages.map((project, index) => (
-          <ProjectBox
-            key={index}
-            image={project.image}
-            title={project.title}
-            type={project.type}
-            date={project.date}
-            subtitle={project.subtitle}
-            stacks={project.stacks}
-            url={project.url}
-            github={project.github}
-          />
-        ))}
       </div>
     </section>
   );
