@@ -1,6 +1,6 @@
 [
   {
-    "imagePath": "",
+    "imagePath": "alsaecomp.webp",
     "title": "ALSA LC FH UI E-Comp Portal",
     "type": ["Frontend"],
     "date": "02/2025",
@@ -10,11 +10,11 @@
     "github": "https://github.com/absolutepraya/alsa-ecomp"
   },
   {
-    "imagePath": "",
+    "imagePath": "rumble.webp",
     "title": "Rumble Backend",
     "type": ["Backend"],
     "date": "01/2025",
-    "subtitle": "Rumble is an On-Chain Solana Battle Royale Game. This is the backend server for Rumble, handling user authentication, game logic, player management, etc.",
+    "subtitle": "Rumble is an On-Chain Solana Battle Royale Game. This is the backend server for Rumble, handling user authentication, game logic, player management, etc. Game announcements are sent via X (Twitter) Bot using X API v2.",
     "stacks": ["nodejs", "npm", "express", "javascript", "supabase", "x"],
     "url": "https://rumble-landing.vercel.app/",
     "github": ""

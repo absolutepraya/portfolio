@@ -10,6 +10,8 @@ import Portfolio from '../../assets/projects/portfolio.webp';
 import DesaKedisan from '../../assets/projects/desakedisan.webp';
 import NuSantap from '../../assets/projects/nusantap.webp';
 import Ngandung from '../../assets/projects/ngandung.webp';
+import Rumble from '../../assets/projects/rumble.webp';
+import ALSAEcomp from '../../assets/projects/alsaecomp.webp';
 import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
 import SepBorder from './SepBorder';
@@ -26,6 +28,8 @@ const imageMap = {
   'desakedisan.webp': DesaKedisan,
   'nusantap.webp': NuSantap,
   'ngandung.webp': Ngandung,
+  'rumble.webp': Rumble,
+  'alsaecomp.webp': ALSAEcomp,
 };
 
 const Projects = () => {
