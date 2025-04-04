@@ -64,7 +64,7 @@
     "title": "Personal Portfolio",
     "type": ["Frontend"],
     "date": "08/2024",
-    "subtitle": "Personal portfolio website, showcasing skills, experiences, and projects. Contents are to be updated regularly. Future update will showcase achievements section, certifications section, and some other cool stuff.",
+    "subtitle": "Personal portfolio website, showcasing skills, experiences, achievements, and projects. Contents are to be updated regularly. Feel free to explore and reach out!",
     "stacks": ["bun", "npm", "vitejs", "reactjs", "javascript", "tailwindcss"],
     "url": "https://abhipraya.dev/",
     "github": "https://github.com/absolutepraya/portfolio"
