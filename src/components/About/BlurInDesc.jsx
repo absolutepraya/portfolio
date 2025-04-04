@@ -18,7 +18,7 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
       animate='visible'
       transition={{ duration, delay: 1.5 }}
       variants={combinedVariants}
-      className={cn('bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.2rem] leading-[3.2rem] text-transparent md:text-6xl lg:text-7xl', className)}
+      className={cn('bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.4rem] leading-[3.2rem] text-transparent md:text-6xl lg:text-7xl', className)}
     >
       An excellent <i>Software Engineer&nbsp;</i>
       {tabletView && <br />}

@@ -119,7 +119,7 @@ const Projects = () => {
             alignItems: 'center',
           }}
         >
-          <div className="w-full overflow-x-auto pb-2 lg:overflow-visible lg:pb-0">
+          <div className='w-full overflow-x-auto pb-2 lg:overflow-visible lg:pb-0'>
             <TabList
               disableUnderline
               sx={{
