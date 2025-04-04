@@ -119,56 +119,61 @@ const Projects = () => {
             alignItems: 'center',
           }}
         >
-          <TabList
-            disableUnderline
-            sx={{
-              p: 0.5,
-              pb: 4,
-              mb: 3,
-              gap: 1.5,
-              borderRadius: 'full',
-              bgcolor: 'transparent',
-              width: 'fit-content',
-              border: '2px solid transparent',
-              [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                color: '#3643FC',
-                border: '1px solid #3643FC',
+          <div className="w-full overflow-x-auto pb-2 lg:overflow-visible lg:pb-0">
+            <TabList
+              disableUnderline
+              sx={{
+                p: 0.5,
+                pb: 4,
+                mb: 3,
+                gap: 1.5,
                 borderRadius: 'full',
-                bgcolor: 'rgba(54, 67, 252, 0.1)',
-                transform: 'scale(1)',
-                transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
-              },
-              [`& .${tabClasses.root}[aria-selected="false"]`]: {
-                color: '#cccccc',
-                border: '1px solid transparent',
-                borderRadius: 'full',
-                fontFamily: 'Maple Mono',
-                transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
-                '&:hover': {
-                  bgcolor: 'rgba(62, 62, 62, 0.2)',
+                bgcolor: 'transparent',
+                width: 'fit-content',
+                minWidth: { xs: 'max-content', lg: 'fit-content' },
+                border: '2px solid transparent',
+                mx: { xs: 'auto', lg: 'auto' },
+                [`& .${tabClasses.root}[aria-selected="true"]`]: {
+                  color: '#3643FC',
+                  border: '1px solid #3643FC',
+                  borderRadius: 'full',
+                  bgcolor: 'rgba(54, 67, 252, 0.1)',
+                  transform: 'scale(1)',
+                  transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
+                },
+                [`& .${tabClasses.root}[aria-selected="false"]`]: {
                   color: '#cccccc',
-                  transform: 'scale(1.05)',
+                  border: '1px solid transparent',
+                  borderRadius: 'full',
+                  fontFamily: 'Maple Mono',
+                  transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
+                  '&:hover': {
+                    bgcolor: 'rgba(62, 62, 62, 0.2)',
+                    color: '#cccccc',
+                    transform: 'scale(1.05)',
+                  },
+                  '&:active': {
+                    transform: 'scale(0.95)',
+                  },
                 },
-                '&:active': {
-                  transform: 'scale(0.95)',
+                '& .MuiTab-root': {
+                  fontFamily: 'JetBrains Mono',
+                  borderRadius: 'md',
+                  whiteSpace: 'nowrap',
                 },
-              },
-              '& .MuiTab-root': {
-                fontFamily: 'JetBrains Mono',
-                borderRadius: 'md',
-              },
-            }}
-          >
-            <Tab disableIndicator>All</Tab>
-            <Tab disableIndicator>Fullstack</Tab>
-            <Tab disableIndicator>Frontend</Tab>
-            <Tab disableIndicator>Backend</Tab>
-            <Tab disableIndicator>Mobile</Tab>
-            <Tab disableIndicator>CLI App</Tab>
-            <Tab disableIndicator>Video Game</Tab>
+              }}
+            >
+              <Tab disableIndicator>All</Tab>
+              <Tab disableIndicator>Fullstack</Tab>
+              <Tab disableIndicator>Frontend</Tab>
+              <Tab disableIndicator>Backend</Tab>
+              <Tab disableIndicator>Mobile</Tab>
+              <Tab disableIndicator>CLI App</Tab>
+              <Tab disableIndicator>Video Game</Tab>
 
-            <SepBorder bot={true} />
-          </TabList>
+              <SepBorder bot={true} />
+            </TabList>
+          </div>
 
           <TabPanel
             value={0}
