@@ -124,8 +124,8 @@ const Projects = () => {
               disableUnderline
               sx={{
                 p: 0.5,
-                pb: 4,
-                mb: 3,
+                pb: 0,
+                mb: 0, // reduced margin here
                 gap: 1.5,
                 borderRadius: 'full',
                 bgcolor: 'transparent',
@@ -170,10 +170,11 @@ const Projects = () => {
               <Tab disableIndicator>Mobile</Tab>
               <Tab disableIndicator>CLI App</Tab>
               <Tab disableIndicator>Video Game</Tab>
-
-              <SepBorder bot={true} />
             </TabList>
           </div>
+
+          {/* SepBorder moved here, between TabList and TabPanels */}
+          <SepBorder />
 
           <TabPanel
             value={0}

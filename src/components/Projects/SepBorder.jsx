@@ -1,10 +1,10 @@
 const SepBorder = ({ bot, text }) => {
   return (
-    <div className={`absolute ${bot ? '-bottom-[0px]' : '-top-[0px]'} right-1/2 flex w-[80%] translate-x-1/2 flex-row border-opacity-100`}>
+    <div className='my-6 flex w-full flex-row'>
       <div className='h-[2px] w-1/3 bg-gradient-to-l from-customgray to-transparent' />
       <div className='relative h-[2px] w-1/3 bg-customgray'>
         {text && (
-          <div className='absolute -top-3 right-1/2 translate-x-1/2 text-customlightgray bg-customblack px-4'>
+          <div className='absolute -top-3 right-1/2 translate-x-1/2 bg-customblack px-4 text-customlightgray'>
             <p>{text}</p>
           </div>
         )}
