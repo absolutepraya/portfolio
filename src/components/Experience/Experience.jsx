@@ -1,37 +1,13 @@
 import Line from './Line';
 import ExperienceBox from './ExperienceBox';
 import DesktopView from '../../lib/DesktopView';
-import COMPFEST from '../../assets/orgs/compfest.webp';
-import RISTEK from '../../assets/orgs/ristek.svg';
-import Fasilkom from '../../assets/orgs/fasilkom.svg';
-import DDP0 from '../../assets/orgs/ddp0.svg';
-import BETIS from '../../assets/orgs/betis.svg';
-import GDG from '../../assets/orgs/gdg.svg';
-import CO80 from '../../assets/orgs/80co.webp';
 import { motion } from 'framer-motion';
 import React from 'react';
-import experienceData from '../../data/experience_data.json';
+import experienceData from '../../data/experience_data.js';
 // import { GlobeDemo } from '../AceternityUI/GlobeSection';
-
-// Map logo paths to imported images
-const logoMap = {
-  'compfest.webp': COMPFEST,
-  'ristek.svg': RISTEK,
-  'fasilkom.svg': Fasilkom,
-  'ddp0.svg': DDP0,
-  'betis.svg': BETIS,
-  'gdg.svg': GDG,
-  '80co.webp': CO80,
-};
 
 const Experience = () => {
   const desktopView = DesktopView();
-
-  // Map the logo paths to actual imported images
-  const experienceWithLogos = experienceData.map((experience) => ({
-    ...experience,
-    logo: experience.logoPath ? logoMap[experience.logoPath] : undefined,
-  }));
 
   return (
     <section
@@ -65,7 +41,7 @@ const Experience = () => {
 
       <div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
         {/* TODO: Load only top 4 */}
-        {experienceWithLogos.map((experience, index) => (
+        {experienceData.map((experience, index) => (
           <React.Fragment key={index}>
             <ExperienceBox
               title={experience.title}
@@ -77,7 +53,7 @@ const Experience = () => {
               previousTitles={experience.previousTitles}
               previousDates={experience.previousDates}
             />
-            {index < experienceWithLogos.length - 1 && <Line />}
+            {index < experienceData.length - 1 && <Line />}
           </React.Fragment>
         ))}
       </div>

@@ -1,52 +1,20 @@
 import ProjectBox from './ProjectBox';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import GrabAuto from '../../assets/projects/grabauto.webp';
-import MIPAOpenHouse from '../../assets/projects/mipaopenhouse.webp';
-import DM2Calc from '../../assets/projects/dm2calc.webp';
-import ValentineLetter from '../../assets/projects/valentineletter.webp';
-import GusDur from '../../assets/projects/gusdur.webp';
-import Portfolio from '../../assets/projects/portfolio.webp';
-import DesaKedisan from '../../assets/projects/desakedisan.webp';
-import NuSantap from '../../assets/projects/nusantap.webp';
-import Ngandung from '../../assets/projects/ngandung.webp';
-import Rumble from '../../assets/projects/rumble.webp';
-import ALSAEcomp from '../../assets/projects/alsaecomp.webp';
 import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
 import SepBorder from './SepBorder';
-import projectsData from '../../data/projects_data.json';
-
-// Map image paths to imported images
-const imageMap = {
-  'grabauto.webp': GrabAuto,
-  'mipaopenhouse.webp': MIPAOpenHouse,
-  'dm2calc.webp': DM2Calc,
-  'valentineletter.webp': ValentineLetter,
-  'gusdur.webp': GusDur,
-  'portfolio.webp': Portfolio,
-  'desakedisan.webp': DesaKedisan,
-  'nusantap.webp': NuSantap,
-  'ngandung.webp': Ngandung,
-  'rumble.webp': Rumble,
-  'alsaecomp.webp': ALSAEcomp,
-};
+import projectsData from '../../data/projects_data.js';
 
 const Projects = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
 
-  // Map the image paths to actual imported images
-  const projectsWithImages = projectsData.map((project) => ({
-    ...project,
-    image: project.imagePath ? imageMap[project.imagePath] : undefined,
-  }));
-
   // Filter projects by type
   const getFilteredProjects = (type) => {
-    if (type === 'All') return projectsWithImages;
+    if (type === 'All') return projectsData;
 
-    return projectsWithImages.filter((project) => {
+    return projectsData.filter((project) => {
       if (Array.isArray(project.type)) {
         return project.type.includes(type);
       }
@@ -181,7 +149,7 @@ const Projects = () => {
             sx={{ p: 0, mt: 2 }}
           >
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {projectsWithImages.map((project, index) => (
+              {projectsData.map((project, index) => (
                 <ProjectBox
                   key={index}
                   image={project.image}

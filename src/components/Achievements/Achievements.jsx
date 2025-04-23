@@ -1,26 +1,14 @@
 import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
 import AchievementsBox from './AchievementsBox';
-import Kemenkeu from '../../assets/orgs/kemenkeu.webp';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import TabletView from '../../lib/TabletView';
-import achievementsData from '../../data/achievements_data.json';
-
-// Map organization logo paths to imported images
-const logoMap = {
-  'kemenkeu.webp': Kemenkeu,
-};
+import achievementsData from '../../data/achievements_data.js';
 
 const Achievements = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
-
-  // Map the logo paths to actual imported images
-  const achievementsWithLogos = achievementsData.map((achievement) => ({
-    ...achievement,
-    organizerLogo: achievement.organizerLogoPath ? logoMap[achievement.organizerLogoPath] : undefined,
-  }));
 
   return (
     <section
@@ -68,7 +56,7 @@ const Achievements = () => {
           </motion.div>
         )}
         <div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
-        <AchievementsBox achievementData={achievementsWithLogos} />
+        <AchievementsBox achievementData={achievementsData} />
       </div>
     </section>
   );
