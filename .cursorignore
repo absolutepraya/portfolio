@@ -7,3 +7,8 @@ README.md
 color-preset.sh
 compress-optimize.sh
 package-lock.json
+.vite-cache/
+.env
+.env.local
+.env.development
+.env.production
