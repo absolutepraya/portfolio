@@ -13,6 +13,36 @@ import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 
 const projectsData = [
     {
+        image: null,
+        title: "Jawab.in",
+        type: ["Fullstack", "Under Dev"],
+        date: "04/2025",
+        subtitle: "Jawab.in is an AI-powered platform for students that provides answers to questions from text, photos, or PDFs. It delivers interactive, clear, step-by-step video explanations with natural-sounding audio, making learning smarter and more engaging.",
+        stacks: ["bun", "nextjs", "typescript", "tailwindcss", "express", "supabase", "python", "gemini", "openai", "docker", "digitalocean"],
+        url: "",
+        github: ""
+    },
+    {
+        image: null,
+        title: "Cobaju",
+        type: ["Fullstack", "Extension", "Under Dev"],
+        date: "03/2025",
+        subtitle: "Cobaju is an online shopping companion, where you can see yourself in the clothes you want, complete with accurate sizing details in a matter of seconds. Cobaju collects clothing pictures you choose from the e-commerce website you visit and combines with your full-body image to see how it would fit you!",
+        stacks: ["nextjs", "typescript", "tailwindcss", "supabase", "vitejs", "reactjs", "tailwindcss", "gemini", "openai"],
+        url: "",
+        github: ""
+    },
+    {
+        image: null,
+        title: "SwiftCash",
+        type: ["Fullstack", "Under Dev"],
+        date: "03/2025",
+        subtitle: "A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system.",
+        stacks: ["bun", "nextjs", "typescript", "tailwindcss", "supabase", "postgresql"],
+        url: "",
+        github: ""
+    },
+    {
         image: ALSAEcomp,
         title: "ALSA LC FH UI E-Comp Portal",
         type: ["Frontend"],
@@ -78,7 +108,7 @@ const projectsData = [
         type: ["Frontend"],
         date: "08/2024",
         subtitle: "Personal portfolio website, showcasing skills, experiences, achievements, and projects. Contents are to be updated regularly. Feel free to explore and reach out!",
-        stacks: ["bun", "npm", "vitejs", "reactjs", "javascript", "tailwindcss"],
+        stacks: ["bun", "npm", "vitejs", "reactjs", "javascript", "tailwindcss", "cloudflare"],
         url: "https://abhipraya.dev/",
         github: "https://github.com/absolutepraya/portfolio"
     },

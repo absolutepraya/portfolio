@@ -16,6 +16,8 @@ import Tableau from '../../assets/tools/tableau.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import Discord from '../../assets/stacks/discord.svg';
 import X from '../../assets/stacks/x.svg';
+import Cloudflare from '../../assets/tools/cloudflare.svg';
+import DigitalOcean from '../../assets/tools/digitalocean.svg';
 import DeepSeek from '../../assets/tools/deepseek.svg';
 import DesktopView from '../../lib/DesktopView';
 
@@ -24,9 +26,11 @@ export const toolsList = [
   { src: Vercel, alt: 'Vercel' },
   { src: Heroku, alt: 'Heroku' },
   { src: Railway, alt: 'Railway' },
+  { src: DigitalOcean, alt: 'DigitalOcean' },
   { src: Selenium, alt: 'Selenium' },
   { src: Vitest, alt: 'Vitest' },
   { src: Jest, alt: 'Jest' },
+  { src: Cloudflare, alt: 'Cloudflare' },
   { src: Tableau, alt: 'Tableau' },
   { src: Figma, alt: 'Figma' },
   { src: Ubuntu, alt: 'Ubuntu' },

@@ -26,6 +26,9 @@ import Flutter from '../../assets/stacks/flutter.svg';
 import Nest from '../../assets/stacks/nestjs.svg';
 import Bun from '../../assets/stacks/bun.svg';
 import X from '../../assets/stacks/x.svg';
+import Cloudflare from '../../assets/tools/cloudflare.svg';
+import Postgres from '../../assets/stacks/postgresql.svg';
+import DigitalOcean from '../../assets/tools/digitalocean.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
@@ -56,7 +59,10 @@ const stackIcons = {
   django: { src: Django, name: 'Django' },
   flutter: { src: Flutter, name: 'Flutter' },
   nestjs: { src: Nest, name: 'Nest.js' },
-  x: { src: X, name: 'X (Twitter) Bot' }
+  x: { src: X, name: 'X (Twitter) Bot' },
+  cloudflare: { src: Cloudflare, name: 'Cloudflare' },
+  postgresql: { src: Postgres, name: 'PostgreSQL' },
+  digitalocean: { src: DigitalOcean, name: 'DigitalOcean' }
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {

@@ -12,7 +12,15 @@ const Projects = () => {
 
   // Filter projects by type
   const getFilteredProjects = (type) => {
-    if (type === 'All') return projectsData;
+    if (type === 'All') {
+      // Exclude Under Dev projects from All category
+      return projectsData.filter(project => {
+        if (Array.isArray(project.type)) {
+          return !project.type.includes('Under Dev');
+        }
+        return project.type !== 'Under Dev';
+      });
+    }
 
     return projectsData.filter((project) => {
       if (Array.isArray(project.type)) {
@@ -28,6 +36,7 @@ const Projects = () => {
   const mobileProjects = getFilteredProjects('Mobile');
   const cliProjects = getFilteredProjects('CLI App');
   const gameProjects = getFilteredProjects('Video Game');
+  const ongoingProjects = getFilteredProjects('Under Dev');
 
   return (
     <section
@@ -93,7 +102,7 @@ const Projects = () => {
               sx={{
                 p: 0.5,
                 pb: 0,
-                mb: 0, // reduced margin here
+                mb: 0,
                 gap: 1.5,
                 borderRadius: 'full',
                 bgcolor: 'transparent',
@@ -129,6 +138,11 @@ const Projects = () => {
                   borderRadius: 'md',
                   whiteSpace: 'nowrap',
                 },
+                '& .MuiTab-root:last-child[aria-selected="false"]': {
+                  bgcolor: 'rgba(209, 213, 219, 0.03)',
+                  color: '#cccccc',
+                  opacity: 0.6,
+                },
               }}
             >
               <Tab disableIndicator>All</Tab>
@@ -138,10 +152,10 @@ const Projects = () => {
               <Tab disableIndicator>Mobile</Tab>
               <Tab disableIndicator>CLI App</Tab>
               <Tab disableIndicator>Video Game</Tab>
+              <Tab disableIndicator>Under Dev</Tab>
             </TabList>
           </div>
 
-          {/* SepBorder moved here, between TabList and TabPanels */}
           <SepBorder />
 
           <TabPanel
@@ -149,7 +163,7 @@ const Projects = () => {
             sx={{ p: 0, mt: 2 }}
           >
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {projectsData.map((project, index) => (
+              {getFilteredProjects('All').map((project, index) => (
                 <ProjectBox
                   key={index}
                   image={project.image}
@@ -276,6 +290,27 @@ const Projects = () => {
           >
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {gameProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  image={project.image}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={7}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {ongoingProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
                   image={project.image}
