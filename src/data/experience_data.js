@@ -9,30 +9,30 @@ import CO80 from '../assets/orgs/80co.webp';
 
 const experienceData = [
     {
-        title: "Front-End Developer",
+        title: "Full-Stack Engineer",
         org: "80&Company",
         url: "https://80and.co/en/company/",
         logo: CO80,
         date: "01/2025 - Present",
-        desc: "Working on a front-end interface using Next.js, while also developing a BaaS AI chat service powered by Dify AI and OpenAI's 4o-mini model, seamlessly integrated with Python to efficiently gather customer insights."
+        desc: "Developed a BaaS AI voice-call powered by Dify AI and OpenAI's 4o-mini model with Python integration for customer insights. Crafted an intuitive blockchain project frontend using Next.js with optimized SSR for a sleek user experience. Implemented a fully responsive UI for a beauty acupuncture salon's reservation management system."
     },
     {
-        title: "Software Engineering",
-        org: "GDGoC Universitas Indonesia",
+        title: "Software Engineering Team",
+        org: "Google Developer Group (GDG) on Campus UI",
         url: "https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/",
         logo: GDG,
         date: "11/2024 - Present",
-        desc: "Organizing 2 main work programs: GDG Study Jams and WebDev Mini Competition. Study Jams is a series of workshops for students to learn about Google technologies, e.g. Flutter and Firebase. WebDev Mini Competition is a competition for students to create a website based on a given theme.",
+        desc: "Teaching and mentoring members across multiple batches about Google Technologies including Firebase, Flutter, and Google Cloud. Developing learning modules and live web apps for hands-on demo during Study Jam sessions using Google Technologies and React.js. Co-organizing the GDGoC UI National Hackathon as a guidebook author and judge alongside invited industry professionals.",
         previousTitles: ["Member"],
         previousDates: ["09/2023 - 08/2024"]
     },
     {
         title: "VPIC & Expert Web Infra. Staff",
-        org: "COMPFEST17",
+        org: "COMPFEST",
         url: "https://compfest.id/",
         logo: COMPFEST,
-        date: "03/2024 - 11/2024",
-        desc: "Designed and maintained a CTF platform for COMPFEST16 using Flask, Node.js, and Bootstrap on GCP, serving 384 teams and 600+ participants. For COMPFEST17, deployed a Jeopardy-format CTF on DigitalOcean with Docker for staff recruitment and created bash automation scripts to streamline operations.",
+        date: "03/2024 - Present",
+        desc: "Deployed Jeopardy-format CTF using Docker on DigitalOcean infrastructure for open staff recruitment with custom bash script automation. Led the design and maintenance of the CTF web platform using Flask, Node.js, and Bootstrap, deployed via Docker within Google Cloud Platform. Successfully managed high-traffic competition servers with efficient resource utilization, attracting participants from universities across Indonesia.",
         previousTitles: ["Web Infra. Staff"],
         previousDates: ["03/2024 - 11/2024"]
     },
@@ -41,8 +41,8 @@ const experienceData = [
         org: "RISTEK Fasilkom UI",
         url: "https://www.ristek.cs.ui.ac.id/",
         logo: RISTEK,
-        date: "02/2025 - Present",
-        desc: "Participated in the development of an Attack and Defense (AnD) CTF platform with Next.js and Flask backend. Contributed to RISTEK Capstone Project as a front-end developer. Organized NetSOS Open Class for 100+ participants covering Web Penetration and Cryptography, while actively participating in regular internal training sessions.",
+        date: "03/2024 - Present",
+        desc: "Selected from a competitive batch for RISTEK membership and later promoted to lead position. Developed and deployed an Attack and Defense CTF for internal members with Next.js frontend and a Flask, RabbitMQ, Redis, and Wireguard backend, deployed via Docker with Ansible. Participated in cross-SIG RISTEK Capstone Project as a Next.js Frontend Developer while serving as Person in Charge for Open Classes in Web Penetration and Cryptography.",
         previousTitles: ["Member of NetSOS SIG", "PIC of Open Class", "Mentee of Open Class"],
         previousDates: ["03/2024 - 02/2025", "09/2024 - 11/2024", "10/2023 - 10/2023"]
     },
