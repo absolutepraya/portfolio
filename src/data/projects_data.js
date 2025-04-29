@@ -14,10 +14,10 @@ import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 const projectsData = [
     {
         image: null,
-        title: "Jawab.in",
+        title: "PINTARU",
         type: ["Fullstack", "Under Dev"],
         date: "04/2025",
-        subtitle: "Jawab.in is an AI-powered platform for students that provides answers to questions from text, photos, or PDFs. It delivers interactive, clear, step-by-step video explanations with natural-sounding audio, making learning smarter and more engaging.",
+        subtitle: "PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids.",
         stacks: ["bun", "nextjs", "typescript", "tailwindcss", "express", "supabase", "python", "gemini", "openai", "docker", "digitalocean"],
         url: "",
         github: ""

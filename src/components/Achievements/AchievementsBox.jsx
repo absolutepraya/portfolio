@@ -23,7 +23,7 @@ const AchievementsBox = ({ achievementData }) => {
           <BlurFade
             key={index}
             className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}
-            delay={0.8 + index * 0.2}
+            delay={0.2}
             offset={8}
             inView
             inViewMargin='-1px'
@@ -175,7 +175,7 @@ const AchievementsBox = ({ achievementData }) => {
         ))}
         <BlurFade
           className='flex w-full items-center justify-center pb-8 pt-4 font-maplemono text-sm'
-          delay={1.1 + achievementData.length * 0.3}
+          delay={1.1}
           offset={8}
           inView
         >

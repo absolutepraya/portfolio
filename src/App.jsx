@@ -25,8 +25,8 @@ const App = () => {
       />
       <About />
       <Experience />
-      <Projects />
       <Achievements />
+      <Projects />
       <Contact />
       <Copyright />
     </div>

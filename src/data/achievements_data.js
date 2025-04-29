@@ -73,7 +73,7 @@ const achievementsData = [
         desc: "Top-scored the final stage with our innovative solution. The judges were so impressed with our ideas that they requested extra time from the staff to learn more about our concept. Fellow participants were amazed by our compelling demo presentation. Unfortunately, despite our strong performance, we were ultimately disqualified.",
         award: "1st Place [Disqualified]",
         awardInt: 0,
-        location: "Jakarta, Indonesia",
+        location: "Surabaya, Indonesia",
     },
 ];
 
