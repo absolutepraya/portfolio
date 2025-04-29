@@ -18,7 +18,7 @@ const experienceData = [
     },
     {
         title: "Software Engineering Team",
-        org: "Google Developer Group (GDG) on Campus UI",
+        org: "Google Dev Group (GDG) UI",
         url: "https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/",
         logo: GDG,
         date: "11/2024 - Present",
