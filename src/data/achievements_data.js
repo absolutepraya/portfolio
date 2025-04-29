@@ -1,5 +1,8 @@
 // Import organizer logos
 import Kemenkeu from '../assets/orgs/kemenkeu.webp';
+import JIHS from '../assets/orgs/jihs.webp';
+import UC from '../assets/orgs/uc.webp';
+import COMSNETS from '../assets/orgs/comsnets.webp';
 
 const achievementsData = [
     {
@@ -13,6 +16,7 @@ const achievementsData = [
         awardInt: 1,
         prizeCurr: "IDR",
         prizeInt: 50000000,
+        bonus: ["Soundcore TWS", "Merchandises"],
         location: "Jakarta, Indonesia",
         articles: [
             {
@@ -28,7 +32,49 @@ const achievementsData = [
                 url: "https://kemahasiswaan.ui.ac.id/tim-uinnovator-raih-juara-1-pada-govai-kementerian-keuangan-hackathon-2024-2/"
             }
         ]
-    }
+    },
+    {
+        title: "JIHS Hackathon 2025",
+        organizer: "JIHS (Jakarta International Polytechnic)",
+        organizerUrl: "https://jihs.ac.id/",
+        organizerLogo: JIHS,
+        date: "04/2025",
+        desc: "Winning in a competitive final round against 9 other teams from Indonesia's leading universities. Our product features an AI-generated explanation video with clear & concise text, graphs, visualizations, animations, and human-like audio, alongside an AI-generated kid storybook that was first of its kind. Our team was interviewed by JAKTV following the winners awarding ceremony.",
+        award: "1st Place",
+        awardInt: 1,
+        prizeCurr: "IDR",
+        prizeInt: 8000000,
+        bonus: ["Trip to Bali as COMSNETS International Hackathon Finalist", "IDR 400.000 Voucher", "Merchandises"],
+        location: "Jakarta, Indonesia",
+        articles: [
+            {
+                platform: "JAKTV (Soon)",
+                url: "https://jak-tv.com/home"
+            }
+        ]
+    },
+    {
+        title: "COMSNETS in Bali 2025",
+        organizer: "COMSNETS",
+        organizerUrl: "https://www.comsnet.org/",
+        organizerLogo: COMSNETS,
+        date: "05/2025",
+        desc: "The only team representing Indonesia among finalists composed of 60% teams from India and 40% from other nations. Collaborating directly with Kementerian Komunikasi dan Informatika RI (Ministry of Communication and Information Technology of the Republic of Indonesia).",
+        award: "Finalist [On-Going]",
+        awardInt: 0,
+        location: "Nusa Dua, Bali, Indonesia",
+    },
+    {
+        title: "Hackfest UC 2025",
+        organizer: "Universitas Ciputra",
+        organizerUrl: "https://www.uc.ac.id/",
+        organizerLogo: UC,
+        date: "04/2025",
+        desc: "Top-scored the final stage with our innovative solution. The judges were so impressed with our ideas that they requested extra time from the staff to learn more about our concept. Fellow participants were amazed by our compelling demo presentation. Unfortunately, despite our strong performance, we were ultimately disqualified.",
+        award: "1st Place [Disqualified]",
+        awardInt: 0,
+        location: "Jakarta, Indonesia",
+    },
 ];
 
 export default achievementsData; 
