@@ -47,11 +47,11 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
         className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-b-0 border-r-0 border-customgray ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
       />
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
-        <p className={`relative font-instrument text-4xl md:text-5xl ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}>{title}</p>
+        <p className={`relative font-instrument text-4xl md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{title}</p>
         <div className='flex flex-col items-center justify-center md:flex-row md:space-x-2 md:text-lg'>
           {desktopView ? (
             <a
-              className={`w-45% relative font-inter font-semibold ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
+              className={`w-45% relative font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
               href={url}
               target='_blank'
               rel='noreferrer'
@@ -64,12 +64,12 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
             <div className='flex flex-row items-center space-x-2'>
               <img
                 src={logo}
-                className={`h-5 w-5 ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
+                className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
                 alt={org}
                 draggable='false'
               />
               <a
-                className={`w-45% relative font-inter font-semibold ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
+                className={`w-45% relative font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
                 href={url}
                 target='_blank'
                 rel='noreferrer'
@@ -83,28 +83,28 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
           {desktopView && (
             <img
               src={logo}
-              className={`h-5 w-5 ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}
+              className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
               alt={org}
               draggable='false'
             />
           )}
-          <p className={`w-45% font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
+          <p className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
         </div>
       </div>
-      <p className={`z-20 text-center md:text-lg ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
+      <p className={`z-20 text-center md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
 
       {previousTitles && previousDates && (
         <motion.div className={`flex w-full flex-col`}>
-          <div className={`mb-4 mt-2 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? '' : 'opacity-30'} transition-all duration-[380ms] ease-in-out`} />
-          <p className={`${isInView ? '' : 'opacity-30'} mb-2 text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>Previous/other roles:</p>
+          <div className={`mb-4 mt-2 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`} />
+          <p className={`${isInView ? 'opacity-90' : 'opacity-70'} mb-2 text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>Previous/other roles:</p>
           <div className='flex w-full flex-col space-y-2'>
             {previousTitles.map((previousTitle, index) => (
               <div
                 className='flex w-full flex-row items-center justify-between'
                 key={index}
               >
-                <p className={`${isInView ? '' : 'opacity-30'} font-instrument text-xl transition-all duration-[380ms] ease-in-out md:text-2xl`}>{previousTitle}</p>
-                <p className={`font-maplemono font-semibold ${isInView ? 'opacity-60' : 'opacity-15'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>{previousDates[index]}</p>
+                <p className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-[380ms] ease-in-out md:text-2xl`}>{previousTitle}</p>
+                <p className={`font-maplemono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>{previousDates[index]}</p>
               </div>
             ))}
           </div>

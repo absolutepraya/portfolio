@@ -106,7 +106,7 @@ const Contact = () => {
                 size={desktopView ? 20 : 16}
                 stroke={2}
               />
-              <p className='font-maplemono break-all text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
+              <p className='break-all font-maplemono text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
             </div>
             {tabletView && (
               <a
@@ -147,8 +147,8 @@ const Contact = () => {
             href='https://www.linkedin.com/in/daffaabhipraya/'
             target='_blank'
             rel='noreferrer'
-            aria-label='Reach me out on LinkedIn!'
-            title='Reach me out on LinkedIn!'
+            aria-label='Reach out on LinkedIn'
+            title='Reach out on LinkedIn'
           >
             <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
               <p className='text-sm font-semibold'>
@@ -162,7 +162,7 @@ const Contact = () => {
           </a>
           <div className='!mt-6 h-0.5 w-full bg-customgray' />
           <p className=''>Follow my other socials!</p>
-          <div className='font-maplemono flex w-full flex-col space-y-2 text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
+          <div className='flex w-full flex-col space-y-2 font-maplemono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
               target='_blank'

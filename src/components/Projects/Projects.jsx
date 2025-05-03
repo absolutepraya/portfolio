@@ -14,7 +14,7 @@ const Projects = () => {
   const getFilteredProjects = (type) => {
     if (type === 'All') {
       // Exclude Under Dev projects from All category
-      return projectsData.filter(project => {
+      return projectsData.filter((project) => {
         if (Array.isArray(project.type)) {
           return !project.type.includes('Under Dev');
         }
@@ -83,7 +83,7 @@ const Projects = () => {
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold'>Filter by type:</p>
+          <p className='font-semibold text-gray-300'>Filter by type:</p>
         </div>
 
         <Tabs
@@ -111,22 +111,22 @@ const Projects = () => {
                 border: '2px solid transparent',
                 mx: { xs: 'auto', lg: 'auto' },
                 [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                  color: '#3643FC',
-                  border: '1px solid #3643FC',
+                  color: '#5566FF',
+                  border: '1px solid #5566FF',
                   borderRadius: 'full',
-                  bgcolor: 'rgba(54, 67, 252, 0.1)',
+                  bgcolor: 'rgba(85, 102, 255, 0.15)',
                   transform: 'scale(1)',
                   transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
                 },
                 [`& .${tabClasses.root}[aria-selected="false"]`]: {
-                  color: '#cccccc',
+                  color: '#ffffff',
                   border: '1px solid transparent',
                   borderRadius: 'full',
                   fontFamily: 'Maple Mono',
                   transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
                   '&:hover': {
                     bgcolor: 'rgba(62, 62, 62, 0.2)',
-                    color: '#cccccc',
+                    color: '#ffffff',
                     transform: 'scale(1.05)',
                   },
                   '&:active': {
@@ -140,8 +140,8 @@ const Projects = () => {
                 },
                 '& .MuiTab-root:last-child[aria-selected="false"]': {
                   bgcolor: 'rgba(209, 213, 219, 0.03)',
-                  color: '#cccccc',
-                  opacity: 0.6,
+                  color: '#ffffff',
+                  opacity: 0.8,
                 },
               }}
             >

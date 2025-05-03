@@ -56,7 +56,7 @@ const AchievementsBox = ({ achievementData }) => {
             </div>
             <div className='flex flex-col space-y-2 text-left'>
               <div className='flex flex-col items-start space-y-2'>
-                <h3 className='font-instrument text-4xl md:text-5xl'>{achievement.title}</h3>
+                <h2 className='font-instrument text-4xl md:text-5xl'>{achievement.title}</h2>
                 <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                   {achievement.organizer && achievement.organizerUrl && (
                     <div className='rounded-md border border-blurple bg-blurple bg-opacity-10 px-2 transition-all duration-200 hover:bg-blurple hover:bg-opacity-100'>
