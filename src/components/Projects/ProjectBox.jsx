@@ -29,6 +29,8 @@ import X from '../../assets/stacks/x.svg';
 import Cloudflare from '../../assets/tools/cloudflare.svg';
 import Postgres from '../../assets/stacks/postgresql.svg';
 import DigitalOcean from '../../assets/tools/digitalocean.svg';
+import Redis from '../../assets/stacks/redis.svg';
+import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState } from 'react';
@@ -62,7 +64,9 @@ const stackIcons = {
   x: { src: X, name: 'X (Twitter) Bot' },
   cloudflare: { src: Cloudflare, name: 'Cloudflare' },
   postgresql: { src: Postgres, name: 'PostgreSQL' },
-  digitalocean: { src: DigitalOcean, name: 'DigitalOcean' }
+  digitalocean: { src: DigitalOcean, name: 'DigitalOcean' },
+  redis: { src: Redis, name: 'Redis' },
+  rabbitmq: { src: RabbitMQ, name: 'RabbitMQ' },
 };
 
 const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
@@ -70,10 +74,11 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
   const tabletView = TabletView();
   const [hovered, setHovered] = useState('');
 
-  // If URL or GitHub is not provided, change the button to disabled
   var urlVisibility, githubVisibility;
   if (!url) urlVisibility = 'opacity-30';
   if (!github) githubVisibility = 'opacity-30';
+
+  const STACKS_PER_LINE = 8;
 
   return (
     <BlurFade
@@ -83,7 +88,6 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
       inView
     >
       <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
-        {/* Aspect ratio 10:7 */}
         <img
           src={image ? image : NoImage}
           className='h-full w-full object-cover'
@@ -95,7 +99,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
           <div className='flex flex-row items-start space-x-3'>
             <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
           </div>
-          <p className='md:text-md font-maplemono mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+          <p className='md:text-md mt-[6px] text-end font-maplemono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
         </div>
         <div className='flex flex-row items-center space-x-2'>
           <p className='font-bold'>Type: </p>
@@ -119,34 +123,41 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
         <p className='text-justify'>{subtitle}</p>
         <div className='flex flex-grow' />
         <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
-          <div className='flex w-fit flex-row space-x-2 rounded md:space-x-3'>
-            {stacks.map((stack, index) => (
-              <motion.div
-                key={index}
-                className='relative hover:cursor-pointer'
-                onHoverStart={() => setHovered(stack)}
-                onHoverEnd={() => setHovered('')}
+          <div className='flex w-fit flex-col space-y-2 rounded'>
+            {Array.from({ length: Math.ceil(stacks.length / STACKS_PER_LINE) }).map((_, chunkIndex) => (
+              <div
+                key={chunkIndex}
+                className='flex flex-row space-x-2 md:space-x-3'
               >
-                <AnimatePresence>
-                  {hovered === stack && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 3 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 3 }}
-                      transition={{ duration: 0.15, ease: 'easeInOut' }}
-                      className='font-maplemono absolute -bottom-[32px] rounded border-[0.5px] bg-black px-[6px] py-[3px] text-xs'
-                    >
-                      <p className='text-nowrap'>{stackIcons[stack].name}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <img
-                  src={stackIcons[stack].src}
-                  alt={stackIcons[stack].name}
-                  className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
-                  draggable='false'
-                />
-              </motion.div>
+                {stacks.slice(chunkIndex * STACKS_PER_LINE, (chunkIndex + 1) * STACKS_PER_LINE).map((stack) => (
+                  <motion.div
+                    key={stack}
+                    className='relative hover:cursor-pointer'
+                    onHoverStart={() => setHovered(stack)}
+                    onHoverEnd={() => setHovered('')}
+                  >
+                    <AnimatePresence>
+                      {hovered === stack && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 3 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 3 }}
+                          transition={{ duration: 0.15, ease: 'easeInOut' }}
+                          className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
+                        >
+                          <p className='text-nowrap'>{stackIcons[stack].name}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    <img
+                      src={stackIcons[stack].src}
+                      alt={stackIcons[stack].name}
+                      className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
+                      draggable='false'
+                    />
+                  </motion.div>
+                ))}
+              </div>
             ))}
           </div>
           <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>

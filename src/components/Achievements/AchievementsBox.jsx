@@ -30,7 +30,7 @@ const AchievementsBox = ({ achievementData }) => {
           >
             <div className='flex h-fit w-full justify-center lg:w-fit'>
               <div className='relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80 lg:h-56 lg:w-56'>
-                <p className='font-maplemono text-lg font-bold opacity-40'>(under dev lol)</p>
+                <p className='font-maplemono text-lg font-bold opacity-40'>(Under Dev)</p>
                 <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
                   <div className='flex h-full w-fit items-center justify-center rounded-lg transition-all duration-100 ease-in-out md:w-10'>
                     <IconChevronLeft

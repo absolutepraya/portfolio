@@ -6,7 +6,11 @@ export default defineConfig({
 	server: {
 		hmr: {
 			overlay: false,
-		}
+		},
+		allowedHosts: [
+			'.ngrok-free.app',
+			'localhost'
+		]
 	},
 	optimizeDeps: {
 		include: [

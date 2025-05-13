@@ -3,6 +3,8 @@ import Kemenkeu from '../assets/orgs/kemenkeu.webp';
 import JIHS from '../assets/orgs/jihs.webp';
 import UC from '../assets/orgs/uc.webp';
 import COMSNETS from '../assets/orgs/comsnets.webp';
+import Microsoft from '../assets/orgs/microsoft.svg';
+import ASSI from '../assets/orgs/assi.webp';
 
 const achievementsData = [
     {
@@ -48,8 +50,8 @@ const achievementsData = [
         location: "Jakarta, Indonesia",
         articles: [
             {
-                platform: "JAKTV (Soon)",
-                url: "https://jak-tv.com/home"
+                platform: "EPORTAL",
+                url: "https://eportal.id/release-jihs-hackathon-2025-ajang-kreativitas-teknologi-dalam-mewujudkan-visi-asta-cita/"
             }
         ]
     },
@@ -63,6 +65,28 @@ const achievementsData = [
         award: "Finalist [On-Going]",
         awardInt: 0,
         location: "Nusa Dua, Bali, Indonesia",
+    },
+    {
+        title: "elevAIte Hackathon 2025",
+        organizer: "Microsoft",
+        organizerUrl: "https://www.microsoft.com/",
+        organizerLogo: Microsoft,
+        date: "06/2025",
+        desc: "Advancing through the semi-finals of Microsoft's flagship AI hackathon, part of the elevAIte Indonesia initiative aimed at developing 1 million AI talents across the country. The hackathon focused on creating innovative AI solutions addressing real-world challenges using Azure services, with emphasis on sustainability and community impact.",
+        award: "Semi-Finalist [On-Going]",
+        awardInt: 0,
+        location: "Jakarta, Indonesia",
+    },
+    {
+        title: "Indonesia Aerospace Hackathon 2025",
+        organizer: "Indonesian Satellite Association",
+        organizerUrl: "https://assi.or.id/id/",
+        organizerLogo: ASSI,
+        date: "06/2025",
+        desc: "Competed in ASSI's prestigious satellite innovation competition with the theme 'Empowering Indonesia's Future with Space-Driven Innovation for Prosperity and Sustainability.' The hackathon challenged participants to develop solutions addressing satellite technology, business strategy, and social innovation challenges, with a focus on space debris collision prevention. Teams presented proposals and technical implementations before a panel of industry experts from the Asia-Pacific satellite sector.",
+        award: "Semi-Finalist [On-Going]",
+        awardInt: 0,
+        location: "Jakarta, Indonesia",
     },
     {
         title: "Hackfest UC 2025",

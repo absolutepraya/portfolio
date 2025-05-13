@@ -14,9 +14,11 @@ import Flutter from '../../assets/stacks/flutter.svg';
 import Django from '../../assets/stacks/django.svg';
 import Supabase from '../../assets/stacks/supabase.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
-import Nest from '../../assets/stacks/nestjs.svg'
+import Nest from '../../assets/stacks/nestjs.svg';
 import Dart from '../../assets/stacks/dart.svg';
 import Bun from '../../assets/stacks/bun.svg';
+import Redis from '../../assets/stacks/redis.svg';
+import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const stacksList = [
@@ -30,6 +32,8 @@ export const stacksList = [
   { src: Tailwind, alt: 'Tailwind' },
   { src: Express, alt: 'Express' },
   { src: Nest, alt: 'Nest.js' },
+  { src: Redis, alt: 'Redis' },
+  { src: RabbitMQ, alt: 'RabbitMQ' },
   { src: MongoDB, alt: 'MongoDB' },
   { src: Django, alt: 'Django' },
   { src: Firebase, alt: 'Firebase' },

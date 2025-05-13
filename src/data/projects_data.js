@@ -17,8 +17,8 @@ const projectsData = [
         title: "PINTARU",
         type: ["Fullstack", "Under Dev"],
         date: "04/2025",
-        subtitle: "PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids.",
-        stacks: ["bun", "nextjs", "typescript", "tailwindcss", "express", "supabase", "python", "gemini", "openai", "docker", "digitalocean"],
+        subtitle: "PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids. This is our greatest project yet, guaranteed to make you impressed.",
+        stacks: ["bun", "nextjs", "typescript", "tailwindcss", "express", "redis", "rabbitmq", "supabase", "python", "gemini", "openai", "docker", "digitalocean"],
         url: "",
         github: ""
     },
