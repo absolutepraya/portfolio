@@ -32,6 +32,10 @@ const achievementsData = [
             {
                 platform: "Kemahasiswaan UI",
                 url: "https://kemahasiswaan.ui.ac.id/tim-uinnovator-raih-juara-1-pada-govai-kementerian-keuangan-hackathon-2024-2/"
+            },
+            {
+                platform: "DEPOK POS",
+                url: "https://www.depokpos.com/2024/12/manfaatkan-ai-dalam-distribusikan-makanan-bergizi-mahasiswa-ui-raih-juar-1-govai-hackaton-2024/"
             }
         ]
     },
