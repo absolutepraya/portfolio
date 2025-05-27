@@ -2,12 +2,15 @@ import Line from './Line';
 import ExperienceBox from './ExperienceBox';
 import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 import experienceData from '../../data/experience_data.js';
-// import { GlobeDemo } from '../AceternityUI/GlobeSection';
+import LineShort from './LineShort';
 
 const Experience = () => {
   const desktopView = DesktopView();
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedExperiences = showAll ? experienceData : experienceData.slice(0, 4);
 
   return (
     <section
@@ -36,12 +39,8 @@ const Experience = () => {
         </div>
       </div>
 
-      {/* Solve performance issue for now, only show the globe on mobile */}
-      {/* {!desktopView && <GlobeDemo />} */}
-
       <div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
-        {/* TODO: Load only top 4 */}
-        {experienceData.map((experience, index) => (
+        {displayedExperiences.map((experience, index) => (
           <React.Fragment key={index}>
             <ExperienceBox
               title={experience.title}
@@ -53,9 +52,26 @@ const Experience = () => {
               previousTitles={experience.previousTitles}
               previousDates={experience.previousDates}
             />
-            {index < experienceData.length - 1 && <Line />}
+            {index < displayedExperiences.length - 1 && <Line />}
           </React.Fragment>
         ))}
+
+        {experienceData.length > 4 && (
+          <>
+            {!showAll && <Line />}
+            {showAll && <LineShort />}
+            <motion.button
+              onClick={() => setShowAll(!showAll)}
+              className={`relative ${showAll ? '' : ''} rounded-full border-2 border-customgray bg-[#0f0f0f] px-6 py-3 font-inter font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: 'circOut' }}
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+            </motion.button>
+          </>
+        )}
       </div>
     </section>
   );
