@@ -1,7 +1,5 @@
-src/assets
 node_modules/
 keys/
-public/
 LICENSE
 README.md
 color-preset.sh
