@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import LineShort from './LineShort';
+import { IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
 
 const Experience = () => {
   const desktopView = DesktopView();
@@ -62,13 +63,24 @@ const Experience = () => {
             {showAll && <LineShort />}
             <motion.button
               onClick={() => setShowAll(!showAll)}
-              className={`relative ${showAll ? '' : ''} rounded-full border-2 border-customgray bg-[#0f0f0f] px-6 py-3 font-inter font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+              className={`relative ${showAll ? '' : ''} rounded-full border-2 border-customgray bg-[#0f0f0f] pl-6 pr-4 py-3 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall flex items-center space-x-2`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: 'circOut' }}
             >
-              {showAll ? 'Show Less' : 'Show More'}
+              <span>{showAll ? 'Show Less' : 'Show More'}</span>
+              {showAll ? (
+                <IconArrowNarrowUpDashed
+                  size={20}
+                  stroke={2}
+                />
+              ) : (
+                <IconArrowNarrowDownDashed
+                  size={20}
+                  stroke={2}
+                />
+              )}
             </motion.button>
           </>
         )}
