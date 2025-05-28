@@ -26,3 +26,7 @@ dist-ssr
 
 # Keys
 keys/
+
+# Hero images
+src/assets/hero/*
+!src/assets/hero/hero1.webp

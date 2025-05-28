@@ -5,53 +5,31 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Copyright from './components/Copyright';
 import Achievements from './components/Achievements/Achievements';
-import DesktopView from './lib/DesktopView';
-import TabletView from './lib/TabletView';
-import { useState, useEffect } from 'react';
-import Grid from './assets/elements/bg1.webp';
-import GridMobile from './assets/elements/bg2.webp';
-import Hero1 from './assets/hero/Purple Hero Section 1.webp';
+// import DesktopView from './lib/DesktopView';
+// import TabletView from './lib/TabletView';
+// import { useState, useEffect } from 'react';
+// import Grid from './assets/elements/bg1.webp';
+// import GridMobile from './assets/elements/bg2.webp';
+import Hero1 from './assets/hero/hero1.webp';
 
 const App = () => {
-  const desktopView = DesktopView();
-  const tabletView = TabletView();
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [heroImagesLoaded, setHeroImagesLoaded] = useState(false);
+  // const desktopView = DesktopView();
+  // const tabletView = TabletView();
+  // const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Preload the grid image
-  useEffect(() => {
-    const imageToLoad = tabletView ? Grid : GridMobile;
+  // useEffect(() => {
+  //   const imageToLoad = tabletView ? Grid : GridMobile;
 
-    if (!imagesLoaded) {
-      const imageLoader = new Image();
-      imageLoader.src = imageToLoad;
-      imageLoader.onload = () => setImagesLoaded(true);
-    }
-  }, [tabletView, imagesLoaded]);
-
-  // Preload the hero images
-  useEffect(() => {
-    const heroImages = [Hero1];
-
-    if (!heroImagesLoaded) {
-      let loadedCount = 0;
-      const totalImages = heroImages.length;
-
-      heroImages.forEach((heroImage) => {
-        const imageLoader = new Image();
-        imageLoader.src = heroImage;
-        imageLoader.onload = () => {
-          loadedCount++;
-          if (loadedCount === totalImages) {
-            setHeroImagesLoaded(true);
-          }
-        };
-      });
-    }
-  }, [heroImagesLoaded]);
+  //   if (!imagesLoaded) {
+  //     const imageLoader = new Image();
+  //     imageLoader.src = imageToLoad;
+  //     imageLoader.onload = () => setImagesLoaded(true);
+  //   }
+  // }, [tabletView, imagesLoaded]);
 
   // Use the correct image source based on screen size
-  const gridImage = tabletView ? Grid : GridMobile;
+  // const gridImage = tabletView ? Grid : GridMobile;
 
   return (
     <div className='relative flex flex-col items-center space-y-20 overflow-hidden bg-[#05040E] font-inter text-customwhite md:space-y-32'>
@@ -73,21 +51,18 @@ const App = () => {
         <div className='absolute -top-[41rem] left-1/2 z-0 h-screen w-[88rem] -translate-x-1/2 bg-customblack'></div>
       )} */}
 
-      {/* Hero background */}
-      {heroImagesLoaded ? (
-        <div className='absolute -top-32 left-1/2 z-0 w-[88rem] -translate-x-1/2 select-none opacity-80'>
-          <img
-            src={Hero1}
-            alt='Hero background'
-            className='h-full w-full object-cover'
-            draggable='false'
-            loading='eager'
-            fetchpriority='high'
-          />
-        </div>
-      ) : (
-        <div className='absolute -top-32 left-1/2 z-0 h-screen w-[88rem] -translate-x-1/2 bg-customblack'></div>
-      )}
+      <div className='absolute -top-32 left-1/2 z-0 w-[88rem] -translate-x-1/2 select-none bg-[#05040E] opacity-80'>
+        <img
+          src={Hero1}
+          alt='Hero background'
+          className='h-full w-full object-cover'
+          draggable='false'
+          loading='eager'
+          fetchpriority='high'
+          width='2048'
+          height='1324'
+        />
+      </div>
 
       <About />
       <Experience />

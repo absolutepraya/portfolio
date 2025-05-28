@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <section
-      className='relative !mt-40 flex w-[90vw] flex-col items-center xl:w-[68rem]'
+      className='relative !mt-36 flex w-[90vw] flex-col items-center lg:!mt-40 xl:w-[68rem]'
       id='aboutsec'
     >
       {/* {desktopView && (
@@ -62,11 +62,16 @@ const About = () => {
           <p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Open for new opportunities</p>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mt-12 flex min-h-[30rem] max-w-[23rem] flex-col items-center justify-center px-2 md:w-[54rem] md:max-w-[1000rem] md:px-0 mb-14'>
+      <div className='mb-14 mt-12 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
         <BlurInDesc />
-        <p className='text-center text-lg opacity-[90%] max-w-[37rem] -mt-10'>
+        <motion.p
+          initial={{ filter: 'blur(10px)', opacity: 0 }}
+          animate={{ filter: 'blur(0px)', opacity: 0.9 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
+          className='-mt-10 max-w-[37rem] text-center !opacity-[90%] md:text-lg'
+        >
           Transforming ideas into solutions powered by the <i>latest technology</i> from Jakarta, Indonesia.
-        </p>
+        </motion.p>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
