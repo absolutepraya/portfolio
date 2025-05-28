@@ -65,10 +65,14 @@ const About = () => {
       <div className='mb-14 mt-12 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
         <BlurInDesc />
         <motion.p
-          initial={{ filter: 'blur(10px)', opacity: 0 }}
-          animate={{ filter: 'blur(0px)', opacity: 0.9 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-          className='-mt-10 max-w-[37rem] text-center !opacity-[90%] md:text-lg'
+          initial='hidden'
+          animate='visible'
+          transition={{ duration: 0.8, delay: 1.5 }}
+          variants={{
+            hidden: { filter: 'blur(10px)', opacity: 0 },
+            visible: { filter: 'blur(0px)', opacity: 0.9 },
+          }}
+          className='-mt-10 max-w-[37rem] text-center md:text-lg'
         >
           Transforming ideas into solutions powered by the <i>latest technology</i> from Jakarta, Indonesia.
         </motion.p>
