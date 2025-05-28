@@ -11,6 +11,7 @@ import Achievements from './components/Achievements/Achievements';
 // import Grid from './assets/elements/bg1.webp';
 // import GridMobile from './assets/elements/bg2.webp';
 import Hero1 from './assets/hero/hero1.webp';
+import Hero2 from './assets/hero/hero2.webp';
 
 const App = () => {
   // const desktopView = DesktopView();
@@ -70,6 +71,22 @@ const App = () => {
       <Projects />
       <Contact />
       <Copyright />
+
+      <div className='absolute md:bottom-16 bottom-24 left-1/2 -z-0 w-[80rem] -translate-x-1/2 select-none bg-[#05040E] opacity-100 lg:w-full'>
+        <div className='relative w-full'>
+          <div className='absolute inset-0 z-10 bg-gradient-to-b from-[#05040E] to-transparent'></div>
+          <img
+            src={Hero2}
+            alt='Hero background'
+            className='h-full w-full object-cover'
+            draggable='false'
+            loading='eager'
+            fetchpriority='high'
+            width='2048'
+            height='1324'
+          />
+        </div>
+      </div>
     </div>
   );
 };

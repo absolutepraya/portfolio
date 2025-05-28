@@ -24,12 +24,13 @@ const Contact = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-[#666666] bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
+      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-[#666666] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
       delay={0.3}
       inView
       offset={20}
     >
-      <TopBorder />
+      {/* bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
+      {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
         <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>I&apos;m always up for...</p>
         <div className='flex w-full flex-col space-y-2 text-4xl font-semibold md:w-auto md:space-y-3 md:text-5xl'>

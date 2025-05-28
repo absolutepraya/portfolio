@@ -9,6 +9,9 @@ export default defineConfig({
 		},
 		allowedHosts: [
 			'.ngrok-free.app',
+			'.loca.lt',
+			'bore.pub',
+			'ngrok.io',
 			'localhost'
 		]
 	},

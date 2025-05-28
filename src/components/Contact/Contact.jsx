@@ -1,7 +1,7 @@
 import DesktopView from '../../lib/DesktopView';
 import ContactBox from './ContactBox';
 import { motion } from 'framer-motion';
-import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
+// import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
 import TvView from '../../lib/TvView';
 import TabletView from '../../lib/TabletView';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
@@ -13,7 +13,7 @@ const Contact = () => {
 
   return (
     <section
-      className='relative flex flex-col space-y-12'
+      className='relative flex flex-col space-y-12 !z-10'
       id='contactsec'
     >
       <div
@@ -40,7 +40,7 @@ const Contact = () => {
 
       <div className='relative rounded-3xl'>
         <ContactBox />
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -98,7 +98,7 @@ const Contact = () => {
               ></FlickeringGrid>
             </div>
           )}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

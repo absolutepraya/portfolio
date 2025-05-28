@@ -22,7 +22,7 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
     >
       Systems thinker. Product builder. AI tinkerer. Cloud wrangler.
       <br />
-      <span className='text-[0] absolut'>eW8gaWYgeW91J3JlIHNlZWluZyB0aGlzLCB3aGF0IGFyZSB5b3UgdXAgdG8gYnJv</span>
+      <span className='text-[0]'>eW8gaWYgeW91J3JlIHNlZWluZyB0aGlzLCB3aGF0IGFyZSB5b3UgdXAgdG8gYnJv</span>
     </motion.h1>
   );
 }
