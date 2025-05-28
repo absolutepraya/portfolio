@@ -1,14 +1,36 @@
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
-import { IconAward, IconLaurelWreath, IconNews, IconMap2, IconChevronLeft, IconChevronRight, IconGift } from '@tabler/icons-react';
+import { IconAward, IconLaurelWreath, IconNews, IconMap2, IconChevronLeft, IconChevronRight, IconGift, IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
 import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
 import BotBorder from './BotBorder';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
-const AchievementsBox = ({ achievementData }) => {
+const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
+  const buttonRef = useRef(null);
+
+  const displayedAchievements = showAll ? achievementData : achievementData.slice(0, 3);
+
+  const handleToggle = () => {
+    if (showAll) {
+      setShowAll(false);
+
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }, 100);
+    } else {
+      setShowAll(true);
+    }
+  };
 
   return (
     <BlurFade
@@ -19,7 +41,7 @@ const AchievementsBox = ({ achievementData }) => {
       offset={20}
     >
       <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] border-customgray bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
-        {achievementData.map((achievement, index) => (
+        {displayedAchievements.map((achievement, index) => (
           <BlurFade
             key={index}
             className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}
@@ -173,14 +195,45 @@ const AchievementsBox = ({ achievementData }) => {
             <BotBorder />
           </BlurFade>
         ))}
-        <BlurFade
-          className='flex w-full items-center justify-center pb-8 pt-4 font-maplemono text-sm'
-          delay={1.1}
-          offset={8}
-          inView
-        >
-          <p className='!opacity-40'>and more to come...</p>
-        </BlurFade>
+
+        {showAll && (
+          <BlurFade
+            className='flex w-full items-center justify-center pb-4 pt-4 font-maplemono text-sm'
+            offset={8}
+            inView
+          >
+            <p className='!opacity-40'>and more to come...</p>
+          </BlurFade>
+        )}
+
+        {achievementData.length > 3 && (
+          <motion.div
+            className='flex w-full items-center justify-center pb-8 pt-4'
+            ref={buttonRef}
+          >
+            <motion.button
+              onClick={handleToggle}
+              className='flex items-center space-x-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: 'circOut' }}
+            >
+              <span>{showAll ? 'Show Less' : 'Show More'}</span>
+              {showAll ? (
+                <IconArrowNarrowUpDashed
+                  size={20}
+                  stroke={2}
+                />
+              ) : (
+                <IconArrowNarrowDownDashed
+                  size={20}
+                  stroke={2}
+                />
+              )}
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </BlurFade>
   );

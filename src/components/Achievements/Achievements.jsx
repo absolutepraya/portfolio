@@ -5,10 +5,12 @@ import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/Flickerin
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import TabletView from '../../lib/TabletView';
 import achievementsData from '../../data/achievements_data.js';
+import { useState } from 'react';
 
 const Achievements = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <section
@@ -56,7 +58,11 @@ const Achievements = () => {
           </motion.div>
         )}
         <div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
-        <AchievementsBox achievementData={achievementsData} />
+        <AchievementsBox
+          achievementData={achievementsData}
+          showAll={showAll}
+          setShowAll={setShowAll}
+        />
       </div>
     </section>
   );
