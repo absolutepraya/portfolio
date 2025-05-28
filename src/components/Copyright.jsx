@@ -22,7 +22,7 @@ const Copyright = () => {
       <div className='font-maplemono flex w-full flex-col items-center justify-between space-y-2 border-t border-customgray bg-customgray bg-opacity-40 py-4 text-xs md:h-16 md:flex-row md:space-y-0 md:px-8 md:py-0 md:text-xs lg:px-32'>
         <div className='flex flex-row items-center justify-start space-x-2 md:w-1/3'>
           <IconCopyright size={desktopView ? 16 : 14} />
-          <p>2024 — All Rights Reserved.</p>
+          <p>2024-2025 — All Rights Reserved.</p>
         </div>
         <div className='flex flex-row items-center justify-center space-x-2 md:w-1/3'>
           <p>Jakarta, Indonesia</p>

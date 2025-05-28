@@ -57,7 +57,7 @@ const Achievements = () => {
             ></FlickeringGrid>
           </motion.div>
         )}
-        <div className='absolute left-0 top-0 !z-[20] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(13,13,13,1)]' />
+        <div className='shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)] absolute left-0 top-0 !z-[20] h-full w-full' />
         <AchievementsBox
           achievementData={achievementsData}
           showAll={showAll}

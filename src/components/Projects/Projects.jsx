@@ -58,7 +58,7 @@ const Projects = () => {
         </motion.p>
         <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
           <motion.div
-            className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
+            className='absolute h-1 w-full bg-[#05040E] shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
             viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
           />
@@ -66,7 +66,7 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-customblack px-4 text-customlightgray'>
+        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-[#05040E] px-4 text-customlightgray'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='20'
@@ -89,7 +89,7 @@ const Projects = () => {
         <Tabs
           defaultValue={0}
           sx={{
-            bgcolor: '#0d0d0d',
+            bgcolor: '#05040E',
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
@@ -142,6 +142,7 @@ const Projects = () => {
                   bgcolor: 'rgba(209, 213, 219, 0.03)',
                   color: '#ffffff',
                   opacity: 0.8,
+                  border: '1px solid #3e3e3e',
                 },
               }}
             >

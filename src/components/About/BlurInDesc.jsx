@@ -20,19 +20,9 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
       variants={combinedVariants}
       className={cn('bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text text-center font-instrument text-[3.4rem] leading-[3.2rem] text-transparent md:text-6xl lg:text-7xl', className)}
     >
-      An excellent <i>Software Engineer&nbsp;</i>
-      {tabletView && <br />}
-      with expertise across Frontend,&nbsp;
-      {tabletView && <br />}
-      Backend, DevOps, and AI.&nbsp;
-      {tabletView && <br />}
-      Transforming ideas into solutions&nbsp;
-      {tabletView && <br />}
-      powered by the <i>latest technology</i> &nbsp;
-      {tabletView && <br />}
-      from Jakarta, Indonesia.
+      Systems thinker. Product builder. AI tinkerer. Cloud wrangler.
       <br />
-      <span className='text-[0]'>X</span>
+      <span className='text-[0] absolut'>eW8gaWYgeW91J3JlIHNlZWluZyB0aGlzLCB3aGF0IGFyZSB5b3UgdXAgdG8gYnJv</span>
     </motion.h1>
   );
 }

@@ -82,7 +82,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
   return (
     <BlurFade
-      className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-100 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
+      className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray py-0 shadow-lg transition-all duration-100 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall bg-customblack'
       delay={0.05}
       offset={15}
       inView

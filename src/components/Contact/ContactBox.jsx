@@ -90,7 +90,7 @@ const Contact = () => {
           <img
             src={Pin}
             alt='Pin'
-            className='absolute -right-8 -top-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
+            className='absolute -right-10 -top-12 w-16 scale-[85%] drop-shadow-md md:scale-90'
             draggable='false'
           />
           <img

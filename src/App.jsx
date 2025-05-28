@@ -10,11 +10,13 @@ import TabletView from './lib/TabletView';
 import { useState, useEffect } from 'react';
 import Grid from './assets/elements/bg1.webp';
 import GridMobile from './assets/elements/bg2.webp';
+import Hero1 from './assets/hero/Purple Hero Section 1.webp';
 
 const App = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [heroImagesLoaded, setHeroImagesLoaded] = useState(false);
 
   // Preload the grid image
   useEffect(() => {
@@ -27,15 +29,36 @@ const App = () => {
     }
   }, [tabletView, imagesLoaded]);
 
+  // Preload the hero images
+  useEffect(() => {
+    const heroImages = [Hero1];
+
+    if (!heroImagesLoaded) {
+      let loadedCount = 0;
+      const totalImages = heroImages.length;
+
+      heroImages.forEach((heroImage) => {
+        const imageLoader = new Image();
+        imageLoader.src = heroImage;
+        imageLoader.onload = () => {
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            setHeroImagesLoaded(true);
+          }
+        };
+      });
+    }
+  }, [heroImagesLoaded]);
+
   // Use the correct image source based on screen size
   const gridImage = tabletView ? Grid : GridMobile;
 
   return (
-    <div className='relative flex flex-col items-center space-y-20 overflow-hidden bg-customblack font-inter text-customwhite md:space-y-32'>
+    <div className='relative flex flex-col items-center space-y-20 overflow-hidden bg-[#05040E] font-inter text-customwhite md:space-y-32'>
       <NavBar />
 
-      {/* Background grid image with fallback */}
-      {imagesLoaded ? (
+      {/* Grid background */}
+      {/* {imagesLoaded ? (
         <img
           src={gridImage}
           className='absolute -top-[41rem] left-1/2 z-0 w-[88rem] -translate-x-1/2 scale-[120%] select-none opacity-50 md:-top-80 md:scale-100 md:opacity-80'
@@ -48,6 +71,22 @@ const App = () => {
         />
       ) : (
         <div className='absolute -top-[41rem] left-1/2 z-0 h-screen w-[88rem] -translate-x-1/2 bg-customblack'></div>
+      )} */}
+
+      {/* Hero background */}
+      {heroImagesLoaded ? (
+        <div className='absolute -top-32 left-1/2 z-0 w-[88rem] -translate-x-1/2 select-none opacity-80'>
+          <img
+            src={Hero1}
+            alt='Hero background'
+            className='h-full w-full object-cover'
+            draggable='false'
+            loading='eager'
+            fetchpriority='high'
+          />
+        </div>
+      ) : (
+        <div className='absolute -top-32 left-1/2 z-0 h-screen w-[88rem] -translate-x-1/2 bg-customblack'></div>
       )}
 
       <About />

@@ -62,8 +62,11 @@ const About = () => {
           <p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Open for new opportunities</p>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mt-12 max-w-[23rem] px-2 md:w-[54rem] md:max-w-[1000rem] md:px-0'>
+      <div className='mt-12 flex min-h-[30rem] max-w-[23rem] flex-col items-center justify-center px-2 md:w-[54rem] md:max-w-[1000rem] md:px-0 mb-14'>
         <BlurInDesc />
+        <p className='text-center text-lg opacity-[90%] max-w-[37rem] -mt-10'>
+          Transforming ideas into solutions powered by the <i>latest technology</i> from Jakarta, Indonesia.
+        </p>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
