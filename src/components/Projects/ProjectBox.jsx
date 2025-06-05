@@ -86,7 +86,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
       offset={15}
       inView
     >
-      <div className='border-customgray bg-customblack md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 py-0 shadow-lg transition-all duration-100'>
+      <div className='border-customgray bg-customblack md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall flex h-full flex-col overflow-hidden rounded-3xl border-2 py-0 shadow-lg transition-all duration-100'>
         <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
           <img
             src={image ? image : NoImage}
@@ -94,7 +94,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
             alt={title + ' image preview'}
           />
         </div>
-        <div className='relative flex h-full flex-col space-y-2 p-6'>
+        <div className='relative flex flex-1 flex-col space-y-2 p-6'>
           <div className='flex flex-row items-start justify-between'>
             <div className='flex flex-row items-start space-x-3'>
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
