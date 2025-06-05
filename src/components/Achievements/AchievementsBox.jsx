@@ -40,7 +40,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
       inViewMargin='-1px'
       offset={20}
     >
-      <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] border-customgray bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
+      <div className='border-customgray bg-customblack flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
         {displayedAchievements.map((achievement, index) => (
           <BlurFade
             key={index}
@@ -62,11 +62,11 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                     />
                   </div>
                   <div className='flex flex-row items-center space-x-2'>
-                    <div className='h-2 w-2 rounded-full bg-customwhite'></div>
-                    <div className='h-2 w-2 rounded-full bg-customwhite bg-opacity-40'></div>
-                    <div className='h-2 w-2 rounded-full bg-customwhite bg-opacity-40'></div>
+                    <div className='bg-customwhite h-2 w-2 rounded-full'></div>
+                    <div className='bg-customwhite h-2 w-2 rounded-full bg-opacity-40'></div>
+                    <div className='bg-customwhite h-2 w-2 rounded-full bg-opacity-40'></div>
                   </div>
-                  <div className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'>
+                  <div className='hover:text-blurple flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out md:w-10'>
                     <IconChevronRight
                       stroke={2}
                       size={desktopView ? 24 : 22}
@@ -81,9 +81,9 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                 <h2 className='font-instrument text-4xl md:text-5xl'>{achievement.title}</h2>
                 <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                   {achievement.organizer && achievement.organizerUrl && (
-                    <div className='rounded-md border border-blurple bg-blurple bg-opacity-10 px-2 transition-all duration-200 hover:bg-blurple hover:bg-opacity-100'>
+                    <div className='border-blurple bg-blurple hover:bg-blurple rounded-md border bg-opacity-10 px-2 transition-all duration-200 hover:bg-opacity-100'>
                       <a
-                        className='text-sm text-blurple transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
+                        className='text-blurple text-sm transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
                         href={achievement.organizerUrl}
                         target='_blank'
                         rel='noreferrer'
@@ -102,7 +102,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                 </div>
               </div>
               {achievement.desc && <p className='text'>{achievement.desc}</p>}
-              <div className='flex flex-col space-y-1 font-maplemono'>
+              <div className='font-maplemono flex flex-col space-y-1'>
                 {achievement.award && (
                   <div className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}>
                     <IconAward
@@ -198,7 +198,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
         {showAll && (
           <BlurFade
-            className='flex w-full items-center justify-center pb-4 pt-4 font-maplemono text-sm'
+            className='font-maplemono flex w-full items-center justify-center pb-4 pt-4 text-sm'
             offset={8}
             inView
           >
@@ -213,7 +213,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
           >
             <motion.button
               onClick={handleToggle}
-              className='flex items-center space-x-2 rounded-lg border-2 border-customlightgray py-2 pl-4 pr-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100'
+              className='border-customlightgray font-jetbrainsmono text-customwhite flex items-center space-x-2 rounded-lg border-2 py-2 pl-4 pr-2 opacity-70 transition-all duration-300 hover:opacity-100'
             >
               <span>{showAll ? 'Show Less' : 'Show More'}</span>
               {showAll ? (

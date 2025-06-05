@@ -82,131 +82,132 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
 
   return (
     <BlurFade
-      className='flex h-auto flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg transition-all duration-100 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'
       delay={0.05}
       offset={15}
       inView
     >
-      <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
-        <img
-          src={image ? image : NoImage}
-          className='h-full w-full object-cover'
-          alt={title + ' image preview'}
-        />
-      </div>
-      <div className='relative flex h-full flex-col space-y-2 p-6'>
-        <div className='flex flex-row items-start justify-between'>
-          <div className='flex flex-row items-start space-x-3'>
-            <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
-          </div>
-          <p className='md:text-md mt-[6px] text-end font-maplemono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+      <div className='border-customgray bg-customblack md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall flex h-auto flex-col overflow-hidden rounded-3xl border-2 py-0 shadow-lg transition-all duration-100'>
+        <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
+          <img
+            src={image ? image : NoImage}
+            className='h-full w-full object-cover'
+            alt={title + ' image preview'}
+          />
         </div>
-        <div className='flex flex-row items-center space-x-2'>
-          <p className='font-bold'>Type: </p>
-          <div className='flex flex-row flex-wrap gap-2'>
-            {Array.isArray(type) ? (
-              type.map((t, index) => (
-                <div
-                  key={index}
-                  className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
-                >
-                  <p className='font-maplemono text-xs text-blurple md:text-sm'>{t}</p>
-                </div>
-              ))
-            ) : (
-              <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
-                <p className='font-maplemono text-xs text-blurple md:text-sm'>{type}</p>
-              </div>
-            )}
+        <div className='relative flex h-full flex-col space-y-2 p-6'>
+          <div className='flex flex-row items-start justify-between'>
+            <div className='flex flex-row items-start space-x-3'>
+              <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
+            </div>
+            <p className='md:text-md font-maplemono mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
           </div>
-        </div>
-        <p className='text-justify'>{subtitle}</p>
-        <div className='flex flex-grow' />
-        <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
-          <div className='flex w-fit flex-col space-y-2 rounded'>
-            {Array.from({ length: Math.ceil(stacks.length / STACKS_PER_LINE) }).map((_, chunkIndex) => (
-              <div
-                key={chunkIndex}
-                className='flex flex-row space-x-2 md:space-x-3'
-              >
-                {stacks.slice(chunkIndex * STACKS_PER_LINE, (chunkIndex + 1) * STACKS_PER_LINE).map((stack) => (
-                  <motion.div
-                    key={stack}
-                    className='relative hover:cursor-pointer'
-                    onHoverStart={() => setHovered(stack)}
-                    onHoverEnd={() => setHovered('')}
+          <div className='flex flex-row items-center space-x-2'>
+            <p className='font-bold'>Type: </p>
+            <div className='flex flex-row flex-wrap gap-2'>
+              {Array.isArray(type) ? (
+                type.map((t, index) => (
+                  <div
+                    key={index}
+                    className='border-blurple bg-blurple w-fit rounded-md border bg-opacity-10 px-2'
                   >
-                    <AnimatePresence>
-                      {hovered === stack && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 3 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 3 }}
-                          transition={{ duration: 0.15, ease: 'easeInOut' }}
-                          className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
-                        >
-                          <p className='text-nowrap'>{stackIcons[stack].name}</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                    <img
-                      src={stackIcons[stack].src}
-                      alt={stackIcons[stack].name}
-                      className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
-                      draggable='false'
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            ))}
+                    <p className='font-maplemono text-blurple text-xs md:text-sm'>{t}</p>
+                  </div>
+                ))
+              ) : (
+                <div className='border-blurple bg-blurple w-fit rounded-md border bg-opacity-10 px-2'>
+                  <p className='font-maplemono text-blurple text-xs md:text-sm'>{type}</p>
+                </div>
+              )}
+            </div>
           </div>
-          <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
-            {url === '' ? (
-              <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
-                <IconArrowUpRight
-                  stroke={1.5}
-                  size={desktopView ? 24 : 22}
-                />
-              </div>
-            ) : (
-              <a
-                href={url}
-                target='_blank'
-                rel='noreferrer'
-                aria-label='Open deployed project URL'
-                title='Open deployed project URL'
-              >
-                <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+          <p className='text-justify'>{subtitle}</p>
+          <div className='flex flex-grow' />
+          <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
+            <div className='flex w-fit flex-col space-y-2 rounded'>
+              {Array.from({ length: Math.ceil(stacks.length / STACKS_PER_LINE) }).map((_, chunkIndex) => (
+                <div
+                  key={chunkIndex}
+                  className='flex flex-row space-x-2 md:space-x-3'
+                >
+                  {stacks.slice(chunkIndex * STACKS_PER_LINE, (chunkIndex + 1) * STACKS_PER_LINE).map((stack) => (
+                    <motion.div
+                      key={stack}
+                      className='relative hover:cursor-pointer'
+                      onHoverStart={() => setHovered(stack)}
+                      onHoverEnd={() => setHovered('')}
+                    >
+                      <AnimatePresence>
+                        {hovered === stack && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 3 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 3 }}
+                            transition={{ duration: 0.15, ease: 'easeInOut' }}
+                            className='font-maplemono absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] text-xs'
+                          >
+                            <p className='text-nowrap'>{stackIcons[stack].name}</p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                      <img
+                        src={stackIcons[stack].src}
+                        alt={stackIcons[stack].name}
+                        className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
+                        draggable='false'
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
+              {url === '' ? (
+                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
                   <IconArrowUpRight
                     stroke={1.5}
                     size={desktopView ? 24 : 22}
                   />
                 </div>
-              </a>
-            )}
-            {github === '' ? (
-              <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
-                <IconBrandGithub
-                  stroke={1.5}
-                  size={desktopView ? 24 : 22}
-                />
-              </div>
-            ) : (
-              <a
-                href={github}
-                target='_blank'
-                rel='noreferrer'
-                aria-label='View project source code on GitHub'
-                title='View project source code on GitHub'
-              >
-                <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
+              ) : (
+                <a
+                  href={url}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label='Open deployed project URL'
+                  title='Open deployed project URL'
+                >
+                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'hover:bg-blurple hover:text-blurple transition-all duration-100 ease-in-out hover:bg-opacity-30'}`}>
+                    <IconArrowUpRight
+                      stroke={1.5}
+                      size={desktopView ? 24 : 22}
+                    />
+                  </div>
+                </a>
+              )}
+              {github === '' ? (
+                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
                   <IconBrandGithub
                     stroke={1.5}
                     size={desktopView ? 24 : 22}
                   />
                 </div>
-              </a>
-            )}
+              ) : (
+                <a
+                  href={github}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label='View project source code on GitHub'
+                  title='View project source code on GitHub'
+                >
+                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'hover:bg-blurple hover:text-blurple transition-all duration-100 ease-in-out hover:bg-opacity-30'}`}>
+                    <IconBrandGithub
+                      stroke={1.5}
+                      size={desktopView ? 24 : 22}
+                    />
+                  </div>
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

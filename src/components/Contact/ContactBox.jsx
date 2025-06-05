@@ -32,7 +32,7 @@ const Contact = () => {
       {/* bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
       {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
-        <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>I&apos;m always up for...</p>
+        <p className='font-instrument w-full text-start text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>I&apos;m always up for...</p>
         <div className='flex w-full flex-col space-y-2 text-4xl font-semibold md:w-auto md:space-y-3 md:text-5xl'>
           <div className='flex items-center space-x-3 pl-0'>
             <IconPointer
@@ -102,16 +102,16 @@ const Contact = () => {
           />
           <p className='md:text-lg'>Feel free to reach out for collab purposes or just a friendly hello :D</p>
           <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
-            <div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 md:py-0'>
+            <div className='border-customwhite relative flex h-full items-center space-x-2 rounded-lg border px-3 py-2 transition-all duration-100 md:py-0'>
               <IconMail
                 size={desktopView ? 20 : 16}
                 stroke={2}
               />
-              <p className='break-all font-maplemono text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
+              <p className='font-maplemono break-all text-sm font-semibold tracking-wider'>daffa@abhipraya.dev</p>
             </div>
             {tabletView && (
               <a
-                className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-opacity-30'
                 href='mailto:daffa@abhipraya.dev'
                 target='_blank'
                 rel='noreferrer'
@@ -126,7 +126,7 @@ const Contact = () => {
             )}
             {tabletView && (
               <div
-                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='clickable hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-opacity-30'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
               >
@@ -151,7 +151,7 @@ const Contact = () => {
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
           >
-            <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
+            <div className='bg-customwhite text-customblack hover:bg-blurple hover:text-customwhite flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg px-3 py-2 transition-all duration-100 md:h-10 md:px-3 md:py-0'>
               <p className='text-sm font-semibold'>
                 or hit me up on <span className='font-extrabold'>LinkedIn</span>
               </p>
@@ -161,9 +161,9 @@ const Contact = () => {
               />
             </div>
           </a>
-          <div className='!mt-6 h-0.5 w-full bg-customgray' />
+          <div className='bg-customgray !mt-6 h-0.5 w-full' />
           <p className=''>Follow my other socials!</p>
-          <div className='flex w-full flex-col space-y-2 font-maplemono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
+          <div className='font-maplemono flex w-full flex-col space-y-2 text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
               target='_blank'
@@ -171,7 +171,7 @@ const Contact = () => {
               aria-label='absolutepraya on GitHub'
               title='absolutepraya on GitHub'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
                 <IconBrandGithub
                   size={21}
                   stroke={2}
@@ -186,7 +186,7 @@ const Contact = () => {
               aria-label='___abhipraya on Instagram'
               title='___abhipraya on Instagram'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
                 <IconBrandInstagram
                   size={21}
                   stroke={2}
@@ -201,7 +201,7 @@ const Contact = () => {
               aria-label='Daffa Abhipraya on Spotify'
               title='Daffa Abhipraya on Spotify'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
                 <IconBrandSpotify
                   size={21}
                   stroke={2}
