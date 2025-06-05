@@ -44,9 +44,11 @@ const About = () => {
         className='absolute -top-40'
       />
       <motion.div
-        initial={{ scale: 0 }}
+        initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
         animate={{
           scale: desktopView ? 1 : 0.95,
+          opacity: 1,
+          filter: 'blur(0px)',
           transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
         }}
       >

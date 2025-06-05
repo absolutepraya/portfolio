@@ -94,6 +94,7 @@ const NavBar = () => {
         {desktopView && (
           <a
             href='https://www.linkedin.com/in/daffaabhipraya/'
+            target='_blank'
             className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105'
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
