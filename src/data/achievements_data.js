@@ -8,6 +8,7 @@ import ASSI from '../assets/orgs/assi.webp';
 import Alibaba from '../assets/orgs/alibaba.webp';
 import PERMIKOMNAS from '../assets/orgs/permikomnas.webp';
 import BEMFTIUNTAR from '../assets/orgs/bemuntar.webp';
+import BNCC from '../assets/orgs/bncc.webp';
 
 const achievementsData = [
   {
@@ -135,6 +136,16 @@ const achievementsData = [
     award: 'Finalist [On-Going]',
     awardInt: 0,
     location: 'Bali, Indonesia [Online]',
+  },
+  {
+    title: 'TechnoScape Hackathon 8.0',
+    organizer: 'BNCC BINUS',
+    organizerUrl: 'https://technoscape.id/hackathon',
+    organizerLogo: BNCC,
+    date: '06/2025',
+    desc: 'Competing in BNCC\'s flagship annual hackathon with the theme "Hack the Horizon: Redefining Boundaries with Code." BNCC is the oldest and biggest computer-based organization at BINUS University, established since 1989.',
+    award: 'Finalist [On-Going]',
+    location: 'Jakarta, Indonesia'
   },
   {
     title: 'Hackathon Permikomnas 2025',
