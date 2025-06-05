@@ -1,3 +1,18 @@
 {
-  "agentCanUpdateSnapshot": true
+  "name": "Praya's Portfolio Development Environment",
+  "user": "ubuntu",
+  "agentCanUpdateSnapshot": true,
+  "install": "curl -fsSL https://bun.sh/install | bash && export PATH=\"$HOME/.bun/bin:$PATH\" && bun install",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "export PATH=\"$HOME/.bun/bin:$PATH\" && bun run dev --host 0.0.0.0 --port 5173",
+      "description": "Runs the Vite development server with hot module replacement, accessible on port 5173"
+    },
+    {
+      "name": "linter",
+      "command": "export PATH=\"$HOME/.bun/bin:$PATH\" && bun run lint --watch",
+      "description": "Runs ESLint in watch mode to catch JavaScript code quality issues"
+    }
+  ]
 }
