@@ -42,9 +42,9 @@ const NavBar = () => {
   return (
     <BlurFade
       className='fixed top-8 !z-[100] flex h-[4.9rem] scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:scale-100 lg:w-[55rem]'
-      delay={0.6}
+      delay={0.2}
       offset={40}
-      duration={0.6}
+      duration={0.5}
       direction='down'
       scale={tabletView ? 1 : 0.87}
     >

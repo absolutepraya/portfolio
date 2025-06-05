@@ -47,7 +47,7 @@ const About = () => {
         initial={{ scale: 0 }}
         animate={{
           scale: desktopView ? 1 : 0.95,
-          transition: { duration: 0.5, ease: 'easeInOut', delay: 2.3 },
+          transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
         }}
       >
         <HoverBorderGradient
@@ -67,7 +67,7 @@ const About = () => {
         <motion.p
           initial='hidden'
           animate='visible'
-          transition={{ duration: 0.8, delay: 1.5 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           variants={{
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
@@ -80,9 +80,9 @@ const About = () => {
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
           className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:w-[40%] lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'
-          delay={0.6}
+          delay={0.2}
           offset={40}
-          duration={0.6}
+          duration={0.5}
         >
           <div className='relative flex items-center justify-center lg:h-[11.5rem]'>
             {/* To fix transparent shadow gap for in Marquee for mobile */}
@@ -106,9 +106,9 @@ const About = () => {
         </BlurFade>
         <BlurFade
           className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:w-[39.3rem] lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'
-          delay={0.6}
+          delay={0.2}
           offset={40}
-          duration={0.6}
+          duration={0.5}
         >
           <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
             {/* To fix transparent shadow gap for in Marquee for mobile */}
