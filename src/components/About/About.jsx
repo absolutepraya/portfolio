@@ -81,59 +81,63 @@ const About = () => {
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
-          className='flex h-full w-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:w-[40%] lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'
           delay={0.2}
           offset={40}
           duration={0.5}
+          className='w-full lg:w-[40%]'
         >
-          <div className='relative flex items-center justify-center lg:h-[11.5rem]'>
-            {/* To fix transparent shadow gap for in Marquee for mobile */}
-            {!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
-            {!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
-            <SliderSkills />
-          </div>
-          <div className='flex w-full flex-col items-start space-y-4'>
-            <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
-              <IconSparkles
-                size={16}
-                stroke={1.5}
-                color='#fff'
-              />
-              <p className='lg:text-md font-maplemono text-sm'>My skillsets</p>
+          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'>
+            <div className='relative flex items-center justify-center lg:h-[11.5rem]'>
+              {/* To fix transparent shadow gap for in Marquee for mobile */}
+              {!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
+              {!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
+              <SliderSkills />
             </div>
-            <p className='text-xl lg:text-2xl'>
-              Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Dev</b>, <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>AI</b>, and <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>DevOps</b>. Regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i>.
-            </p>
+            <div className='flex w-full flex-col items-start space-y-4'>
+              <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
+                <IconSparkles
+                  size={16}
+                  stroke={1.5}
+                  color='#fff'
+                />
+                <p className='lg:text-md font-maplemono text-sm'>My skillsets</p>
+              </div>
+              <p className='text-xl lg:text-2xl'>
+                Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Dev</b>, <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>AI</b>, and <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>DevOps</b>. Regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i>.
+              </p>
+            </div>
           </div>
         </BlurFade>
         <BlurFade
-          className='relative flex h-full w-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:w-[39.3rem] lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'
           delay={0.2}
           offset={40}
           duration={0.5}
+          className='w-full lg:w-[39.3rem]'
         >
-          <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
-            {/* To fix transparent shadow gap for in Marquee for mobile */}
-            {!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
-            {!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
-            <SliderStacks></SliderStacks>
-            <SliderTools></SliderTools>
-          </div>
-          <div className='flex w-full flex-col items-start space-y-4'>
-            <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
-              <IconSettings2
-                size={16}
-                stroke={1.5}
-              />
-              <p className='lg:text-md font-maplemono text-sm'>My tech stack & tools</p>
+          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'>
+            <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
+              {/* To fix transparent shadow gap for in Marquee for mobile */}
+              {!desktopView && <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
+              {!desktopView && <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />}
+              <SliderStacks></SliderStacks>
+              <SliderTools></SliderTools>
             </div>
-            <p className='text-xl lg:text-2xl'>
-              Achieving peak <i>efficiency</i> and <i>performance</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
-            </p>
+            <div className='flex w-full flex-col items-start space-y-4'>
+              <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
+                <IconSettings2
+                  size={16}
+                  stroke={1.5}
+                />
+                <p className='lg:text-md font-maplemono text-sm'>My tech stack & tools</p>
+              </div>
+              <p className='text-xl lg:text-2xl'>
+                Achieving peak <i>efficiency</i> and <i>performance</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
+              </p>
+            </div>
+            {/* To improve SEO, write all skills in a hidden p under this div */}
+            <p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
+            <p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
           </div>
-          {/* To improve SEO, write all skills in a hidden p under this div */}
-          <p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{stacksList.map((stack) => stack.alt).join(' ')}</p>
-          <p className='absolute -z-10 w-[20rem] text-xs opacity-0'>{toolsList.map((tool) => tool.alt).join(' ')}</p>
         </BlurFade>
       </div>
     </section>
