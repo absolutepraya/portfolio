@@ -15,7 +15,7 @@ export default function BlurFade({ children, className, variant, duration = 0.4,
     visible: {
       [direction === 'left' || direction === 'right' ? 'x' : 'y']: 0,
       opacity: 1,
-      filter: `blur(0px)`,
+      filter: 'blur(0px)',
       scale: scale,
     },
   };

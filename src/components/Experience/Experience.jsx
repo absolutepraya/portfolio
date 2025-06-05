@@ -63,7 +63,7 @@ const Experience = () => {
             {showAll && <LineShort />}
             <motion.button
               onClick={() => setShowAll(!showAll)}
-              className={`relative ${showAll ? '' : ''} rounded-full border-2 border-customgray bg-[#0f0f0f] pl-6 pr-4 py-3 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall flex items-center space-x-2`}
+              className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

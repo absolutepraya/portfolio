@@ -213,7 +213,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
           >
             <motion.button
               onClick={handleToggle}
-              className='flex items-center space-x-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100 border-2 pl-4 pr-2 py-2 border-customlightgray rounded-lg'
+              className='flex items-center space-x-2 rounded-lg border-2 border-customlightgray py-2 pl-4 pr-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100'
             >
               <span>{showAll ? 'Show Less' : 'Show More'}</span>
               {showAll ? (

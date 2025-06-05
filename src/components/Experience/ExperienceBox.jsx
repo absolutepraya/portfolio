@@ -94,7 +94,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
       <p className={`z-20 text-center md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
 
       {previousTitles && previousDates && (
-        <motion.div className={`flex w-full flex-col`}>
+        <motion.div className={'flex w-full flex-col'}>
           <div className={`mb-4 mt-2 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`} />
           <p className={`${isInView ? 'opacity-90' : 'opacity-70'} mb-2 text-sm transition-all duration-[380ms] ease-in-out md:text-base`}>Previous/other roles:</p>
           <div className='flex w-full flex-col space-y-2'>

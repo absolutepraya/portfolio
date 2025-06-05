@@ -31,7 +31,7 @@ export const SliderSkills = () => {
             <div className='cursor-pointer'>
               <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
             </div>
-            <p className='font-maplemono z-20 text-center text-lg'>{skill}</p>
+            <p className='z-20 text-center font-maplemono text-lg'>{skill}</p>
           </div>
         );
       })}

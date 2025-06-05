@@ -13,7 +13,7 @@ const Contact = () => {
 
   return (
     <section
-      className='relative flex flex-col space-y-12 !z-10'
+      className='relative !z-10 flex flex-col space-y-12'
       id='contactsec'
     >
       <div

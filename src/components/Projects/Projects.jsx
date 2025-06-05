@@ -40,7 +40,7 @@ const Projects = () => {
 
   return (
     <section
-      className='relative w-[90vw] flex-col space-y-12 xl:w-[68rem] !z-10'
+      className='relative !z-10 w-[90vw] flex-col space-y-12 xl:w-[68rem]'
       id='projectssec'
     >
       <div
