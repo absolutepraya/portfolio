@@ -28,6 +28,7 @@ module.exports = {
       },
       animation: {
         shine: 'shine var(--duration) infinite linear',
+        "spinner-blade": "spinner-blade 1s linear infinite",
       },
       keyframes: {
         shine: {
@@ -40,6 +41,11 @@ module.exports = {
           to: {
             'background-position': '0% 0%',
           },
+        },
+        "spinner-blade": {
+          "0%": { opacity: "0.85" },
+          "50%": { opacity: "0.25" },
+          "100%": { opacity: "0.25" },
         },
       },
     },
