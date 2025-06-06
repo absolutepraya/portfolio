@@ -200,7 +200,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                   {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 ? (
                     <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
                       {imageLoadingStates[achievement.title]?.[currentImageIndexes[achievement.title]] ? (
-                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-700'>
+                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-800'>
                           <IosSpinner
                             size='lg'
                             className='text-white'
@@ -213,7 +213,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                           className='h-full w-full rounded-xl object-cover'
                         />
                       ) : (
-                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-700'>
+                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-800'>
                           <IosSpinner
                             size='lg'
                             className='text-white'
