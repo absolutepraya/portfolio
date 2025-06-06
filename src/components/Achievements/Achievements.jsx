@@ -49,14 +49,17 @@ const Achievements = () => {
             <FlickeringGrid
               squareSize={6}
               gridGap={6}
-              color={'#6B7280'}
+              color={'rgba(195, 195, 195, 0.9)'}
               maxOpacity={0.3}
               flickerChance={0.2}
               className={'absolute left-0 top-0 !z-[0] h-full w-full'}
             ></FlickeringGrid>
           </motion.div>
         )}
-        <div className='absolute left-0 top-0 !z-[0] h-full w-full shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)]' />
+        <div className='absolute left-0 top-0 !z-[0] h-full w-[100%] shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)]' />
+        {/* Covering uncovered flickering grid area */}
+        <div className='absolute -left-[4px] top-0 h-full w-[4px] bg-[#05040E]' />
+        <div className='absolute -right-[4px] top-0 h-full w-[4px] bg-[#05040E]' />
         <AchievementsBox
           achievementData={achievementsData}
           showAll={showAll}
