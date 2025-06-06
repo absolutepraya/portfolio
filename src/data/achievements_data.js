@@ -54,6 +54,7 @@ const achievementsData = [
         url: 'https://www.hetanews.com/article/294648/tim-mahasiswa-ui-raih-juara-1-govai-kementerian-keuangan-hackathon-2024',
       },
     ],
+    imagesPath: 'src/assets/achievements/govai'
   },
   {
     title: 'JIHS Hackathon 2025',
@@ -78,6 +79,7 @@ const achievementsData = [
         url: 'https://eportal.id/release-jihs-hackathon-2025-ajang-kreativitas-teknologi-dalam-mewujudkan-visi-asta-cita/',
       },
     ],
+    // imagesPath: 'src/assets/achievements/jihs'
   },
   {
     title: 'Alibaba Cloud Hackathon 2025',

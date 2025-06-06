@@ -5,14 +5,54 @@ import BotBorder from './BotBorder';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const buttonRef = useRef(null);
+  const [currentImageIndexes, setCurrentImageIndexes] = useState({});
+  const [achievementImages, setAchievementImages] = useState({});
 
   const displayedAchievements = showAll ? achievementData : achievementData.slice(0, 3);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const imagesData = {};
+
+      for (const achievement of achievementData) {
+        if (achievement.imagesPath) {
+          try {
+            const imageModules = import.meta.glob('/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}', { eager: true });
+            const achievementImages = [];
+
+            Object.keys(imageModules).forEach((path) => {
+              const normalizedAchievementPath = achievement.imagesPath.replace('src/', '/src/');
+              if (path.includes(normalizedAchievementPath)) {
+                achievementImages.push(imageModules[path].default);
+              }
+            });
+
+            if (achievementImages.length > 0) {
+              imagesData[achievement.title] = achievementImages;
+            }
+          } catch (error) {
+            console.error(`Error loading images for ${achievement.title}:`, error);
+          }
+        }
+      }
+
+      setAchievementImages(imagesData);
+
+      const initialIndexes = {};
+      Object.keys(imagesData).forEach((title) => {
+        initialIndexes[title] = 0;
+      });
+      setCurrentImageIndexes(initialIndexes);
+    };
+
+    loadImages();
+  }, [achievementData]);
 
   const handleToggle = () => {
     if (showAll) {
@@ -31,6 +71,33 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     }
   };
 
+  const handlePrevImage = (achievementTitle) => {
+    const images = achievementImages[achievementTitle];
+    if (!images || images.length === 0) return;
+
+    setCurrentImageIndexes((prev) => ({
+      ...prev,
+      [achievementTitle]: prev[achievementTitle] === 0 ? images.length - 1 : prev[achievementTitle] - 1,
+    }));
+  };
+
+  const handleNextImage = (achievementTitle) => {
+    const images = achievementImages[achievementTitle];
+    if (!images || images.length === 0) return;
+
+    setCurrentImageIndexes((prev) => ({
+      ...prev,
+      [achievementTitle]: prev[achievementTitle] === images.length - 1 ? 0 : prev[achievementTitle] + 1,
+    }));
+  };
+
+  const handleDotClick = (achievementTitle, index) => {
+    setCurrentImageIndexes((prev) => ({
+      ...prev,
+      [achievementTitle]: index,
+    }));
+  };
+
   return (
     <BlurFade
       delay={0.3}
@@ -39,7 +106,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
       offset={20}
     >
       <div className='relative !z-[40] flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
-        <div className='border-customgray bg-customblack flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
+        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] border-customgray bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
           {displayedAchievements.map((achievement, index) => (
             <BlurFade
               key={index}
@@ -50,39 +117,59 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
             >
               <div className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
                 <div className='flex h-fit w-full justify-center lg:w-fit'>
-                  <div className='relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80 lg:h-56 lg:w-56'>
-                    <p className='font-maplemono text-lg font-bold opacity-40'>(Under Dev)</p>
-                    <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
-                      <div className='flex h-full w-fit items-center justify-center rounded-lg transition-all duration-100 ease-in-out md:w-10'>
-                        <IconChevronLeft
-                          stroke={2}
-                          size={desktopView ? 24 : 22}
-                          className='opacity-40'
-                        />
-                      </div>
-                      <div className='flex flex-row items-center space-x-2'>
-                        <div className='bg-customwhite h-2 w-2 rounded-full'></div>
-                        <div className='bg-customwhite h-2 w-2 rounded-full bg-opacity-40'></div>
-                        <div className='bg-customwhite h-2 w-2 rounded-full bg-opacity-40'></div>
-                      </div>
-                      <div className='hover:text-blurple flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out md:w-10'>
-                        <IconChevronRight
-                          stroke={2}
-                          size={desktopView ? 24 : 22}
-                          className=''
-                        />
+                  {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 ? (
+                    <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
+                      <img
+                        src={achievementImages[achievement.title][currentImageIndexes[achievement.title]]}
+                        alt='Achievement Image'
+                        className='h-full w-full rounded-xl object-cover'
+                      />
+                      <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
+                        <div
+                          className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
+                          onClick={() => handlePrevImage(achievement.title)}
+                        >
+                          <IconChevronLeft
+                            stroke={2}
+                            size={desktopView ? 24 : 22}
+                            className='opacity-70 hover:opacity-100'
+                          />
+                        </div>
+                        <div className='flex flex-row items-center space-x-2'>
+                          {achievementImages[achievement.title].map((_, index) => (
+                            <div
+                              key={index}
+                              className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-200 ${index === currentImageIndexes[achievement.title] ? 'bg-customwhite' : 'bg-customwhite bg-opacity-40 hover:bg-opacity-70'}`}
+                              onClick={() => handleDotClick(achievement.title, index)}
+                            />
+                          ))}
+                        </div>
+                        <div
+                          className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
+                          onClick={() => handleNextImage(achievement.title)}
+                        >
+                          <IconChevronRight
+                            stroke={2}
+                            size={desktopView ? 24 : 22}
+                            className='opacity-70 hover:opacity-100'
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
+                      <p className='font-maplemono text-lg font-bold opacity-40'>No Images</p>
+                    </div>
+                  )}
                 </div>
                 <div className='flex flex-col space-y-2 text-left'>
                   <div className='flex flex-col items-start space-y-2'>
                     <h2 className='font-instrument text-4xl md:text-5xl'>{achievement.title}</h2>
                     <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                       {achievement.organizer && achievement.organizerUrl && (
-                        <div className='border-blurple bg-blurple hover:bg-blurple rounded-md border bg-opacity-10 px-2 transition-all duration-200 hover:bg-opacity-100'>
+                        <div className='rounded-md border border-blurple bg-blurple bg-opacity-10 px-2 transition-all duration-200 hover:bg-blurple hover:bg-opacity-100'>
                           <a
-                            className='text-blurple text-sm transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
+                            className='text-sm text-blurple transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
                             href={achievement.organizerUrl}
                             target='_blank'
                             rel='noreferrer'
@@ -101,7 +188,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                     </div>
                   </div>
                   {achievement.desc && <p className='text'>{achievement.desc}</p>}
-                  <div className='font-maplemono flex flex-col space-y-1'>
+                  <div className='flex flex-col space-y-1 font-maplemono'>
                     {achievement.award && (
                       <div className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}>
                         <IconAward
@@ -169,7 +256,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                         <div className='flex flex-col'>
                           <p>Articles:</p>
                           {achievement.articles.length > 0 ? (
-                            <ul className='ml-5 list-disc'>
+                            <ul className={`ml-5 list-disc ${achievement.articles.length > 3 ? 'lg:columns-2 lg:gap-16' : ''}`}>
                               {achievement.articles.map((article, index) => (
                                 <li key={index}>
                                   <a
@@ -201,7 +288,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
               offset={8}
               inView
             >
-              <div className='font-maplemono flex w-full items-center justify-center pb-4 pt-4 text-sm'>
+              <div className='flex w-full items-center justify-center pb-4 pt-4 font-maplemono text-sm'>
                 <p className='!opacity-40'>and more to come...</p>
               </div>
             </BlurFade>
@@ -214,7 +301,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
             >
               <motion.button
                 onClick={handleToggle}
-                className='border-customlightgray font-jetbrainsmono text-customwhite flex items-center space-x-2 rounded-lg border-2 py-2 pl-4 pr-2 opacity-70 transition-all duration-300 hover:opacity-100'
+                className='flex items-center space-x-2 rounded-lg border-2 border-customlightgray py-2 pl-4 pr-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100'
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>
                 {showAll ? (
