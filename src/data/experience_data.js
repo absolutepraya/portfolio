@@ -27,7 +27,7 @@ const experienceData = [
     previousDates: ['09/2023 - 08/2024'],
   },
   {
-    title: 'VPIC & Expert Web Infra. Staff',
+    title: 'VPIC & Web Infra. Expert',
     org: 'COMPFEST',
     url: 'https://compfest.id/',
     logo: COMPFEST,
