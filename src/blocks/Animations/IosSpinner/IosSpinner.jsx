@@ -6,7 +6,7 @@ const IosSpinner = ({ className = '', size = 'md', ...props }) => {
       case 'lg':
         return 'h-6 w-6';
       case '3xl':
-        return 'h-12 w-12';
+        return 'h-10 w-10';
       default:
         return 'h-4 w-4';
     }

@@ -45,9 +45,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
               loadingStates[achievement.title] = new Array(imagePaths.length).fill(false);
               loadedStates[achievement.title] = new Array(imagePaths.length).fill(false);
 
-              const firstImage = await imageModules[imagePaths[0]]();
-              imagesData[achievement.title][0] = firstImage.default;
-              loadedStates[achievement.title][0] = true;
+              loadingStates[achievement.title][0] = true;
             }
           } catch (error) {
             console.error(`Error initializing images for ${achievement.title}:`, error);
@@ -64,10 +62,62 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
         initialIndexes[title] = 0;
       });
       setCurrentImageIndexes(initialIndexes);
+
+      for (const achievement of achievementData) {
+        if (achievement.imagesPath && imagesData[achievement.title]) {
+          setTimeout(() => {
+            loadFirstImage(achievement.title);
+          }, 0);
+        }
+      }
     };
 
     initializeImageStates();
   }, [achievementData]);
+
+  const loadFirstImage = async (achievementTitle) => {
+    try {
+      const achievement = achievementData.find((a) => a.title === achievementTitle);
+      if (!achievement?.imagesPath) return;
+
+      const imageModules = import.meta.glob('/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}', { eager: false });
+      const imagePaths = [];
+
+      Object.keys(imageModules).forEach((path) => {
+        const normalizedAchievementPath = achievement.imagesPath.replace('src/', '/src/');
+        if (path.includes(normalizedAchievementPath)) {
+          imagePaths.push(path);
+        }
+      });
+
+      imagePaths.sort();
+
+      if (imagePaths[0]) {
+        const imageModule = await imageModules[imagePaths[0]]();
+
+        setAchievementImages((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((img, idx) => (idx === 0 ? imageModule.default : img)),
+        }));
+
+        setImageLoadedStates((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((loaded, idx) => (idx === 0 ? true : loaded)),
+        }));
+
+        setImageLoadingStates((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((loading, idx) => (idx === 0 ? false : loading)),
+        }));
+      }
+    } catch (error) {
+      console.error(`Error loading first image for ${achievementTitle}:`, error);
+      setImageLoadingStates((prev) => ({
+        ...prev,
+        [achievementTitle]: prev[achievementTitle].map((loading, idx) => (idx === 0 ? false : loading)),
+      }));
+    }
+  };
 
   const loadImageAtIndex = async (achievementTitle, imageIndex) => {
     if (imageLoadedStates[achievementTitle]?.[imageIndex] || imageLoadingStates[achievementTitle]?.[imageIndex]) {
