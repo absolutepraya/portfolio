@@ -4,9 +4,9 @@ import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
 import BotBorder from './BotBorder';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
 
 const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const desktopView = DesktopView();
@@ -15,91 +15,106 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const [currentImageIndexes, setCurrentImageIndexes] = useState({});
   const [achievementImages, setAchievementImages] = useState({});
   const [imageLoadingStates, setImageLoadingStates] = useState({});
+  const [imageLoadedStates, setImageLoadedStates] = useState({});
 
   const displayedAchievements = showAll ? achievementData : achievementData.slice(0, 3);
 
   useEffect(() => {
-    const discoverImagePaths = async () => {
+    const initializeImageStates = async () => {
       const imagesData = {};
-      const imageModules = import.meta.glob('/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}');
+      const loadingStates = {};
+      const loadedStates = {};
 
       for (const achievement of achievementData) {
         if (achievement.imagesPath) {
           try {
-            const achievementImagePaths = [];
+            const imageModules = import.meta.glob('/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}', { eager: false });
+            const imagePaths = [];
 
             Object.keys(imageModules).forEach((path) => {
               const normalizedAchievementPath = achievement.imagesPath.replace('src/', '/src/');
               if (path.includes(normalizedAchievementPath)) {
-                achievementImagePaths.push(path);
+                imagePaths.push(path);
               }
             });
 
-            if (achievementImagePaths.length > 0) {
-              achievementImagePaths.sort();
-              imagesData[achievement.title] = {
-                paths: achievementImagePaths,
-                loadedImages: new Array(achievementImagePaths.length).fill(null),
-                modules: imageModules,
-              };
+            imagePaths.sort();
+
+            if (imagePaths.length > 0) {
+              imagesData[achievement.title] = new Array(imagePaths.length).fill(null);
+              loadingStates[achievement.title] = new Array(imagePaths.length).fill(false);
+              loadedStates[achievement.title] = new Array(imagePaths.length).fill(false);
+
+              const firstImage = await imageModules[imagePaths[0]]();
+              imagesData[achievement.title][0] = firstImage.default;
+              loadedStates[achievement.title][0] = true;
             }
           } catch (error) {
-            console.error(`Error discovering images for ${achievement.title}:`, error);
+            console.error(`Error initializing images for ${achievement.title}:`, error);
           }
         }
       }
 
       setAchievementImages(imagesData);
+      setImageLoadingStates(loadingStates);
+      setImageLoadedStates(loadedStates);
 
       const initialIndexes = {};
       Object.keys(imagesData).forEach((title) => {
         initialIndexes[title] = 0;
       });
       setCurrentImageIndexes(initialIndexes);
-
-      for (const [title, data] of Object.entries(imagesData)) {
-        if (data.paths.length > 0) {
-          loadImageOnDemand(title, 0);
-        }
-      }
     };
 
-    discoverImagePaths();
+    initializeImageStates();
   }, [achievementData]);
 
-  const loadImageOnDemand = async (achievementTitle, targetIndex) => {
-    const imageData = achievementImages[achievementTitle];
-    if (!imageData || !imageData.paths[targetIndex] || imageData.loadedImages[targetIndex]) return true;
+  const loadImageAtIndex = async (achievementTitle, imageIndex) => {
+    if (imageLoadedStates[achievementTitle]?.[imageIndex] || imageLoadingStates[achievementTitle]?.[imageIndex]) {
+      return;
+    }
 
-    const loadingKey = `${achievementTitle}-${targetIndex}`;
-    setImageLoadingStates((prev) => ({ ...prev, [loadingKey]: true }));
+    setImageLoadingStates((prev) => ({
+      ...prev,
+      [achievementTitle]: prev[achievementTitle].map((loading, idx) => (idx === imageIndex ? true : loading)),
+    }));
 
     try {
-      const imagePath = imageData.paths[targetIndex];
-      const module = await imageData.modules[imagePath]();
-      const imageUrl = module.default;
+      const achievement = achievementData.find((a) => a.title === achievementTitle);
+      if (!achievement?.imagesPath) return;
 
-      await new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = resolve;
-        img.onerror = reject;
-        img.src = imageUrl;
+      const imageModules = import.meta.glob('/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}', { eager: false });
+      const imagePaths = [];
+
+      Object.keys(imageModules).forEach((path) => {
+        const normalizedAchievementPath = achievement.imagesPath.replace('src/', '/src/');
+        if (path.includes(normalizedAchievementPath)) {
+          imagePaths.push(path);
+        }
       });
 
-      setAchievementImages((prev) => ({
-        ...prev,
-        [achievementTitle]: {
-          ...prev[achievementTitle],
-          loadedImages: prev[achievementTitle].loadedImages.map((img, index) => (index === targetIndex ? imageUrl : img)),
-        },
-      }));
+      imagePaths.sort();
 
-      setImageLoadingStates((prev) => ({ ...prev, [loadingKey]: false }));
-      return true;
+      if (imagePaths[imageIndex]) {
+        const imageModule = await imageModules[imagePaths[imageIndex]]();
+
+        setAchievementImages((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((img, idx) => (idx === imageIndex ? imageModule.default : img)),
+        }));
+
+        setImageLoadedStates((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((loaded, idx) => (idx === imageIndex ? true : loaded)),
+        }));
+      }
     } catch (error) {
-      console.error(`Error loading image for ${achievementTitle}:`, error);
-      setImageLoadingStates((prev) => ({ ...prev, [loadingKey]: false }));
-      return false;
+      console.error(`Error loading image ${imageIndex} for ${achievementTitle}:`, error);
+    } finally {
+      setImageLoadingStates((prev) => ({
+        ...prev,
+        [achievementTitle]: prev[achievementTitle].map((loading, idx) => (idx === imageIndex ? false : loading)),
+      }));
     }
   };
 
@@ -120,52 +135,47 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     }
   };
 
-  const handlePrevImage = async (achievementTitle) => {
-    const imageData = achievementImages[achievementTitle];
-    if (!imageData || imageData.paths.length === 0) return;
+  const handlePrevImage = (achievementTitle) => {
+    const images = achievementImages[achievementTitle];
+    if (!images || images.length === 0) return;
 
-    const currentIndex = currentImageIndexes[achievementTitle] || 0;
-    const targetIndex = currentIndex === 0 ? imageData.paths.length - 1 : currentIndex - 1;
-
-    const loadingKey = `${achievementTitle}-${targetIndex}`;
-    if (imageLoadingStates[loadingKey]) return;
-
-    await loadImageOnDemand(achievementTitle, targetIndex);
+    const newIndex = currentImageIndexes[achievementTitle] === 0 ? images.length - 1 : currentImageIndexes[achievementTitle] - 1;
 
     setCurrentImageIndexes((prev) => ({
       ...prev,
-      [achievementTitle]: targetIndex,
+      [achievementTitle]: newIndex,
     }));
+
+    if (!imageLoadedStates[achievementTitle]?.[newIndex]) {
+      loadImageAtIndex(achievementTitle, newIndex);
+    }
   };
 
-  const handleNextImage = async (achievementTitle) => {
-    const imageData = achievementImages[achievementTitle];
-    if (!imageData || imageData.paths.length === 0) return;
+  const handleNextImage = (achievementTitle) => {
+    const images = achievementImages[achievementTitle];
+    if (!images || images.length === 0) return;
 
-    const currentIndex = currentImageIndexes[achievementTitle] || 0;
-    const targetIndex = currentIndex === imageData.paths.length - 1 ? 0 : currentIndex + 1;
-
-    const loadingKey = `${achievementTitle}-${targetIndex}`;
-    if (imageLoadingStates[loadingKey]) return;
-
-    await loadImageOnDemand(achievementTitle, targetIndex);
+    const newIndex = currentImageIndexes[achievementTitle] === images.length - 1 ? 0 : currentImageIndexes[achievementTitle] + 1;
 
     setCurrentImageIndexes((prev) => ({
       ...prev,
-      [achievementTitle]: targetIndex,
+      [achievementTitle]: newIndex,
     }));
+
+    if (!imageLoadedStates[achievementTitle]?.[newIndex]) {
+      loadImageAtIndex(achievementTitle, newIndex);
+    }
   };
 
-  const handleDotClick = async (achievementTitle, index) => {
-    const loadingKey = `${achievementTitle}-${index}`;
-    if (imageLoadingStates[loadingKey]) return;
-
-    await loadImageOnDemand(achievementTitle, index);
-
+  const handleDotClick = (achievementTitle, index) => {
     setCurrentImageIndexes((prev) => ({
       ...prev,
       [achievementTitle]: index,
     }));
+
+    if (!imageLoadedStates[achievementTitle]?.[index]) {
+      loadImageAtIndex(achievementTitle, index);
+    }
   };
 
   return (
@@ -187,27 +197,29 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
             >
               <div className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
                 <div className='flex h-fit w-full justify-center lg:w-fit'>
-                  {achievementImages[achievement.title] && achievementImages[achievement.title].paths.length > 0 ? (
+                  {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 ? (
                     <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
-                      {(() => {
-                        const currentIndex = currentImageIndexes[achievement.title] || 0;
-                        const loadingKey = `${achievement.title}-${currentIndex}`;
-                        const isLoading = imageLoadingStates[loadingKey];
-                        const imageData = achievementImages[achievement.title];
-                        const currentImageUrl = imageData.loadedImages[currentIndex];
-
-                        return isLoading || !currentImageUrl ? (
-                          <div className='flex h-full w-full items-center justify-center'>
-                            <IosSpinner size={40} />
-                          </div>
-                        ) : (
-                          <img
-                            src={currentImageUrl}
-                            alt='Achievement Image'
-                            className='h-full w-full rounded-xl object-cover'
+                      {imageLoadingStates[achievement.title]?.[currentImageIndexes[achievement.title]] ? (
+                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-700'>
+                          <IosSpinner
+                            size='lg'
+                            className='text-white'
                           />
-                        );
-                      })()}
+                        </div>
+                      ) : achievementImages[achievement.title][currentImageIndexes[achievement.title]] ? (
+                        <img
+                          src={achievementImages[achievement.title][currentImageIndexes[achievement.title]]}
+                          alt='Achievement Image'
+                          className='h-full w-full rounded-xl object-cover'
+                        />
+                      ) : (
+                        <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-700'>
+                          <IosSpinner
+                            size='lg'
+                            className='text-white'
+                          />
+                        </div>
+                      )}
                       <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
                         <div
                           className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
@@ -220,7 +232,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                           />
                         </div>
                         <div className='flex flex-row items-center space-x-2'>
-                          {achievementImages[achievement.title].paths.map((_, index) => (
+                          {achievementImages[achievement.title].map((_, index) => (
                             <div
                               key={index}
                               className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-200 ${index === currentImageIndexes[achievement.title] ? 'bg-customwhite' : 'bg-customwhite bg-opacity-40 hover:bg-opacity-70'}`}
