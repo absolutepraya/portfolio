@@ -202,7 +202,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       {imageLoadingStates[achievement.title]?.[currentImageIndexes[achievement.title]] ? (
                         <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-800'>
                           <IosSpinner
-                            size='lg'
+                            size='3xl'
                             className='text-white'
                           />
                         </div>
@@ -215,7 +215,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       ) : (
                         <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-800'>
                           <IosSpinner
-                            size='lg'
+                            size='3xl'
                             className='text-white'
                           />
                         </div>
