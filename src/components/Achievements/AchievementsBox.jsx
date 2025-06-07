@@ -259,7 +259,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       ) : achievementImages[achievement.title][currentImageIndexes[achievement.title]] ? (
                         <img
                           src={achievementImages[achievement.title][currentImageIndexes[achievement.title]]}
-                          alt='Achievement Image'
+                          // alt='Achievement Image'
                           className='h-full w-full rounded-xl object-cover'
                         />
                       ) : (
