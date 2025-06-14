@@ -6,15 +6,24 @@ import DDP0 from '../assets/orgs/ddp0.svg';
 import BETIS from '../assets/orgs/betis.svg';
 import GDG from '../assets/orgs/gdg.svg';
 import CO80 from '../assets/orgs/80co.webp';
+import SB from '../assets/orgs/sb.webp';
 
 const experienceData = [
+  {
+    title: 'Product Engineer Intern',
+    org: 'SobatBisnis',
+    url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
+    logo: SB,
+    date: '06/2025 - Present',
+    desc: 'Building cutting-edge B2B AI applications that transform how businesses interact with their customers through intelligent automation and seamless user experiences.',
+  },
   {
     title: 'Full-Stack Engineer',
     org: '80&Company',
     url: 'https://80and.co/en/company/',
     logo: CO80,
     date: '01/2025 - Present',
-    desc: "Developed a BaaS AI voice-call powered by Dify AI and OpenAI's 4o-mini model with Python integration for customer insights. Crafted an intuitive blockchain project frontend using Next.js with optimized SSR for a sleek user experience. Implemented a fully responsive UI for a beauty acupuncture salon's reservation management system.",
+    desc: "Developed a BaaS AI voice-call powered by Dify AI and OpenAI's 4o-mini model with Python integration for customer insights. Crafted an intuitive blockchain project frontend using Next.js with optimized SSR for a sleek user experience. Implemented a fully responsive UI for a beauty acupuncture salon's reservation management system. Optimized GraphQL query time for several pages to upgrade UX, resulting in a 50-60% reduction in query time.",
   },
   {
     title: 'Software Engineering Team',

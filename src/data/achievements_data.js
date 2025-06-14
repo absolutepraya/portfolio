@@ -58,7 +58,7 @@ const achievementsData = [
   },
   {
     title: 'JIHS Hackathon 2025',
-    organizer: 'JIHS (Jakarta International Polytechnic)',
+    organizer: 'Jakarta International Polytechnic',
     organizerUrl: 'https://jihs.ac.id/',
     organizerLogo: JIHS,
     date: '04/2025',
