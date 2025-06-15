@@ -79,7 +79,7 @@ const achievementsData = [
         url: 'https://eportal.id/release-jihs-hackathon-2025-ajang-kreativitas-teknologi-dalam-mewujudkan-visi-asta-cita/',
       },
     ],
-    // imagesPath: 'src/assets/achievements/jihs'
+    imagesPath: 'src/assets/achievements/jihs'
   },
   {
     title: 'elevAIte Hackathon 2025',
@@ -90,10 +90,11 @@ const achievementsData = [
     desc: "Secured 3rd place in Microsoft's flagship AI hackathon, part of the elevAIte Indonesia initiative aimed at developing 1 million AI talents across the country. Our team created innovative AI solutions addressing real-world challenges using Azure services, with emphasis on sustainability and community impact. We are now participating in the elevAIte final national stage competition.",
     award: '3rd Place',
     awardInt: 3,
-    prizeCurr: 'USD',
+    prizeCurr: 'US$',
     prizeInt: 400,
     bonus: ['Merchandises', 'Microsoft Voucher'],
     location: 'Tangerang, Indonesia',
+    imagesPath: 'src/assets/achievements/elevaite'
   },
   {
     title: 'Alibaba Cloud Hackathon 2025',
@@ -108,6 +109,7 @@ const achievementsData = [
     prizeCurr: 'IDR',
     bonus: ['Acrylic Plaque', 'Alibaba Cloud Voucher', 'Alibaba Merchandises', 'GoTo Merchandises'],
     location: 'Jakarta, Indonesia',
+    imagesPath: 'src/assets/achievements/alibaba'
   },
   {
     title: 'Indonesia Aerospace Hackathon 2025',
