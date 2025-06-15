@@ -127,7 +127,7 @@ const achievementsData = [
     organizerLogo: BEMFTIUNTAR,
     date: '05/2025',
     desc: "Participating in I/O FESTIVAL 2025, UNTAR's largest technology competition for students and high school students. The festival features multiple categories including Web Development, UI/UX Design, Android Development, and Business Plan, with a total prize pool of IDR 42 million.",
-    award: 'Finalist [On-Going]',
+    award: 'Finalist',
     awardInt: 0,
     location: 'Jakarta, Indonesia',
   },
@@ -138,7 +138,7 @@ const achievementsData = [
     organizerLogo: COMSNETS,
     date: '05/2025',
     desc: 'The only team representing Indonesia among finalists composed of 60% teams from India and 40% from other nations. Collaborating directly with Kementerian Komunikasi dan Informatika RI (Ministry of Communication and Information Technology of the Republic of Indonesia).',
-    award: 'Finalist [On-Going]',
+    award: 'Finalist',
     awardInt: 0,
     location: 'Bali, Indonesia [Online]',
   },
@@ -149,7 +149,7 @@ const achievementsData = [
     organizerLogo: BNCC,
     date: '06/2025',
     desc: 'Competing in BNCC\'s flagship annual hackathon with the theme "Hack the Horizon: Redefining Boundaries with Code." BNCC is the oldest and biggest computer-based organization at BINUS University, established since 1989.',
-    award: 'Finalist [On-Going]',
+    award: 'Finalist',
     location: 'Jakarta, Indonesia'
   },
   {
