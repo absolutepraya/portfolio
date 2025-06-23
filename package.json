@@ -3,6 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
+  },
   "scripts": {
     "dev": "bun run vite",
     "build": "bun run vite build",
@@ -11,7 +15,7 @@
     "lint:fix": "bun run lint -- --fix && bun run format",
     "start": "bun run serve -s dist",
     "knip": "knip",
-    "heroku-prebuild": "rm -rf node_modules package-lock.json && npm install"
+    "heroku-prebuild": "rm -rf node_modules package-lock.json"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
