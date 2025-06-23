@@ -96,7 +96,7 @@ const Projects = () => {
             alignItems: 'center',
           }}
         >
-          <div className='w-full overflow-x-auto pb-2 lg:overflow-visible lg:pb-0'>
+          <div className='w-full pb-2 lg:pb-0'>
             <TabList
               disableUnderline
               sx={{
@@ -106,10 +106,12 @@ const Projects = () => {
                 gap: 1.5,
                 borderRadius: 'full',
                 bgcolor: 'transparent',
-                width: 'fit-content',
-                minWidth: { xs: 'max-content', lg: 'fit-content' },
+                width: '100%',
+                minWidth: 'fit-content',
                 border: '2px solid transparent',
-                mx: { xs: 'auto', lg: 'auto' },
+                mx: 'auto',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
                 [`& .${tabClasses.root}[aria-selected="true"]`]: {
                   color: '#5566FF',
                   border: '1px solid #5566FF',
