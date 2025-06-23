@@ -1,4 +1,4 @@
-// Import project images
+// Import project images and videos
 import GrabAuto from '../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../assets/projects/dm2calc.webp';
@@ -10,20 +10,22 @@ import NuSantap from '../assets/projects/nusantap.webp';
 import Ngandung from '../assets/projects/ngandung.webp';
 import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
+import PintaruVideo from '../assets/projects/pintaru.mp4';
 
 const projectsData = [
   {
-    image: null,
+    preview: PintaruVideo,
+    isVideo: true,
     title: 'PINTARU',
-    type: ['Fullstack', 'Under Dev'],
+    type: ['Fullstack'],
     date: '04/2025',
-    subtitle: 'PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids. This is our greatest project yet, guaranteed to make you impressed.',
+    subtitle: 'PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids, with custom moral value and custom characters. This is our greatest project yet, guaranteed to make you impressed.',
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'express', 'redis', 'rabbitmq', 'supabase', 'python', 'gemini', 'openai', 'docker', 'digitalocean'],
     url: '',
     github: '',
   },
   {
-    image: null,
+    preview: null,
     title: 'Cobaju',
     type: ['Fullstack', 'Extension', 'Under Dev'],
     date: '03/2025',
@@ -33,7 +35,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: null,
+    preview: null,
     title: 'SwiftCash',
     type: ['Fullstack', 'Under Dev'],
     date: '03/2025',
@@ -43,7 +45,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: ALSAEcomp,
+    preview: ALSAEcomp,
     title: 'ALSA LC FH UI E-Comp Portal',
     type: ['Frontend'],
     date: '02/2025',
@@ -53,7 +55,7 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/alsa-ecomp',
   },
   {
-    image: Rumble,
+    preview: Rumble,
     title: 'Rumble Backend',
     type: ['Backend'],
     date: '01/2025',
@@ -63,7 +65,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: NuSantap,
+    preview: NuSantap,
     title: 'NuSantap (Gov-AI Hackathon 2024)',
     type: ['Fullstack', 'Mobile'],
     date: '11/2024',
@@ -73,7 +75,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: null,
+    preview: null,
     title: 'NuSantap Dashboard',
     type: ['Fullstack'],
     date: '11/2024',
@@ -83,7 +85,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: Ngandung,
+    preview: Ngandung,
     title: 'Ngandung: Ngemil di Bandung',
     type: ['Fullstack', 'Mobile'],
     date: '11/2024',
@@ -93,7 +95,7 @@ const projectsData = [
     github: 'https://github.com/Kelompok-9-PBP-Ganjil-2024-2025/ngandung-mobile',
   },
   {
-    image: DesaKedisan,
+    preview: DesaKedisan,
     title: 'Desa Kedisan Tourism Portal',
     type: ['Frontend'],
     date: '10/2024',
@@ -103,7 +105,7 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/desa-kedisan',
   },
   {
-    image: Portfolio,
+    preview: Portfolio,
     title: 'Personal Portfolio',
     type: ['Frontend'],
     date: '08/2024',
@@ -113,7 +115,7 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/portfolio',
   },
   {
-    image: GrabAuto,
+    preview: GrabAuto,
     title: 'GrabAuto (hackjakarta 2024)',
     type: ['Frontend'],
     date: '07/2024',
@@ -123,7 +125,7 @@ const projectsData = [
     github: 'https://github.com/Tianrider/GrabAuto',
   },
   {
-    image: MIPAOpenHouse,
+    preview: MIPAOpenHouse,
     title: 'Open House FMIPA UI 2024',
     type: ['Fullstack'],
     date: '06/2024',
@@ -133,7 +135,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: DM2Calc,
+    preview: DM2Calc,
     title: 'Discrete Math Calculator',
     type: ['CLI App'],
     date: '02/2024',
@@ -143,7 +145,7 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/dm2-calculator',
   },
   {
-    image: ValentineLetter,
+    preview: ValentineLetter,
     title: 'Valentine Letter',
     type: ['Frontend'],
     date: '01/2024',
@@ -153,7 +155,7 @@ const projectsData = [
     github: '',
   },
   {
-    image: GusDur,
+    preview: GusDur,
     title: 'The Legend of Gus Dur: EoTR',
     type: ['Video Game'],
     date: '12/2022',

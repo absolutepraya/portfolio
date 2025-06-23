@@ -33,7 +33,7 @@ import Redis from '../../assets/stacks/redis.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const stackIcons = {
@@ -69,10 +69,36 @@ const stackIcons = {
   rabbitmq: { src: RabbitMQ, name: 'RabbitMQ' },
 };
 
-const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
+const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [hovered, setHovered] = useState('');
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!isVideo || !videoRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoRef.current?.play();
+          } else {
+            videoRef.current?.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(videoRef.current);
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, [isVideo]);
 
   var urlVisibility, githubVisibility;
   if (!url) urlVisibility = 'opacity-30';
@@ -86,20 +112,32 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
       offset={15}
       inView
     >
-      <div className='border-customgray bg-customblack md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall flex h-full flex-col overflow-hidden rounded-3xl border-2 py-0 shadow-lg transition-all duration-100'>
+      <div className='flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg transition-all duration-100 md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'>
         <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
-          <img
-            src={image ? image : NoImage}
-            className='h-full w-full object-cover'
-            alt={title + ' image preview'}
-          />
+          {isVideo ? (
+            <video
+              ref={videoRef}
+              src={preview}
+              className='h-full w-full object-cover'
+              muted
+              loop
+              playsInline
+              preload='metadata'
+            />
+          ) : (
+            <img
+              src={preview ? preview : NoImage}
+              className='h-full w-full object-cover'
+              alt={title + ' preview'}
+            />
+          )}
         </div>
         <div className='relative flex flex-1 flex-col space-y-2 p-6'>
           <div className='flex flex-row items-start justify-between'>
             <div className='flex flex-row items-start space-x-3'>
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
             </div>
-            <p className='md:text-md font-maplemono mt-[6px] text-end text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
+            <p className='md:text-md mt-[6px] text-end font-maplemono text-sm font-extrabold opacity-70 md:mt-[10px]'>{date}</p>
           </div>
           <div className='flex flex-row items-center space-x-2'>
             <p className='font-bold'>Type: </p>
@@ -108,14 +146,14 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                 type.map((t, index) => (
                   <div
                     key={index}
-                    className='border-blurple bg-blurple w-fit rounded-md border bg-opacity-10 px-2'
+                    className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
                   >
-                    <p className='font-maplemono text-blurple text-xs md:text-sm'>{t}</p>
+                    <p className='font-maplemono text-xs text-blurple md:text-sm'>{t}</p>
                   </div>
                 ))
               ) : (
-                <div className='border-blurple bg-blurple w-fit rounded-md border bg-opacity-10 px-2'>
-                  <p className='font-maplemono text-blurple text-xs md:text-sm'>{type}</p>
+                <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
+                  <p className='font-maplemono text-xs text-blurple md:text-sm'>{type}</p>
                 </div>
               )}
             </div>
@@ -143,7 +181,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 3 }}
                             transition={{ duration: 0.15, ease: 'easeInOut' }}
-                            className='font-maplemono absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] text-xs'
+                            className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
                           >
                             <p className='text-nowrap'>{stackIcons[stack].name}</p>
                           </motion.div>
@@ -176,7 +214,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                   aria-label='Open deployed project URL'
                   title='Open deployed project URL'
                 >
-                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'hover:bg-blurple hover:text-blurple transition-all duration-100 ease-in-out hover:bg-opacity-30'}`}>
+                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
                     <IconArrowUpRight
                       stroke={1.5}
                       size={desktopView ? 24 : 22}
@@ -199,7 +237,7 @@ const ProjectBox = ({ image = null, title, type, date, subtitle, stacks = [], ur
                   aria-label='View project source code on GitHub'
                   title='View project source code on GitHub'
                 >
-                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'hover:bg-blurple hover:text-blurple transition-all duration-100 ease-in-out hover:bg-opacity-30'}`}>
+                  <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
                     <IconBrandGithub
                       stroke={1.5}
                       size={desktopView ? 24 : 22}

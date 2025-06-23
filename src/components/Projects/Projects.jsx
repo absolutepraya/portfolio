@@ -3,6 +3,7 @@ import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
+import { IconTool } from '@tabler/icons-react';
 import SepBorder from './SepBorder';
 import projectsData from '../../data/projects_data.js';
 
@@ -155,7 +156,12 @@ const Projects = () => {
               <Tab disableIndicator>Mobile</Tab>
               <Tab disableIndicator>CLI App</Tab>
               <Tab disableIndicator>Video Game</Tab>
-              <Tab disableIndicator>Under Dev</Tab>
+              <Tab disableIndicator>
+                <div className='flex items-center space-x-2.5'>
+                  <IconTool size={16} />
+                  <span>Under Dev</span>
+                </div>
+              </Tab>
             </TabList>
           </div>
 
@@ -169,7 +175,8 @@ const Projects = () => {
               {getFilteredProjects('All').map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -190,7 +197,8 @@ const Projects = () => {
               {fullstackProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -211,7 +219,8 @@ const Projects = () => {
               {frontendProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -232,7 +241,8 @@ const Projects = () => {
               {backendProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -253,7 +263,8 @@ const Projects = () => {
               {mobileProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -274,7 +285,8 @@ const Projects = () => {
               {cliProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -295,7 +307,8 @@ const Projects = () => {
               {gameProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
@@ -316,7 +329,8 @@ const Projects = () => {
               {ongoingProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
-                  image={project.image}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
                   title={project.title}
                   type={project.type}
                   date={project.date}
