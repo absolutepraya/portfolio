@@ -145,16 +145,6 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/dm2-calculator',
   },
   {
-    preview: ValentineLetter,
-    title: 'Valentine Letter',
-    type: ['Frontend'],
-    date: '01/2024',
-    subtitle: 'An interactive Valentine\'s Letter that allows user to customize and send it to their significant others. It features conversation-style messages and interactive elements such as "Yes" and "No", enabling the receiver to "talk" to the sender.',
-    stacks: ['javascript'],
-    url: '',
-    github: '',
-  },
-  {
     preview: GusDur,
     title: 'The Legend of Gus Dur: EoTR',
     type: ['Video Game'],
