@@ -246,9 +246,9 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
               inView
               inViewMargin='-1px'
             >
-              <div className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
-                <div className='flex h-fit w-full justify-center lg:w-fit'>
-                  {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 ? (
+              <div className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8 px-24' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
+                {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 && (
+                  <div className='flex h-fit w-full justify-center lg:w-fit'>
                     <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
                       {imageLoadingStates[achievement.title]?.[currentImageIndexes[achievement.title]] ? (
                         <div className='flex h-full w-full items-center justify-center rounded-xl bg-zinc-800'>
@@ -303,12 +303,8 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
-                      <p className='font-maplemono text-lg font-bold opacity-40'>No Images</p>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                )}
                 <div className='flex flex-col space-y-2 text-left'>
                   <div className='flex flex-col items-start space-y-2'>
                     <h2 className='font-instrument text-4xl md:text-5xl'>{achievement.title}</h2>
