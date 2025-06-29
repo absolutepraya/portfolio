@@ -16,6 +16,7 @@ const experienceData = [
     logo: SB,
     date: '06/2025 - Present',
     desc: 'Building cutting-edge B2B AI applications that transform how businesses interact with their customers through intelligent automation and seamless user experiences.',
+    alignCenter: false,
   },
   {
     title: 'Full-Stack Engineer',
@@ -24,6 +25,18 @@ const experienceData = [
     logo: CO80,
     date: '01/2025 - Present',
     desc: "Developed a BaaS AI voice-call powered by Dify AI and OpenAI's 4o-mini model with Python integration for customer insights. Crafted an intuitive blockchain project frontend using Next.js with optimized SSR for a sleek user experience. Implemented a fully responsive UI for a beauty acupuncture salon's reservation management system. Optimized GraphQL query time for several pages to upgrade UX, resulting in a 50-60% reduction in query time.",
+    alignCenter: false,
+  },
+  {
+    title: 'Web Infra. Lead & VPIC',
+    org: 'COMPFEST',
+    url: 'https://compfest.id/',
+    logo: COMPFEST,
+    date: '03/2024 - Present',
+    desc: 'Currently leading the revamp of the COMPFEST AnD gameserver using Flask, SQLAlchemy, SocketIO, Redis, APScheduler, Pika (RabbitMQ), and a Next.js frontend. It\'s deployed by utilizing Kubernetes (GKE) and Docker, and enabling a private network for the competition by using WireGuard VPN.\n \nDeployed Jeopardy-format CTF using Docker on DigitalOcean infrastructure for open staff recruitment with custom bash script automation. Led the design and maintenance of the CTF web platform using Flask, Node.js (Webpack), and Bootstrap, deployed via Docker within Google Cloud Platform. Successfully managed high-traffic competition servers with efficient resource utilization, attracting participants from universities across Indonesia.',
+    alignCenter: false,
+    previousTitles: ['Web Infra. Staff'],
+    previousDates: ['03/2024 - 11/2024'],
   },
   {
     title: 'Software Engineering Team',
@@ -32,18 +45,9 @@ const experienceData = [
     logo: GDG,
     date: '11/2024 - Present',
     desc: 'Teaching and mentoring members across multiple batches about Google Technologies including Firebase, Flutter, and Google Cloud. Developing learning modules and live web apps for hands-on demo during Study Jam sessions using Google Technologies and React.js. Co-organizing the GDGoC UI National Hackathon as a guidebook author and judge alongside invited industry professionals.',
+    alignCenter: false,
     previousTitles: ['Member'],
     previousDates: ['09/2023 - 08/2024'],
-  },
-  {
-    title: 'VPIC & Web Infra. Expert',
-    org: 'COMPFEST',
-    url: 'https://compfest.id/',
-    logo: COMPFEST,
-    date: '03/2024 - Present',
-    desc: 'Deployed Jeopardy-format CTF using Docker on DigitalOcean infrastructure for open staff recruitment with custom bash script automation. Led the design and maintenance of the CTF web platform using Flask, Node.js, and Bootstrap, deployed via Docker within Google Cloud Platform. Successfully managed high-traffic competition servers with efficient resource utilization, attracting participants from universities across Indonesia.',
-    previousTitles: ['Web Infra. Staff'],
-    previousDates: ['03/2024 - 11/2024'],
   },
   {
     title: 'Lead of NetSOS SIG',
@@ -52,6 +56,7 @@ const experienceData = [
     logo: RISTEK,
     date: '03/2024 - Present',
     desc: 'Selected from a competitive batch for RISTEK membership and later promoted to lead position. Developed and deployed an Attack and Defense CTF for internal members with Next.js frontend and a Flask, RabbitMQ, Redis, and Wireguard backend, deployed via Docker with Ansible. Participated in cross-SIG RISTEK Capstone Project as a Next.js Frontend Developer while serving as Person in Charge for Open Classes in Web Penetration and Cryptography.',
+    alignCenter: false,
     previousTitles: ['Member of NetSOS SIG', 'PIC of Open Class', 'Mentee of Open Class'],
     previousDates: ['03/2024 - 02/2025', '09/2024 - 11/2024', '10/2023 - 10/2023'],
   },
@@ -62,6 +67,7 @@ const experienceData = [
     logo: Fasilkom,
     date: '01/2025 - Present',
     desc: 'Designs assignment questions while also grading them, hosts a weekly forum discussion, and teaching in assistance sessions before quizzes and exams.',
+    alignCenter: false,
     previousTitles: ['TA for Discrete Math 1'],
     previousDates: ['07/2024 - 12/2024'],
   },
@@ -72,6 +78,7 @@ const experienceData = [
     logo: DDP0,
     date: '06/2024 - 09/2024',
     desc: 'Teaching a group of Fasilkom UI freshmen about Python Language as a provision for DDP-1 course. The materials revolve around the basics of Python plus Python Turtle library.',
+    alignCenter: false,
   },
   {
     title: 'Academician & Lecturer',
@@ -80,6 +87,7 @@ const experienceData = [
     logo: BETIS,
     date: '12/2023 - 05/2024',
     desc: 'Conducted interviews to select prospective tutors, created learning materials including modules, quizzes, try-outs, and PowerPoint presentations, and stepped in to teach the class when tutors are unable to teach.',
+    alignCenter: false,
   },
 ];
 

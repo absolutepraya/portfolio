@@ -7,6 +7,7 @@ import TabletView from '../../lib/TabletView';
 import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const desktopView = DesktopView();
@@ -333,7 +334,11 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       )}
                     </div>
                   </div>
-                  {achievement.desc && <p className='text'>{achievement.desc}</p>}
+                  {achievement.desc && (
+                    <div className='text'>
+                      <ReactMarkdown>{achievement.desc}</ReactMarkdown>
+                    </div>
+                  )}
                   <div className='flex flex-col space-y-1 font-maplemono'>
                     {achievement.award && (
                       <div className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}>

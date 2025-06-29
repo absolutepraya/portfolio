@@ -41,8 +41,8 @@ const projectsData = [
     date: '03/2025',
     subtitle: 'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system.',
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'supabase', 'postgresql'],
-    url: '',
-    github: '',
+    url: 'https://swiftcash.abhipraya.dev/',
+    github: 'https://github.com/absolutepraya/swiftcash',
   },
   {
     preview: ALSAEcomp,

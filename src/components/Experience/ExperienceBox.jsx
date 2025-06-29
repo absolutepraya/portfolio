@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 
-const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, previousDates }) => {
+const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, previousDates, alignCenter }) => {
   const [isInView, setIsInView] = useState(false);
   const divRef = useRef(null);
   const desktopView = DesktopView();
@@ -91,7 +92,9 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
           <p className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
         </div>
       </div>
-      <p className={`z-20 text-center md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{desc}</p>
+      <div className={`z-20 md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} whitespace-pre-line transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}>
+        <ReactMarkdown>{desc}</ReactMarkdown>
+      </div>
 
       {previousTitles && previousDates && (
         <motion.div className={'flex w-full flex-col'}>
