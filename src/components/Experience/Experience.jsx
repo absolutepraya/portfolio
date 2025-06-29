@@ -2,7 +2,7 @@ import Line from './Line';
 import ExperienceBox from './ExperienceBox';
 import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import experienceData from '../../data/experience_data.js';
 import LineShort from './LineShort';
 import { IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
@@ -10,8 +10,26 @@ import { IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icon
 const Experience = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
+  const buttonRef = useRef(null);
 
-  const displayedExperiences = showAll ? experienceData : experienceData.slice(0, 4);
+  const displayedExperiences = showAll ? experienceData : experienceData.slice(0, 3);
+
+  const handleToggle = () => {
+    if (showAll) {
+      setShowAll(false);
+
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }, 100);
+    } else {
+      setShowAll(true);
+    }
+  };
 
   return (
     <section
@@ -57,12 +75,13 @@ const Experience = () => {
           </React.Fragment>
         ))}
 
-        {experienceData.length > 4 && (
+        {experienceData.length > 3 && (
           <>
             {!showAll && <Line />}
             {showAll && <LineShort />}
             <motion.button
-              onClick={() => setShowAll(!showAll)}
+              ref={buttonRef}
+              onClick={handleToggle}
               className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -92,7 +92,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
           <p className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
         </div>
       </div>
-      <div className={`z-20 md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} whitespace-pre-line transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}>
+      <div className={`markdown-content z-20 !md:mt-4 md:px-6 text-sm md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}>
         <ReactMarkdown>{desc}</ReactMarkdown>
       </div>
 

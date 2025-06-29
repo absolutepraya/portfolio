@@ -335,7 +335,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                     </div>
                   </div>
                   {achievement.desc && (
-                    <div className='text'>
+                    <div className='markdown-content text'>
                       <ReactMarkdown>{achievement.desc}</ReactMarkdown>
                     </div>
                   )}

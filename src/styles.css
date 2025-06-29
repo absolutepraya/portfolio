@@ -99,62 +99,62 @@ body {
     top: 37%;
     left: 44%;
   }
-  
+
   .spinner-blade:nth-child(1) {
     transform: rotate(0deg) translateY(-130%);
     animation-delay: -1.667s;
   }
-  
+
   .spinner-blade:nth-child(2) {
     transform: rotate(30deg) translateY(-130%);
     animation-delay: -1.583s;
   }
-  
+
   .spinner-blade:nth-child(3) {
     transform: rotate(60deg) translateY(-130%);
     animation-delay: -1.5s;
   }
-  
+
   .spinner-blade:nth-child(4) {
     transform: rotate(90deg) translateY(-130%);
     animation-delay: -1.417s;
   }
-  
+
   .spinner-blade:nth-child(5) {
     transform: rotate(120deg) translateY(-130%);
     animation-delay: -1.333s;
   }
-  
+
   .spinner-blade:nth-child(6) {
     transform: rotate(150deg) translateY(-130%);
     animation-delay: -1.25s;
   }
-  
+
   .spinner-blade:nth-child(7) {
     transform: rotate(180deg) translateY(-130%);
     animation-delay: -1.167s;
   }
-  
+
   .spinner-blade:nth-child(8) {
     transform: rotate(210deg) translateY(-130%);
     animation-delay: -1.083s;
   }
-  
+
   .spinner-blade:nth-child(9) {
     transform: rotate(240deg) translateY(-130%);
     animation-delay: -1s;
   }
-  
+
   .spinner-blade:nth-child(10) {
     transform: rotate(270deg) translateY(-130%);
     animation-delay: -0.917s;
   }
-  
+
   .spinner-blade:nth-child(11) {
     transform: rotate(300deg) translateY(-130%);
     animation-delay: -0.833s;
   }
-  
+
   .spinner-blade:nth-child(12) {
     transform: rotate(330deg) translateY(-130%);
     animation-delay: -0.75s;
@@ -171,4 +171,38 @@ body {
   100% {
     opacity: 0.25;
   }
+}
+
+/* Markdown styles for ReactMarkdown */
+.markdown-content ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+.markdown-content ul ul {
+  list-style-type: circle;
+  padding-left: 1.5rem;
+  /* margin-top: 0.25rem; */
+  /* margin-bottom: 0.25rem; */
+}
+
+.markdown-content ul ul ul {
+  list-style-type: square;
+}
+
+.markdown-content li {
+  /* margin-bottom: 0.25rem; */
+}
+
+.markdown-content li > ul {
+  /* margin-top: 0.25rem; */
+}
+
+.markdown-content p {
+  /* margin-bottom: 0.5rem; */
+}
+
+.markdown-content p:last-child {
+  /* margin-bottom: 0; */
 }
