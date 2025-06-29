@@ -10,9 +10,20 @@ import NuSantap from '../assets/projects/nusantap.webp';
 import Ngandung from '../assets/projects/ngandung.webp';
 import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
+import Karakeep from '../assets/projects/karakeep.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 
 const projectsData = [
+  {
+    preview: Karakeep,
+    title: 'Karakeep (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '06/2025',
+    subtitle: 'An open-source bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search. Self-hosted by me. DM me on LinkedIn or Discord if you\'re interested in trying it!',
+    stacks: ['docker', 'meilisearch', 'openai'],
+    url: 'https://keep.abhipraya.dev/',
+    github: 'https://github.com/karakeep-app/karakeep',
+  },
   {
     preview: PintaruVideo,
     isVideo: true,

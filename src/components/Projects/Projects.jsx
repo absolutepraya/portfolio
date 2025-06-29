@@ -3,7 +3,7 @@ import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
-import { IconTool } from '@tabler/icons-react';
+import { IconTool, IconServer } from '@tabler/icons-react';
 import SepBorder from './SepBorder';
 import projectsData from '../../data/projects_data.js';
 
@@ -14,12 +14,12 @@ const Projects = () => {
   // Filter projects by type
   const getFilteredProjects = (type) => {
     if (type === 'All') {
-      // Exclude Under Dev projects from All category
+      // Exclude Under Dev and Self-Hosted projects from All category
       return projectsData.filter((project) => {
         if (Array.isArray(project.type)) {
-          return !project.type.includes('Under Dev');
+          return !project.type.includes('Under Dev') && !project.type.includes('Self-Hosted');
         }
-        return project.type !== 'Under Dev';
+        return project.type !== 'Under Dev' && project.type !== 'Self-Hosted';
       });
     }
 
@@ -37,6 +37,7 @@ const Projects = () => {
   const mobileProjects = getFilteredProjects('Mobile');
   const cliProjects = getFilteredProjects('CLI App');
   const gameProjects = getFilteredProjects('Video Game');
+  const selfHostedProjects = getFilteredProjects('Self-Hosted');
   const ongoingProjects = getFilteredProjects('Under Dev');
 
   return (
@@ -141,7 +142,7 @@ const Projects = () => {
                   borderRadius: 'md',
                   whiteSpace: 'nowrap',
                 },
-                '& .MuiTab-root:last-child[aria-selected="false"]': {
+                '& .MuiTab-root:nth-last-child(-n+2)[aria-selected="false"]': {
                   bgcolor: 'rgba(209, 213, 219, 0.03)',
                   color: '#ffffff',
                   opacity: 0.8,
@@ -156,6 +157,12 @@ const Projects = () => {
               <Tab disableIndicator>Mobile</Tab>
               <Tab disableIndicator>CLI App</Tab>
               <Tab disableIndicator>Video Game</Tab>
+              <Tab disableIndicator>
+                <div className='flex items-center space-x-2.5'>
+                  <IconServer size={16} />
+                  <span>Self-Hosted</span>
+                </div>
+              </Tab>
               <Tab disableIndicator>
                 <div className='flex items-center space-x-2.5'>
                   <IconTool size={16} />
@@ -323,6 +330,28 @@ const Projects = () => {
 
           <TabPanel
             value={7}
+            sx={{ p: 0, mt: 2 }}
+          >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
+              {selfHostedProjects.map((project, index) => (
+                <ProjectBox
+                  key={index}
+                  preview={project.preview}
+                  isVideo={project.isVideo}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                />
+              ))}
+            </div>
+          </TabPanel>
+
+          <TabPanel
+            value={8}
             sx={{ p: 0, mt: 2 }}
           >
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>

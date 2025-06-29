@@ -246,7 +246,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
               inView
               inViewMargin='-1px'
             >
-              <div className={desktopView ? 'relative flex h-auto w-full flex-row gap-x-8 p-8 px-24' : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
+              <div className={desktopView ? `relative flex h-auto w-full flex-row gap-x-8 p-8 ${!achievementImages[achievement.title] || achievementImages[achievement.title].length === 0 ? 'px-24' : ''}` : 'relative flex h-auto w-full flex-col-reverse gap-y-6 p-6'}>
                 {achievementImages[achievement.title] && achievementImages[achievement.title].length > 0 && (
                   <div className='flex h-fit w-full justify-center lg:w-fit'>
                     <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
