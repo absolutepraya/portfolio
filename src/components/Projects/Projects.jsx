@@ -98,7 +98,7 @@ const Projects = () => {
             alignItems: 'center',
           }}
         >
-          <div className='w-full pb-2 lg:pb-0'>
+          <div className='w-full pb-2 lg:px-24 lg:pb-0'>
             <TabList
               disableUnderline
               sx={{
@@ -124,9 +124,11 @@ const Projects = () => {
                 },
                 [`& .${tabClasses.root}[aria-selected="false"]`]: {
                   color: '#ffffff',
-                  border: '1px solid transparent',
+                  bgcolor: 'rgba(209, 213, 219, 0.03)',
+                  border: '1px solid #3e3e3e',
                   borderRadius: 'full',
                   fontFamily: 'Maple Mono',
+                  opacity: 0.8,
                   transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
                   '&:hover': {
                     bgcolor: 'rgba(62, 62, 62, 0.2)',
@@ -141,12 +143,6 @@ const Projects = () => {
                   fontFamily: 'JetBrains Mono',
                   borderRadius: 'md',
                   whiteSpace: 'nowrap',
-                },
-                '& .MuiTab-root:nth-last-child(-n+2)[aria-selected="false"]': {
-                  bgcolor: 'rgba(209, 213, 219, 0.03)',
-                  color: '#ffffff',
-                  opacity: 0.8,
-                  border: '1px solid #3e3e3e',
                 },
               }}
             >
