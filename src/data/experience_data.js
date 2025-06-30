@@ -55,7 +55,7 @@ const experienceData = [
     url: 'https://www.ristek.cs.ui.ac.id/',
     logo: RISTEK,
     date: '03/2024 - Present',
-    desc: '- Selected from competitive batch for RISTEK membership and promoted to lead position\n- Developed and deployed **Attack and Defense CTF**\n  - **Next.js** frontend\n  - **Flask**, **RabbitMQ**, **Redis**, **Wireguard** backend\n  - Deployed via **Docker** with **Ansible**\n- Participated in cross-SIG **RISTEK Capstone Project** as Next.js Frontend Developer\n- Served as Person in Charge for NetSOS SIG Open Classes in the fields of **Web Penetration** and **Cryptography**',
+    desc: '- Selected from competitive batch for RISTEK membership and promoted to lead position\n- Developed and deployed **Attack and Defense CTF**\n  - **Next.js** frontend\n  - **Flask**, **RabbitMQ**, **Redis**, **WireGuard (VPN)** backend\n  - Deployed via **Docker** with **Ansible**\n- Participated in cross-SIG **RISTEK Capstone Project** as Next.js Frontend Developer\n- Served as Person in Charge for NetSOS SIG Open Classes in the fields of **Web Penetration** and **Cryptography**',
     alignCenter: false,
     previousTitles: ['Member of NetSOS SIG', 'PIC of Open Class', 'Mentee of Open Class'],
     previousDates: ['03/2024 - 02/2025', '09/2024 - 11/2024', '10/2023 - 10/2023'],
