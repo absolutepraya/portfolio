@@ -121,7 +121,8 @@ const achievementsData = [
     award: '2nd Place',
     awardInt: 2,
     bonus: ['Dinner with President of Microsoft Indonesia, Dharma Simorangkir', 'Merchandises'],
-    location: 'FT UI, Depok, Indonesia'
+    location: 'FT UI, Depok, Indonesia',
+    imagesPath: 'src/assets/achievements/ai4a'
   },
   {
     title: 'Indonesia Aerospace Hackathon 2025',
