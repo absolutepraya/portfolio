@@ -32,6 +32,7 @@ import DigitalOcean from '../../assets/tools/digitalocean.svg';
 import Redis from '../../assets/stacks/redis.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import Meilisearch from '../../assets/tools/meilisearch.svg';
+import RPGMaker from '../../assets/tools/rpgmaker.png';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState, useRef, useEffect } from 'react';
@@ -69,6 +70,7 @@ const stackIcons = {
   redis: { src: Redis, name: 'Redis' },
   rabbitmq: { src: RabbitMQ, name: 'RabbitMQ' },
   meilisearch: { src: Meilisearch, name: 'Meilisearch' },
+  rpgmaker: { src: RPGMaker, name: 'RPG Maker' },
 };
 
 const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null }) => {

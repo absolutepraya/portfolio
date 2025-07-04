@@ -161,7 +161,7 @@ const projectsData = [
     type: ['Video Game'],
     date: '12/2022',
     subtitle: "A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency.",
-    stacks: [],
+    stacks: ['rpgmaker'],
     url: '',
     github: '',
   },
