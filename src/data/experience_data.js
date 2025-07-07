@@ -21,6 +21,7 @@ const experienceData = [
   {
     title: 'Full-Stack Engineer',
     org: '80&Company',
+    orgShort: '80&Co.',
     url: 'https://80and.co/en/company/',
     logo: CO80,
     date: '01/2025 - Present',
