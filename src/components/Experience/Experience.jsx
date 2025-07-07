@@ -61,15 +61,18 @@ const Experience = () => {
       <div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
         {displayedExperiences.map((experience, index) => (
           <React.Fragment key={index}>
+            {index === 0 ? <div className='h-8' /> : <div className='h-10' />}
             <ExperienceBox
               title={experience.title}
               org={experience.org}
+              orgShort={experience.orgShort}
               url={experience.url}
               logo={experience.logo}
               date={experience.date}
               desc={experience.desc}
               previousTitles={experience.previousTitles}
               previousDates={experience.previousDates}
+              // alignCenter={experience.alignCenter}
             />
             {index < displayedExperiences.length - 1 && <Line />}
           </React.Fragment>

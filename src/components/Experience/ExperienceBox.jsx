@@ -3,7 +3,7 @@ import DesktopView from '../../lib/DesktopView';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 
-const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, previousDates, alignCenter }) => {
+const ExperienceBox = ({ title, org, orgShort, logo, date, desc, url, previousTitles, previousDates, alignCenter }) => {
   const [isInView, setIsInView] = useState(false);
   const divRef = useRef(null);
   const desktopView = DesktopView();
@@ -47,6 +47,9 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
         ref={divRef}
         className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-b-0 border-r-0 border-customgray ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
       />
+      <div className='absolute -top-[6.6rem] -z-10 font-black'>
+        <p className='bg-gradient-to-b from-[#cccccc99] to-[#cccccc00] bg-clip-text text-[6rem] tracking-wide text-transparent'>{orgShort ? orgShort : org}</p>
+      </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p className={`relative font-instrument text-4xl md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{title}</p>
         <div className='flex flex-col items-center justify-center md:flex-row md:space-x-2 md:text-lg'>
@@ -92,7 +95,7 @@ const ExperienceBox = ({ title, org, logo, date, desc, url, previousTitles, prev
           <p className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono transition-all duration-[380ms] ease-in-out`}>{date}</p>
         </div>
       </div>
-      <div className={`markdown-content z-20 !md:mt-4 md:px-6 text-sm md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}>
+      <div className={`markdown-content !md:mt-4 z-20 text-sm md:px-6 md:text-lg ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}>
         <ReactMarkdown>{desc}</ReactMarkdown>
       </div>
 

@@ -41,6 +41,7 @@ const experienceData = [
   {
     title: 'Software Engineering Team',
     org: 'Google Dev Group (GDG) UI',
+    orgShort: 'GDGoC UI',
     url: 'https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/',
     logo: GDG,
     date: '11/2024 - Present',
@@ -52,6 +53,7 @@ const experienceData = [
   {
     title: 'Lead of NetSOS SIG',
     org: 'RISTEK Fasilkom UI',
+    orgShort: 'RISTEK UI',
     url: 'https://www.ristek.cs.ui.ac.id/',
     logo: RISTEK,
     date: '03/2024 - Present',
@@ -74,6 +76,7 @@ const experienceData = [
   {
     title: 'Python Mentor',
     org: 'Dasar-Dasar Pemrograman 0',
+    orgShort: 'DDP-0',
     url: 'https://www.linkedin.com/company/ddp-0/mycompany/',
     logo: DDP0,
     date: '06/2024 - 09/2024',
@@ -83,6 +86,7 @@ const experienceData = [
   {
     title: 'Academician & Lecturer',
     org: 'BETIS Fasilkom UI',
+    orgShort: 'BETIS UI',
     url: 'https://www.instagram.com/betisfasilkomui/',
     logo: BETIS,
     date: '12/2023 - 05/2024',
