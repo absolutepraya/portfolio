@@ -47,8 +47,8 @@ const ExperienceBox = ({ title, org, orgShort, logo, date, desc, url, previousTi
         ref={divRef}
         className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-b-0 border-r-0 border-customgray ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
       />
-      <div className='absolute -top-[6.6rem] -z-10 font-black'>
-        <p className='bg-gradient-to-b from-[#cccccc99] to-[#cccccc00] bg-clip-text text-[6rem] tracking-wide text-transparent'>{orgShort ? orgShort : org}</p>
+      <div className={`absolute -top-[6.6rem] -z-10 font-black transition-all duration-[380ms] ease-in-out ${isInView ? 'opacity-100' : 'opacity-40'}`}>
+        <p className='bg-gradient-to-b from-[#ccccccb9] from-0% to-[#cccccc00] to-[67%] bg-clip-text text-[6rem] tracking-wide text-transparent'>{orgShort ? orgShort : org}</p>
       </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p className={`relative font-instrument text-4xl md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}>{title}</p>
