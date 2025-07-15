@@ -34,7 +34,7 @@ const experienceData = [
     url: 'https://compfest.id/',
     logo: COMPFEST,
     date: '03/2024 - Present',
-    desc: '- Currently leading **COMPFEST CTF AnD gameserver revamp:**\n  - Flask, SQLAlchemy, SocketIO, Redis, APScheduler, and Pika (RabbitMQ) backend\n  - Next.js frontend\n  - Deployed using Kubernetes (GKE) and Docker within Google Cloud Platform\n  - Enabled WireGuard VPN for private network competition\n- Led **COMPFEST CTF jeopardy web platform design and maintenance:**\n  - Flask, Node.js (Webpack), and Bootstrap\n  - Enabled with custom bash script automations\n  - Deployed via Docker within Google Cloud Platform\n- Managed **high-traffic competition servers** with efficient resource utilization',
+    desc: '- Currently leading **COMPFEST CTF AnD gameserver revamp:**\n  - Flask, SQLAlchemy, SocketIO, Redis, APScheduler, and Pika (RabbitMQ) backend\n  - Next.js frontend\n  - Deployed using Kubernetes (GKE) and Docker within Google Cloud Platform\n  - Enabled WireGuard VPN for limiting access to the gameserver and GKE pods\n- Led **COMPFEST CTF jeopardy web platform design and maintenance:**\n  - Flask, Node.js (Webpack), and Bootstrap\n  - Enabled with custom bash script automations\n  - Deployed via Docker within Google Cloud Platform\n- Managed **high-traffic competition servers** with efficient resource utilization',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],
