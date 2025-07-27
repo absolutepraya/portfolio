@@ -206,3 +206,12 @@ body {
 .markdown-content p:last-child {
   /* margin-bottom: 0; */
 }
+
+.markdown-content a {
+  color: #6a62ff;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  color: #5b6eae;
+}

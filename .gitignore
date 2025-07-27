@@ -27,5 +27,6 @@ dist-ssr
 # Keys
 keys/
 
-# Image backups
+# Others
 .backup/
+.tips/
