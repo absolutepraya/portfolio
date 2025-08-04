@@ -34,7 +34,7 @@ const experienceData = [
     url: 'https://compfest.id/',
     logo: COMPFEST,
     date: '03/2024 - Present',
-    desc: '- Led a 3-month architectural revamp and deployment of a **[CTF gameserver](https://hackmd.io/@absolutepraya/BJm84HuQgl)** on **Google Kubernetes Engine (GKE)**, secured with a **VPN server**, to support 45 finalists\n  - Backend: **Flask**, **SocketIO**, **Redis**, **RabbitMQ**, **MySQL**\n  - Frontend: **Next.js**, **Tailwind CSS**\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a [CTF platform](https://ctftime.org/event/2463/) hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
+    desc: '➤ Currently managing COMPFEST CTF 2025 with 1900+ participants (~650 teams) - ongoing event\n➤ Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n• Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n• Frontend: Next.js, Tailwind CSS\n➤ Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n➤ During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],
@@ -83,17 +83,7 @@ const experienceData = [
     date: '06/2024 - 09/2024',
     desc: '- Mentored 30 freshmen in foundational **Python** to prepare them for the university\'s introductory course\n- Developed a 4-week Python curriculum, leading to their score increase of up to 20% on the final project',
     alignCenter: false,
-  },
-  {
-    title: 'Academician & Lecturer',
-    org: 'BETIS Fasilkom UI',
-    orgShort: 'BETIS UI',
-    url: 'https://www.instagram.com/betisfasilkomui/',
-    logo: BETIS,
-    date: '12/2023 - 05/2024',
-    desc: '- Screened 14+ candidates to select a high-performing team of 3 tutors for an academic program\n- Authored a 10+ module curriculum (learning book, presentations, quizzes, and try-outs) used by over 100 students for university entrance exam preparation\n- Ensured learning continuity by lecturing classes of 30+ students when tutors were unavailable',
-    alignCenter: false,
-  },
+  }
 ];
 
 export default experienceData;
