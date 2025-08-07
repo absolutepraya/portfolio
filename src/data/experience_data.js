@@ -3,7 +3,6 @@ import COMPFEST from '../assets/orgs/compfest.webp';
 import RISTEK from '../assets/orgs/ristek.svg';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
 import DDP0 from '../assets/orgs/ddp0.svg';
-import BETIS from '../assets/orgs/betis.svg';
 import GDG from '../assets/orgs/gdg.svg';
 import CO80 from '../assets/orgs/80co.webp';
 import SB from '../assets/orgs/sb.webp';
