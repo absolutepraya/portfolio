@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import Figma from '../../assets/stacks/figma.svg';
-import GitHub from '../../assets/stacks/github.svg';
 import Linux from '../../assets/stacks/linux.svg';
-import Docker from '../../assets/stacks/docker.svg';
-import Azure from '../../assets/stacks/azure.svg';
 import Jest from '../../assets/stacks/jest.svg';
 import Selenium from '../../assets/stacks/selenium.svg';
 import Tableau from '../../assets/stacks/tableau.svg';
@@ -14,18 +11,19 @@ import Kimi from '../../assets/stacks/kimi.svg';
 import Qwen from '../../assets/stacks/qwen.svg';
 import Discord from '../../assets/stacks/discord.svg';
 import X from '../../assets/stacks/x.svg';
+import Docker from '../../assets/stacks/docker.svg';
+import GitHub from '../../assets/stacks/github.svg';
+import Azure from '../../assets/stacks/azure.svg';
 import GCP from '../../assets/stacks/gcp.svg';
 import DigitalOcean from '../../assets/stacks/digitalocean.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
 import n8n from '../../assets/stacks/n8n.svg';
+import Goose from '../../assets/stacks/goose.webp';
 import DesktopView from '../../lib/DesktopView';
 
 export const toolsList = [
   { src: Figma, alt: 'Figma' },
-  { src: GitHub, alt: 'GitHub Actions (CI/CD)' },
   { src: Linux, alt: 'Linux' },
-  { src: Docker, alt: 'Docker' },
-  { src: Azure, alt: 'Azure' },
   { src: Jest, alt: 'Jest' },
   { src: Selenium, alt: 'Selenium' },
   { src: Tableau, alt: 'Tableau' },
@@ -35,10 +33,14 @@ export const toolsList = [
   { src: Qwen, alt: 'Qwen (Self-Hosted)' },
   { src: Discord, alt: 'Discord Bot' },
   { src: X, alt: 'X/Twitter Bot' },
+  { src: Docker, alt: 'Docker' },
+  { src: GitHub, alt: 'GitHub Actions (CI/CD)' },
+  { src: Azure, alt: 'Azure' },
   { src: GCP, alt: 'Google Cloud Platform' },
   { src: DigitalOcean, alt: 'DigitalOcean' },
   { src: Cloudflare, alt: 'Cloudflare' },
   { src: n8n, alt: 'n8n (Self-Hosted)' },
+  { src: Goose, alt: 'Goose DB Migration' },
 ];
 
 export const SliderTools = () => {
