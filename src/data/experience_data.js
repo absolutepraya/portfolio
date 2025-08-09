@@ -14,7 +14,7 @@ const experienceData = [
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SB,
     date: '06/2025 - Present',
-    desc: '- Architected an AI & ML powered B2B application using a microservices architecture with Go, Redis, RabbitMQ, and Next.js, designed to integrate with multiple third-party APIs\n- Implemented a secure HMAC data transaction system to protect sensitive B2B client data',
+    desc: '- Architected and developed an AI & ML powered B2B application using Go, Redis, RabbitMQ, and Next.js in a microservices architecture, integrating multiple third-party APIs to streamline business operations\n- Designed and implemented a zero-trust security system with RBAC, IAM, and secure HMAC-based data transactions, protecting sensitive client data and ensuring compliance\n- Built and deployed a Flyway-like database migration system with Goose, enabling seamless and reliable schema changes across environments',
     alignCenter: false,
   },
   {
