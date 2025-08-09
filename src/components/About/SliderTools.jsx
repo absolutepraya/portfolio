@@ -3,6 +3,7 @@ import Marquee from 'react-fast-marquee';
 import Figma from '../../assets/stacks/figma.svg';
 import Linux from '../../assets/stacks/linux.svg';
 import Jest from '../../assets/stacks/jest.svg';
+import Vitest from '../../assets/stacks/vitest.svg';
 import Selenium from '../../assets/stacks/selenium.svg';
 import Tableau from '../../assets/stacks/tableau.svg';
 import OpenAI from '../../assets/stacks/openai.svg';
@@ -18,6 +19,7 @@ import GCP from '../../assets/stacks/gcp.svg';
 import DigitalOcean from '../../assets/stacks/digitalocean.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
 import n8n from '../../assets/stacks/n8n.svg';
+import Dify from '../../assets/stacks/dify.svg';
 import Goose from '../../assets/stacks/goose.webp';
 import DesktopView from '../../lib/DesktopView';
 
@@ -25,6 +27,7 @@ export const toolsList = [
   { src: Figma, alt: 'Figma' },
   { src: Linux, alt: 'Linux' },
   { src: Jest, alt: 'Jest' },
+  { src: Vitest, alt: 'Vitest' },
   { src: Selenium, alt: 'Selenium' },
   { src: Tableau, alt: 'Tableau' },
   { src: OpenAI, alt: 'OpenAI' },
@@ -40,6 +43,7 @@ export const toolsList = [
   { src: DigitalOcean, alt: 'DigitalOcean' },
   { src: Cloudflare, alt: 'Cloudflare' },
   { src: n8n, alt: 'n8n (Self-Hosted)' },
+  { src: Dify, alt: 'Dify AI (Self-Hosted)' },
   { src: Goose, alt: 'Goose DB Migration' },
 ];
 
