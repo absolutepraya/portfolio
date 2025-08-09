@@ -33,7 +33,7 @@ const experienceData = [
     url: 'https://compfest.id/',
     logo: COMPFEST,
     date: '03/2024 - Present',
-    desc: ' Currently managing COMPFEST CTF 2025 with 1900+ participants (~650 teams) - ongoing event\n- Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n- Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n- Frontend: Next.js, Tailwind CSS\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
+    desc: '- Currently managing COMPFEST CTF 2025 with 1900+ participants (~650 teams)—ongoing event\n- Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n- Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n- Frontend: Next.js, Tailwind CSS\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],
