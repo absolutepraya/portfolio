@@ -58,8 +58,8 @@ const Achievements = () => {
         )}
         <div className='absolute left-0 top-0 !z-[0] h-full w-[100%] shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)]' />
         {/* Covering uncovered flickering grid area */}
-        <div className='absolute -left-[4px] top-0 h-full w-[4px] bg-[#05040E]' />
-        <div className='absolute -right-[4px] top-0 h-full w-[4px] bg-[#05040E]' />
+        <div className='absolute -left-[4px] top-0 h-full w-[4px] bg-[#03020F]' />
+        <div className='absolute -right-[4px] top-0 h-full w-[4px] bg-[#03020F]' />
         <AchievementsBox
           achievementData={achievementsData}
           showAll={showAll}

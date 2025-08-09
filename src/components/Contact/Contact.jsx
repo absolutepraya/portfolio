@@ -31,7 +31,7 @@ const Contact = () => {
         </motion.p>
         <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
           <motion.div
-            className='absolute h-1 w-full bg-[#05040E] shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
+            className='absolute h-1 w-full bg-[#03020F] shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
             viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
           />
@@ -48,7 +48,7 @@ const Contact = () => {
         >
           {tvView ? (
             <div className='absolute bottom-0 left-0 !z-0 h-2/3 w-full overflow-hidden rounded-3xl'>
-              <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-[#05040E] to-transparent'></div>
+              <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-[#03020F] to-transparent'></div>
               <FlickeringGrid
                 squareSize={8}
                 gridGap={6}
@@ -61,7 +61,7 @@ const Contact = () => {
           ) : tabletView ? (
             <div>
               <div className='absolute left-0 top-0 !z-0 h-full w-1/3 overflow-hidden rounded-3xl'>
-                <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-transparent to-[#05040E]'></div>
+                <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-transparent to-[#03020F]'></div>
                 <FlickeringGrid
                   squareSize={10}
                   gridGap={8}
@@ -72,7 +72,7 @@ const Contact = () => {
                 ></FlickeringGrid>
               </div>
               <div className='absolute right-0 top-0 !z-0 h-full w-1/3 overflow-hidden rounded-3xl'>
-                <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-[#05040E] to-transparent'></div>
+                <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-[#03020F] to-transparent'></div>
                 <div className='relative h-full w-full overflow-hidden rounded-3xl'>
                   <FlickeringGrid
                     squareSize={10}
@@ -87,7 +87,7 @@ const Contact = () => {
             </div>
           ) : (
             <div className='absolute bottom-0 left-0 !z-0 h-2/3 w-full overflow-hidden rounded-3xl'>
-              <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-[#05040E] to-transparent'></div>
+              <div className='pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-[#03020F] to-transparent'></div>
               <FlickeringGrid
                 squareSize={5}
                 gridGap={5}
