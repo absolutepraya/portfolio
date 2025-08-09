@@ -74,9 +74,9 @@ const About = () => {
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
           }}
-          className='-mt-10 max-w-[37rem] text-center md:text-lg'
+          className='-mt-12 max-w-[37rem] text-center md:text-lg'
         >
-          Transforming ideas into solutions powered by the <i>latest technology</i> from Jakarta, Indonesia.
+          Software, AI, and DevOps expert. Leading teams, shipping results, and engineering impact from <i>client milestones</i> to <i>hackathon victories</i>.
         </motion.p>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
