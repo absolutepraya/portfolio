@@ -18,7 +18,7 @@ const experienceData = [
     alignCenter: false,
   },
   {
-    title: 'Full-Stack Engineer',
+    title: 'Fullstack Engineer',
     org: '80&Company',
     orgShort: '80&Co.',
     url: 'https://80and.co/en/company/',
