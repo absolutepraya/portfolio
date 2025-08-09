@@ -1,47 +1,48 @@
 import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
-import Docker from '../../assets/stacks/docker.svg';
-import Express from '../../assets/stacks/express.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
-import MongoDB from '../../assets/stacks/mongodb.svg';
-import npm from '../../assets/stacks/npm.svg';
-import Python from '../../assets/stacks/python.svg';
-import Reactjs from '../../assets/stacks/react.svg';
-import Tailwind from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
+import Tailwind from '../../assets/stacks/tailwind.svg';
+import Reactjs from '../../assets/stacks/react.svg';
 import Next from '../../assets/stacks/nextjs.svg';
-import Flutter from '../../assets/stacks/flutter.svg';
-import Django from '../../assets/stacks/django.svg';
-import Supabase from '../../assets/stacks/supabase.svg';
-import Firebase from '../../assets/stacks/firebase.svg';
+import Express from '../../assets/stacks/express.svg';
 import Nest from '../../assets/stacks/nestjs.svg';
+import Go from '../../assets/stacks/go.svg';
+import Python from '../../assets/stacks/python.svg';
+import Django from '../../assets/stacks/django.svg';
+import Flask from '../../assets/stacks/flask.svg';
+import FastAPI from '../../assets/stacks/fastapi.svg';
 import Dart from '../../assets/stacks/dart.svg';
-import Bun from '../../assets/stacks/bun.svg';
+import Flutter from '../../assets/stacks/flutter.svg';
+import PostgreSQL from '../../assets/stacks/postgresql.svg';
+import MongoDB from '../../assets/stacks/mongodb.svg';
+import Firebase from '../../assets/stacks/firebase.svg';
 import Redis from '../../assets/stacks/redis.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
+import Bun from '../../assets/stacks/bun.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const stacksList = [
-  // { src: Node.js, alt: 'Node.js' },
-  // { src: npm, alt: 'npm' },
-  { src: Reactjs, alt: 'React.js' },
-  { src: Next, alt: 'Next.js' },
-  { src: Bun, alt: 'Bun' },
   { src: JavaScript, alt: 'JavaScript' },
   { src: TypeScript, alt: 'TypeScript' },
-  { src: Tailwind, alt: 'Tailwind' },
-  { src: Express, alt: 'Express' },
+  { src: Tailwind, alt: 'Tailwind CSS' },
+  { src: Reactjs, alt: 'React.js' },
+  { src: Next, alt: 'Next.js' },
+  { src: Express, alt: 'Express.js' },
   { src: Nest, alt: 'Nest.js' },
+  { src: Go, alt: 'Go' },
+  { src: Python, alt: 'Python' },
+  { src: Django, alt: 'Django' },
+  { src: Flask, alt: 'Flask' },
+  { src: FastAPI, alt: 'FastAPI' },
+  { src: Dart, alt: 'Dart' },
+  { src: Flutter, alt: 'Flutter' },
+  { src: PostgreSQL, alt: 'PostgreSQL' },
+  { src: MongoDB, alt: 'MongoDB' },
+  { src: Firebase, alt: 'Firebase' },
   { src: Redis, alt: 'Redis' },
   { src: RabbitMQ, alt: 'RabbitMQ' },
-  { src: MongoDB, alt: 'MongoDB' },
-  { src: Django, alt: 'Django' },
-  { src: Firebase, alt: 'Firebase' },
-  { src: Supabase, alt: 'Supabase' },
-  { src: Docker, alt: 'Docker' },
-  { src: Python, alt: 'Python' },
-  { src: Flutter, alt: 'Flutter' },
-  { src: Dart, alt: 'Dart' },
+  { src: Bun, alt: 'Bun' },
 ];
 
 export const SliderStacks = () => {

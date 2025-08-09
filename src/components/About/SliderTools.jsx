@@ -1,45 +1,44 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
-// import Bash from '../../assets/tools/bash.svg';
-import Figma from '../../assets/tools/figma.svg';
-import GitHub from '../../assets/tools/github.svg';
-import Heroku from '../../assets/tools/heroku.svg';
-import Railway from '../../assets/tools/railway.svg';
-import Vercel from '../../assets/tools/vercel.svg';
-import Ubuntu from '../../assets/tools/ubuntu.svg';
-import Azure from '../../assets/tools/azure.svg';
-import OpenAI from '../../assets/tools/openai.svg';
-import Vitest from '../../assets/tools/vitest.svg';
-import Jest from '../../assets/tools/jest.svg';
-import Selenium from '../../assets/tools/selenium.svg';
-import Tableau from '../../assets/tools/tableau.svg';
+import Figma from '../../assets/stacks/figma.svg';
+import GitHub from '../../assets/stacks/github.svg';
+import Linux from '../../assets/stacks/linux.svg';
+import Docker from '../../assets/stacks/docker.svg';
+import Azure from '../../assets/stacks/azure.svg';
+import Jest from '../../assets/stacks/jest.svg';
+import Selenium from '../../assets/stacks/selenium.svg';
+import Tableau from '../../assets/stacks/tableau.svg';
+import OpenAI from '../../assets/stacks/openai.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
+import Kimi from '../../assets/stacks/kimi.svg';
+import Qwen from '../../assets/stacks/qwen.svg';
 import Discord from '../../assets/stacks/discord.svg';
 import X from '../../assets/stacks/x.svg';
-import Cloudflare from '../../assets/tools/cloudflare.svg';
-import DigitalOcean from '../../assets/tools/digitalocean.svg';
-import DeepSeek from '../../assets/tools/deepseek.svg';
+import GCP from '../../assets/stacks/gcp.svg';
+import DigitalOcean from '../../assets/stacks/digitalocean.svg';
+import Cloudflare from '../../assets/stacks/cloudflare.svg';
+import n8n from '../../assets/stacks/n8n.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const toolsList = [
-  { src: Azure, alt: 'Azure' },
-  { src: Vercel, alt: 'Vercel' },
-  { src: Heroku, alt: 'Heroku' },
-  { src: Railway, alt: 'Railway' },
-  { src: DigitalOcean, alt: 'DigitalOcean' },
-  { src: Selenium, alt: 'Selenium' },
-  { src: Vitest, alt: 'Vitest' },
-  { src: Jest, alt: 'Jest' },
-  { src: Cloudflare, alt: 'Cloudflare' },
-  { src: Tableau, alt: 'Tableau' },
   { src: Figma, alt: 'Figma' },
-  { src: Ubuntu, alt: 'Ubuntu' },
-  { src: GitHub, alt: 'GitHub' },
-  { src: OpenAI, alt: 'OpenAI API' },
-  { src: Gemini, alt: 'Gemini API' },
-  { src: DeepSeek, alt: 'DeepSeek API' },
+  { src: GitHub, alt: 'GitHub Actions (CI/CD)' },
+  { src: Linux, alt: 'Linux' },
+  { src: Docker, alt: 'Docker' },
+  { src: Azure, alt: 'Azure' },
+  { src: Jest, alt: 'Jest' },
+  { src: Selenium, alt: 'Selenium' },
+  { src: Tableau, alt: 'Tableau' },
+  { src: OpenAI, alt: 'OpenAI' },
+  { src: Gemini, alt: 'Gemini' },
+  { src: Kimi, alt: 'Kimi (Self-Hosted)' },
+  { src: Qwen, alt: 'Qwen (Self-Hosted)' },
   { src: Discord, alt: 'Discord Bot' },
-  { src: X, alt: 'Twitter Bot' },
+  { src: X, alt: 'X/Twitter Bot' },
+  { src: GCP, alt: 'Google Cloud Platform' },
+  { src: DigitalOcean, alt: 'DigitalOcean' },
+  { src: Cloudflare, alt: 'Cloudflare' },
+  { src: n8n, alt: 'n8n (Self-Hosted)' },
 ];
 
 export const SliderTools = () => {
