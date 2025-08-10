@@ -8,6 +8,8 @@ import Next from '../../assets/stacks/nextjs.svg';
 import Express from '../../assets/stacks/express.svg';
 import Nest from '../../assets/stacks/nestjs.svg';
 import Go from '../../assets/stacks/go.svg';
+import Java from '../../assets/stacks/java.svg';
+import Springboot from '../../assets/stacks/springboot.svg';
 import Python from '../../assets/stacks/python.svg';
 import Django from '../../assets/stacks/django.svg';
 import Flask from '../../assets/stacks/flask.svg';
@@ -31,6 +33,8 @@ export const stacksList = [
   { src: Express, alt: 'Express.js' },
   { src: Nest, alt: 'Nest.js' },
   { src: Go, alt: 'Go' },
+  { src: Java, alt: 'Java' },
+  { src: Springboot, alt: 'Spring Boot' },
   { src: Python, alt: 'Python' },
   { src: Django, alt: 'Django' },
   { src: Flask, alt: 'Flask' },
