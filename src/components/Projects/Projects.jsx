@@ -3,13 +3,16 @@ import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { motion } from 'framer-motion';
 import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
-import { IconTool, IconServer } from '@tabler/icons-react';
+import { IconTool, IconServer, IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
 import SepBorder from './SepBorder';
 import projectsData from '../../data/projects_data.js';
+import { useRef, useState } from 'react';
 
 const Projects = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
+  const [showAll, setShowAll] = useState(false);
+  const buttonRef = useRef(null);
 
   // Filter projects by type
   const getFilteredProjects = (type) => {
@@ -29,6 +32,26 @@ const Projects = () => {
       }
       return project.type === type;
     });
+  };
+
+  const allProjects = getFilteredProjects('All');
+  const previewCount = desktopView ? 6 : 5;
+  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, previewCount);
+
+  const handleToggle = () => {
+    if (showAll) {
+      setShowAll(false);
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }, 100);
+    } else {
+      setShowAll(true);
+    }
   };
 
   const fullstackProjects = getFilteredProjects('Fullstack');
@@ -174,8 +197,18 @@ const Projects = () => {
             value={0}
             sx={{ p: 0, mt: 2 }}
           >
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {getFilteredProjects('All').map((project, index) => (
+            <div
+              className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'
+              style={
+                !showAll
+                  ? {
+                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 95%)',
+                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 95%)',
+                    }
+                  : undefined
+              }
+            >
+              {displayedAllProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
                   preview={project.preview}
@@ -190,6 +223,32 @@ const Projects = () => {
                 />
               ))}
             </div>
+            {allProjects.length > previewCount && (
+              <div className='mt-8 flex w-full justify-center'>
+                <motion.button
+                  ref={buttonRef}
+                  onClick={handleToggle}
+                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, ease: 'circOut' }}
+                >
+                  <span>{showAll ? 'Show Less' : 'Show More'}</span>
+                  {showAll ? (
+                    <IconArrowNarrowUpDashed
+                      size={20}
+                      stroke={2}
+                    />
+                  ) : (
+                    <IconArrowNarrowDownDashed
+                      size={20}
+                      stroke={2}
+                    />
+                  )}
+                </motion.button>
+              </div>
+            )}
           </TabPanel>
 
           <TabPanel
