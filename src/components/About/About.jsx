@@ -103,7 +103,7 @@ const About = () => {
                 <p className='lg:text-md font-maplemono text-sm'>My skillsets</p>
               </div>
               <p className='text-lg lg:text-xl'>
-                Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Fullstack Dev</b>, <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>AI</b>, and <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>DevOps</b>. Regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i>.
+                Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Software</b>, <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>AI</b>, and <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>DevOps</b>. Regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i>.
               </p>
             </div>
           </div>
