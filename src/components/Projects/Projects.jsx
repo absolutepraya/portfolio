@@ -35,8 +35,7 @@ const Projects = () => {
   };
 
   const allProjects = getFilteredProjects('All');
-  const previewCount = desktopView ? 6 : 5;
-  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, previewCount);
+  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, 4);
 
   const handleToggle = () => {
     if (showAll) {
@@ -197,17 +196,7 @@ const Projects = () => {
             value={0}
             sx={{ p: 0, mt: 2 }}
           >
-            <div
-              className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'
-              style={
-                !showAll
-                  ? {
-                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 95%)',
-                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 95%)',
-                    }
-                  : undefined
-              }
-            >
+            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {displayedAllProjects.map((project, index) => (
                 <ProjectBox
                   key={index}
@@ -223,8 +212,8 @@ const Projects = () => {
                 />
               ))}
             </div>
-            {allProjects.length > previewCount && (
-              <div className='mt-8 flex w-full justify-center'>
+            {allProjects.length > 4 && (
+              <div className='mt-24 flex w-full justify-center'>
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}
