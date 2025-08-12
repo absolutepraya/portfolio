@@ -35,7 +35,7 @@ const Projects = () => {
   };
 
   const allProjects = getFilteredProjects('All');
-  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, 4);
+  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, 6);
 
   const handleToggle = () => {
     if (showAll) {
@@ -196,24 +196,39 @@ const Projects = () => {
             value={0}
             sx={{ p: 0, mt: 2 }}
           >
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {displayedAllProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                />
-              ))}
+            <div className='grid grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'>
+              {displayedAllProjects.map((project, index) => {
+                const shouldMask = !showAll && ((desktopView && (index === 4 || index === 5)) || (!desktopView && index === 4));
+                const maskStyle = shouldMask
+                  ? {
+                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                    }
+                  : undefined;
+                return (
+                  <div
+                    key={index}
+                    style={maskStyle}
+                    className='h-full'
+                  >
+                    <ProjectBox
+                      preview={project.preview}
+                      isVideo={project.isVideo}
+                      title={project.title}
+                      type={project.type}
+                      date={project.date}
+                      subtitle={project.subtitle}
+                      stacks={project.stacks}
+                      url={project.url}
+                      github={project.github}
+                      disableHover={shouldMask}
+                    />
+                  </div>
+                );
+              })}
             </div>
             {allProjects.length > 4 && (
-              <div className='mt-24 flex w-full justify-center'>
+              <div className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}>
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}

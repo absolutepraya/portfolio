@@ -86,16 +86,6 @@ const projectsData = [
     github: 'https://github.com/absolutepraya/alsa-ecomp',
   },
   {
-    preview: null,
-    title: 'SwiftCash',
-    type: ['Fullstack'],
-    date: '02/2025',
-    subtitle: 'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system. Built by maxxing out Next.js performance optimizations.',
-    stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'supabase', 'postgresql'],
-    url: 'https://swiftcash.abhipraya.dev/',
-    github: 'https://github.com/absolutepraya/swiftcash',
-  },
-  {
     preview: Rumble,
     title: 'Rumble Backend',
     type: ['Backend'],
@@ -104,6 +94,16 @@ const projectsData = [
     stacks: ['nodejs', 'npm', 'express', 'javascript', 'supabase', 'x'],
     url: 'https://rumble-landing.vercel.app/',
     github: '',
+  },
+  {
+    preview: null,
+    title: 'SwiftCash',
+    type: ['Fullstack'],
+    date: '02/2025',
+    subtitle: 'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system. Built by maxxing out Next.js performance optimizations.',
+    stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'supabase', 'postgresql'],
+    url: 'https://swiftcash.abhipraya.dev/',
+    github: 'https://github.com/absolutepraya/swiftcash',
   },
   {
     preview: null,

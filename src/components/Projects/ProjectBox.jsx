@@ -73,7 +73,7 @@ const stackIcons = {
   rpgmaker: { src: RPGMaker, name: 'RPG Maker' },
 };
 
-const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null }) => {
+const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null, disableHover = false }) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [hovered, setHovered] = useState('');
@@ -112,11 +112,12 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
 
   return (
     <BlurFade
+      className='h-full'
       delay={0.05}
       offset={15}
       inView
     >
-      <div className='flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'>
+      <div className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}>
         <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
           {isVideo ? (
             <video
