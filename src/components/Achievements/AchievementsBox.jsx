@@ -448,7 +448,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
             >
               <motion.button
                 onClick={handleToggle}
-                className='flex items-center space-x-2 rounded-lg border-2 border-customlightgray py-2 pl-4 pr-2 font-jetbrainsmono text-customwhite opacity-70 transition-all duration-300 hover:opacity-100'
+                className={`relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>
                 {showAll ? (
