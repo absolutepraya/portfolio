@@ -46,19 +46,20 @@ const App = () => {
         transition={{ duration: 2.5, delay: 1.2 }}
         viewport={{ once: true, margin: '-30%' }}
       >
-        <div className='relative w-full'>
-          <div className='absolute inset-0 z-10 bg-gradient-to-b from-[#03020F] to-transparent'></div>
-          <img
-            src={Hero2}
-            alt='Hero background'
-            className='h-full w-full object-cover'
-            draggable='false'
-            loading='eager'
-            fetchPriority='high'
-            width='2048'
-            height='1324'
-          />
-        </div>
+        <img
+          src={Hero2}
+          alt='Hero background'
+          className='h-full w-full object-cover'
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
+          }}
+          draggable='false'
+          loading='eager'
+          fetchPriority='high'
+          width='2048'
+          height='1324'
+        />
       </motion.div>
     </div>
   );
