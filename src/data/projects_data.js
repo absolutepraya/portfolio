@@ -12,6 +12,8 @@ import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import Karakeep from '../assets/projects/karakeep.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
+import Affine from '../assets/projects/affine.webp';
+import OwnCloud from '../assets/projects/owncloud.webp';
 
 const projectsData = [
   {
@@ -54,16 +56,6 @@ const projectsData = [
     stacks: ['python'],
     url: '',
     github: 'https://github.com/absolutepraya/dm2-calculator',
-  },
-  {
-    preview: Karakeep,
-    title: 'Karakeep (Self-Hosted)',
-    type: ['Self-Hosted'],
-    date: '06/2025',
-    subtitle: 'An open-source bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search. Self-hosted by me. DM me on LinkedIn or Discord if you\'re interested in trying it!',
-    stacks: ['docker', 'meilisearch', 'openai'],
-    url: 'https://keep.abhipraya.dev/',
-    github: 'https://github.com/karakeep-app/karakeep',
   },
   {
     preview: null,
@@ -165,6 +157,36 @@ const projectsData = [
     url: '',
     github: '',
   },
+  {
+    preview: Karakeep,
+    title: 'Karakeep (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '06/2025',
+    subtitle: 'An open-source bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search. Self-hosted by me. Contact me if you\'re interested in trying it!',
+    stacks: ['docker', 'meilisearch', 'openai'],
+    url: 'https://keep.abhipraya.dev/',
+    github: 'https://github.com/karakeep-app/karakeep',
+  },
+  {
+    preview: Affine,
+    title: 'AFFiNE (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '08/2025',
+    subtitle: 'AFFiNE is an open-source workspace like Notion that merges docs, whiteboards, and databases. My AFFiNE is open, feel free to use!',
+    stacks: ['docker'],
+    url: 'https://docs.abhipraya.dev/',
+    github: 'https://github.com/toeverything/AFFiNE',
+  },
+  {
+    preview: OwnCloud,
+    title: 'ownCloud (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '08/2025',
+    subtitle: 'ownCloud is an open-source file sync/share platform, like Google Drive or Cloudinary-style cloud storage. My ownCloud is private, let me know if you\'re interested in trying it.',
+    stacks: ['docker'],
+    url: 'https://cloud.abhipraya.dev/',
+    github: 'https://github.com/owncloud',
+  }
 ];
 
 export default projectsData;
