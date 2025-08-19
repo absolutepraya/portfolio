@@ -2,13 +2,9 @@
 import Kemenkeu from '../assets/orgs/kemenkeu.webp';
 import JIHS from '../assets/orgs/jihs.webp';
 import UC from '../assets/orgs/uc.webp';
-import COMSNETS from '../assets/orgs/comsnets.webp';
 import Microsoft from '../assets/orgs/microsoft.svg';
 import ASSI from '../assets/orgs/assi.webp';
 import Alibaba from '../assets/orgs/alibaba.webp';
-import PERMIKOMNAS from '../assets/orgs/permikomnas.webp';
-import BEMFTIUNTAR from '../assets/orgs/bemuntar.webp';
-import BNCC from '../assets/orgs/bncc.webp';
 
 const achievementsData = [
   {
@@ -94,7 +90,13 @@ const achievementsData = [
     prizeInt: 400,
     bonus: ['Merchandises', 'Microsoft Voucher'],
     location: 'Tangerang, Indonesia',
-    imagesPath: 'src/assets/achievements/elevaite'
+    imagesPath: 'src/assets/achievements/elevaite',
+    articles: [
+      {
+        platform: 'BINUS News',
+        url: 'https://socs.binus.ac.id/2025/07/02/binus-university-gelar-hackathon-elevaite-2025-angkat-tema-ai-for-inclusivity/'
+      }
+    ]
   },
   {
     title: 'Alibaba Cloud Hackathon 2025',
