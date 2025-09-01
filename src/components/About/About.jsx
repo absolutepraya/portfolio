@@ -74,9 +74,9 @@ const About = () => {
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
           }}
-          className='-mt-12 max-w-[37rem] text-center md:text-lg'
+          className='-mt-12 max-w-[50rem] text-center md:text-lg'
         >
-          Software, AI, and DevOps expert. Leading teams, shipping results, and engineering impact from <i>client milestones</i> to <i>hackathon victories</i>.
+          Software, AI, and DevOps expert. From LLMs and AI agents to cloud systems and business automation. Leading teams and shipping results from client milestones to hackathon victories.
         </motion.p>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>

@@ -53,7 +53,7 @@ const NavBar = () => {
         {desktopView && (
           <div className='flex flex-col justify-start'>
             <p className='text-start font-bold'>Daffa Abhipraya</p>
-            <p className='text-start'>SWE, CS @ UI</p>
+            <p className='text-start'>SWE & AI, CS @ UI</p>
           </div>
         )}
       </div>
