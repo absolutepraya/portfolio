@@ -6,25 +6,25 @@ import DDP0 from '../assets/orgs/ddp0.svg';
 import GDG from '../assets/orgs/gdg.svg';
 import CO80 from '../assets/orgs/80co.webp';
 import SB from '../assets/orgs/sb.webp';
+import TVI from '../assets/orgs/tvi.webp';
 
 const experienceData = [
+  {
+    title: 'IT & AI Partner',
+    org: 'PT. Teknologi Vision Indonesia',
+    orgShort: 'TekVis',
+    url: 'https://tekvision.co.id/',
+    logo: TVI,
+    date: '08/2025 - Present',
+    desc: '- Working on an AI-powered solutions for a banking industry client\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
+  },
   {
     title: 'Product Engineer Intern',
     org: 'SobatBisnis',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SB,
     date: '06/2025 - Present',
-    desc: '- Architected and developed an AI & ML powered B2B application using Go, Redis, RabbitMQ, and Next.js in a microservices architecture, integrating multiple third-party APIs to streamline business operations\n- Designed and implemented a zero-trust security system with RBAC, IAM, and secure HMAC-based data transactions, protecting sensitive client data and ensuring compliance\n- Built and deployed a Flyway-like database migration system with Goose, enabling seamless and reliable schema changes across environments',
-    alignCenter: false,
-  },
-  {
-    title: 'Fullstack Engineer',
-    org: '80&Company',
-    orgShort: '80&Co.',
-    url: 'https://80and.co/en/company/',
-    logo: CO80,
-    date: '01/2025 - Present',
-    desc: '- Led frontend development for a salon booking platform, increasing mobile conversion by 15% with a new responsive UI\n- Optimized **GraphQL queries** by implementing caching, pagination, and lazy loading, resulting in a **50-60% reduction** in data retrieval time\n- Increased application stability by 40% by resolving 10+ critical bugs related to state collisions and race conditions\n- Developed a **BaaS AI voice-call** system with a Dify + OpenAI backend workflow and Python service to extract customer insights\n- Improved page load speed by 30% on a blockchain app by optimizing Next.js **SSR**',
+    desc: '- Learned to architect an AI-powered B2B application using Go, supported by Redis, RabbitMQ, and AWS in a microservices architecture, integrating multiple third-party APIs to streamline business operations\n- Learned to design and implement a zero-trust security system with RBAC, IAM, secure HMAC-based data transactions, protecting sensitive client data and ensuring compliance\n- Learned to build and deploy a Flyway-like database migration system with Goose, enabling seamless and reliable schema changes across environments',
     alignCenter: false,
   },
   {
@@ -32,11 +32,21 @@ const experienceData = [
     org: 'COMPFEST',
     url: 'https://compfest.id/',
     logo: COMPFEST,
-    date: '03/2024 - Present',
-    desc: '- Currently managing COMPFEST CTF 2025 with 1900+ participants (~650 teams)—ongoing event\n- Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n- Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n- Frontend: Next.js, Tailwind CSS\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
+    date: '03/2025 - 09/2025',
+    desc: '- Currently managing COMPFEST CTF 2025 with 1900+ participants (~650 teams)—ongoing event\n- Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n  - Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n  - Frontend: Next.js, Tailwind CSS\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],
+  },
+  {
+    title: 'Fullstack Engineer',
+    org: '80&Company',
+    orgShort: '80&Co.',
+    url: 'https://80and.co/en/company/',
+    logo: CO80,
+    date: '01/2025 - 08/2025',
+    desc: '- Led frontend development for a salon booking platform, increasing mobile conversion by 15% with a new responsive UI\n- Optimized **GraphQL queries** by implementing caching, pagination, and lazy loading, resulting in a **50-60% reduction** in data retrieval time\n- Increased application stability by 40% by resolving 10+ critical bugs related to state collisions and race conditions\n- Developed a **BaaS AI voice-call** system with a Dify + OpenAI backend workflow and Python service to extract customer insights\n- Improved page load speed by 30% on a blockchain app by optimizing Next.js **SSR**',
+    alignCenter: false,
   },
   {
     title: 'Software Engineering Team',
@@ -44,7 +54,7 @@ const experienceData = [
     orgShort: 'GDGoC UI',
     url: 'https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/',
     logo: GDG,
-    date: '11/2024 - Present',
+    date: '11/2024 - 06/2025',
     desc: '- Teaching and mentoring across multiple batches about **Google Technologies**\n  - **Firebase**, **Flutter**, **Google Cloud**\n- Developing learning modules and live web apps\n  - Hands-on demos during Study Jam sessions\n  - Using **Google Technologies** and **React.js**\n- Co-organizing **GDGoC UI National Hackathon**\n  - Guidebook author and judge alongside industry professionals',
     alignCenter: false,
     previousTitles: ['Member'],
