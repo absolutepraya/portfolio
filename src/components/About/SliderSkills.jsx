@@ -1,10 +1,18 @@
 import Marquee from 'react-fast-marquee';
-import { IconDeviceImacCog, IconServerCog, IconTestPipe, IconChecklist, IconZoomCode, IconMessageCode, IconBrowserX, IconPrompt, IconApi, IconBrain, IconAppWindow } from '@tabler/icons-react';
+import { IconBrain, IconAppWindow, IconBrandApple, IconBrandAws, IconBrandGithubCopilot, IconTournament, IconDatabase, IconAutomation, IconSettingsSpark } from '@tabler/icons-react';
 import DesktopView from '../../lib/DesktopView';
 
-const skills = ['DevOps, Cloud, and CI/CD', 'Front-End Development', 'Back-End Development', 'AI App Integration', 'AI Prompt Engineering', 'API and Automation', 'Quality Assurance'];
-
-const icons = [IconDeviceImacCog, IconAppWindow, IconServerCog, IconBrain, IconMessageCode, IconApi, IconChecklist];
+const skillsData = [
+  { name: 'Software Engineering', icon: IconBrandApple },
+  { name: 'Web-App Development', icon: IconAppWindow },
+  { name: 'DevOps & SRE', icon: IconBrandAws },
+  { name: 'LLM Integration', icon: IconBrandGithubCopilot },
+  { name: 'AI Agent Development', icon: IconBrain },
+  { name: 'MLOps', icon: IconAutomation },
+  { name: 'Model Fine-Tuning', icon: IconSettingsSpark },
+  { name: 'Data Engineering', icon: IconDatabase },
+  { name: 'Workflow Automation', icon: IconTournament },
+];
 
 export const SliderSkills = () => {
   const desktopView = DesktopView();
@@ -20,18 +28,18 @@ export const SliderSkills = () => {
       pauseOnClick={desktopView ? false : true}
       pauseOnHover={desktopView ? true : false}
     >
-      {skills.map((skill, index) => {
-        const IconComponent = icons[index];
+      {skillsData.map((skill, _) => {
+        const IconComponent = skill.icon;
         return (
           <div
-            key={index}
+            key={skill.name}
             className='relative mx-3 flex h-36 w-48 flex-col items-center justify-center space-y-3 rounded-xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] px-4 text-[#b0b0b0]'
           >
             <div className='absolute h-[144px] w-[192px] rounded-xl border-2 border-b-0 border-r-0 border-[#2a2a2a]' />
             <div className='cursor-pointer'>
               <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
             </div>
-            <p className='z-20 text-center font-maplemono text-lg'>{skill}</p>
+            <p className='z-20 text-center font-maplemono text-lg'>{skill.name}</p>
           </div>
         );
       })}
