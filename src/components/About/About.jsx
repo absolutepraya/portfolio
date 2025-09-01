@@ -61,7 +61,7 @@ const About = () => {
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
             <span className='relative inline-flex h-3 w-3 rounded-full bg-blurple'></span>
           </span>
-          <p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Open for new opportunities</p>
+          <p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>Let’s build AI solutions!</p>
         </HoverBorderGradient>
       </motion.div>
       <div className='mb-14 mt-12 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
