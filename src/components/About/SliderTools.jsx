@@ -15,6 +15,7 @@ import X from '../../assets/stacks/x.svg';
 import Docker from '../../assets/stacks/docker.svg';
 import GitHub from '../../assets/stacks/github.svg';
 import Azure from '../../assets/stacks/azure.svg';
+import AWS from '../../assets/stacks/aws.svg';
 import GCP from '../../assets/stacks/gcp.svg';
 import DigitalOcean from '../../assets/stacks/digitalocean.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
@@ -39,6 +40,7 @@ export const toolsList = [
   { src: Docker, alt: 'Docker' },
   { src: GitHub, alt: 'GitHub Actions (CI/CD)' },
   { src: Azure, alt: 'Azure' },
+  { src: AWS, alt: 'AWS' },
   { src: GCP, alt: 'Google Cloud Platform' },
   { src: DigitalOcean, alt: 'DigitalOcean' },
   { src: Cloudflare, alt: 'Cloudflare' },
