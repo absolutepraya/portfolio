@@ -16,7 +16,7 @@ const experienceData = [
     url: 'https://tekvision.co.id/',
     logo: TVI,
     date: '08/2025 - Present',
-    desc: '- Working on an AI-powered solutions for an asurance industry client\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
+    desc: '- Working on an AI-powered solutions for an assurance industry client\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
   },
   {
     title: 'Product Engineer Intern',
