@@ -24,7 +24,7 @@ const experienceData = [
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SB,
     date: '06/2025 - Present',
-    desc: '- Learned to architect an AI-powered B2B application using Go, supported by Redis, RabbitMQ, and AWS in a microservices architecture, integrating multiple third-party APIs to streamline business operations\n- Learned to design and implement a zero-trust security system with RBAC, IAM, secure HMAC-based data transactions, protecting sensitive client data and ensuring compliance\n- Learned to build and deploy a Flyway-like database migration system with Goose, enabling seamless and reliable schema changes across environments',
+    desc: '- Implemented zero-trust IAM across microservices (Auth, LMS, Shopee) by building endpoint-permission mapping and middleware in Go with JWT RS256 and Redis sessions, enforcing per-endpoint authorization and immediate revocation\n- Delivered the product Listing Management Service with tenant default inheritance/overrides, product CRUD + variants, CSV/XLSX import/export via RabbitMQ workers and S3/MinIO presigned uploads, enabling reliable bulk operations with job tracking\n- Built Shopee platform connection module with OAuth 2.0 flow, HMAC-signed token exchange, encrypted token storage, Redis caching, and background refresh, providing multi-shop support with status and health endpoints\n- Established versioned database migrations (Goose) and standardized API response envelopes across services, improving schema evolution safety and client integration consistency',
     alignCenter: false,
   },
   {
