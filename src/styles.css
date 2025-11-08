@@ -59,7 +59,7 @@ body {
 }
 
 .shine-through {
-  padding: 0 37px;
+  padding: 0px 37px 0px 37px;
   color: #ffffff;
   background: linear-gradient(to right, #717171 0%, white 10%, #717171 20%);
   background-position: 0;
