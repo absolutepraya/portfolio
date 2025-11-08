@@ -56,6 +56,11 @@ const About = () => {
           containerClassName='rounded-full'
           as='button'
           className='flex items-center border border-customgray bg-[#131313]'
+          onClick={() => {
+            document.getElementById('contacts')?.scrollIntoView({ 
+              behavior: 'smooth' 
+            });
+          }}
         >
           <span className='relative !ml-6 flex h-4 w-4 items-center justify-center'>
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75'></span>
