@@ -221,6 +221,7 @@ const Projects = () => {
                       stacks={project.stacks}
                       url={project.url}
                       github={project.github}
+                      homepage={project.homepage}
                       disableHover={shouldMask}
                     />
                   </div>
@@ -272,6 +273,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -294,6 +296,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -316,6 +319,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -338,6 +342,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -360,6 +365,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -382,6 +388,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -404,6 +411,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>
@@ -426,6 +434,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  homepage={project.homepage}
                 />
               ))}
             </div>

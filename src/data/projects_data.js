@@ -2,7 +2,6 @@
 import GrabAuto from '../assets/projects/grabauto.webp';
 import MIPAOpenHouse from '../assets/projects/mipaopenhouse.webp';
 import DM2Calc from '../assets/projects/dm2calc.webp';
-import ValentineLetter from '../assets/projects/valentineletter.webp';
 import GusDur from '../assets/projects/gusdur.webp';
 import Portfolio from '../assets/projects/portfolio.webp';
 import DesaKedisan from '../assets/projects/desakedisan.webp';
@@ -10,10 +9,7 @@ import NuSantap from '../assets/projects/nusantap.webp';
 import Ngandung from '../assets/projects/ngandung.webp';
 import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
-import Karakeep from '../assets/projects/karakeep.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
-import Affine from '../assets/projects/affine.webp';
-import OwnCloud from '../assets/projects/owncloud.webp';
 
 const projectsData = [
   {
@@ -158,7 +154,6 @@ const projectsData = [
     github: '',
   },
   {
-    preview: Karakeep,
     title: 'Karakeep (Self-Hosted)',
     type: ['Self-Hosted'],
     date: '06/2025',
@@ -166,9 +161,9 @@ const projectsData = [
     stacks: ['docker', 'meilisearch', 'openai'],
     url: 'https://keep.abhipraya.dev/',
     github: 'https://github.com/karakeep-app/karakeep',
+    homepage: 'https://karakeep.app/',
   },
   {
-    preview: Affine,
     title: 'AFFiNE (Self-Hosted)',
     type: ['Self-Hosted'],
     date: '08/2025',
@@ -176,16 +171,47 @@ const projectsData = [
     stacks: ['docker'],
     url: 'https://docs.abhipraya.dev/',
     github: 'https://github.com/toeverything/AFFiNE',
+    homepage: 'https://affine.pro/',
   },
   {
-    preview: OwnCloud,
-    title: 'ownCloud (Self-Hosted)',
+    title: 'Cloudreve (Self-Hosted)',
     type: ['Self-Hosted'],
     date: '08/2025',
-    subtitle: 'ownCloud is an open-source file sync/share platform, like Google Drive or Cloudinary-style cloud storage. My ownCloud is private, let me know if you\'re interested in trying it.',
+    subtitle: 'Cloudreve is an open-source self-hosted file management and sharing system that supports multiple storage providers. My Cloudreve instance is private, let me know if you\'re interested in trying it.',
     stacks: ['docker'],
     url: 'https://cloud.abhipraya.dev/',
-    github: 'https://github.com/owncloud',
+    github: 'https://github.com/cloudreve/cloudreve',
+    homepage: 'https://cloudreve.org/',
+  },
+  {
+    title: 'MinIO (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '10/2025',
+    subtitle: 'MinIO is a high-performance, S3 compatible object store, open sourced under GNU AGPLv3 license. Self-hosted alternative to cloud storage services.',
+    stacks: ['docker'],
+    url: '',
+    github: 'https://github.com/minio/minio',
+    homepage: 'https://www.min.io/',
+  },
+  {
+    title: 'Cap (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '10/2025',
+    subtitle: 'Cap is an open source Loom alternative for beautiful, shareable screen recordings. Record, edit, and share videos with ease.',
+    stacks: ['docker'],
+    url: 'https://cap.abhipraya.dev/',
+    github: 'https://github.com/CapSoftware/Cap',
+    homepage: 'https://cap.so/',
+  },
+  {
+    title: 'Supabase (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '10/2025',
+    subtitle: 'Supabase is the Postgres development platform that provides a dedicated Postgres database for building web, mobile, and AI applications.',
+    stacks: ['docker'],
+    url: '',
+    github: 'https://github.com/supabase/supabase',
+    homepage: 'https://supabase.com/',
   }
 ];
 

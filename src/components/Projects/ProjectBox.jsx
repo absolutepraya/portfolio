@@ -33,7 +33,7 @@ import Redis from '../../assets/stacks/redis.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import Meilisearch from '../../assets/stacks/meilisearch.svg';
 import RPGMaker from '../../assets/stacks/rpgmaker.png';
-import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
+import { IconArrowUpRight, IconBrandGithub, IconHome } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -73,11 +73,14 @@ const stackIcons = {
   rpgmaker: { src: RPGMaker, name: 'RPG Maker' },
 };
 
-const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null, disableHover = false }) => {
+const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null, homepage = null, disableHover = false }) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [hovered, setHovered] = useState('');
   const videoRef = useRef(null);
+
+  // Check if this is a Self-Hosted project
+  const isSelfHosted = Array.isArray(type) ? type.includes('Self-Hosted') : type === 'Self-Hosted';
 
   useEffect(() => {
     if (!isVideo || !videoRef.current) return;
@@ -118,25 +121,27 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
       inView
     >
       <div className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}>
-        <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
-          {isVideo ? (
-            <video
-              ref={videoRef}
-              src={preview}
-              className='h-full w-full object-cover'
-              muted
-              loop
-              playsInline
-              preload='metadata'
-            />
-          ) : (
-            <img
-              src={preview ? preview : NoImage}
-              className='h-full w-full object-cover'
-              alt={title + ' preview'}
-            />
-          )}
-        </div>
+        {!isSelfHosted && (
+          <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
+            {isVideo ? (
+              <video
+                ref={videoRef}
+                src={preview}
+                className='h-full w-full object-cover'
+                muted
+                loop
+                playsInline
+                preload='metadata'
+              />
+            ) : (
+              <img
+                src={preview ? preview : NoImage}
+                className='h-full w-full object-cover'
+                alt={title + ' preview'}
+              />
+            )}
+          </div>
+        )}
         <div className='relative flex flex-1 flex-col space-y-2 p-6'>
           <div className='flex flex-row items-start justify-between'>
             <div className='flex flex-row items-start space-x-3'>
@@ -166,43 +171,46 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
           <p className='text-justify'>{subtitle}</p>
           <div className='flex flex-grow' />
           <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
-            <div className='flex w-fit flex-col space-y-2 rounded'>
-              {Array.from({ length: Math.ceil(stacks.length / STACKS_PER_LINE) }).map((_, chunkIndex) => (
-                <div
-                  key={chunkIndex}
-                  className='flex flex-row space-x-2 md:space-x-3'
-                >
-                  {stacks.slice(chunkIndex * STACKS_PER_LINE, (chunkIndex + 1) * STACKS_PER_LINE).map((stack) => (
-                    <motion.div
-                      key={stack}
-                      className='relative hover:cursor-pointer'
-                      onHoverStart={() => setHovered(stack)}
-                      onHoverEnd={() => setHovered('')}
-                    >
-                      <AnimatePresence>
-                        {hovered === stack && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 3 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 3 }}
-                            transition={{ duration: 0.15, ease: 'easeInOut' }}
-                            className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
-                          >
-                            <p className='text-nowrap'>{stackIcons[stack].name}</p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                      <img
-                        src={stackIcons[stack].src}
-                        alt={stackIcons[stack].name}
-                        className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
-                        draggable='false'
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              ))}
-            </div>
+            {!isSelfHosted && (
+              <div className='flex w-fit flex-col space-y-2 rounded'>
+                {Array.from({ length: Math.ceil(stacks.length / STACKS_PER_LINE) }).map((_, chunkIndex) => (
+                  <div
+                    key={`stacks-chunk-${chunkIndex}-${stacks.length}`}
+                    className='flex flex-row space-x-2 md:space-x-3'
+                  >
+                    {stacks.slice(chunkIndex * STACKS_PER_LINE, (chunkIndex + 1) * STACKS_PER_LINE).map((stack) => (
+                      <motion.div
+                        key={stack}
+                        className='relative hover:cursor-pointer'
+                        onHoverStart={() => setHovered(stack)}
+                        onHoverEnd={() => setHovered('')}
+                      >
+                        <AnimatePresence>
+                          {hovered === stack && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 3 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: 3 }}
+                              transition={{ duration: 0.15, ease: 'easeInOut' }}
+                              className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
+                            >
+                              <p className='text-nowrap'>{stackIcons[stack].name}</p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                        <img
+                          src={stackIcons[stack].src}
+                          alt={stackIcons[stack].name}
+                          className={tabletView ? 'h-5 w-5 object-contain' : 'h-4 w-4 object-contain'}
+                          draggable='false'
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+            {isSelfHosted && <div className='flex w-fit' />}
             <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
               {url === '' ? (
                 <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
@@ -244,6 +252,22 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
                 >
                   <div className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}>
                     <IconBrandGithub
+                      stroke={1.5}
+                      size={desktopView ? 24 : 22}
+                    />
+                  </div>
+                </a>
+              )}
+              {isSelfHosted && homepage && (
+                <a
+                  href={homepage}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label='Open project homepage'
+                  title='Open project homepage'
+                >
+                  <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple md:w-10'>
+                    <IconHome
                       stroke={1.5}
                       size={desktopView ? 24 : 22}
                     />
