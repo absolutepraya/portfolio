@@ -10,13 +10,13 @@ import TVI from '../assets/orgs/tvi.webp';
 
 const experienceData = [
   {
-    title: 'IT & AI Partner',
+    title: 'AI Engineer (R&D)',
     org: 'PT. Teknologi Vision Indonesia',
     orgShort: 'TekVis',
     url: 'https://tekvision.co.id/',
     logo: TVI,
     date: '08/2025 - Present',
-    desc: '- Working on an AI-powered solutions for an assurance industry client\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
+    desc: '- Automating insurance claims processing for a client using OCR and multimodal LLMs, cutting manual review time and improving fraud detection accuracy, ensuring faster, fairer claim approvals.\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
   },
   {
     title: 'Product Engineer Intern',
