@@ -41,7 +41,7 @@ const projectsData = [
     date: '04/2025',
     subtitle: 'PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids, with custom moral value and custom characters. This is our greatest project yet, guaranteed to make you impressed. Right now, it is still limited to several users.',
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'express', 'redis', 'rabbitmq', 'supabase', 'python', 'gemini', 'openai', 'docker', 'digitalocean'],
-    url: '',
+    url: 'https://pintaru-edu.vercel.app/',
     github: 'https://github.com/Tianrider/pintaru',
   },
   {
@@ -51,7 +51,7 @@ const projectsData = [
     date: '11/2024',
     subtitle: 'NuSantap is an app that uses AI and Computer Vision to provide personalized meal recommendations based on nutritional needs and local food availability, optimizing the "Makan Bergizi Gratis" program.',
     stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss', 'firebase', 'azure', 'openai'],
-    url: 'https://www.nusantap.id/',
+    url: 'http://nusantap.vercel.app/',
     github: 'https://github.com/absolutepraya/nusantap',
   },
   {
