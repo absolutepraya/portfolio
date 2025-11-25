@@ -12,6 +12,14 @@ import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import Aurum from '../assets/projects/aurum.webp';
 
+// Import favicon icons
+import DesaKedisanIcon from '../assets/projects/desakedisan-icon.svg';
+import MIPAOpenHouseIcon from '../assets/projects/mipaopenhouse-icon.webp';
+import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
+import PintaruIcon from '../assets/projects/pintaru-icon.png';
+import PortfolioIcon from '../assets/projects/portfolio-icon.svg';
+import ALSAEcompIcon from '../assets/projects/alsaecomp-icon.webp';
+
 const projectsData = [
   {
     preview: Aurum,
@@ -43,16 +51,18 @@ const projectsData = [
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'express', 'redis', 'rabbitmq', 'supabase', 'python', 'gemini', 'openai', 'docker', 'digitalocean'],
     url: 'https://pintaru-edu.vercel.app/',
     github: 'https://github.com/Tianrider/pintaru',
+    favicon: PintaruIcon,
   },
   {
     preview: NuSantap,
-    title: 'NuSantap (Gov-AI Hackathon 2024)',
+    title: 'NuSantap (Gov-AI)',
     type: ['Fullstack', 'Mobile'],
     date: '11/2024',
     subtitle: 'NuSantap is an app that uses AI and Computer Vision to provide personalized meal recommendations based on nutritional needs and local food availability, optimizing the "Makan Bergizi Gratis" program.',
     stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss', 'firebase', 'azure', 'openai'],
     url: 'http://nusantap.vercel.app/',
     github: 'https://github.com/absolutepraya/nusantap',
+    favicon: NuSantapIcon,
   },
   {
     preview: GrabAuto,
@@ -85,6 +95,7 @@ const projectsData = [
     github: '',
   },
   {
+    favicon: ALSAEcompIcon,
     preview: ALSAEcomp,
     title: 'ALSA LC FH UI E-Comp Portal',
     type: ['Frontend'],
@@ -143,6 +154,7 @@ const projectsData = [
     stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
     url: 'https://desa-kedisan.vercel.app/',
     github: 'https://github.com/absolutepraya/desa-kedisan',
+    favicon: DesaKedisanIcon,
   },
   {
     preview: Portfolio,
@@ -153,6 +165,7 @@ const projectsData = [
     stacks: ['bun', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'cloudflare'],
     url: 'https://abhipraya.dev/',
     github: 'https://github.com/absolutepraya/portfolio',
+    favicon: PortfolioIcon,
   },
   {
     preview: MIPAOpenHouse,
@@ -163,6 +176,7 @@ const projectsData = [
     stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss', 'nestjs', 'supabase'],
     url: 'https://mipaopenhouse.com',
     github: '',
+    favicon: MIPAOpenHouseIcon,
   },
   {
     preview: GusDur,
