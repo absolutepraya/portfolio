@@ -10,8 +10,29 @@ import Ngandung from '../assets/projects/ngandung.webp';
 import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
+import Aurum from '../assets/projects/aurum.webp';
 
 const projectsData = [
+  {
+    preview: Aurum,
+    title: 'Aurum Art Gallery',
+    type: ['Fullstack', 'Web App', 'Knowledge Graph'],
+    date: '11/2025',
+    subtitle: 'Aurum is an AI-powered knowledge graph platform that revolutionizes art exploration. It combines a semantic search engine for finding artworks by description, an interactive force-directed graph to visualize complex relationships between artists and movements, and a RAG-based "Museum Guide" chatbot that provides context-aware educational insights by synthesizing internal graph data with external Wikidata enrichment.',
+    stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'neo4j', 'gemini', 'vercelaisdk'],
+    url: 'https://aurum.abhipraya.dev/',
+    github: '',
+  },
+  {
+    preview: null,
+    title: 'Strata',
+    type: ['Fullstack', 'Web App'],
+    date: '11/2025',
+    subtitle: 'Strata is an AI-driven incident analyst that helps engineers troubleshoot AWS infrastructure issues in seconds. It takes your problem description, logs, metrics, and events, then generates ranked root-cause hypotheses, a clear human-readable timeline of what happened, and safe, explainable fix plans you can follow immediately.',
+    stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'prisma', 'postgresql', 'openai', 'vercelaisdk'],
+    url: '',
+    github: '',
+  },
   {
     preview: PintaruVideo,
     isVideo: true,

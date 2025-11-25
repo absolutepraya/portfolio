@@ -41,7 +41,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='fixed top-8 !z-[100] flex h-[4.9rem] scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md md:scale-100 lg:w-[55rem]'
+      className='fixed top-8 !z-[100] flex h-[4.9rem] scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md !md:scale-100 lg:w-[55rem]'
       delay={0.2}
       offset={40}
       duration={0.5}
@@ -99,7 +99,7 @@ const NavBar = () => {
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
             onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
+            onMouseLeave={() => setIsHover(false)} rel="noopener"
           >
             <p className='text text-end font-semibold leading-4'>Reach out</p>
             <div className='relative !mr-1 h-[20px] w-[20px] overflow-hidden'>

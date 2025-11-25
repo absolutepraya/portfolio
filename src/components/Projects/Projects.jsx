@@ -78,7 +78,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
           viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
         >
-          Stuff I&apos;ve done
+          Stuff I&apos;ve built
         </motion.p>
         <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
           <motion.div

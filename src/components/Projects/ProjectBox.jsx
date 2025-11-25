@@ -33,6 +33,9 @@ import Redis from '../../assets/stacks/redis.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import Meilisearch from '../../assets/stacks/meilisearch.svg';
 import RPGMaker from '../../assets/stacks/rpgmaker.png';
+import Neo4j from '../../assets/stacks/neo4j.svg';
+import Vercel from '../../assets/stacks/vercel.svg';
+import Prisma from '../../assets/stacks/prisma.svg';
 import { IconArrowUpRight, IconBrandGithub, IconHome } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState, useRef, useEffect } from 'react';
@@ -71,6 +74,9 @@ const stackIcons = {
   rabbitmq: { src: RabbitMQ, name: 'RabbitMQ' },
   meilisearch: { src: Meilisearch, name: 'Meilisearch' },
   rpgmaker: { src: RPGMaker, name: 'RPG Maker' },
+  neo4j: { src: Neo4j, name: 'Neo4j' },
+  vercelaisdk: { src: Vercel, name: 'Vercel AI SDK' },
+  prisma: { src: Prisma, name: 'Prisma' },
 };
 
 const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null, homepage = null, disableHover = false }) => {
@@ -155,6 +161,7 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
               {Array.isArray(type) ? (
                 type.map((t, index) => (
                   <div
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <X>
                     key={index}
                     className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
                   >
@@ -168,7 +175,7 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
               )}
             </div>
           </div>
-          <p className='text-justify'>{subtitle}</p>
+          <p className='text-justify text-[0.925rem]'>{subtitle}</p>
           <div className='flex flex-grow' />
           <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
             {!isSelfHosted && (
@@ -188,11 +195,11 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
                         <AnimatePresence>
                           {hovered === stack && (
                             <motion.div
-                              initial={{ opacity: 0, y: 3 }}
+                              initial={{ opacity: 0, y: -3 }}
                               animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: 3 }}
+                              exit={{ opacity: 0, y: -3 }}
                               transition={{ duration: 0.15, ease: 'easeInOut' }}
-                              className='absolute -bottom-[32px] left-1/2 -translate-x-1/2 transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
+                              className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
                             >
                               <p className='text-nowrap'>{stackIcons[stack].name}</p>
                             </motion.div>

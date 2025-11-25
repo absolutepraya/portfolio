@@ -27,7 +27,7 @@ const Achievements = () => {
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
           viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
         >
-          Victory Laps
+          Victory laps
         </motion.p>
         <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
           <motion.div
@@ -47,9 +47,9 @@ const Achievements = () => {
             viewport={{ once: true, margin: '0px 0px 20px 0px' }}
           >
             <FlickeringGrid
-              squareSize={6}
-              gridGap={6}
-              color={'rgba(195, 195, 195, 0.9)'}
+              squareSize={7}
+              gridGap={7}
+              color={'rgba(204, 204, 204, 1)'}
               maxOpacity={0.3}
               flickerChance={0.2}
               className={'absolute left-0 top-0 !z-[0] h-full w-full'}

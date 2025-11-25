@@ -105,7 +105,7 @@ const About = () => {
                   stroke={1.5}
                   color='#fff'
                 />
-                <p className='lg:text-md font-maplemono text-sm'>My skillsets</p>
+                <p className='lg:text-md font-maplemono text-sm'>Skillsets</p>
               </div>
               <p className='text-lg lg:text-xl'>
                 Expert in <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>Software</b>, <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>AI</b>, and <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>DevOps</b>. Regularly competing in <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>Hackathons</i>.
@@ -133,7 +133,7 @@ const About = () => {
                   size={16}
                   stroke={1.5}
                 />
-                <p className='lg:text-md font-maplemono text-sm'>My tech stack & tools</p>
+                <p className='lg:text-md font-maplemono text-sm'>Tech stack & tools</p>
               </div>
               <p className='text-lg lg:text-xl'>
                 Achieving peak <i>efficiency</i> and <i>performance</i> through careful <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>attention to detail</i>, ensuring <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>perfection</b> in every project.
