@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/noSvgWithoutTitle: <X> */
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <X> */
 import ProjectBox from './ProjectBox';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
@@ -222,6 +224,7 @@ const Projects = () => {
                       url={project.url}
                       github={project.github}
                       homepage={project.homepage}
+                      favicon={project.favicon}
                       disableHover={shouldMask}
                     />
                   </div>
@@ -274,6 +277,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -297,6 +301,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -320,6 +325,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -343,6 +349,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -366,6 +373,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -389,6 +397,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -412,6 +421,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>
@@ -435,6 +445,7 @@ const Projects = () => {
                   url={project.url}
                   github={project.github}
                   homepage={project.homepage}
+                  favicon={project.favicon}
                 />
               ))}
             </div>

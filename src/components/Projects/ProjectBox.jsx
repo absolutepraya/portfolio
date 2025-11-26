@@ -151,21 +151,11 @@ const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtit
         <div className='relative flex flex-1 flex-col space-y-2 p-6'>
           <div className='flex flex-row items-start justify-between'>
             <div className='flex flex-row items-center space-x-3'>
-              {(favicon || (url && url !== '')) && (
+              {favicon && (
                 <img
-                  src={favicon ? favicon : `https://icon.horse/icon/${new URL(url).hostname}`}
+                  src={favicon}
                   alt={`${title} favicon`}
                   className='h-6 w-6 rounded-sm object-contain md:h-7 md:w-7'
-                  onError={(e) => {
-                    // If we started with manual favicon and it failed, try icon.horse as fallback
-                    if (favicon && url && url !== '' && !e.target.dataset.triedFallback) {
-                      e.target.dataset.triedFallback = 'true';
-                      e.target.src = `https://icon.horse/icon/${new URL(url).hostname}`;
-                    } else {
-                      // Hide if all options fail
-                      e.target.style.display = 'none';
-                    }
-                  }}
                 />
               )}
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
