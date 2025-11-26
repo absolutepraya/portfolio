@@ -29,7 +29,7 @@ const projectsData = [
     subtitle: 'Aurum is an AI-powered knowledge graph platform that revolutionizes art exploration. It combines a semantic search engine for finding artworks by description, an interactive force-directed graph to visualize complex relationships between artists and movements, and a RAG-based "Museum Guide" chatbot that provides context-aware educational insights by synthesizing internal graph data with external Wikidata enrichment.',
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'neo4j', 'gemini', 'vercelaisdk'],
     url: 'https://aurum.abhipraya.dev/',
-    github: '',
+    github: 'https://github.com/absolutepraya/aurum-knowledge-graph',
   },
   {
     preview: null,
