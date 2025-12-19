@@ -25,8 +25,8 @@ export const SliderSkills = () => {
       gradientWidth={110}
       autoFill={true}
       direction='left'
-      pauseOnClick={desktopView ? false : true}
-      pauseOnHover={desktopView ? true : false}
+      pauseOnClick={!desktopView}
+      pauseOnHover={!!desktopView}
     >
       {skillsData.map((skill, _) => {
         const IconComponent = skill.icon;

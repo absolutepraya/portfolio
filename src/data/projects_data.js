@@ -10,7 +10,7 @@ import Ngandung from '../assets/projects/ngandung.webp';
 import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
-import Aurum from '../assets/projects/aurum.webp';
+import AurumVideo from '../assets/projects/aurum.mp4';
 
 // Import favicon icons
 import DesaKedisanIcon from '../assets/projects/desakedisan-icon.svg';
@@ -22,7 +22,8 @@ import ALSAEcompIcon from '../assets/projects/alsaecomp-icon.webp';
 
 const projectsData = [
   {
-    preview: Aurum,
+    preview: AurumVideo,
+    isVideo: true,
     title: 'Aurum Art Gallery',
     type: ['Fullstack', 'Web App', 'Knowledge Graph'],
     date: '11/2025',
@@ -31,16 +32,16 @@ const projectsData = [
     url: 'https://aurum.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/aurum-knowledge-graph',
   },
-  {
-    preview: null,
-    title: 'Strata',
-    type: ['Fullstack', 'Web App'],
-    date: '11/2025',
-    subtitle: 'Strata is an AI-driven incident analyst that helps engineers troubleshoot AWS infrastructure issues in seconds. It takes your problem description, logs, metrics, and events, then generates ranked root-cause hypotheses, a clear human-readable timeline of what happened, and safe, explainable fix plans you can follow immediately.',
-    stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'prisma', 'postgresql', 'openai', 'vercelaisdk'],
-    url: '',
-    github: '',
-  },
+  // {
+  //   preview: null,
+  //   title: 'Strata',
+  //   type: ['Fullstack', 'Web App'],
+  //   date: '11/2025',
+  //   subtitle: 'Strata is an AI-driven incident analyst that helps engineers troubleshoot AWS infrastructure issues in seconds. It takes your problem description, logs, metrics, and events, then generates ranked root-cause hypotheses, a clear human-readable timeline of what happened, and safe, explainable fix plans you can follow immediately.',
+  //   stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'prisma', 'postgresql', 'openai', 'vercelaisdk'],
+  //   url: '',
+  //   github: '',
+  // },
   {
     preview: PintaruVideo,
     isVideo: true,

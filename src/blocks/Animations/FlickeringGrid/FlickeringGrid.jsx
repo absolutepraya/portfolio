@@ -9,7 +9,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
   const memoizedColor = useMemo(() => {
     const toRGBA = (color) => {
       if (typeof window === 'undefined') {
-        return 'rgba(0, 0, 0,';
+         return 'rgba(0, 0, 0,';    
       }
       const canvas = document.createElement('canvas');
       canvas.width = canvas.height = 1;
