@@ -36,6 +36,7 @@ import RPGMaker from '../../assets/stacks/rpgmaker.png';
 import Neo4j from '../../assets/stacks/neo4j.svg';
 import Vercel from '../../assets/stacks/vercel.svg';
 import Prisma from '../../assets/stacks/prisma.svg';
+import Midtrans from '../../assets/stacks/midtrans.webp';
 import { IconArrowUpRight, IconBrandGithub, IconHome } from '@tabler/icons-react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import { useState, useRef, useEffect } from 'react';
@@ -77,6 +78,7 @@ const stackIcons = {
   neo4j: { src: Neo4j, name: 'Neo4j' },
   vercelaisdk: { src: Vercel, name: 'Vercel AI SDK' },
   prisma: { src: Prisma, name: 'Prisma' },
+  midtrans: { src: Midtrans, name: 'Midtrans' },
 };
 
 const ProjectBox = ({ preview = null, isVideo = false, title, type, date, subtitle, stacks = [], url = null, github = null, homepage = null, favicon = null, disableHover = false }) => {

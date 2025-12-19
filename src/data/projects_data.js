@@ -11,6 +11,7 @@ import Rumble from '../assets/projects/rumble.webp';
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import AurumVideo from '../assets/projects/aurum.mp4';
+import BKUIVideo from '../assets/projects/bkui.mp4';
 
 // Import favicon icons
 import DesaKedisanIcon from '../assets/projects/desakedisan-icon.svg';
@@ -31,6 +32,17 @@ const projectsData = [
     stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'neo4j', 'gemini', 'vercelaisdk'],
     url: 'https://aurum.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/aurum-knowledge-graph',
+  },
+  {
+    preview: BKUIVideo,
+    isVideo: true,
+    title: 'Bedah Kampus UI 2025',
+    type: ['Fullstack', 'Web App'],
+    date: '11/2024',
+    subtitle: 'A comprehensive event platform for Bedah Kampus UI 2025 featuring a high-performance landing page, an integrated ticketing and merchandise store with Midtrans payment gateway, and a robust admin dashboard. The system also includes a mobile-optimized QR code check-in tool, enabling the committee to scan tickets and verify participants in real-time at the venue.',
+    stacks: ['nextjs', 'typescript', 'bun', 'supabase', 'midtrans'],
+    url: 'https://dev.bedahkampusui.com/tickets',
+    github: '',
   },
   // {
   //   preview: null,
