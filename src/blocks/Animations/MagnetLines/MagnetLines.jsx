@@ -58,9 +58,10 @@ export default function MagnetLines({
 
   // Create a grid’s worth of spans
   const total = rows * columns;
-  const spans = Array.from({ length: total }, (_, i) => (
+  const spanIds = Array.from({ length: total }, (_, i) => `line-${i}`);
+  const spans = spanIds.map((id) => (
     <span
-      key={i}
+      key={id}
       className='block origin-center'
       style={{
         backgroundColor: lineColor,
@@ -80,8 +81,8 @@ export default function MagnetLines({
       style={{
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`,
-        width: containerW,
-        height: containerH,
+        width: containerW ?? containerSize,
+        height: containerH ?? containerSize,
         ...style,
       }}
     >

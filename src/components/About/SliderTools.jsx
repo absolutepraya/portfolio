@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import AWS from '../../assets/stacks/aws.svg';
 import Azure from '../../assets/stacks/azure.svg';
@@ -50,7 +49,6 @@ export const toolsList = [
 ];
 
 export const SliderTools = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const desktopView = DesktopView();
 
   return (
@@ -61,29 +59,26 @@ export const SliderTools = () => {
       gradientWidth={110}
       autoFill={true}
       direction='right'
-      pauseOnClick={desktopView ? false : true}
-      pauseOnHover={desktopView ? true : false}
+      pauseOnClick={!desktopView}
+      pauseOnHover={desktopView}
     >
-      {toolsList.map((tool, index) => (
-        <div
-          key={index}
-          className='small-clickable mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
+      {toolsList.map((tool) => (
+        <button
+          key={tool.alt}
+          type='button'
+          className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
         >
           <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-          {hoveredIndex === index && (
-            <div className='absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] md:max-w-[4rem] md:text-xs'>
-              {tool.alt}
-            </div>
-          )}
+          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
+            {tool.alt}
+          </div>
           <img
             src={tool.src}
             alt={tool.alt}
-            className={`h-full w-full select-none object-contain transition-all duration-200 ${hoveredIndex === index ? 'blur-sm' : ''}`}
+            className='h-full w-full select-none object-contain transition-all duration-200 group-hover:blur-sm group-focus-visible:blur-sm'
             draggable='false'
           />
-        </div>
+        </button>
       ))}
     </Marquee>
   );

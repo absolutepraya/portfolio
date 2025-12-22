@@ -134,7 +134,8 @@ const ProjectBox = ({
     };
   }, [isVideo]);
 
-  var urlVisibility, githubVisibility;
+  let urlVisibility;
+  let githubVisibility;
   if (!url) urlVisibility = 'opacity-30';
   if (!github) githubVisibility = 'opacity-30';
 
@@ -161,7 +162,7 @@ const ProjectBox = ({
               <img
                 src={preview ? preview : NoImage}
                 className='h-full w-full object-cover'
-                alt={title + ' preview'}
+                alt={`${title} preview`}
               />
             )}
           </div>

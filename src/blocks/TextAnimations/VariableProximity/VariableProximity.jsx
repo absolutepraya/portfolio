@@ -99,7 +99,6 @@ const VariableProximity = forwardRef((props, ref) => {
         return norm ** 2;
       case 'gaussian':
         return Math.exp(-((distance / (radius / 2)) ** 2) / 2);
-      case 'linear':
       default:
         return norm;
     }
@@ -143,22 +142,17 @@ const VariableProximity = forwardRef((props, ref) => {
   });
 
   const words = label.split(' ');
-  let letterIndex = 0;
+  const clickHandler = onClick ?? restProps.onClick;
+  const renderedWords = (() => {
+    let letterIndex = 0;
+    let wordOffset = 0;
 
-  return (
-    <span
-      ref={ref}
-      onClick={onClick}
-      style={{
-        display: 'inline',
-        fontFamily: '"Roboto Flex", sans-serif',
-        ...style,
-      }}
-      className={className}
-      {...restProps}
-    >
-      {words.map((word, wordIndex) => (
-        <span key={wordIndex} className='inline-block whitespace-nowrap'>
+    return words.map((word, wordIndex) => {
+      const wordKey = `${wordOffset}-${word}`;
+      wordOffset += word.length + 1;
+
+      return (
+        <span key={wordKey} className='inline-block whitespace-nowrap'>
           {word.split('').map((letter) => {
             const currentLetterIndex = letterIndex++;
             return (
@@ -182,7 +176,33 @@ const VariableProximity = forwardRef((props, ref) => {
             <span className='inline-block'>&nbsp;</span>
           )}
         </span>
-      ))}
+      );
+    });
+  })();
+
+  const rootProps = {
+    ref,
+    ...restProps,
+    style: {
+      display: 'inline',
+      fontFamily: '"Roboto Flex", sans-serif',
+      ...style,
+    },
+    className,
+  };
+
+  if (clickHandler) {
+    return (
+      <button type='button' {...rootProps} onClick={clickHandler}>
+        {renderedWords}
+        <span className='sr-only'>{label}</span>
+      </button>
+    );
+  }
+
+  return (
+    <span {...rootProps}>
+      {renderedWords}
       <span className='sr-only'>{label}</span>
     </span>
   );

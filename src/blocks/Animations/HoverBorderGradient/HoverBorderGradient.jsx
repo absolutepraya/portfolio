@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { cn } from '../../../lib/utils';
 
 export default function HoverBorderGradient({
@@ -48,7 +48,7 @@ export default function HoverBorderGradient({
   }, [hovered, duration, rotateDirection]);
   return (
     <Tag
-      onMouseEnter={(event) => {
+      onMouseEnter={() => {
         setHovered(true);
       }}
       onMouseLeave={() => setHovered(false)}

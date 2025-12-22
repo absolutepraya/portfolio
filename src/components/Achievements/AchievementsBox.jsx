@@ -10,18 +10,16 @@ import {
   IconNews,
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
 import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
 import DesktopView from '../../lib/DesktopView';
-import TabletView from '../../lib/TabletView';
 import BotBorder from './BotBorder';
 
 const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const desktopView = DesktopView();
-  const tabletView = TabletView();
   const buttonRef = useRef(null);
   const [currentImageIndexes, setCurrentImageIndexes] = useState({});
   const [achievementImages, setAchievementImages] = useState({});
@@ -31,6 +29,72 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
   const displayedAchievements = showAll
     ? achievementData
     : achievementData.slice(0, 3);
+
+  const loadFirstImage = useCallback(
+    async (achievementTitle) => {
+      try {
+        const achievement = achievementData.find(
+          (a) => a.title === achievementTitle,
+        );
+        if (!achievement?.imagesPath) return;
+
+        const imageModules = import.meta.glob(
+          '/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}',
+          { eager: false },
+        );
+        const imagePaths = [];
+
+        Object.keys(imageModules).forEach((path) => {
+          const normalizedAchievementPath = achievement.imagesPath.replace(
+            'src/',
+            '/src/',
+          );
+          if (path.includes(normalizedAchievementPath)) {
+            imagePaths.push(path);
+          }
+        });
+
+        imagePaths.sort();
+
+        if (imagePaths[0]) {
+          const imageModule = await imageModules[imagePaths[0]]();
+
+          setAchievementImages((prev) => ({
+            ...prev,
+            [achievementTitle]: prev[achievementTitle].map((img, idx) =>
+              idx === 0 ? imageModule.default : img,
+            ),
+          }));
+
+          setImageLoadedStates((prev) => ({
+            ...prev,
+            [achievementTitle]: prev[achievementTitle].map((loaded, idx) =>
+              idx === 0 ? true : loaded,
+            ),
+          }));
+
+          setImageLoadingStates((prev) => ({
+            ...prev,
+            [achievementTitle]: prev[achievementTitle].map((loading, idx) =>
+              idx === 0 ? false : loading,
+            ),
+          }));
+        }
+      } catch (error) {
+        console.error(
+          `Error loading first image for ${achievementTitle}:`,
+          error,
+        );
+        setImageLoadingStates((prev) => ({
+          ...prev,
+          [achievementTitle]: prev[achievementTitle].map((loading, idx) =>
+            idx === 0 ? false : loading,
+          ),
+        }));
+      }
+    },
+    [achievementData],
+  );
 
   useEffect(() => {
     const initializeImageStates = async () => {
@@ -101,70 +165,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     };
 
     initializeImageStates();
-  }, [achievementData]);
-
-  const loadFirstImage = async (achievementTitle) => {
-    try {
-      const achievement = achievementData.find(
-        (a) => a.title === achievementTitle,
-      );
-      if (!achievement?.imagesPath) return;
-
-      const imageModules = import.meta.glob(
-        '/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}',
-        { eager: false },
-      );
-      const imagePaths = [];
-
-      Object.keys(imageModules).forEach((path) => {
-        const normalizedAchievementPath = achievement.imagesPath.replace(
-          'src/',
-          '/src/',
-        );
-        if (path.includes(normalizedAchievementPath)) {
-          imagePaths.push(path);
-        }
-      });
-
-      imagePaths.sort();
-
-      if (imagePaths[0]) {
-        const imageModule = await imageModules[imagePaths[0]]();
-
-        setAchievementImages((prev) => ({
-          ...prev,
-          [achievementTitle]: prev[achievementTitle].map((img, idx) =>
-            idx === 0 ? imageModule.default : img,
-          ),
-        }));
-
-        setImageLoadedStates((prev) => ({
-          ...prev,
-          [achievementTitle]: prev[achievementTitle].map((loaded, idx) =>
-            idx === 0 ? true : loaded,
-          ),
-        }));
-
-        setImageLoadingStates((prev) => ({
-          ...prev,
-          [achievementTitle]: prev[achievementTitle].map((loading, idx) =>
-            idx === 0 ? false : loading,
-          ),
-        }));
-      }
-    } catch (error) {
-      console.error(
-        `Error loading first image for ${achievementTitle}:`,
-        error,
-      );
-      setImageLoadingStates((prev) => ({
-        ...prev,
-        [achievementTitle]: prev[achievementTitle].map((loading, idx) =>
-          idx === 0 ? false : loading,
-        ),
-      }));
-    }
-  };
+  }, [achievementData, loadFirstImage]);
 
   const loadImageAtIndex = async (achievementTitle, imageIndex) => {
     if (
@@ -307,9 +308,9 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     <BlurFade delay={0.3} inView inViewMargin='-1px' offset={20}>
       <div className='relative !z-[40] flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
         <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] border-customgray bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
-          {displayedAchievements.map((achievement, index) => (
+          {displayedAchievements.map((achievement) => (
             <BlurFade
-              key={index}
+              key={achievement.title}
               delay={0.2}
               offset={8}
               inView
@@ -341,7 +342,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                                 currentImageIndexes[achievement.title]
                               ]
                             }
-                            // alt='Achievement Image'
+                            alt={achievement.title}
                             className='h-full w-full rounded-xl object-cover'
                           />
                         ) : (
@@ -350,7 +351,8 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                           </div>
                         )}
                         <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
-                          <div
+                          <button
+                            type='button'
                             className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
                             onClick={() => handlePrevImage(achievement.title)}
                           >
@@ -359,21 +361,23 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                               size={desktopView ? 24 : 22}
                               className='opacity-70 hover:opacity-100'
                             />
-                          </div>
+                          </button>
                           <div className='flex flex-row items-center space-x-2'>
-                            {achievementImages[achievement.title].map(
-                              (_, index) => (
-                                <div
-                                  key={index}
+                            {achievementImages[achievement.title]
+                              .map((_, i) => `dot-${i}`)
+                              .map((dotId, index) => (
+                                <button
+                                  key={dotId}
+                                  type='button'
                                   className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-200 ${index === currentImageIndexes[achievement.title] ? 'bg-customwhite' : 'bg-customwhite bg-opacity-40 hover:bg-opacity-70'}`}
                                   onClick={() =>
                                     handleDotClick(achievement.title, index)
                                   }
                                 />
-                              ),
-                            )}
+                              ))}
                           </div>
-                          <div
+                          <button
+                            type='button'
                             className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
                             onClick={() => handleNextImage(achievement.title)}
                           >
@@ -382,7 +386,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                               size={desktopView ? 24 : 22}
                               className='opacity-70 hover:opacity-100'
                             />
-                          </div>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -457,9 +461,16 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                           <p>Bonus:</p>
                           {Array.isArray(achievement.bonus) ? (
                             <ul className='ml-5 list-disc'>
-                              {achievement.bonus.map((item, index) => (
-                                <li key={index}>{item}</li>
-                              ))}
+                              {achievement.bonus
+                                .map(
+                                  (item, index) =>
+                                    `${achievement.title}-bonus-${index}-${item}`,
+                                )
+                                .map((bonusKey, index) => (
+                                  <li key={bonusKey}>
+                                    {achievement.bonus[index]}
+                                  </li>
+                                ))}
                             </ul>
                           ) : (
                             <p>{achievement.bonus}</p>
@@ -482,18 +493,23 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                             <ul
                               className={`ml-5 list-disc ${achievement.articles.length > 3 ? 'lg:columns-2 lg:gap-16' : ''}`}
                             >
-                              {achievement.articles.map((article, index) => (
-                                <li key={index}>
-                                  <a
-                                    href={article.url}
-                                    target='_blank'
-                                    rel='noreferrer'
-                                    className='text-[#3b82f6] hover:text-[#2563eb]'
-                                  >
-                                    {article.platform}
-                                  </a>
-                                </li>
-                              ))}
+                              {achievement.articles
+                                .map(
+                                  (article, index) =>
+                                    `${achievement.title}-article-${index}-${article.url}`,
+                                )
+                                .map((articleKey, index) => (
+                                  <li key={articleKey}>
+                                    <a
+                                      href={achievement.articles[index].url}
+                                      target='_blank'
+                                      rel='noreferrer'
+                                      className='text-[#3b82f6] hover:text-[#2563eb]'
+                                    >
+                                      {achievement.articles[index].platform}
+                                    </a>
+                                  </li>
+                                ))}
                             </ul>
                           ) : (
                             <p>-</p>

@@ -79,7 +79,9 @@ const Experience = () => {
 
       <div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
         {displayedExperiences.map((experience, index) => (
-          <React.Fragment key={index}>
+          <React.Fragment
+            key={`${experience.title}-${experience.org}-${experience.date}`}
+          >
             {index === 0 ? (
               <div className='h-0 md:h-8' />
             ) : (

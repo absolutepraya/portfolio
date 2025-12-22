@@ -12,13 +12,11 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import projectsData from '../../data/projects_data.js';
 import DesktopView from '../../lib/DesktopView';
-import TabletView from '../../lib/TabletView';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
 
 const Projects = () => {
   const desktopView = DesktopView();
-  const tabletView = TabletView();
   const [showAll, setShowAll] = useState(false);
   const buttonRef = useRef(null);
 

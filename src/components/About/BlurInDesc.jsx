@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import DesktopView from '../../lib/DesktopView';
-import TabletView from '../../lib/TabletView';
 import { cn } from '../../lib/utils';
 
 export default function BlurInDesc({ className, variant, duration = 0.8 }) {
@@ -9,8 +7,6 @@ export default function BlurInDesc({ className, variant, duration = 0.8 }) {
     visible: { filter: 'blur(0px)', opacity: 1 },
   };
   const combinedVariants = variant || defaultVariants;
-  const desktopView = DesktopView();
-  const tabletView = TabletView();
 
   return (
     <motion.h1

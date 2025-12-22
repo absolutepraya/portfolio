@@ -11,12 +11,14 @@ export default function GradualSpacing({
   },
   className,
 }) {
+  const chars = text.split('');
+
   return (
     <div className='flex justify-center space-x-1'>
       <AnimatePresence>
-        {text.split('').map((char, i) => (
+        {chars.map((char, i) => (
           <motion.h1
-            key={i}
+            key={`${i}-${char}`}
             initial='hidden'
             animate='visible'
             exit='hidden'

@@ -1,15 +1,10 @@
 import { motion } from 'framer-motion';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import DesktopView from '../../lib/DesktopView';
-import TabletView from '../../lib/TabletView';
 // import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
-import TvView from '../../lib/TvView';
 import ContactBox from './ContactBox';
 
 const Contact = () => {
   const desktopView = DesktopView();
-  const tvView = TvView();
-  const tabletView = TabletView();
 
   return (
     <section

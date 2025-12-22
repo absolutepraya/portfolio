@@ -137,23 +137,29 @@ const ExperienceBox = ({
             Previous/other roles:
           </p>
           <div className='flex w-full flex-col space-y-2'>
-            {previousTitles.map((previousTitle, index) => (
-              <div
-                className='flex w-full flex-row items-center justify-between'
-                key={index}
-              >
-                <p
-                  className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-[380ms] ease-in-out md:text-2xl`}
+            {previousTitles
+              .map((previousTitle, index) => ({
+                key: `${previousTitle}-${previousDates[index] ?? ''}-${index}`,
+                title: previousTitle,
+                date: previousDates[index],
+              }))
+              .map((role) => (
+                <div
+                  className='flex w-full flex-row items-center justify-between'
+                  key={role.key}
                 >
-                  {previousTitle}
-                </p>
-                <p
-                  className={`font-maplemono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}
-                >
-                  {previousDates[index]}
-                </p>
-              </div>
-            ))}
+                  <p
+                    className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-[380ms] ease-in-out md:text-2xl`}
+                  >
+                    {role.title}
+                  </p>
+                  <p
+                    className={`font-maplemono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}
+                  >
+                    {role.date}
+                  </p>
+                </div>
+              ))}
           </div>
         </motion.div>
       )}

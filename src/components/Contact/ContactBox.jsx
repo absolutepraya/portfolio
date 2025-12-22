@@ -16,7 +16,6 @@ import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import TopBorder from './TopBorder';
 
 const Contact = () => {
   const desktopView = DesktopView();
@@ -124,7 +123,8 @@ const Contact = () => {
               </a>
             )}
             {tabletView && (
-              <div
+              <button
+                type='button'
                 className='clickable hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-opacity-30'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
@@ -134,7 +134,7 @@ const Contact = () => {
                 ) : (
                   <IconCopy size={tabletView ? 20 : 16} stroke={2} />
                 )}
-              </div>
+              </button>
             )}
           </div>
           <a

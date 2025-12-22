@@ -21,6 +21,7 @@ const BlurText = ({
   onAnimationComplete,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+  const elementKeys = elements.map((element, index) => `${index}-${element}`);
   const [inView, setInView] = useState(false);
   const ref = useRef();
   const animatedCount = useRef(0);
@@ -84,7 +85,7 @@ const BlurText = ({
     <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
       {springs.map((props, index) => (
         <animated.span
-          key={index}
+          key={elementKeys[index]}
           style={props}
           className='inline-block transition-transform will-change-[transform,filter,opacity]'
         >

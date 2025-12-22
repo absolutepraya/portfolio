@@ -20,6 +20,15 @@ const SplitText = ({
   onLetterAnimationComplete,
 }) => {
   const words = text.split(' ').map((word) => word.split(''));
+  const wordKeys = (() => {
+    let offset = 0;
+    return words.map((word) => {
+      const joined = word.join('');
+      const key = `${offset}-${joined}`;
+      offset += joined.length + 1;
+      return key;
+    });
+  })();
   const letters = words.flat();
   const [inView, setInView] = useState(false);
   const ref = useRef();
@@ -70,7 +79,7 @@ const SplitText = ({
     >
       {words.map((word, wordIndex) => (
         <span
-          key={wordIndex}
+          key={wordKeys[wordIndex]}
           style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
         >
           {word.map((letter, letterIndex) => {

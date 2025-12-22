@@ -1,4 +1,4 @@
-const SepBorder = ({ bot, text }) => {
+const SepBorder = ({ text }) => {
   return (
     <div className='my-6 flex w-full flex-row'>
       <div className='h-[2px] w-1/3 bg-gradient-to-l from-customgray to-transparent' />

@@ -11,7 +11,7 @@
     "dev": "bun run vite",
     "build": "bun run vite build",
     "prepare": "husky install",
-    "check": "biome check --write .",
+    "check": "bunx biome check --write .",
     "start": "bun run serve -s dist",
     "knip": "knip",
     "heroku-prebuild": "rm -rf node_modules package-lock.json"
@@ -38,7 +38,7 @@
     "@types/bun": "latest",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-react": "^4.7.0",
-    "@biomejs/biome": "^2.1.2",
+    "@biomejs/biome": "^2.3.9",
     "autoprefixer": "^10.4.22",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
