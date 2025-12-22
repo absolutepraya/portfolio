@@ -21,7 +21,6 @@ export default defineConfig({
       'react-dom',
       '@react-spring/web',
       'framer-motion',
-      'react-animated-cursor',
       'react-fast-marquee',
     ],
     exclude: ['react-scan'],
