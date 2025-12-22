@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
-// import AnimatedCursor from 'react-animated-cursor';
 import BlurInDesc from './BlurInDesc';
 import { SliderSkills } from './SliderSkills';
 import { SliderStacks, stacksList } from './SliderStacks';
@@ -17,28 +16,6 @@ const About = () => {
       className='relative !mt-36 flex w-[90vw] flex-col items-center lg:!mt-40 xl:w-[68rem]'
       id='aboutsec'
     >
-      {/* {desktopView && (
-				<AnimatedCursor
-					innerSize={0}
-					outerSize={25}
-					innerScale={0}
-					outerScale={1.8}
-					showSystemCursor={true}
-					trailingSpeed={10}
-					// outerAlpha={0}
-					// hasBlendMode={true}
-					clickables={['a', 'button', '.clickable', '.small-clickable']}
-					// innerStyle={{
-					// 	backgroundColor: 'rgba(255, 255, 255, 1)',
-					// 	boxShadow: '0px 0px 6px 2px rgba(0,0,0,0.2)',
-					// 	// mixBlendMode: 'exclusion',
-					// }}
-					outerStyle={{
-						backgroundColor: 'rgba(255, 255, 255, 0.4)',
-						// mixBlendMode: 'exclusion',
-					}}
-				/>
-			)} */}
       <div id='about' className='absolute -top-40' />
       <motion.div
         initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
