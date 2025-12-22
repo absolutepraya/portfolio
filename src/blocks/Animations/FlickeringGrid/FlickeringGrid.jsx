@@ -1,6 +1,22 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
-export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.3, color = 'rgb(0, 0, 0)', width, height, className, maxOpacity = 0.3, ...props }) => {
+export const FlickeringGrid = ({
+  squareSize = 4,
+  gridGap = 6,
+  flickerChance = 0.3,
+  color = 'rgb(0, 0, 0)',
+  width,
+  height,
+  className,
+  maxOpacity = 0.3,
+  ...props
+}) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
@@ -9,7 +25,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
   const memoizedColor = useMemo(() => {
     const toRGBA = (color) => {
       if (typeof window === 'undefined') {
-         return 'rgba(0, 0, 0,';    
+        return 'rgba(0, 0, 0,';
       }
       const canvas = document.createElement('canvas');
       canvas.width = canvas.height = 1;
@@ -42,7 +58,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
 
       return { cols, rows, squares, dpr };
     },
-    [squareSize, gridGap, maxOpacity]
+    [squareSize, gridGap, maxOpacity],
   );
 
   const updateSquares = useCallback(
@@ -53,7 +69,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
         }
       }
     },
-    [flickerChance, maxOpacity]
+    [flickerChance, maxOpacity],
   );
 
   const drawGrid = useCallback(
@@ -66,11 +82,16 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
         for (let j = 0; j < rows; j++) {
           const opacity = squares[i * rows + j];
           ctx.fillStyle = `${memoizedColor}${opacity})`;
-          ctx.fillRect(i * (squareSize + gridGap) * dpr, j * (squareSize + gridGap) * dpr, squareSize * dpr, squareSize * dpr);
+          ctx.fillRect(
+            i * (squareSize + gridGap) * dpr,
+            j * (squareSize + gridGap) * dpr,
+            squareSize * dpr,
+            squareSize * dpr,
+          );
         }
       }
     },
-    [memoizedColor, squareSize, gridGap]
+    [memoizedColor, squareSize, gridGap],
   );
 
   useEffect(() => {
@@ -101,7 +122,15 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
       lastTime = time;
 
       updateSquares(gridParams.squares, deltaTime);
-      drawGrid(ctx, canvas.width, canvas.height, gridParams.cols, gridParams.rows, gridParams.squares, gridParams.dpr);
+      drawGrid(
+        ctx,
+        canvas.width,
+        canvas.height,
+        gridParams.cols,
+        gridParams.rows,
+        gridParams.squares,
+        gridParams.dpr,
+      );
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -115,7 +144,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
 
     intersectionObserver.observe(canvas);
@@ -132,11 +161,7 @@ export const FlickeringGrid = ({ squareSize = 4, gridGap = 6, flickerChance = 0.
   }, [setupCanvas, updateSquares, drawGrid, width, height, isInView]);
 
   return (
-    <div
-      ref={containerRef}
-      className={`h-full w-full ${className}`}
-      {...props}
-    >
+    <div ref={containerRef} className={`h-full w-full ${className}`} {...props}>
       <canvas
         ref={canvasRef}
         className='pointer-events-none'

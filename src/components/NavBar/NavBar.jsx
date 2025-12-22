@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import {
+  IconBox,
+  IconBrandLinkedin,
+  IconBriefcase2,
+  IconHome,
+  IconMail,
+  IconSend,
+  IconTrophy,
+} from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
+import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
-import { IconHome, IconBriefcase2, IconBox, IconMail, IconBrandLinkedin, IconSend, IconTrophy } from '@tabler/icons-react';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 
 const NavBar = () => {
   const [activeSection, setActiveSection] = useState('aboutsec');
@@ -99,21 +107,20 @@ const NavBar = () => {
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
             onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)} rel="noopener"
+            onMouseLeave={() => setIsHover(false)}
+            rel='noopener'
           >
             <p className='text text-end font-semibold leading-4'>Reach out</p>
             <div className='relative !mr-1 h-[20px] w-[20px] overflow-hidden'>
-              <div className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}>
-                <IconBrandLinkedin
-                  size={20}
-                  stroke={2}
-                />
+              <div
+                className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
+              >
+                <IconBrandLinkedin size={20} stroke={2} />
               </div>
-              <div className={`absolute ${isHover ? 'translate-y-0' : 'translate-y-40'} transition-all duration-200`}>
-                <IconSend
-                  size={20}
-                  stroke={2}
-                />
+              <div
+                className={`absolute ${isHover ? 'translate-y-0' : 'translate-y-40'} transition-all duration-200`}
+              >
+                <IconSend size={20} stroke={2} />
               </div>
             </div>
           </a>

@@ -1,18 +1,23 @@
-import Line from './Line';
-import ExperienceBox from './ExperienceBox';
-import DesktopView from '../../lib/DesktopView';
+import {
+  IconArrowNarrowDownDashed,
+  IconArrowNarrowUpDashed,
+} from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import experienceData from '../../data/experience_data.js';
+import DesktopView from '../../lib/DesktopView';
+import ExperienceBox from './ExperienceBox';
+import Line from './Line';
 import LineShort from './LineShort';
-import { IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
 
 const Experience = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
   const buttonRef = useRef(null);
 
-  const displayedExperiences = showAll ? experienceData : experienceData.slice(0, 3);
+  const displayedExperiences = showAll
+    ? experienceData
+    : experienceData.slice(0, 3);
 
   const handleToggle = () => {
     if (showAll) {
@@ -36,24 +41,38 @@ const Experience = () => {
       className='relative flex w-[90vw] flex-col xl:w-[68rem]'
       id='experiencesec'
     >
-      <div
-        id='experience'
-        className='absolute -top-36'
-      />
+      <div id='experience' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.p
           className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
-          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
-          viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: 'circOut' },
+          }}
+          viewport={{
+            marginTop: desktopView ? '-100px' : '-14px',
+            marginBottom: desktopView ? '-100px' : '-14px',
+            once: true,
+          }}
         >
           The road so far
         </motion.p>
-        <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+        <div
+          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}
+        >
           <motion.div
             className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
-            whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
-            viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+            whileInView={{
+              x: '1000px',
+              transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
+            }}
+            viewport={{
+              marginTop: desktopView ? '-100px' : '-14px',
+              marginBottom: desktopView ? '-100px' : '-14px',
+              once: true,
+            }}
           />
         </div>
       </div>
@@ -61,7 +80,11 @@ const Experience = () => {
       <div className='z-50 mt-[6rem] flex flex-col items-center space-y-4 md:px-6'>
         {displayedExperiences.map((experience, index) => (
           <React.Fragment key={index}>
-            {index === 0 ? <div className='h-0 md:h-8' /> : <div className='h-6 md:h-10' />}
+            {index === 0 ? (
+              <div className='h-0 md:h-8' />
+            ) : (
+              <div className='h-6 md:h-10' />
+            )}
             <ExperienceBox
               title={experience.title}
               org={experience.org}
@@ -93,15 +116,9 @@ const Experience = () => {
             >
               <span>{showAll ? 'Show Less' : 'Show More'}</span>
               {showAll ? (
-                <IconArrowNarrowUpDashed
-                  size={20}
-                  stroke={2}
-                />
+                <IconArrowNarrowUpDashed size={20} stroke={2} />
               ) : (
-                <IconArrowNarrowDownDashed
-                  size={20}
-                  stroke={2}
-                />
+                <IconArrowNarrowDownDashed size={20} stroke={2} />
               )}
             </motion.button>
           </>

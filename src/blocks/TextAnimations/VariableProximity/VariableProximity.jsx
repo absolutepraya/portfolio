@@ -4,8 +4,8 @@
 	02-02-2025
 */
 
-import { forwardRef, useMemo, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { forwardRef, useEffect, useMemo, useRef } from 'react';
 
 function useAnimationFrame(callback) {
   useEffect(() => {
@@ -50,7 +50,18 @@ function useMousePositionRef(containerRef) {
 }
 
 const VariableProximity = forwardRef((props, ref) => {
-  const { label, fromFontVariationSettings, toFontVariationSettings, containerRef, radius = 50, falloff = 'linear', className = '', onClick, style, ...restProps } = props;
+  const {
+    label,
+    fromFontVariationSettings,
+    toFontVariationSettings,
+    containerRef,
+    radius = 50,
+    falloff = 'linear',
+    className = '',
+    onClick,
+    style,
+    ...restProps
+  } = props;
 
   const letterRefs = useRef([]);
   const interpolatedSettingsRef = useRef([]);
@@ -64,8 +75,8 @@ const VariableProximity = forwardRef((props, ref) => {
           .map((s) => s.trim())
           .map((s) => {
             const [name, value] = s.split(' ');
-            return [name.replace(/['"]/g, ''), parseFloat(value)];
-          })
+            return [name.replace(/['"]/g, ''), Number.parseFloat(value)];
+          }),
       );
 
     const fromSettings = parseSettings(fromFontVariationSettings);
@@ -78,7 +89,8 @@ const VariableProximity = forwardRef((props, ref) => {
     }));
   }, [fromFontVariationSettings, toFontVariationSettings]);
 
-  const calculateDistance = (x1, y1, x2, y2) => Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  const calculateDistance = (x1, y1, x2, y2) =>
+    Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 
   const calculateFalloff = (distance) => {
     const norm = Math.min(Math.max(1 - distance / radius, 0), 1);
@@ -104,7 +116,12 @@ const VariableProximity = forwardRef((props, ref) => {
       const letterCenterX = rect.left + rect.width / 2 - containerRect.left;
       const letterCenterY = rect.top + rect.height / 2 - containerRect.top;
 
-      const distance = calculateDistance(mousePositionRef.current.x, mousePositionRef.current.y, letterCenterX, letterCenterY);
+      const distance = calculateDistance(
+        mousePositionRef.current.x,
+        mousePositionRef.current.y,
+        letterCenterX,
+        letterCenterY,
+      );
 
       if (distance >= radius) {
         letterRef.style.fontVariationSettings = fromFontVariationSettings;
@@ -114,7 +131,8 @@ const VariableProximity = forwardRef((props, ref) => {
       const falloffValue = calculateFalloff(distance);
       const newSettings = parsedSettings
         .map(({ axis, fromValue, toValue }) => {
-          const interpolatedValue = fromValue + (toValue - fromValue) * falloffValue;
+          const interpolatedValue =
+            fromValue + (toValue - fromValue) * falloffValue;
           return `'${axis}' ${interpolatedValue}`;
         })
         .join(', ');
@@ -140,10 +158,7 @@ const VariableProximity = forwardRef((props, ref) => {
       {...restProps}
     >
       {words.map((word, wordIndex) => (
-        <span
-          key={wordIndex}
-          className='inline-block whitespace-nowrap'
-        >
+        <span key={wordIndex} className='inline-block whitespace-nowrap'>
           {word.split('').map((letter) => {
             const currentLetterIndex = letterIndex++;
             return (
@@ -154,7 +169,8 @@ const VariableProximity = forwardRef((props, ref) => {
                 }}
                 style={{
                   display: 'inline-block',
-                  fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex],
+                  fontVariationSettings:
+                    interpolatedSettingsRef.current[currentLetterIndex],
                 }}
                 aria-hidden='true'
               >
@@ -162,7 +178,9 @@ const VariableProximity = forwardRef((props, ref) => {
               </motion.span>
             );
           })}
-          {wordIndex < words.length - 1 && <span className='inline-block'>&nbsp;</span>}
+          {wordIndex < words.length - 1 && (
+            <span className='inline-block'>&nbsp;</span>
+          )}
         </span>
       ))}
       <span className='sr-only'>{label}</span>

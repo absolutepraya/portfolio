@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const TvView = () => {
   const [tvView, setTvView] = useState(window.innerWidth >= 1280);

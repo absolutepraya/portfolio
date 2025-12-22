@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { IconBrandGithub, IconClock, IconCopyright } from '@tabler/icons-react';
 import moment from 'moment-timezone';
+import React, { useEffect, useState } from 'react';
 import DesktopView from '../lib/DesktopView';
-import { IconCopyright, IconBrandGithub, IconClock } from '@tabler/icons-react';
 
 const Copyright = () => {
   const [currentTime, setCurrentTime] = useState('');

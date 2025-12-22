@@ -1,5 +1,15 @@
+import {
+  IconAppWindow,
+  IconAutomation,
+  IconBrain,
+  IconBrandApple,
+  IconBrandAws,
+  IconBrandGithubCopilot,
+  IconDatabase,
+  IconSettingsSpark,
+  IconTournament,
+} from '@tabler/icons-react';
 import Marquee from 'react-fast-marquee';
-import { IconBrain, IconAppWindow, IconBrandApple, IconBrandAws, IconBrandGithubCopilot, IconTournament, IconDatabase, IconAutomation, IconSettingsSpark } from '@tabler/icons-react';
 import DesktopView from '../../lib/DesktopView';
 
 const skillsData = [
@@ -39,7 +49,9 @@ export const SliderSkills = () => {
             <div className='cursor-pointer'>
               <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
             </div>
-            <p className='z-20 text-center font-maplemono text-lg'>{skill.name}</p>
+            <p className='z-20 text-center font-maplemono text-lg'>
+              {skill.name}
+            </p>
           </div>
         );
       })}

@@ -1,14 +1,20 @@
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: <X> */
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <X> */
-import ProjectBox from './ProjectBox';
+
+import { Tab, TabList, TabPanel, Tabs, tabClasses } from '@mui/joy';
+import {
+  IconArrowNarrowDownDashed,
+  IconArrowNarrowUpDashed,
+  IconServer,
+  IconTool,
+} from '@tabler/icons-react';
+import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import projectsData from '../../data/projects_data.js';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import { motion } from 'framer-motion';
-import { Tab, Tabs, TabList, tabClasses, TabPanel } from '@mui/joy';
-import { IconTool, IconServer, IconArrowNarrowDownDashed, IconArrowNarrowUpDashed } from '@tabler/icons-react';
+import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
-import projectsData from '../../data/projects_data.js';
-import { useRef, useState } from 'react';
 
 const Projects = () => {
   const desktopView = DesktopView();
@@ -22,7 +28,10 @@ const Projects = () => {
       // Exclude Under Dev and Self-Hosted projects from All category
       return projectsData.filter((project) => {
         if (Array.isArray(project.type)) {
-          return !project.type.includes('Under Dev') && !project.type.includes('Self-Hosted');
+          return (
+            !project.type.includes('Under Dev') &&
+            !project.type.includes('Self-Hosted')
+          );
         }
         return project.type !== 'Under Dev' && project.type !== 'Self-Hosted';
       });
@@ -69,24 +78,38 @@ const Projects = () => {
       className='relative !z-10 w-[90vw] flex-col space-y-12 xl:w-[68rem]'
       id='projectssec'
     >
-      <div
-        id='projects'
-        className='absolute -top-24'
-      />
+      <div id='projects' className='absolute -top-24' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.p
           className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
-          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, ease: 'circOut' } }}
-          viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: 'circOut' },
+          }}
+          viewport={{
+            marginTop: desktopView ? '-100px' : '-14px',
+            marginBottom: desktopView ? '-100px' : '-14px',
+            once: true,
+          }}
         >
           Stuff I&apos;ve built
         </motion.p>
-        <div className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}>
+        <div
+          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}
+        >
           <motion.div
             className='absolute h-1 w-full bg-[#03020F] shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
-            whileInView={{ x: '1000px', transition: { duration: 2, ease: 'circInOut', delay: 0.3 } }}
-            viewport={{ marginTop: desktopView ? '-100px' : '-14px', marginBottom: desktopView ? '-100px' : '-14px', once: true }}
+            whileInView={{
+              x: '1000px',
+              transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
+            }}
+            viewport={{
+              marginTop: desktopView ? '-100px' : '-14px',
+              marginBottom: desktopView ? '-100px' : '-14px',
+              once: true,
+            }}
           />
         </div>
       </div>
@@ -144,7 +167,8 @@ const Projects = () => {
                   borderRadius: 'full',
                   bgcolor: 'rgba(85, 102, 255, 0.15)',
                   transform: 'scale(1)',
-                  transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
+                  transition:
+                    'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
                 },
                 [`& .${tabClasses.root}[aria-selected="false"]`]: {
                   color: '#ffffff',
@@ -153,7 +177,8 @@ const Projects = () => {
                   borderRadius: 'full',
                   fontFamily: 'Maple Mono',
                   opacity: 0.8,
-                  transition: 'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
+                  transition:
+                    'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
                   '&:hover': {
                     bgcolor: 'rgba(62, 62, 62, 0.2)',
                     color: '#ffffff',
@@ -194,25 +219,23 @@ const Projects = () => {
 
           <SepBorder />
 
-          <TabPanel
-            value={0}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={0} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'>
               {displayedAllProjects.map((project, index) => {
-                const shouldMask = !showAll && ((desktopView && (index === 4 || index === 5)) || (!desktopView && index === 4));
+                const shouldMask =
+                  !showAll &&
+                  ((desktopView && (index === 4 || index === 5)) ||
+                    (!desktopView && index === 4));
                 const maskStyle = shouldMask
                   ? {
-                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
-                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                      WebkitMaskImage:
+                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                      maskImage:
+                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
                     }
                   : undefined;
                 return (
-                  <div
-                    key={index}
-                    style={maskStyle}
-                    className='h-full'
-                  >
+                  <div key={index} style={maskStyle} className='h-full'>
                     <ProjectBox
                       preview={project.preview}
                       isVideo={project.isVideo}
@@ -232,7 +255,9 @@ const Projects = () => {
               })}
             </div>
             {allProjects.length > 4 && (
-              <div className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}>
+              <div
+                className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}
+              >
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}
@@ -244,25 +269,16 @@ const Projects = () => {
                 >
                   <span>{showAll ? 'Show Less' : 'Show More'}</span>
                   {showAll ? (
-                    <IconArrowNarrowUpDashed
-                      size={20}
-                      stroke={2}
-                    />
+                    <IconArrowNarrowUpDashed size={20} stroke={2} />
                   ) : (
-                    <IconArrowNarrowDownDashed
-                      size={20}
-                      stroke={2}
-                    />
+                    <IconArrowNarrowDownDashed size={20} stroke={2} />
                   )}
                 </motion.button>
               </div>
             )}
           </TabPanel>
 
-          <TabPanel
-            value={1}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={1} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {fullstackProjects.map((project, index) => (
                 <ProjectBox
@@ -283,10 +299,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={2}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={2} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {frontendProjects.map((project, index) => (
                 <ProjectBox
@@ -307,10 +320,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={3}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={3} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {backendProjects.map((project, index) => (
                 <ProjectBox
@@ -331,10 +341,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={4}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={4} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {mobileProjects.map((project, index) => (
                 <ProjectBox
@@ -355,10 +362,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={5}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={5} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {cliProjects.map((project, index) => (
                 <ProjectBox
@@ -379,10 +383,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={6}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={6} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {gameProjects.map((project, index) => (
                 <ProjectBox
@@ -403,10 +404,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={7}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={7} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {selfHostedProjects.map((project, index) => (
                 <ProjectBox
@@ -427,10 +425,7 @@ const Projects = () => {
             </div>
           </TabPanel>
 
-          <TabPanel
-            value={8}
-            sx={{ p: 0, mt: 2 }}
-          >
+          <TabPanel value={8} sx={{ p: 0, mt: 2 }}>
             <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
               {ongoingProjects.map((project, index) => (
                 <ProjectBox

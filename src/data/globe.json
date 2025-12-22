@@ -1,10 +1,17 @@
 {
   "type": "FeatureCollection",
-  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
   "features": [
     {
       "type": "Feature",
-      "properties": { "admin": "Afghanistan", "name": "Afghanistan", "continent": "Asia" },
+      "properties": {
+        "admin": "Afghanistan",
+        "name": "Afghanistan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -84,7 +91,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Angola", "name": "Angola", "continent": "Africa" },
+      "properties": {
+        "admin": "Angola",
+        "name": "Angola",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -176,7 +187,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Albania", "name": "Albania", "continent": "Europe" },
+      "properties": {
+        "admin": "Albania",
+        "name": "Albania",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -209,7 +224,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "United Arab Emirates", "name": "United Arab Emirates", "continent": "Asia" },
+      "properties": {
+        "admin": "United Arab Emirates",
+        "name": "United Arab Emirates",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -242,7 +261,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Argentina", "name": "Argentina", "continent": "South America" },
+      "properties": {
+        "admin": "Argentina",
+        "name": "Argentina",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -380,7 +403,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Armenia", "name": "Armenia", "continent": "Asia" },
+      "properties": {
+        "admin": "Armenia",
+        "name": "Armenia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -411,7 +438,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "French Southern and Antarctic Lands", "name": "Fr. S. Antarctic Lands", "continent": "Seven seas (open ocean)" },
+      "properties": {
+        "admin": "French Southern and Antarctic Lands",
+        "name": "Fr. S. Antarctic Lands",
+        "continent": "Seven seas (open ocean)"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -431,7 +462,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Australia", "name": "Australia", "continent": "Australia" },
+      "properties": {
+        "admin": "Australia",
+        "name": "Australia",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -689,7 +724,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Austria", "name": "Austria", "continent": "Europe" },
+      "properties": {
+        "admin": "Austria",
+        "name": "Austria",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -737,7 +776,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Azerbaijan", "name": "Azerbaijan", "continent": "Asia" },
+      "properties": {
+        "admin": "Azerbaijan",
+        "name": "Azerbaijan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -798,7 +841,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Burundi", "name": "Burundi", "continent": "Africa" },
+      "properties": {
+        "admin": "Burundi",
+        "name": "Burundi",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -822,7 +869,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Belgium", "name": "Belgium", "continent": "Europe" },
+      "properties": {
+        "admin": "Belgium",
+        "name": "Belgium",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -848,7 +899,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Benin", "name": "Benin", "continent": "Africa" },
+      "properties": {
+        "admin": "Benin",
+        "name": "Benin",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -884,7 +939,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Burkina Faso", "name": "Burkina Faso", "continent": "Africa" },
+      "properties": {
+        "admin": "Burkina Faso",
+        "name": "Burkina Faso",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -934,7 +993,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Bangladesh", "name": "Bangladesh", "continent": "Asia" },
+      "properties": {
+        "admin": "Bangladesh",
+        "name": "Bangladesh",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -981,7 +1044,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Bulgaria", "name": "Bulgaria", "continent": "Europe" },
+      "properties": {
+        "admin": "Bulgaria",
+        "name": "Bulgaria",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1020,7 +1087,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "The Bahamas", "name": "Bahamas", "continent": "North America" },
+      "properties": {
+        "admin": "The Bahamas",
+        "name": "Bahamas",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -1062,7 +1133,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Bosnia and Herzegovina", "name": "Bosnia and Herz.", "continent": "Europe" },
+      "properties": {
+        "admin": "Bosnia and Herzegovina",
+        "name": "Bosnia and Herz.",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1095,7 +1170,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Belarus", "name": "Belarus", "continent": "Europe" },
+      "properties": {
+        "admin": "Belarus",
+        "name": "Belarus",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1150,7 +1229,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Belize", "name": "Belize", "continent": "North America" },
+      "properties": {
+        "admin": "Belize",
+        "name": "Belize",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1181,7 +1264,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Bolivia", "name": "Bolivia", "continent": "South America" },
+      "properties": {
+        "admin": "Bolivia",
+        "name": "Bolivia",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1252,7 +1339,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Brazil", "name": "Brazil", "continent": "South America" },
+      "properties": {
+        "admin": "Brazil",
+        "name": "Brazil",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1466,7 +1557,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Brunei", "name": "Brunei", "continent": "Asia" },
+      "properties": {
+        "admin": "Brunei",
+        "name": "Brunei",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1485,7 +1580,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Bhutan", "name": "Bhutan", "continent": "Asia" },
+      "properties": {
+        "admin": "Bhutan",
+        "name": "Bhutan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1509,7 +1608,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Botswana", "name": "Botswana", "continent": "Africa" },
+      "properties": {
+        "admin": "Botswana",
+        "name": "Botswana",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1560,7 +1663,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Central African Republic", "name": "Central African Rep.", "continent": "Africa" },
+      "properties": {
+        "admin": "Central African Republic",
+        "name": "Central African Rep.",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1633,7 +1740,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Canada", "name": "Canada", "continent": "North America" },
+      "properties": {
+        "admin": "Canada",
+        "name": "Canada",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -2554,7 +2665,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Switzerland", "name": "Switzerland", "continent": "Europe" },
+      "properties": {
+        "admin": "Switzerland",
+        "name": "Switzerland",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2589,7 +2704,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Chile", "name": "Chile", "continent": "South America" },
+      "properties": {
+        "admin": "Chile",
+        "name": "Chile",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -2977,7 +3096,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ivory Coast", "name": "Côte d'Ivoire", "continent": "Africa" },
+      "properties": {
+        "admin": "Ivory Coast",
+        "name": "Côte d'Ivoire",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3034,7 +3157,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Cameroon", "name": "Cameroon", "continent": "Africa" },
+      "properties": {
+        "admin": "Cameroon",
+        "name": "Cameroon",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3106,7 +3233,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Democratic Republic of the Congo", "name": "Dem. Rep. Congo", "continent": "Africa" },
+      "properties": {
+        "admin": "Democratic Republic of the Congo",
+        "name": "Dem. Rep. Congo",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3239,7 +3370,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Republic of Congo", "name": "Congo", "continent": "Africa" },
+      "properties": {
+        "admin": "Republic of Congo",
+        "name": "Congo",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3299,7 +3434,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Colombia", "name": "Colombia", "continent": "South America" },
+      "properties": {
+        "admin": "Colombia",
+        "name": "Colombia",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3410,7 +3549,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Costa Rica", "name": "Costa Rica", "continent": "North America" },
+      "properties": {
+        "admin": "Costa Rica",
+        "name": "Costa Rica",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3457,7 +3600,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Cuba", "name": "Cuba", "continent": "North America" },
+      "properties": {
+        "admin": "Cuba",
+        "name": "Cuba",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3510,7 +3657,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Northern Cyprus", "name": "N. Cyprus", "continent": "Asia" },
+      "properties": {
+        "admin": "Northern Cyprus",
+        "name": "N. Cyprus",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3537,7 +3688,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Cyprus", "name": "Cyprus", "continent": "Asia" },
+      "properties": {
+        "admin": "Cyprus",
+        "name": "Cyprus",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3563,7 +3718,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Czech Republic", "name": "Czech Rep.", "continent": "Europe" },
+      "properties": {
+        "admin": "Czech Republic",
+        "name": "Czech Rep.",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3609,7 +3768,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Germany", "name": "Germany", "continent": "Europe" },
+      "properties": {
+        "admin": "Germany",
+        "name": "Germany",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3678,7 +3841,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Djibouti", "name": "Djibouti", "continent": "Africa" },
+      "properties": {
+        "admin": "Djibouti",
+        "name": "Djibouti",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3704,7 +3871,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Denmark", "name": "Denmark", "continent": "Europe" },
+      "properties": {
+        "admin": "Denmark",
+        "name": "Denmark",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -3745,7 +3916,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Dominican Republic", "name": "Dominican Rep.", "continent": "North America" },
+      "properties": {
+        "admin": "Dominican Republic",
+        "name": "Dominican Rep.",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3782,7 +3957,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Algeria", "name": "Algeria", "continent": "Africa" },
+      "properties": {
+        "admin": "Algeria",
+        "name": "Algeria",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3855,7 +4034,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ecuador", "name": "Ecuador", "continent": "South America" },
+      "properties": {
+        "admin": "Ecuador",
+        "name": "Ecuador",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3899,7 +4082,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Egypt", "name": "Egypt", "continent": "Africa" },
+      "properties": {
+        "admin": "Egypt",
+        "name": "Egypt",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3952,7 +4139,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Eritrea", "name": "Eritrea", "continent": "Africa" },
+      "properties": {
+        "admin": "Eritrea",
+        "name": "Eritrea",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3991,7 +4182,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Spain", "name": "Spain", "continent": "Europe" },
+      "properties": {
+        "admin": "Spain",
+        "name": "Spain",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4053,7 +4248,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Estonia", "name": "Estonia", "continent": "Europe" },
+      "properties": {
+        "admin": "Estonia",
+        "name": "Estonia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4081,7 +4280,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ethiopia", "name": "Ethiopia", "continent": "Africa" },
+      "properties": {
+        "admin": "Ethiopia",
+        "name": "Ethiopia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4151,7 +4354,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Finland", "name": "Finland", "continent": "Europe" },
+      "properties": {
+        "admin": "Finland",
+        "name": "Finland",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4200,7 +4407,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Fiji", "name": "Fiji", "continent": "Australia" },
+      "properties": {
+        "admin": "Fiji",
+        "name": "Fiji",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -4243,7 +4454,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Falkland Islands", "name": "Falkland Is.", "continent": "South America" },
+      "properties": {
+        "admin": "Falkland Islands",
+        "name": "Falkland Is.",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4264,7 +4479,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "France", "name": "France", "continent": "Europe" },
+      "properties": {
+        "admin": "France",
+        "name": "France",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -4359,7 +4578,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Gabon", "name": "Gabon", "continent": "Africa" },
+      "properties": {
+        "admin": "Gabon",
+        "name": "Gabon",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4401,7 +4624,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "United Kingdom", "name": "United Kingdom", "continent": "Europe" },
+      "properties": {
+        "admin": "United Kingdom",
+        "name": "United Kingdom",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -4474,7 +4701,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Georgia", "name": "Georgia", "continent": "Asia" },
+      "properties": {
+        "admin": "Georgia",
+        "name": "Georgia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4509,7 +4740,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ghana", "name": "Ghana", "continent": "Africa" },
+      "properties": {
+        "admin": "Ghana",
+        "name": "Ghana",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4545,7 +4780,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Guinea", "name": "Guinea", "continent": "Africa" },
+      "properties": {
+        "admin": "Guinea",
+        "name": "Guinea",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4626,7 +4865,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Gambia", "name": "Gambia", "continent": "Africa" },
+      "properties": {
+        "admin": "Gambia",
+        "name": "Gambia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4653,7 +4896,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Guinea Bissau", "name": "Guinea-Bissau", "continent": "Africa" },
+      "properties": {
+        "admin": "Guinea Bissau",
+        "name": "Guinea-Bissau",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4683,7 +4930,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Equatorial Guinea", "name": "Eq. Guinea", "continent": "Africa" },
+      "properties": {
+        "admin": "Equatorial Guinea",
+        "name": "Eq. Guinea",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4701,7 +4952,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Greece", "name": "Greece", "continent": "Europe" },
+      "properties": {
+        "admin": "Greece",
+        "name": "Greece",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -4772,7 +5027,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Greenland", "name": "Greenland", "continent": "North America" },
+      "properties": {
+        "admin": "Greenland",
+        "name": "Greenland",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4915,7 +5174,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Guatemala", "name": "Guatemala", "continent": "North America" },
+      "properties": {
+        "admin": "Guatemala",
+        "name": "Guatemala",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4961,7 +5224,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Guyana", "name": "Guyana", "continent": "South America" },
+      "properties": {
+        "admin": "Guyana",
+        "name": "Guyana",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5012,7 +5279,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Honduras", "name": "Honduras", "continent": "North America" },
+      "properties": {
+        "admin": "Honduras",
+        "name": "Honduras",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5080,7 +5351,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Croatia", "name": "Croatia", "continent": "Europe" },
+      "properties": {
+        "admin": "Croatia",
+        "name": "Croatia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5133,7 +5408,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Haiti", "name": "Haiti", "continent": "North America" },
+      "properties": {
+        "admin": "Haiti",
+        "name": "Haiti",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5165,7 +5444,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Hungary", "name": "Hungary", "continent": "Europe" },
+      "properties": {
+        "admin": "Hungary",
+        "name": "Hungary",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5207,7 +5490,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Indonesia", "name": "Indonesia", "continent": "Asia" },
+      "properties": {
+        "admin": "Indonesia",
+        "name": "Indonesia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -5665,7 +5952,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ireland", "name": "Ireland", "continent": "Europe" },
+      "properties": {
+        "admin": "Ireland",
+        "name": "Ireland",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5816,7 +6107,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Iceland", "name": "Iceland", "continent": "Europe" },
+      "properties": {
+        "admin": "Iceland",
+        "name": "Iceland",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5847,7 +6142,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Israel", "name": "Israel", "continent": "Asia" },
+      "properties": {
+        "admin": "Israel",
+        "name": "Israel",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5881,7 +6180,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Italy", "name": "Italy", "continent": "Europe" },
+      "properties": {
+        "admin": "Italy",
+        "name": "Italy",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -5989,7 +6292,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Jamaica", "name": "Jamaica", "continent": "North America" },
+      "properties": {
+        "admin": "Jamaica",
+        "name": "Jamaica",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6011,7 +6318,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Jordan", "name": "Jordan", "continent": "Asia" },
+      "properties": {
+        "admin": "Jordan",
+        "name": "Jordan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6127,7 +6438,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Kazakhstan", "name": "Kazakhstan", "continent": "Asia" },
+      "properties": {
+        "admin": "Kazakhstan",
+        "name": "Kazakhstan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6250,7 +6565,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Kenya", "name": "Kenya", "continent": "Africa" },
+      "properties": {
+        "admin": "Kenya",
+        "name": "Kenya",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6298,7 +6617,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Kyrgyzstan", "name": "Kyrgyzstan", "continent": "Asia" },
+      "properties": {
+        "admin": "Kyrgyzstan",
+        "name": "Kyrgyzstan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6344,7 +6667,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Cambodia", "name": "Cambodia", "continent": "Asia" },
+      "properties": {
+        "admin": "Cambodia",
+        "name": "Cambodia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6372,7 +6699,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "South Korea", "name": "Korea", "continent": "Asia" },
+      "properties": {
+        "admin": "South Korea",
+        "name": "Korea",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6402,7 +6733,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Kosovo", "name": "Kosovo", "continent": "Europe" },
+      "properties": {
+        "admin": "Kosovo",
+        "name": "Kosovo",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6434,7 +6769,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Kuwait", "name": "Kuwait", "continent": "Asia" },
+      "properties": {
+        "admin": "Kuwait",
+        "name": "Kuwait",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6502,7 +6841,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Lebanon", "name": "Lebanon", "continent": "Asia" },
+      "properties": {
+        "admin": "Lebanon",
+        "name": "Lebanon",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6524,7 +6867,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Liberia", "name": "Liberia", "continent": "Africa" },
+      "properties": {
+        "admin": "Liberia",
+        "name": "Liberia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6562,7 +6909,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Libya", "name": "Libya", "continent": "Africa" },
+      "properties": {
+        "admin": "Libya",
+        "name": "Libya",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6629,7 +6980,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Sri Lanka", "name": "Sri Lanka", "continent": "Asia" },
+      "properties": {
+        "admin": "Sri Lanka",
+        "name": "Sri Lanka",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6650,7 +7005,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Lesotho", "name": "Lesotho", "continent": "Africa" },
+      "properties": {
+        "admin": "Lesotho",
+        "name": "Lesotho",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6673,7 +7032,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Lithuania", "name": "Lithuania", "continent": "Europe" },
+      "properties": {
+        "admin": "Lithuania",
+        "name": "Lithuania",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6703,7 +7066,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Luxembourg", "name": "Luxembourg", "continent": "Europe" },
+      "properties": {
+        "admin": "Luxembourg",
+        "name": "Luxembourg",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6721,7 +7088,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Latvia", "name": "Latvia", "continent": "Europe" },
+      "properties": {
+        "admin": "Latvia",
+        "name": "Latvia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6754,7 +7125,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Morocco", "name": "Morocco", "continent": "Africa" },
+      "properties": {
+        "admin": "Morocco",
+        "name": "Morocco",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6829,7 +7204,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Moldova", "name": "Moldova", "continent": "Europe" },
+      "properties": {
+        "admin": "Moldova",
+        "name": "Moldova",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6867,7 +7246,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Madagascar", "name": "Madagascar", "continent": "Africa" },
+      "properties": {
+        "admin": "Madagascar",
+        "name": "Madagascar",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6927,7 +7310,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Mexico", "name": "Mexico", "continent": "North America" },
+      "properties": {
+        "admin": "Mexico",
+        "name": "Mexico",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7108,7 +7495,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Macedonia", "name": "Macedonia", "continent": "Europe" },
+      "properties": {
+        "admin": "Macedonia",
+        "name": "Macedonia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7223,7 +7614,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Myanmar", "name": "Myanmar", "continent": "Asia" },
+      "properties": {
+        "admin": "Myanmar",
+        "name": "Myanmar",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7304,7 +7699,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Montenegro", "name": "Montenegro", "continent": "Europe" },
+      "properties": {
+        "admin": "Montenegro",
+        "name": "Montenegro",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7333,7 +7732,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Mongolia", "name": "Mongolia", "continent": "Asia" },
+      "properties": {
+        "admin": "Mongolia",
+        "name": "Mongolia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7419,7 +7822,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Mozambique", "name": "Mozambique", "continent": "Africa" },
+      "properties": {
+        "admin": "Mozambique",
+        "name": "Mozambique",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7507,7 +7914,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Mauritania", "name": "Mauritania", "continent": "Africa" },
+      "properties": {
+        "admin": "Mauritania",
+        "name": "Mauritania",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7557,7 +7968,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Malawi", "name": "Malawi", "continent": "Africa" },
+      "properties": {
+        "admin": "Malawi",
+        "name": "Malawi",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7596,7 +8011,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Malaysia", "name": "Malaysia", "continent": "Asia" },
+      "properties": {
+        "admin": "Malaysia",
+        "name": "Malaysia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -7675,7 +8094,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Namibia", "name": "Namibia", "continent": "Africa" },
+      "properties": {
+        "admin": "Namibia",
+        "name": "Namibia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7730,7 +8153,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "New Caledonia", "name": "New Caledonia", "continent": "Australia" },
+      "properties": {
+        "admin": "New Caledonia",
+        "name": "New Caledonia",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7754,7 +8181,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Niger", "name": "Niger", "continent": "Africa" },
+      "properties": {
+        "admin": "Niger",
+        "name": "Niger",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7823,7 +8254,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Nigeria", "name": "Nigeria", "continent": "Africa" },
+      "properties": {
+        "admin": "Nigeria",
+        "name": "Nigeria",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7892,7 +8327,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Nicaragua", "name": "Nicaragua", "continent": "North America" },
+      "properties": {
+        "admin": "Nicaragua",
+        "name": "Nicaragua",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7955,7 +8394,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Netherlands", "name": "Netherlands", "continent": "Europe" },
+      "properties": {
+        "admin": "Netherlands",
+        "name": "Netherlands",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -7980,7 +8423,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Norway", "name": "Norway", "continent": "Europe" },
+      "properties": {
+        "admin": "Norway",
+        "name": "Norway",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -8127,7 +8574,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "New Zealand", "name": "New Zealand", "continent": "Australia" },
+      "properties": {
+        "admin": "New Zealand",
+        "name": "New Zealand",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -8274,7 +8725,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Pakistan", "name": "Pakistan", "continent": "Asia" },
+      "properties": {
+        "admin": "Pakistan",
+        "name": "Pakistan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8351,7 +8806,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Panama", "name": "Panama", "continent": "North America" },
+      "properties": {
+        "admin": "Panama",
+        "name": "Panama",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8414,7 +8873,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Peru", "name": "Peru", "continent": "South America" },
+      "properties": {
+        "admin": "Peru",
+        "name": "Peru",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8501,7 +8964,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Philippines", "name": "Philippines", "continent": "Asia" },
+      "properties": {
+        "admin": "Philippines",
+        "name": "Philippines",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -8648,7 +9115,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Papua New Guinea", "name": "Papua New Guinea", "continent": "Australia" },
+      "properties": {
+        "admin": "Papua New Guinea",
+        "name": "Papua New Guinea",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -8754,7 +9225,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Poland", "name": "Poland", "continent": "Europe" },
+      "properties": {
+        "admin": "Poland",
+        "name": "Poland",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8810,7 +9285,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Puerto Rico", "name": "Puerto Rico", "continent": "North America" },
+      "properties": {
+        "admin": "Puerto Rico",
+        "name": "Puerto Rico",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8830,7 +9309,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "North Korea", "name": "Dem. Rep. Korea", "continent": "Asia" },
+      "properties": {
+        "admin": "North Korea",
+        "name": "Dem. Rep. Korea",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8884,7 +9367,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Portugal", "name": "Portugal", "continent": "Europe" },
+      "properties": {
+        "admin": "Portugal",
+        "name": "Portugal",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8928,7 +9415,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Paraguay", "name": "Paraguay", "continent": "South America" },
+      "properties": {
+        "admin": "Paraguay",
+        "name": "Paraguay",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -8972,7 +9463,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Palestine", "name": "Palestine", "continent": "Asia" },
+      "properties": {
+        "admin": "Palestine",
+        "name": "Palestine",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9012,7 +9507,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Romania", "name": "Romania", "continent": "Europe" },
+      "properties": {
+        "admin": "Romania",
+        "name": "Romania",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9067,7 +9566,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Russia", "name": "Russia", "continent": "Asia" },
+      "properties": {
+        "admin": "Russia",
+        "name": "Russia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -9686,7 +10189,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Rwanda", "name": "Rwanda", "continent": "Africa" },
+      "properties": {
+        "admin": "Rwanda",
+        "name": "Rwanda",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9710,7 +10217,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Western Sahara", "name": "W. Sahara", "continent": "Africa" },
+      "properties": {
+        "admin": "Western Sahara",
+        "name": "W. Sahara",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9749,7 +10260,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Saudi Arabia", "name": "Saudi Arabia", "continent": "Asia" },
+      "properties": {
+        "admin": "Saudi Arabia",
+        "name": "Saudi Arabia",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9836,7 +10351,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Sudan", "name": "Sudan", "continent": "Africa" },
+      "properties": {
+        "admin": "Sudan",
+        "name": "Sudan",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -9926,7 +10445,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "South Sudan", "name": "S. Sudan", "continent": "Africa" },
+      "properties": {
+        "admin": "South Sudan",
+        "name": "S. Sudan",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10000,7 +10523,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Senegal", "name": "Senegal", "continent": "Africa" },
+      "properties": {
+        "admin": "Senegal",
+        "name": "Senegal",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10055,7 +10582,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Solomon Islands", "name": "Solomon Is.", "continent": "Australia" },
+      "properties": {
+        "admin": "Solomon Islands",
+        "name": "Solomon Is.",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -10121,7 +10652,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Sierra Leone", "name": "Sierra Leone", "continent": "Africa" },
+      "properties": {
+        "admin": "Sierra Leone",
+        "name": "Sierra Leone",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10154,7 +10689,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "El Salvador", "name": "El Salvador", "continent": "North America" },
+      "properties": {
+        "admin": "El Salvador",
+        "name": "El Salvador",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10185,7 +10724,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Somaliland", "name": "Somaliland", "continent": "Africa" },
+      "properties": {
+        "admin": "Somaliland",
+        "name": "Somaliland",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10220,7 +10763,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Somalia", "name": "Somalia", "continent": "Africa" },
+      "properties": {
+        "admin": "Somalia",
+        "name": "Somalia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10267,7 +10814,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Republic of Serbia", "name": "Serbia", "continent": "Europe" },
+      "properties": {
+        "admin": "Republic of Serbia",
+        "name": "Serbia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10324,7 +10875,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Suriname", "name": "Suriname", "continent": "South America" },
+      "properties": {
+        "admin": "Suriname",
+        "name": "Suriname",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10361,7 +10916,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Slovakia", "name": "Slovakia", "continent": "Europe" },
+      "properties": {
+        "admin": "Slovakia",
+        "name": "Slovakia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10405,7 +10964,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Slovenia", "name": "Slovenia", "continent": "Europe" },
+      "properties": {
+        "admin": "Slovenia",
+        "name": "Slovenia",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10434,7 +10997,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Sweden", "name": "Sweden", "continent": "Europe" },
+      "properties": {
+        "admin": "Sweden",
+        "name": "Sweden",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10485,7 +11052,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Swaziland", "name": "Swaziland", "continent": "Africa" },
+      "properties": {
+        "admin": "Swaziland",
+        "name": "Swaziland",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10644,7 +11215,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Thailand", "name": "Thailand", "continent": "Asia" },
+      "properties": {
+        "admin": "Thailand",
+        "name": "Thailand",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10719,7 +11294,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Tajikistan", "name": "Tajikistan", "continent": "Asia" },
+      "properties": {
+        "admin": "Tajikistan",
+        "name": "Tajikistan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10771,7 +11350,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Turkmenistan", "name": "Turkmenistan", "continent": "Asia" },
+      "properties": {
+        "admin": "Turkmenistan",
+        "name": "Turkmenistan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10836,7 +11419,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "East Timor", "name": "Timor-Leste", "continent": "Asia" },
+      "properties": {
+        "admin": "East Timor",
+        "name": "Timor-Leste",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10858,7 +11445,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Trinidad and Tobago", "name": "Trinidad and Tobago", "continent": "North America" },
+      "properties": {
+        "admin": "Trinidad and Tobago",
+        "name": "Trinidad and Tobago",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10877,7 +11468,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Tunisia", "name": "Tunisia", "continent": "Africa" },
+      "properties": {
+        "admin": "Tunisia",
+        "name": "Tunisia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -10919,7 +11514,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Turkey", "name": "Turkey", "continent": "Asia" },
+      "properties": {
+        "admin": "Turkey",
+        "name": "Turkey",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -11003,7 +11602,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Taiwan", "name": "Taiwan", "continent": "Asia" },
+      "properties": {
+        "admin": "Taiwan",
+        "name": "Taiwan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11023,7 +11626,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "United Republic of Tanzania", "name": "Tanzania", "continent": "Africa" },
+      "properties": {
+        "admin": "United Republic of Tanzania",
+        "name": "Tanzania",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11083,7 +11690,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Uganda", "name": "Uganda", "continent": "Africa" },
+      "properties": {
+        "admin": "Uganda",
+        "name": "Uganda",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11121,7 +11732,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Ukraine", "name": "Ukraine", "continent": "Europe" },
+      "properties": {
+        "admin": "Ukraine",
+        "name": "Ukraine",
+        "continent": "Europe"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11230,7 +11845,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Uruguay", "name": "Uruguay", "continent": "South America" },
+      "properties": {
+        "admin": "Uruguay",
+        "name": "Uruguay",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11262,7 +11881,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "United States of America", "name": "United States", "continent": "North America" },
+      "properties": {
+        "admin": "United States of America",
+        "name": "United States",
+        "continent": "North America"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -11755,7 +12378,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Uzbekistan", "name": "Uzbekistan", "continent": "Asia" },
+      "properties": {
+        "admin": "Uzbekistan",
+        "name": "Uzbekistan",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11820,7 +12447,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Venezuela", "name": "Venezuela", "continent": "South America" },
+      "properties": {
+        "admin": "Venezuela",
+        "name": "Venezuela",
+        "continent": "South America"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11923,7 +12554,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Vietnam", "name": "Vietnam", "continent": "Asia" },
+      "properties": {
+        "admin": "Vietnam",
+        "name": "Vietnam",
+        "continent": "Asia"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -11978,7 +12613,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Vanuatu", "name": "Vanuatu", "continent": "Australia" },
+      "properties": {
+        "admin": "Vanuatu",
+        "name": "Vanuatu",
+        "continent": "Australia"
+      },
       "geometry": {
         "type": "MultiPolygon",
         "coordinates": [
@@ -12062,7 +12701,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "South Africa", "name": "South Africa", "continent": "Africa" },
+      "properties": {
+        "admin": "South Africa",
+        "name": "South Africa",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -12169,7 +12812,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Zambia", "name": "Zambia", "continent": "Africa" },
+      "properties": {
+        "admin": "Zambia",
+        "name": "Zambia",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -12241,7 +12888,11 @@
     },
     {
       "type": "Feature",
-      "properties": { "admin": "Zimbabwe", "name": "Zimbabwe", "continent": "Africa" },
+      "properties": {
+        "admin": "Zimbabwe",
+        "name": "Zimbabwe",
+        "continent": "Africa"
+      },
       "geometry": {
         "type": "Polygon",
         "coordinates": [

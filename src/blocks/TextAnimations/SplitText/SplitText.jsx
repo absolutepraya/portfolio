@@ -4,10 +4,21 @@
 	02-02-2025
 */
 
-import { useSprings, animated } from '@react-spring/web';
+import { animated, useSprings } from '@react-spring/web';
 import { useEffect, useRef, useState } from 'react';
 
-const SplitText = ({ text = '', className = '', delay = 100, animationFrom = { opacity: 0, transform: 'translate3d(0,40px,0)' }, animationTo = { opacity: 1, transform: 'translate3d(0,0,0)' }, easing = 'easeOutCubic', threshold = 0.1, rootMargin = '-100px', textAlign = 'center', onLetterAnimationComplete }) => {
+const SplitText = ({
+  text = '',
+  className = '',
+  delay = 100,
+  animationFrom = { opacity: 0, transform: 'translate3d(0,40px,0)' },
+  animationTo = { opacity: 1, transform: 'translate3d(0,0,0)' },
+  easing = 'easeOutCubic',
+  threshold = 0.1,
+  rootMargin = '-100px',
+  textAlign = 'center',
+  onLetterAnimationComplete,
+}) => {
   const words = text.split(' ').map((word) => word.split(''));
   const letters = words.flat();
   const [inView, setInView] = useState(false);
@@ -22,7 +33,7 @@ const SplitText = ({ text = '', className = '', delay = 100, animationFrom = { o
           observer.unobserve(ref.current);
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
 
     observer.observe(ref.current);
@@ -38,14 +49,17 @@ const SplitText = ({ text = '', className = '', delay = 100, animationFrom = { o
         ? async (next) => {
             await next(animationTo);
             animatedCount.current += 1;
-            if (animatedCount.current === letters.length && onLetterAnimationComplete) {
+            if (
+              animatedCount.current === letters.length &&
+              onLetterAnimationComplete
+            ) {
               onLetterAnimationComplete();
             }
           }
         : animationFrom,
       delay: i * delay,
       config: { easing },
-    }))
+    })),
   );
 
   return (
@@ -60,7 +74,9 @@ const SplitText = ({ text = '', className = '', delay = 100, animationFrom = { o
           style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
         >
           {word.map((letter, letterIndex) => {
-            const index = words.slice(0, wordIndex).reduce((acc, w) => acc + w.length, 0) + letterIndex;
+            const index =
+              words.slice(0, wordIndex).reduce((acc, w) => acc + w.length, 0) +
+              letterIndex;
 
             return (
               <animated.span
@@ -72,7 +88,9 @@ const SplitText = ({ text = '', className = '', delay = 100, animationFrom = { o
               </animated.span>
             );
           })}
-          <span style={{ display: 'inline-block', width: '0.3em' }}>&nbsp;</span>
+          <span style={{ display: 'inline-block', width: '0.3em' }}>
+            &nbsp;
+          </span>
         </span>
       ))}
     </p>

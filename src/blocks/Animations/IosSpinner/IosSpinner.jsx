@@ -18,7 +18,7 @@ const IosSpinner = ({ className = '', size = 'md', ...props }) => {
       {...props}
     >
       {Array.from({ length: 12 }).map((_, i) => (
-        <div key={i} className="spinner-blade" />
+        <div key={i} className='spinner-blade' />
       ))}
     </div>
   );

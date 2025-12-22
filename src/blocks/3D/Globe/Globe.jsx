@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unknown-property */
-import { useEffect, useRef, useState } from 'react';
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from 'three';
-import ThreeGlobe from 'three-globe';
-import { useThree, Canvas, extend } from '@react-three/fiber';
+
 import { OrbitControls } from '@react-three/drei';
+import { Canvas, extend, useThree } from '@react-three/fiber';
+import { useEffect, useRef, useState } from 'react';
+import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three';
+import ThreeGlobe from 'three-globe';
 import countries from '../../../data/globe.json';
 
 extend({ ThreeGlobe });
@@ -56,7 +57,7 @@ export function Globe({ globeConfig, data }) {
 
   const _buildData = () => {
     const arcs = data;
-    let points = [];
+    const points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
       const rgb = hexToRgb(arc.color);
@@ -77,7 +78,10 @@ export function Globe({ globeConfig, data }) {
     }
 
     // remove duplicates for same lat and lng
-    const filteredPoints = points.filter((v, i, a) => a.findIndex((v2) => ['lat', 'lng'].every((k) => v2[k] === v[k])) === i);
+    const filteredPoints = points.filter(
+      (v, i, a) =>
+        a.findIndex((v2) => ['lat', 'lng'].every((k) => v2[k] === v[k])) === i,
+    );
 
     setGlobeData(filteredPoints);
   };
@@ -131,7 +135,9 @@ export function Globe({ globeConfig, data }) {
       .ringColor((e) => (t) => e.color(t))
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod((defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings);
+      .ringRepeatPeriod(
+        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
+      );
   };
 
   useEffect(() => {
@@ -139,9 +145,15 @@ export function Globe({ globeConfig, data }) {
 
     const interval = setInterval(() => {
       if (!globeRef.current || !globeData) return;
-      numbersOfRings = genRandomNumbers(0, data.length, Math.floor((data.length * 4) / 5));
+      numbersOfRings = genRandomNumbers(
+        0,
+        data.length,
+        Math.floor((data.length * 4) / 5),
+      );
 
-      globeRef.current.ringsData(globeData.filter((d, i) => numbersOfRings.includes(i)));
+      globeRef.current.ringsData(
+        globeData.filter((d, i) => numbersOfRings.includes(i)),
+      );
     }, 2000);
 
     return () => {
@@ -173,15 +185,9 @@ export function World(props) {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
   return (
-    <Canvas
-      scene={scene}
-      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
-    >
+    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
-      <ambientLight
-        color={globeConfig.ambientLight}
-        intensity={0.6}
-      />
+      <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
         color={globeConfig.directionalLeftLight}
         position={new Vector3(-400, 100, 400)}
@@ -212,16 +218,14 @@ export function World(props) {
 
 export function hexToRgb(hex) {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
 
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
+        r: Number.parseInt(result[1], 16),
+        g: Number.parseInt(result[2], 16),
+        b: Number.parseInt(result[3], 16),
       }
     : null;
 }

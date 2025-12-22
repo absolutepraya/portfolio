@@ -4,8 +4,8 @@
 	02-02-2025
 */
 
-import { useEffect, useRef } from 'react';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 export default function CountUp({
   to,
@@ -57,7 +57,7 @@ export default function CountUp({
             onEnd();
           }
         },
-        delay * 1000 + duration * 1000
+        delay * 1000 + duration * 1000,
       );
 
       return () => {
@@ -65,7 +65,18 @@ export default function CountUp({
         clearTimeout(durationTimeoutId);
       };
     }
-  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
+  }, [
+    isInView,
+    startWhen,
+    motionValue,
+    direction,
+    from,
+    to,
+    delay,
+    onStart,
+    onEnd,
+    duration,
+  ]);
 
   // Update text content with formatted number on spring value change
   useEffect(() => {
@@ -77,19 +88,18 @@ export default function CountUp({
           maximumFractionDigits: 0,
         };
 
-        const formattedNumber = Intl.NumberFormat('en-US', options).format(latest.toFixed(0));
+        const formattedNumber = Intl.NumberFormat('en-US', options).format(
+          latest.toFixed(0),
+        );
 
-        ref.current.textContent = separator ? formattedNumber.replace(/,/g, separator) : formattedNumber;
+        ref.current.textContent = separator
+          ? formattedNumber.replace(/,/g, separator)
+          : formattedNumber;
       }
     });
 
     return () => unsubscribe();
   }, [springValue, separator]);
 
-  return (
-    <span
-      className={`${className}`}
-      ref={ref}
-    />
-  );
+  return <span className={`${className}`} ref={ref} />;
 }

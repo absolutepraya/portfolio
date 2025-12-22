@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
-import JavaScript from '../../assets/stacks/javascript.svg';
-import TypeScript from '../../assets/stacks/typescript.svg';
-import Tailwind from '../../assets/stacks/tailwind.svg';
-import Reactjs from '../../assets/stacks/react.svg';
-import Next from '../../assets/stacks/nextjs.svg';
-import Express from '../../assets/stacks/express.svg';
-import Nest from '../../assets/stacks/nestjs.svg';
-import Go from '../../assets/stacks/go.svg';
-import Fiber from '../../assets/stacks/fiber.svg';
-import Java from '../../assets/stacks/java.svg';
-import Springboot from '../../assets/stacks/springboot.svg';
-import Python from '../../assets/stacks/python.svg';
-import Django from '../../assets/stacks/django.svg';
-import Flask from '../../assets/stacks/flask.svg';
-import FastAPI from '../../assets/stacks/fastapi.svg';
-import Dart from '../../assets/stacks/dart.svg';
-import Flutter from '../../assets/stacks/flutter.svg';
-import PostgreSQL from '../../assets/stacks/postgresql.svg';
-import MongoDB from '../../assets/stacks/mongodb.svg';
-import Firebase from '../../assets/stacks/firebase.svg';
-import Redis from '../../assets/stacks/redis.svg';
-import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import Bun from '../../assets/stacks/bun.svg';
+import Dart from '../../assets/stacks/dart.svg';
+import Django from '../../assets/stacks/django.svg';
+import Express from '../../assets/stacks/express.svg';
+import FastAPI from '../../assets/stacks/fastapi.svg';
+import Fiber from '../../assets/stacks/fiber.svg';
+import Firebase from '../../assets/stacks/firebase.svg';
+import Flask from '../../assets/stacks/flask.svg';
+import Flutter from '../../assets/stacks/flutter.svg';
+import Go from '../../assets/stacks/go.svg';
+import Java from '../../assets/stacks/java.svg';
+import JavaScript from '../../assets/stacks/javascript.svg';
+import MongoDB from '../../assets/stacks/mongodb.svg';
+import Nest from '../../assets/stacks/nestjs.svg';
+import Next from '../../assets/stacks/nextjs.svg';
+import PostgreSQL from '../../assets/stacks/postgresql.svg';
+import Python from '../../assets/stacks/python.svg';
+import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
+import Reactjs from '../../assets/stacks/react.svg';
+import Redis from '../../assets/stacks/redis.svg';
+import Springboot from '../../assets/stacks/springboot.svg';
+import Tailwind from '../../assets/stacks/tailwind.svg';
+import TypeScript from '../../assets/stacks/typescript.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const stacksList = [
@@ -74,7 +74,11 @@ export const SliderStacks = () => {
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-          {hoveredIndex === index && <div className='absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] md:max-w-[4rem] md:text-xs'>{stack.alt}</div>}
+          {hoveredIndex === index && (
+            <div className='absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] md:max-w-[4rem] md:text-xs'>
+              {stack.alt}
+            </div>
+          )}
           <img
             src={stack.src}
             alt={stack.alt}

@@ -9,3 +9,7 @@ compress-optimize.sh
 .env.local
 .env.development
 .env.production
+.eslintrc.cjs
+.eslintignore
+.prettierrc.json
+.prettierignore

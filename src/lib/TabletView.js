@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const TabletView = () => {
   const [tabletView, setTabletView] = useState(window.innerWidth >= 768);

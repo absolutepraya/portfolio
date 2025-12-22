@@ -1,10 +1,11 @@
 // Import organizer logos
-import Kemenkeu from '../assets/orgs/kemenkeu.webp';
-import JIHS from '../assets/orgs/jihs.webp';
-import UC from '../assets/orgs/uc.webp';
-import Microsoft from '../assets/orgs/microsoft.svg';
-import ASSI from '../assets/orgs/assi.webp';
+
 import Alibaba from '../assets/orgs/alibaba.webp';
+import ASSI from '../assets/orgs/assi.webp';
+import JIHS from '../assets/orgs/jihs.webp';
+import Kemenkeu from '../assets/orgs/kemenkeu.webp';
+import Microsoft from '../assets/orgs/microsoft.svg';
+import UC from '../assets/orgs/uc.webp';
 
 const achievementsData = [
   {
@@ -50,7 +51,7 @@ const achievementsData = [
         url: 'https://www.hetanews.com/article/294648/tim-mahasiswa-ui-raih-juara-1-govai-kementerian-keuangan-hackathon-2024',
       },
     ],
-    imagesPath: 'src/assets/achievements/govai'
+    imagesPath: 'src/assets/achievements/govai',
   },
   {
     title: 'JIHS Hackathon 2025',
@@ -75,7 +76,7 @@ const achievementsData = [
         url: 'https://eportal.id/release-jihs-hackathon-2025-ajang-kreativitas-teknologi-dalam-mewujudkan-visi-asta-cita/',
       },
     ],
-    imagesPath: 'src/assets/achievements/jihs'
+    imagesPath: 'src/assets/achievements/jihs',
   },
   {
     title: 'elevAIte Hackathon 2025',
@@ -94,9 +95,9 @@ const achievementsData = [
     articles: [
       {
         platform: 'BINUS News',
-        url: 'https://socs.binus.ac.id/2025/07/02/binus-university-gelar-hackathon-elevaite-2025-angkat-tema-ai-for-inclusivity/'
-      }
-    ]
+        url: 'https://socs.binus.ac.id/2025/07/02/binus-university-gelar-hackathon-elevaite-2025-angkat-tema-ai-for-inclusivity/',
+      },
+    ],
   },
   {
     title: 'Alibaba Cloud Hackathon 2025',
@@ -109,9 +110,14 @@ const achievementsData = [
     awardInt: 3,
     prizeInt: 5000000,
     prizeCurr: 'IDR',
-    bonus: ['Acrylic Plaque', 'Alibaba Cloud Voucher', 'Alibaba Merchandises', 'GoTo Merchandises'],
+    bonus: [
+      'Acrylic Plaque',
+      'Alibaba Cloud Voucher',
+      'Alibaba Merchandises',
+      'GoTo Merchandises',
+    ],
     location: 'Jakarta, Indonesia',
-    imagesPath: 'src/assets/achievements/alibaba'
+    imagesPath: 'src/assets/achievements/alibaba',
   },
   {
     title: 'AI4Accessibility Hackathon 2025',
@@ -122,9 +128,12 @@ const achievementsData = [
     desc: 'Won **2nd place**  with **PINTARU** - an adaptive study helper and digital storybook solution for kids with dyslexia. The solution adjusts font size, spacing, and visual elements using **Azure OpenAI**, **Azure Search**, and **Azure Speech** to create more inclusive learning experiences. Competed against 46 teams with 10 finalists.',
     award: '2nd Place',
     awardInt: 2,
-    bonus: ['Dinner with President of Microsoft Indonesia, Dharma Simorangkir', 'Merchandises'],
+    bonus: [
+      'Dinner with President of Microsoft Indonesia, Dharma Simorangkir',
+      'Merchandises',
+    ],
     location: 'FT UI, Depok, Indonesia',
-    imagesPath: 'src/assets/achievements/ai4a'
+    imagesPath: 'src/assets/achievements/ai4a',
   },
   {
     title: 'Indonesia Aerospace Hackathon 2025',

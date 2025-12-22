@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import NavBar from './components/NavBar/NavBar';
-import About from './components/About/About';
-import Experience from './components/Experience/Experience';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
-import Copyright from './components/Copyright';
-import Achievements from './components/Achievements/Achievements';
 import Hero1 from './assets/hero/hero1.webp';
 import Hero2 from './assets/hero/hero2.webp';
+import About from './components/About/About';
+import Achievements from './components/Achievements/Achievements';
+import Contact from './components/Contact/Contact';
+import Copyright from './components/Copyright';
+import Experience from './components/Experience/Experience';
+import NavBar from './components/NavBar/NavBar';
+import Projects from './components/Projects/Projects';
 
 const App = () => {
   return (
@@ -51,8 +51,10 @@ const App = () => {
           alt='Hero background'
           className='h-full w-full object-cover'
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
+            maskImage:
+              'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0,0,0,1) 100%)',
           }}
           draggable='false'
           loading='eager'

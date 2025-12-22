@@ -4,9 +4,21 @@
 	01-02-2025
 */
 
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-export default function MagnetLines({ rows = 9, columns = 9, containerSize = '80vmin', containerW, containerH, lineColor = '#efefef', lineWidth = '1vmin', lineHeight = '6vmin', baseAngle = -10, className = '', style = {} }) {
+export default function MagnetLines({
+  rows = 9,
+  columns = 9,
+  containerSize = '80vmin',
+  containerW,
+  containerH,
+  lineColor = '#efefef',
+  lineWidth = '1vmin',
+  lineHeight = '6vmin',
+  baseAngle = -10,
+  className = '',
+  style = {},
+}) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +36,8 @@ export default function MagnetLines({ rows = 9, columns = 9, containerSize = '80
         const b = pointer.x - centerX;
         const a = pointer.y - centerY;
         const c = Math.sqrt(a * a + b * b) || 1;
-        const r = ((Math.acos(b / c) * 180) / Math.PI) * (pointer.y > centerY ? 1 : -1);
+        const r =
+          ((Math.acos(b / c) * 180) / Math.PI) * (pointer.y > centerY ? 1 : -1);
 
         item.style.setProperty('--rotate', `${r}deg`);
       });

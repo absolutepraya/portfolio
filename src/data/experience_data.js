@@ -1,10 +1,11 @@
 // Import organization logos
-import COMPFEST from '../assets/orgs/compfest.webp';
-import RISTEK from '../assets/orgs/ristek.svg';
-import Fasilkom from '../assets/orgs/fasilkom.svg';
-import DDP0 from '../assets/orgs/ddp0.svg';
-import GDG from '../assets/orgs/gdg.svg';
+
 import CO80 from '../assets/orgs/80co.webp';
+import COMPFEST from '../assets/orgs/compfest.webp';
+import DDP0 from '../assets/orgs/ddp0.svg';
+import Fasilkom from '../assets/orgs/fasilkom.svg';
+import GDG from '../assets/orgs/gdg.svg';
+import RISTEK from '../assets/orgs/ristek.svg';
 import SB from '../assets/orgs/sb.webp';
 import TVI from '../assets/orgs/tvi.webp';
 
@@ -69,8 +70,16 @@ const experienceData = [
     date: '03/2024 - Present',
     desc: '- Selected from competitive batch for RISTEK membership and promoted to lead position\n- Deployed an **Attack/Defense CTF** platform for 20 internal members in GCP with GKE using Ansible automation:\n  - [https://github.com/ctfcompfest/ailurus-frontend](https://github.com/ctfcompfest/ailurus-frontend)\n  - [https://github.com/ctfcompfest/ailurus-backend](https://github.com/ctfcompfest/ailurus-backend)\n- Contributed as **Next.js Frontend Developer** to cross-SIG **RISTEK Capstone Project**, collaborating with multiple teams to deliver integrated solutions\n- Led open classes on **Web Penetration** and **Cryptography** topic for 50+ participants on cybersecurity fundamentals, mainly in the form of CTF (Capture The Flag)',
     alignCenter: false,
-    previousTitles: ['Member of NetSOS SIG', 'PIC of Open Class', 'Mentee of Open Class'],
-    previousDates: ['03/2024 - 02/2025', '09/2024 - 11/2024', '10/2023 - 10/2023'],
+    previousTitles: [
+      'Member of NetSOS SIG',
+      'PIC of Open Class',
+      'Mentee of Open Class',
+    ],
+    previousDates: [
+      '03/2024 - 02/2025',
+      '09/2024 - 11/2024',
+      '10/2023 - 10/2023',
+    ],
   },
   {
     title: 'TA for Linear Algebra',
@@ -90,9 +99,9 @@ const experienceData = [
     url: 'https://www.linkedin.com/company/ddp-0/mycompany/',
     logo: DDP0,
     date: '06/2024 - 09/2024',
-    desc: '- Mentored 30 freshmen in foundational **Python** to prepare them for the university\'s introductory course\n- Developed a 4-week Python curriculum, leading to their score increase of up to 20% on the final project',
+    desc: "- Mentored 30 freshmen in foundational **Python** to prepare them for the university's introductory course\n- Developed a 4-week Python curriculum, leading to their score increase of up to 20% on the final project",
     alignCenter: false,
-  }
+  },
 ];
 
 export default experienceData;

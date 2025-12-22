@@ -1,4 +1,5 @@
-import React, { Suspense, lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
+
 // import { motion } from 'framer-motion';
 
 // Lazy load the World component
@@ -398,11 +399,14 @@ export function GlobeDemo() {
         <div className='pointer-events-none absolute inset-x-0 bottom-0 z-40 h-16 w-full select-none bg-customblack md:h-12' />
         <div className='absolute z-10 h-[28rem] w-full md:h-full'>
           {/* Wrap the World component with Suspense */}
-          <Suspense fallback={<div className='flex w-full justify-center text-customwhite text-opacity-0'>Mapping the globe, one pixel at a time...</div>}>
-            <World
-              data={sampleArcs}
-              globeConfig={globeConfig}
-            />
+          <Suspense
+            fallback={
+              <div className='flex w-full justify-center text-customwhite text-opacity-0'>
+                Mapping the globe, one pixel at a time...
+              </div>
+            }
+          >
+            <World data={sampleArcs} globeConfig={globeConfig} />
           </Suspense>
         </div>
       </div>
