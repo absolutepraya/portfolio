@@ -15,7 +15,7 @@ const Button = ({ icon = null, text, link, isActive }) => {
       >
         {icon}
         {isHovered && desktopView && (
-          <div className='w-aut absolute -bottom-8 h-auto rounded bg-customgray px-1 transition-all duration-75'>
+          <div className='w-auto absolute -bottom-8 h-auto rounded bg-customgray px-1 transition-all duration-75'>
             <p className='text-sm'>{text}</p>
           </div>
         )}
