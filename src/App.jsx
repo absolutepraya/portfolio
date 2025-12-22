@@ -4,8 +4,8 @@ import Hero2 from './assets/hero/hero2.webp';
 import About from './components/About/About';
 import Achievements from './components/Achievements/Achievements';
 import Contact from './components/Contact/Contact';
-import Copyright from './components/Footer';
 import Experience from './components/Experience/Experience';
+import Copyright from './components/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Projects from './components/Projects/Projects';
 
