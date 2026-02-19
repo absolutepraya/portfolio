@@ -12,7 +12,7 @@ const Contact = () => {
     >
       <div id='contacts' className='absolute -top-24' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
-        <motion.p
+        <motion.h2
           className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
@@ -27,7 +27,7 @@ const Contact = () => {
           }}
         >
           Let&apos;s connect!
-        </motion.p>
+        </motion.h2>
         <div
           className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}
         >

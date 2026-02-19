@@ -145,7 +145,7 @@ const About = () => {
                 in every project.
               </p>
             </div>
-            {/* To improve SEO, write all skills in a hidden p under this div */}
+            {/* Intentional: hidden text lists all skills for SEO indexing since the marquee images aren't text-crawlable */}
             <p className='absolute -z-10 w-[20rem] text-xs opacity-0'>
               {stacksList.map((stack) => stack.alt).join(' ')}
             </p>

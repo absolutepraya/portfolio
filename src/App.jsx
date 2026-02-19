@@ -32,11 +32,13 @@ const App = () => {
         />
       </motion.div>
 
-      <About />
-      <Experience />
-      <Achievements />
-      <Projects />
-      <Contact />
+      <main className='flex flex-col items-center space-y-20 md:space-y-32'>
+        <About />
+        <Experience />
+        <Achievements />
+        <Projects />
+        <Contact />
+      </main>
       <Copyright />
 
       <motion.div
