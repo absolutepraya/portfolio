@@ -50,7 +50,10 @@ async function prerender() {
   const server = await startServer();
   console.log(`Local server running on http://localhost:${PORT}`);
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
   const page = await browser.newPage();
 
   await page.goto(`http://localhost:${PORT}/`, {

@@ -6,6 +6,9 @@
   "engines": {
     "node": "22.x"
   },
+  "knip": {
+    "ignoreDependencies": ["serve", "husky"]
+  },
   "scripts": {
     "dev": "bun run vite",
     "build": "bun run vite build && bun run scripts/prerender.js",
