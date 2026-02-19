@@ -18,8 +18,8 @@
     "check": "bunx biome check --write --unsafe .",
     "start": "bun run serve -s dist",
     "knip": "knip",
-    "heroku-prebuild": "rm -rf node_modules package-lock.json",
-    "heroku-postbuild": "bun run vite build && bun run scripts/prerender.js && rm -rf .cache/puppeteer node_modules/puppeteer node_modules/@puppeteer"
+    "heroku-prebuild": "rm -f package-lock.json",
+    "heroku-postbuild": "bun install && bun run vite build && bun run scripts/prerender.js && rm -rf .cache/puppeteer node_modules/puppeteer node_modules/@puppeteer"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
