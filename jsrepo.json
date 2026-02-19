@@ -3,7 +3,7 @@
   "repos": ["https://reactbits.dev/tailwind"],
   "includeTests": false,
   "watermark": true,
-  "formatter": "prettier",
+  "formatter": "biome",
   "paths": {
     "*": "./src/blocks"
   }

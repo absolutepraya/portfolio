@@ -13,6 +13,7 @@ export default defineConfig({
       'bore.pub',
       'ngrok.io',
       'localhost',
+      '.abhipraya.dev',
     ],
   },
   optimizeDeps: {
