@@ -66,14 +66,14 @@ const Achievements = () => {
               color={'rgba(204, 204, 204, 1)'}
               maxOpacity={0.3}
               flickerChance={0.2}
-              className={'absolute left-0 top-0 !z-[0] h-full w-full'}
+              className={'!z-[0] absolute top-0 left-0 h-full w-full'}
             />
           </motion.div>
         )}
-        <div className='absolute left-0 top-0 !z-[0] h-full w-[100%] shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)]' />
+        <div className='!z-[0] absolute top-0 left-0 h-full w-[100%] shadow-[inset_0px_0px_40px_50px_rgba(5,4,14,1)]' />
         {/* Covering uncovered flickering grid area */}
-        <div className='absolute -left-[4px] top-0 h-full w-[4px] bg-[#03020F]' />
-        <div className='absolute -right-[4px] top-0 h-full w-[4px] bg-[#03020F]' />
+        <div className='absolute top-0 -left-[4px] h-full w-[4px] bg-[#03020F]' />
+        <div className='absolute top-0 -right-[4px] h-full w-[4px] bg-[#03020F]' />
         <AchievementsBox
           achievementData={achievementsData}
           showAll={showAll}

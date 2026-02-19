@@ -183,34 +183,15 @@ body {
 .markdown-content ul {
   list-style-type: disc;
   padding-left: 1rem;
-  /* margin-bottom: 0.5rem; */
 }
 
 .markdown-content ul ul {
   list-style-type: circle;
   padding-left: 1.5rem;
-  /* margin-top: 0.25rem; */
-  /* margin-bottom: 0.25rem; */
 }
 
 .markdown-content ul ul ul {
   list-style-type: square;
-}
-
-.markdown-content li {
-  /* margin-bottom: 0.25rem; */
-}
-
-.markdown-content li > ul {
-  /* margin-top: 0.25rem; */
-}
-
-.markdown-content p {
-  /* margin-bottom: 0.5rem; */
-}
-
-.markdown-content p:last-child {
-  /* margin-bottom: 0; */
 }
 
 .markdown-content a {

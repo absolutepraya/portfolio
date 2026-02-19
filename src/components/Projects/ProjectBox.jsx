@@ -197,7 +197,7 @@ const ProjectBox = ({
               )}
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
             </div>
-            <p className='md:text-md mt-[6px] text-end font-maplemono text-sm font-extrabold opacity-70 md:mt-[10px]'>
+            <p className='mt-[6px] text-end font-extrabold font-maplemono text-sm opacity-70 md:mt-[10px] md:text-md'>
               {date}
             </p>
           </div>
@@ -211,14 +211,14 @@ const ProjectBox = ({
                     key={index}
                     className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
                   >
-                    <p className='font-maplemono text-xs text-blurple md:text-sm'>
+                    <p className='font-maplemono text-blurple text-xs md:text-sm'>
                       {t}
                     </p>
                   </div>
                 ))
               ) : (
                 <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
-                  <p className='font-maplemono text-xs text-blurple md:text-sm'>
+                  <p className='font-maplemono text-blurple text-xs md:text-sm'>
                     {type}
                   </p>
                 </div>

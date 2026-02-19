@@ -52,16 +52,16 @@ const ExperienceBox = ({
   return (
     <motion.div
       ref={divRef}
-      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-4 transition-all duration-[480ms] ease-in-out lg:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
+      className={`!pt-4 relative flex flex-col items-center space-y-3 rounded-3xl bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-[480ms] ease-in-out lg:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
     >
       <div
         ref={divRef}
-        className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-b-0 border-r-0 border-customgray ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
+        className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-customgray border-r-0 border-b-0 ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
       />
       <div
-        className={`absolute -top-[4rem] md:-top-[6.6rem] -z-10 font-black transition-all duration-[380ms] ease-in-out ${isInView ? 'opacity-100' : 'opacity-40'}`}
+        className={`absolute -top-[4rem] -z-10 font-black transition-all duration-[380ms] ease-in-out md:-top-[6.6rem] ${isInView ? 'opacity-100' : 'opacity-40'}`}
       >
-        <p className='bg-gradient-to-b from-[#ccccccb9] from-0% to-[#cccccc00] to-[67%] bg-clip-text text-[3.3rem] md:text-[6rem] tracking-wide text-transparent'>
+        <p className='bg-gradient-to-b from-0% from-[#ccccccb9] to-[#cccccc00] to-[67%] bg-clip-text text-[3.3rem] text-transparent tracking-wide md:text-[6rem]'>
           {orgShort ? orgShort : org}
         </p>
       </div>
@@ -74,7 +74,7 @@ const ExperienceBox = ({
         <div className='flex flex-col items-center justify-center md:flex-row md:space-x-2 md:text-lg'>
           {desktopView ? (
             <a
-              className={`w-45% relative font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
+              className={`relative w-45% font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
               href={url}
               target='_blank'
               rel='noreferrer'
@@ -92,7 +92,7 @@ const ExperienceBox = ({
                 draggable='false'
               />
               <a
-                className={`w-45% relative font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
+                className={`relative w-45% font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
                 href={url}
                 target='_blank'
                 rel='noreferrer'
@@ -121,7 +121,7 @@ const ExperienceBox = ({
         </div>
       </div>
       <div
-        className={`markdown-content !md:mt-4 z-20 text-sm md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}
+        className={`markdown-content z-20 !md:mt-4 text-sm md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}
       >
         <ReactMarkdown>{desc}</ReactMarkdown>
       </div>
@@ -129,7 +129,7 @@ const ExperienceBox = ({
       {previousTitles && previousDates && (
         <motion.div className={'flex w-full flex-col'}>
           <div
-            className={`mb-4 mt-2 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
+            className={`mt-2 mb-4 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-[380ms] ease-in-out`}
           />
           <p
             className={`${isInView ? 'opacity-90' : 'opacity-70'} mb-2 text-sm transition-all duration-[380ms] ease-in-out md:text-base`}

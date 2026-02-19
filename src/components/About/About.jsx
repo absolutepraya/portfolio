@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <section
-      className='relative !mt-36 flex w-[90vw] flex-col items-center lg:!mt-40 xl:w-[68rem]'
+      className='!mt-36 lg:!mt-40 relative flex w-[90vw] flex-col items-center xl:w-[68rem]'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
@@ -36,7 +36,7 @@ const About = () => {
             });
           }}
         >
-          <span className='relative !ml-6 flex h-4 w-4 items-center justify-center'>
+          <span className='!ml-6 relative flex h-4 w-4 items-center justify-center'>
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75' />
             <span className='relative inline-flex h-3 w-3 rounded-full bg-blurple' />
           </span>
@@ -45,7 +45,7 @@ const About = () => {
           </p>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mb-14 mt-12 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
+      <div className='mt-12 mb-14 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
         <BlurInDesc />
         <motion.p
           initial='hidden'
@@ -73,17 +73,17 @@ const About = () => {
             <div className='relative flex items-center justify-center lg:h-[11.5rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
-                <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -left-[1px] z-10 h-[105%] w-1 bg-customblack' />
               )}
               {!desktopView && (
-                <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -right-[1px] z-10 h-[105%] w-1 bg-customblack' />
               )}
               <SliderSkills />
             </div>
             <div className='flex w-full flex-col items-start space-y-4'>
               <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
                 <IconSparkles size={16} stroke={1.5} color='#fff' />
-                <p className='lg:text-md font-maplemono text-sm'>Skillsets</p>
+                <p className='font-maplemono text-sm lg:text-md'>Skillsets</p>
               </div>
               <p className='text-lg lg:text-xl'>
                 Expert in{' '}
@@ -117,10 +117,10 @@ const About = () => {
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
-                <div className='absolute -left-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -left-[1px] z-10 h-[105%] w-1 bg-customblack' />
               )}
               {!desktopView && (
-                <div className='absolute -right-[1px] -top-2 z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -right-[1px] z-10 h-[105%] w-1 bg-customblack' />
               )}
               <SliderStacks />
               <SliderTools />
@@ -128,7 +128,7 @@ const About = () => {
             <div className='flex w-full flex-col items-start space-y-4'>
               <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
                 <IconSettings2 size={16} stroke={1.5} />
-                <p className='lg:text-md font-maplemono text-sm'>
+                <p className='font-maplemono text-sm lg:text-md'>
                   Tech stack & tools
                 </p>
               </div>

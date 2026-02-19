@@ -306,8 +306,8 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
   return (
     <BlurFade delay={0.3} inView inViewMargin='-1px' offset={20}>
-      <div className='relative !z-[40] flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
-        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-l-[3px] border-t-[3px] border-customgray bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
+      <div className='!z-[40] relative flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
+        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-customgray border-t-[3px] border-l-[3px] bg-customblack bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] shadow-lg'>
           {displayedAchievements.map((achievement) => (
             <BlurFade
               key={achievement.title}
@@ -326,7 +326,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                 {achievementImages[achievement.title] &&
                   achievementImages[achievement.title].length > 0 && (
                     <div className='flex h-fit w-full justify-center lg:w-fit'>
-                      <div className='lg:h-76 lg:w-76 relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80'>
+                      <div className='relative mb-[40px] flex aspect-square w-full items-center justify-center rounded-xl bg-zinc-800 md:h-80 md:w-80 lg:h-76 lg:w-76'>
                         {imageLoadingStates[achievement.title]?.[
                           currentImageIndexes[achievement.title]
                         ] ? (
@@ -400,7 +400,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       {achievement.organizer && achievement.organizerUrl && (
                         <div className='rounded-md border border-blurple bg-blurple bg-opacity-10 px-2 transition-all duration-200 hover:bg-blurple hover:bg-opacity-100'>
                           <a
-                            className='text-sm text-blurple transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
+                            className='text-blurple text-sm transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
                             href={achievement.organizerUrl}
                             target='_blank'
                             rel='noreferrer'
@@ -526,7 +526,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
           {showAll && (
             <BlurFade offset={8} inView>
-              <div className='flex w-full items-center justify-center pb-4 pt-4 font-maplemono text-sm'>
+              <div className='flex w-full items-center justify-center pt-4 pb-4 font-maplemono text-sm'>
                 <p className='!opacity-40'>and more to come...</p>
               </div>
             </BlurFade>
@@ -534,13 +534,13 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
           {achievementData.length > 3 && (
             <motion.div
-              className='flex w-full items-center justify-center pb-8 pt-4'
+              className='flex w-full items-center justify-center pt-4 pb-8'
               ref={buttonRef}
             >
               <motion.button
                 onClick={handleToggle}
                 className={
-                  'relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall'
+                  'relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall'
                 }
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>

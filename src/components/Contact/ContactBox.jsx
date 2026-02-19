@@ -41,10 +41,10 @@ const Contact = () => {
       {/* bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
       {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
-        <p className='font-instrument w-full text-start text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>
+        <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>
           I&apos;m always up for...
         </p>
-        <div className='flex w-full flex-col space-y-2 text-4xl font-semibold md:w-auto md:space-y-3 md:text-5xl'>
+        <div className='flex w-full flex-col space-y-2 font-semibold text-4xl md:w-auto md:space-y-3 md:text-5xl'>
           <div className='flex items-center space-x-3 pl-0'>
             <IconPointer
               size={tabletView ? 20 : 16}
@@ -85,12 +85,12 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 !pt-2 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='absolute left-0 top-0 !z-[-1] h-full w-full rounded-3xl border-2 border-b-0 border-r-0 border-[#2a2a2a]' />
+        <div className='!pt-2 relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+          <div className='!z-[-1] absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-[#2a2a2a] border-r-0 border-b-0' />
           <img
             src={Pin}
             alt='Pin'
-            className='absolute -right-10 -top-12 w-16 scale-[85%] drop-shadow-md md:scale-90'
+            className='absolute -top-12 -right-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
             draggable='false'
           />
           <img
@@ -104,15 +104,15 @@ const Contact = () => {
             :D
           </p>
           <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
-            <div className='border-customwhite relative flex h-full items-center space-x-2 rounded-lg border px-3 py-2 transition-all duration-100 md:py-0'>
+            <div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 md:py-0'>
               <IconMail size={desktopView ? 20 : 16} stroke={2} />
-              <p className='font-maplemono break-all text-sm font-semibold tracking-wider'>
+              <p className='break-all font-maplemono font-semibold text-sm tracking-wider'>
                 daffa@abhipraya.dev
               </p>
             </div>
             {tabletView && (
               <a
-                className='hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-opacity-30'
+                className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 href='mailto:daffa@abhipraya.dev'
                 target='_blank'
                 rel='noreferrer'
@@ -125,7 +125,7 @@ const Contact = () => {
             {tabletView && (
               <button
                 type='button'
-                className='clickable hover:bg-blurple hover:text-blurple flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-opacity-30'
+                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
               >
@@ -144,16 +144,16 @@ const Contact = () => {
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
           >
-            <div className='bg-customwhite text-customblack hover:bg-blurple hover:text-customwhite flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg px-3 py-2 transition-all duration-100 md:h-10 md:px-3 md:py-0'>
-              <p className='text-sm font-semibold'>
+            <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
+              <p className='font-semibold text-sm'>
                 or hit me up on <span className='font-extrabold'>LinkedIn</span>
               </p>
               <IconBrandLinkedin size={20} stroke={2} />
             </div>
           </a>
-          <div className='bg-customgray !mt-6 h-0.5 w-full' />
+          <div className='!mt-6 h-0.5 w-full bg-customgray' />
           <p className=''>Follow my other socials!</p>
-          <div className='font-maplemono flex w-full flex-col space-y-2 text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
+          <div className='flex w-full flex-col space-y-2 font-maplemono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
               target='_blank'
@@ -161,7 +161,7 @@ const Contact = () => {
               aria-label='absolutepraya on GitHub'
               title='absolutepraya on GitHub'
             >
-              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
                 <IconBrandGithub size={21} stroke={2} />
                 <p className='underline underline-offset-4'>absolutepraya</p>
               </div>
@@ -173,7 +173,7 @@ const Contact = () => {
               aria-label='___abhipraya on Instagram'
               title='___abhipraya on Instagram'
             >
-              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
                 <IconBrandInstagram size={21} stroke={2} />
                 <p className='underline underline-offset-4'>___abhipraya</p>
               </div>
@@ -185,7 +185,7 @@ const Contact = () => {
               aria-label='Daffa Abhipraya on Spotify'
               title='Daffa Abhipraya on Spotify'
             >
-              <div className='hover:text-blurple flex flex-row items-center space-x-1 transition-all duration-100'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
                 <IconBrandSpotify size={21} stroke={2} />
                 <p className='underline underline-offset-4'>Daffa Abhipraya</p>
               </div>

@@ -70,8 +70,8 @@ export const SliderStacks = () => {
           type='button'
           className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-b-0 border-r-0 border-[#2a2a2a] md:h-20 md:w-20' />
-          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[0.6rem] text-[#cccccc] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
+          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-[#2a2a2a] border-r-0 border-b-0 md:h-20 md:w-20' />
+          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[#cccccc] text-[0.6rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
             {stack.alt}
           </div>
           <img

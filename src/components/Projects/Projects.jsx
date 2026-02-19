@@ -73,7 +73,7 @@ const Projects = () => {
 
   return (
     <section
-      className='relative !z-10 w-[90vw] flex-col space-y-12 xl:w-[68rem]'
+      className='!z-10 relative w-[90vw] flex-col space-y-12 xl:w-[68rem]'
       id='projectssec'
     >
       <div id='projects' className='absolute -top-24' />
@@ -259,7 +259,7 @@ const Projects = () => {
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}
-                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pl-6 pr-4 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

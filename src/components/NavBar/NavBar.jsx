@@ -49,7 +49,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='fixed top-8 !z-[100] flex h-[4.9rem] scale-[97%] flex-row items-center justify-between rounded-3xl border-l-2 border-t-2 border-customgray/40 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md !md:scale-100 lg:w-[55rem]'
+      className='!z-[100] fixed top-8 flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border-customgray/40 border-t-2 border-l-2 bg-customgray bg-opacity-40 px-2.5 backdrop-blur-md lg:w-[55rem]'
       delay={0.2}
       offset={40}
       duration={0.5}
@@ -103,7 +103,7 @@ const NavBar = () => {
           <a
             href='https://www.linkedin.com/in/daffaabhipraya/'
             target='_blank'
-            className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-l border-t border-[#424242]/40 bg-[#3f3f3f] bg-opacity-40 pl-4 pr-3 shadow-xl transition-all hover:scale-105'
+            className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-[#424242]/40 border-t border-l bg-[#3f3f3f] bg-opacity-40 pr-3 pl-4 shadow-xl transition-all hover:scale-105'
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
             onMouseEnter={() => setIsHover(true)}
@@ -111,7 +111,7 @@ const NavBar = () => {
             rel='noopener'
           >
             <p className='text text-end font-semibold leading-4'>Reach out</p>
-            <div className='relative !mr-1 h-[20px] w-[20px] overflow-hidden'>
+            <div className='!mr-1 relative h-[20px] w-[20px] overflow-hidden'>
               <div
                 className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
               >
