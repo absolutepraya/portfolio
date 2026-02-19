@@ -1,14 +1,6 @@
 User-agent: *
 Disallow: /src/
 Disallow: /node_modules/
-Disallow: /.gitignore
-Disallow: /.eslintignore
-Disallow: /.eslintrc.cjs
-Disallow: /.prettierignore
-Disallow: /.prettierrc.json
-Disallow: /color-preset.sh
-Disallow: /compress-optimize.sh
-Disallow: /postcss.config.js
-Disallow: /tailwind.config.js
-Disallow: /vite.config.js
 Allow: /
+
+Sitemap: https://abhipraya.dev/sitemap.xml
