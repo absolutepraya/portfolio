@@ -59,11 +59,15 @@ src/
 
 ## Conventions
 
-- JSX (not TSX) — tsconfig exists but files are `.jsx`
-- Biome for linting + formatting (replaced ESLint/Prettier as primary)
+- JSX only (no TypeScript) — jsconfig.json for IDE/Vite module resolution
+- Biome is the sole linter + formatter (with Tailwind class sorting enabled via `useSortedClasses`)
 - Husky pre-commit hook runs `bun run check`
 - Single quotes, 2-space indent
 - Tailwind utility classes + custom responsive hooks (`DesktopView.js` >= 1024px, `TabletView.js` >= 768px)
+
+## Agent Rules
+
+- After every turn where files are edited, always run `bun run check` and `bun run knip` to ensure lint/format compliance and no dead code is introduced.
 
 ## Deployment
 

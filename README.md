@@ -1,6 +1,6 @@
 # Portfolio — abhipraya.dev
 
-Personal portfolio site built with React, Vite, and Tailwind CSS.
+Personal portfolio site built with React 18, Vite 6, Tailwind CSS 3, and Framer Motion. Packaged with Bun.
 
 ## Setup
 
@@ -22,10 +22,16 @@ bun run dev -- --host
 
 ## Linting and Formatting
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. A Husky pre-commit hook runs this automatically.
+This project uses [Biome](https://biomejs.dev/) for linting and formatting (with Tailwind class sorting). A Husky pre-commit hook runs this automatically.
 
 ```bash
 bun run check
+```
+
+## Dead Code Detection
+
+```bash
+bun run knip
 ```
 
 ## Build
