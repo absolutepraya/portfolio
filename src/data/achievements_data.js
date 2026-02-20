@@ -80,7 +80,7 @@ const achievementsData = [
   },
   {
     title: 'elevAIte Hackathon 2025',
-    organizer: 'Microsoft',
+    organizer: 'Microsoft & Biji-Biji',
     organizerUrl: 'https://www.microsoft.com/',
     organizerLogo: Microsoft,
     date: '06/2025',
@@ -137,7 +137,7 @@ const achievementsData = [
   },
   {
     title: 'Indonesia Aerospace Hackathon 2025',
-    organizer: 'Indonesian Satellite Association',
+    organizer: 'Indonesian Space Society',
     organizerUrl: 'https://assi.or.id/id/',
     organizerLogo: ASSI,
     date: '06/2025',

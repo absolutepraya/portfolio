@@ -3,33 +3,25 @@ import AWS from '../../assets/stacks/aws.svg';
 import Azure from '../../assets/stacks/azure.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
 import Dify from '../../assets/stacks/dify.svg';
-import DigitalOcean from '../../assets/stacks/digitalocean.svg';
 import Discord from '../../assets/stacks/discord.svg';
 import Docker from '../../assets/stacks/docker.svg';
 import Figma from '../../assets/stacks/figma.svg';
 import GCP from '../../assets/stacks/gcp.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import GitHub from '../../assets/stacks/github.svg';
-import Goose from '../../assets/stacks/goose.webp';
 import Jest from '../../assets/stacks/jest.svg';
 import Kimi from '../../assets/stacks/kimi.svg';
-import Linux from '../../assets/stacks/linux.svg';
 import n8n from '../../assets/stacks/n8n.svg';
 import OpenAI from '../../assets/stacks/openai.svg';
 import Qwen from '../../assets/stacks/qwen.svg';
-import Selenium from '../../assets/stacks/selenium.svg';
-import Tableau from '../../assets/stacks/tableau.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
 
 export const toolsList = [
   { src: Figma, alt: 'Figma' },
-  { src: Linux, alt: 'Linux' },
   { src: Jest, alt: 'Jest' },
   { src: Vitest, alt: 'Vitest' },
-  { src: Selenium, alt: 'Selenium' },
-  { src: Tableau, alt: 'Tableau' },
   { src: OpenAI, alt: 'OpenAI' },
   { src: Gemini, alt: 'Gemini' },
   { src: Kimi, alt: 'Kimi (Self-Hosted)' },
@@ -41,11 +33,9 @@ export const toolsList = [
   { src: Azure, alt: 'Azure' },
   { src: AWS, alt: 'AWS' },
   { src: GCP, alt: 'Google Cloud Platform' },
-  { src: DigitalOcean, alt: 'DigitalOcean' },
   { src: Cloudflare, alt: 'Cloudflare' },
   { src: n8n, alt: 'n8n (Self-Hosted)' },
   { src: Dify, alt: 'Dify AI (Self-Hosted)' },
-  { src: Goose, alt: 'Goose DB Migration' },
 ];
 
 export const SliderTools = () => {

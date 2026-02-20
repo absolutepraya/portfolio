@@ -1,27 +1,23 @@
 import {
-  IconAppWindow,
   IconAutomation,
   IconBrain,
-  IconBrandApple,
-  IconBrandAws,
   IconBrandGithubCopilot,
-  IconDatabase,
-  IconSettingsSpark,
-  IconTournament,
+  IconCloud,
+  IconCode,
+  IconServer,
+  IconShieldLock,
 } from '@tabler/icons-react';
 import Marquee from 'react-fast-marquee';
 import DesktopView from '../../lib/DesktopView';
 
 const skillsData = [
-  { name: 'Software Engineering', icon: IconBrandApple },
-  { name: 'Web-App Development', icon: IconAppWindow },
-  { name: 'DevOps & SRE', icon: IconBrandAws },
+  { name: 'Fullstack Engineering', icon: IconCode },
   { name: 'LLM Integration', icon: IconBrandGithubCopilot },
   { name: 'AI Agent Development', icon: IconBrain },
-  { name: 'MLOps', icon: IconAutomation },
-  { name: 'Model Fine-Tuning', icon: IconSettingsSpark },
-  { name: 'Data Engineering', icon: IconDatabase },
-  { name: 'Workflow Automation', icon: IconTournament },
+  { name: 'DevOps', icon: IconServer },
+  { name: 'Cloud Engineering', icon: IconCloud },
+  { name: 'Business Automation', icon: IconAutomation },
+  { name: 'Cybersecurity', icon: IconShieldLock },
 ];
 
 export const SliderSkills = () => {

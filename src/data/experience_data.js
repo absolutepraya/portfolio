@@ -1,6 +1,7 @@
 // Import organization logos
 
 import CO80 from '../assets/orgs/80co.webp';
+import Aiccountant from '../assets/orgs/aiccountant.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
 import DDP0 from '../assets/orgs/ddp0.svg';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
@@ -10,6 +11,15 @@ import SB from '../assets/orgs/sb.webp';
 import TVI from '../assets/orgs/tvi.webp';
 
 const experienceData = [
+  {
+    title: 'Fullstack Engineer',
+    org: 'Aiccountant',
+    url: 'https://aiccountant.id/',
+    logo: Aiccountant,
+    date: '01/2026 - Present',
+    desc: '- Built full-stack **budgeting & analytics dashboard** with offline-first sync, enabling users to track spending across 15+ categories with monthly budget targets and trend visualization\n- Redesigned user **onboarding flow** across 4 steps with auto-recovery logic, improving mobile completion rates by 40% and supporting 20+ major Indonesian banks/e-wallets\n- Built an AI-powered **WhatsApp customer service bot** with RAG-based bilingual knowledge retrieval, smart ticket deduplication, and Linear issue tracking integration, reducing support response time and enabling automated inquiry handling\n- Developed **interactive product demo** with 4 auto-cycling screens and real-time animations, increasing landing page engagement and session duration',
+    alignCenter: false,
+  },
   {
     title: 'AI Engineer (R&D)',
     org: 'PT. Teknologi Vision Indonesia',
@@ -24,7 +34,7 @@ const experienceData = [
     org: 'SobatBisnis',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SB,
-    date: '06/2025 - Present',
+    date: '06/2025 - 09/2025',
     desc: '- Implemented zero-trust IAM across microservices (Auth, LMS, Shopee) by building endpoint-permission mapping and middleware in Go with JWT RS256 and Redis sessions, enforcing per-endpoint authorization and immediate revocation\n- Delivered the product Listing Management Service with tenant default inheritance/overrides, product CRUD + variants, CSV/XLSX import/export via RabbitMQ workers and S3/MinIO presigned uploads, enabling reliable bulk operations with job tracking\n- Built Shopee platform connection module with OAuth 2.0 flow, HMAC-signed token exchange, encrypted token storage, Redis caching, and background refresh, providing multi-shop support with status and health endpoints\n- Established versioned database migrations (Goose) and standardized API response envelopes across services, improving schema evolution safety and client integration consistency',
     alignCenter: false,
   },
