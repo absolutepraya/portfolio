@@ -26,7 +26,7 @@ const experienceData = [
     orgShort: 'TekVis',
     url: 'https://tekvision.co.id/',
     logo: TVI,
-    date: '08/2025 - Present',
+    date: '08/2025 - 12/2025',
     desc: '- Automating insurance claims processing for a client using OCR and multimodal LLMs, cutting manual review time and improving fraud detection accuracy, ensuring faster, fairer claim approvals.\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
   },
   {
