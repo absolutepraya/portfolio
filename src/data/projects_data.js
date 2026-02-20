@@ -54,26 +54,17 @@ const projectsData = [
     url: 'https://dev.bedahkampusui.com/tickets',
     github: '',
   },
-  {
-    preview: null,
-    title: 'Strata',
-    type: ['Fullstack', 'Web App'],
-    date: '11/2025',
-    subtitle:
-      'Strata is an AI-driven incident analyst that helps engineers troubleshoot AWS infrastructure issues in seconds. It takes your problem description, logs, metrics, and events, then generates ranked root-cause hypotheses, a clear human-readable timeline of what happened, and safe, explainable fix plans you can follow immediately.',
-    stacks: [
-      'bun',
-      'nextjs',
-      'typescript',
-      'tailwindcss',
-      'prisma',
-      'postgresql',
-      'openai',
-      'vercelaisdk',
-    ],
-    url: '',
-    github: '',
-  },
+  // {
+  //   preview: null,
+  //   title: 'Strata',
+  //   type: ['Fullstack', 'Web App'],
+  //   date: '11/2025',
+  //   subtitle:
+  //     'Strata is an AI-driven incident analyst that helps engineers troubleshoot AWS infrastructure issues in seconds. It takes your problem description, logs, metrics, and events, then generates ranked root-cause hypotheses, a clear human-readable timeline of what happened, and safe, explainable fix plans you can follow immediately.',
+  //   stacks: ['bun', 'nextjs', 'typescript', 'tailwindcss', 'prisma', 'postgresql', 'openai', 'vercelaisdk'],
+  //   url: '',
+  //   github: '',
+  // },
   {
     preview: PintaruVideo,
     isVideo: true,
