@@ -44,7 +44,9 @@ const Projects = () => {
   };
 
   const allProjects = getFilteredProjects('All');
-  const displayedAllProjects = showAll ? allProjects : allProjects.slice(0, 6);
+  const displayedAllProjects = showAll
+    ? allProjects
+    : allProjects.slice(0, desktopView ? 6 : 5);
 
   const handleToggle = () => {
     if (showAll) {
