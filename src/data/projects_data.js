@@ -320,28 +320,6 @@ const projectsData = [
     homepage: 'https://karakeep.app/',
   },
   {
-    title: 'AFFiNE (Self-Hosted)',
-    type: ['Self-Hosted'],
-    date: '08/2025',
-    subtitle:
-      'AFFiNE is an open-source workspace like Notion that merges docs, whiteboards, and databases. My AFFiNE is open, feel free to use!',
-    stacks: ['docker'],
-    url: 'https://docs.abhipraya.dev/',
-    github: 'https://github.com/toeverything/AFFiNE',
-    homepage: 'https://affine.pro/',
-  },
-  {
-    title: 'Cloudreve (Self-Hosted)',
-    type: ['Self-Hosted'],
-    date: '08/2025',
-    subtitle:
-      "Cloudreve is an open-source self-hosted file management and sharing system that supports multiple storage providers. My Cloudreve instance is private, let me know if you're interested in trying it.",
-    stacks: ['docker'],
-    url: 'https://cloud.abhipraya.dev/',
-    github: 'https://github.com/cloudreve/cloudreve',
-    homepage: 'https://cloudreve.org/',
-  },
-  {
     title: 'MinIO (Self-Hosted)',
     type: ['Self-Hosted'],
     date: '10/2025',
@@ -364,15 +342,37 @@ const projectsData = [
     homepage: 'https://cap.so/',
   },
   {
-    title: 'Supabase (Self-Hosted)',
+    title: 'Nextcloud (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '08/2025',
+    subtitle:
+      'Nextcloud is an open-source, self-hosted productivity platform with file sync, calendar, contacts, and office suite (Collabora). My instance is private.',
+    stacks: ['docker'],
+    url: 'https://cloud.abhipraya.dev/',
+    github: 'https://github.com/nextcloud/all-in-one',
+    homepage: 'https://nextcloud.com/',
+  },
+  {
+    title: 'qBittorrent (Self-Hosted)',
     type: ['Self-Hosted'],
     date: '10/2025',
     subtitle:
-      'Supabase is the Postgres development platform that provides a dedicated Postgres database for building web, mobile, and AI applications.',
+      'qBittorrent is a free, open-source BitTorrent client. Self-hosted web UI for managing downloads on my VPS.',
+    stacks: ['docker'],
+    url: 'https://torrent.abhipraya.dev/',
+    github: 'https://github.com/qbittorrent/qBittorrent',
+    homepage: 'https://www.qbittorrent.org/',
+  },
+  {
+    title: 'Glances (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '10/2025',
+    subtitle:
+      'Glances is a cross-platform system monitoring tool. Self-hosted on my VPS for real-time CPU, memory, disk, and network monitoring. Access is private (Tailscale-only).',
     stacks: ['docker'],
     url: '',
-    github: 'https://github.com/supabase/supabase',
-    homepage: 'https://supabase.com/',
+    github: 'https://github.com/nicolargo/glances',
+    homepage: 'https://nicolargo.github.io/glances/',
   },
 ];
 

@@ -197,9 +197,11 @@ const ProjectBox = ({
               )}
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
             </div>
-            <p className='mt-[6px] text-end font-extrabold font-maplemono text-sm opacity-70 md:mt-[10px] md:text-md'>
-              {date}
-            </p>
+            {!isSelfHosted && (
+              <p className='mt-[6px] text-end font-extrabold font-maplemono text-sm opacity-70 md:mt-[10px] md:text-md'>
+                {date}
+              </p>
+            )}
           </div>
           <div className='flex flex-row items-center space-x-2'>
             <p className='font-bold'>Type: </p>
