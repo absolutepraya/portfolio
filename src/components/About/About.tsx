@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <section
-      className='mt-36! lg:mt-40! relative flex w-[90vw] flex-col items-center xl:w-272'
+      className='relative mt-36! flex w-[90vw] flex-col items-center lg:mt-40! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
@@ -37,7 +37,7 @@ const About = () => {
             });
           }}
         >
-          <span className='ml-6! relative flex h-4 w-4 items-center justify-center'>
+          <span className='relative ml-6! flex h-4 w-4 items-center justify-center'>
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75' />
             <span className='relative inline-flex h-3 w-3 rounded-full bg-blurple' />
           </span>

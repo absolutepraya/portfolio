@@ -70,12 +70,12 @@ const Achievements = () => {
               color={isDark ? 'rgba(204, 204, 204, 1)' : 'rgba(50, 50, 80, 1)'}
               maxOpacity={0.3}
               flickerChance={0.2}
-              className={'z-0! absolute top-0 left-0 h-full w-full'}
+              className={'absolute top-0 left-0 z-0! h-full w-full'}
             />
           </motion.div>
         )}
         <div
-          className='z-0! absolute top-0 left-0 h-full w-full'
+          className='absolute top-0 left-0 z-0! h-full w-full'
           style={{
             boxShadow: 'inset 0px 0px 40px 50px var(--color-inset-shadow)',
           }}

@@ -65,7 +65,7 @@ const ExperienceBox = ({
   return (
     <motion.div
       ref={divRef}
-      className={`pt-4! relative flex flex-col items-center space-y-3 rounded-3xl bg-btn-active-bg from-card-from to-card-to p-6 transition-all duration-480 ease-in-out lg:w-180 ${isInView ? (desktopView ? 'border-opacity-100 bg-linear-to-br shadow-glowblurple' : 'border-opacity-100 bg-linear-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
+      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-btn-active-bg from-card-from to-card-to p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? (desktopView ? 'border-opacity-100 bg-linear-to-br shadow-glowblurple' : 'border-opacity-100 bg-linear-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
     >
       <div
         ref={divRef}

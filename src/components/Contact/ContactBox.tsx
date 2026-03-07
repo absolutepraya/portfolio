@@ -95,8 +95,8 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='pt-2! relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-linear-to-br from-card-from to-card-to p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='z-[-1]! absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
+        <div className='relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-linear-to-br from-card-from to-card-to p-6 pt-2! pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+          <div className='absolute top-0 left-0 z-[-1]! h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
           <img
             src={Pin}
             alt='Pin'
