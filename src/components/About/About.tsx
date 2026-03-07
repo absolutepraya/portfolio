@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <section
-      className='!mt-36 lg:!mt-40 relative flex w-[90vw] flex-col items-center xl:w-[68rem]'
+      className='mt-36! lg:mt-40! relative flex w-[90vw] flex-col items-center xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
@@ -37,16 +37,16 @@ const About = () => {
             });
           }}
         >
-          <span className='!ml-6 relative flex h-4 w-4 items-center justify-center'>
+          <span className='ml-6! relative flex h-4 w-4 items-center justify-center'>
             <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75' />
             <span className='relative inline-flex h-3 w-3 rounded-full bg-blurple' />
           </span>
-          <p className='shine-through !-mx-4 text-lg transition-all ease-in-out'>
+          <p className='shine-through -mx-4! text-lg transition-all ease-in-out'>
             Let's ship AI that matters!
           </p>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mt-12 mb-14 flex min-h-[27rem] max-w-[23rem] flex-col items-center justify-center px-2 md:min-h-[25rem] md:w-[54rem] md:max-w-[1000rem] md:px-0'>
+      <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-center justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
         <BlurInDesc />
         <motion.p
           initial='hidden'
@@ -56,7 +56,7 @@ const About = () => {
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
           }}
-          className='-mt-12 max-w-[50rem] text-center md:text-lg'
+          className='-mt-12 max-w-200 text-center md:text-lg'
         >
           Software, AI, and DevOps expert. From LLMs and AI agents to cloud
           systems and business automation. Leading teams and shipping results
@@ -71,13 +71,13 @@ const About = () => {
           className='w-full lg:w-[40%]'
         >
           <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'>
-            <div className='relative flex items-center justify-center lg:h-[11.5rem]'>
+            <div className='relative flex items-center justify-center lg:h-46'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
-                <div className='absolute -top-2 -left-[1px] z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -left-px z-10 h-[105%] w-1 bg-customblack' />
               )}
               {!desktopView && (
-                <div className='absolute -top-2 -right-[1px] z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -right-px z-10 h-[105%] w-1 bg-customblack' />
               )}
               <SliderSkills />
             </div>
@@ -90,19 +90,19 @@ const About = () => {
               </div>
               <p className='text-lg lg:text-xl'>
                 Expert in{' '}
-                <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
+                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
                   Software
                 </b>
                 ,{' '}
-                <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
+                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
                   AI
                 </b>
                 , and{' '}
-                <b className='bg-gradient-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
+                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
                   DevOps
                 </b>
                 . Regularly competing in{' '}
-                <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
+                <i className='bg-linear-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
                   Hackathons
                 </i>
                 .
@@ -120,10 +120,10 @@ const About = () => {
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
-                <div className='absolute -top-2 -left-[1px] z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -left-px z-10 h-[105%] w-1 bg-customblack' />
               )}
               {!desktopView && (
-                <div className='absolute -top-2 -right-[1px] z-10 h-[105%] w-1 bg-customblack' />
+                <div className='absolute -top-2 -right-px z-10 h-[105%] w-1 bg-customblack' />
               )}
               <SliderStacks />
               <SliderTools />
@@ -138,11 +138,11 @@ const About = () => {
               <p className='text-lg lg:text-xl'>
                 Achieving peak <i>efficiency</i> and <i>performance</i> through
                 careful{' '}
-                <i className='bg-gradient-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
+                <i className='bg-linear-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
                   attention to detail
                 </i>
                 , ensuring{' '}
-                <b className='bg-gradient-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>
+                <b className='bg-linear-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>
                   perfection
                 </b>{' '}
                 in every project.

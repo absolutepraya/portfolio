@@ -17,9 +17,9 @@ const Line = () => {
         once: true,
       }}
     >
-      <div className='h-12 w-[2.5px] bg-gradient-to-b from-transparent to-customlightgray' />
+      <div className='h-12 w-[2.5px] bg-linear-to-b from-transparent to-customlightgray' />
       <div className='h-12 w-[2.5px] bg-customlightgray' />
-      <div className='h-12 w-[2.5px] bg-gradient-to-t from-transparent to-customlightgray' />
+      <div className='h-12 w-[2.5px] bg-linear-to-t from-transparent to-customlightgray' />
     </motion.div>
   );
 };

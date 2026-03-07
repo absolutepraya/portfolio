@@ -167,7 +167,7 @@ const ProjectBox = ({
         className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}
       >
         {!isSelfHosted && (
-          <div className='aspect-[10/7] w-full bg-theme-placeholder'>
+          <div className='aspect-10/7 w-full bg-theme-placeholder'>
             {isVideo ? (
               <video
                 ref={videoRef}
@@ -197,7 +197,7 @@ const ProjectBox = ({
                     `https://icon.horse/icon/${new URL(url!).hostname}`
                   }
                   alt={`${title} favicon`}
-                  className='h-6 w-6 rounded-sm object-contain md:h-7 md:w-7'
+                  className='h-6 w-6 rounded-xs object-contain md:h-7 md:w-7'
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     // If manual favicon fails and we have a URL, try icon.horse
@@ -249,10 +249,10 @@ const ProjectBox = ({
             </div>
           </div>
           <p className='text-justify text-[0.925rem]'>{subtitle}</p>
-          <div className='flex flex-grow' />
-          <div className='!mt-4 flex h-auto w-full flex-row items-start justify-between'>
+          <div className='flex grow' />
+          <div className='mt-4! flex h-auto w-full flex-row items-start justify-between'>
             {!isSelfHosted && (
-              <div className='flex w-fit flex-col space-y-2 rounded'>
+              <div className='flex w-fit flex-col space-y-2 rounded-sm'>
                 {Array.from({
                   length: Math.ceil(stacks.length / STACKS_PER_LINE),
                 }).map((_, chunkIndex) => (
@@ -282,7 +282,7 @@ const ProjectBox = ({
                                   duration: 0.15,
                                   ease: 'easeInOut',
                                 }}
-                                className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-tooltip-bg px-[6px] py-[3px] font-jetbrainsmono text-tooltip-text text-xs'
+                                className='absolute -top-[32px] left-0 z-100 transform rounded-sm border-[0.5px] bg-tooltip-bg px-[6px] py-[3px] font-jetbrainsmono text-tooltip-text text-xs'
                               >
                                 <p className='text-nowrap'>
                                   {stackIcons[stack].name}

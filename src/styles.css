@@ -1,249 +1,322 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss';
 
-:root {
-  --color-page-bg: #f5f5f7;
-  --color-card-bg: #ffffff;
-  --color-card-gradient-from: #f8f8fa;
-  --color-card-gradient-to: #eeeeef;
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: #8b8b99;
-  --color-text-primary-70: rgba(26, 26, 46, 0.73);
-  --color-text-primary-0: rgba(26, 26, 46, 0);
-  --color-border: #e2e2e8;
-  --color-border-light: #c8c8d0;
-  --color-border-bevel: #d8d8e0;
-  --color-accent: #3643fc;
-  --color-accent-opa: rgba(54, 67, 252, 0.15);
-  --color-glow-accent: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
-  --color-glow-accent-small: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
-  --color-glow-accent-xs: 0px 0px 40px -7px rgba(54, 67, 252, 0.15);
-  --color-shadow-black-glow: -41px 30px 35px 23px rgba(200, 200, 210, 0.3);
-  --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(200, 200, 210, 0.3);
-  --color-marquee-gradient: #ffffff;
-  --color-markdown-link: #3643fc;
-  --color-markdown-link-hover: #2a35d4;
-  --color-shine-from: #c0c0c0;
-  --color-shine-mid: #3643fc;
-  --color-shine-to: #c0c0c0;
-  --color-button-bg: #e8e8f0;
-  --color-inset-shadow: rgba(245, 245, 247, 1);
-  --color-placeholder: #e0e0e8;
-  --color-about-card-border: #e8e8ef;
-  --color-button-active-bg: #ededf2;
-  --color-nav-bg: rgba(200, 200, 210, 0.4);
-  --color-nav-border: rgba(200, 200, 210, 0.4);
-  --color-nav-button-bg: rgba(255, 255, 255, 0.7);
-  --color-nav-button-active-bg: rgba(200, 200, 210, 0.6);
-  --color-nav-active-indicator: rgba(180, 180, 200, 0.6);
-  --color-tooltip-bg: #1a1a2e;
-  --color-tooltip-text: #f5f5f7;
-  --color-flickering-grid: rgba(50, 50, 80, 1);
-  --color-contact-outer-border: #c8c8d0;
-}
+@theme {
+  --font-inter: Inter, sans-serif;
+  --font-instrument: Instrument Serif, serif;
+  --font-jetbrainsmono: JetBrains Mono, monospace;
 
-.dark {
-  --color-page-bg: #03020f;
-  --color-card-bg: #0d0d0d;
-  --color-card-gradient-from: #1f1f1f;
-  --color-card-gradient-to: #0e0e0e;
-  --color-text-primary: #cccccc;
-  --color-text-secondary: #5c5c5a;
-  --color-text-primary-70: rgba(204, 204, 204, 0.73);
-  --color-text-primary-0: rgba(204, 204, 204, 0);
-  --color-border: #262626;
-  --color-border-light: #3e3e3e;
-  --color-border-bevel: #2a2a2a;
-  --color-accent: #3643fc;
-  --color-accent-opa: rgba(54, 67, 252, 0.4);
-  --color-glow-accent: 0px 0px 130px -7px rgba(54, 67, 252, 0.9);
-  --color-glow-accent-small: 0px 0px 130px -7px rgba(54, 67, 252, 0.9);
-  --color-glow-accent-xs: 0px 0px 40px -7px rgba(54, 67, 252, 0.9);
-  --color-shadow-black-glow: -41px 30px 35px 23px rgba(13, 13, 13, 1);
-  --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(13, 13, 13, 1);
-  --color-marquee-gradient: #0d0d0d;
-  --color-markdown-link: #6a62ff;
-  --color-markdown-link-hover: #5b6eae;
-  --color-shine-from: #717171;
-  --color-shine-mid: white;
-  --color-shine-to: #717171;
-  --color-button-bg: #2c2c32;
-  --color-inset-shadow: rgba(5, 4, 14, 1);
-  --color-placeholder: #2d2d2d;
-  --color-about-card-border: #131313;
-  --color-button-active-bg: #0f0f0f;
-  --color-nav-bg: rgba(63, 63, 63, 0.4);
-  --color-nav-border: rgba(66, 66, 66, 0.4);
-  --color-nav-button-bg: rgba(13, 13, 13, 0.7);
-  --color-nav-button-active-bg: rgba(63, 63, 63, 0.85);
-  --color-nav-active-indicator: #424242;
-  --color-tooltip-bg: #000000;
-  --color-tooltip-text: #cccccc;
-  --color-flickering-grid: rgba(204, 204, 204, 1);
-  --color-contact-outer-border: #666666;
-}
+  --color-blurple: #3643fc;
+  --color-blurpleopa: var(--color-accent-opa);
+  --color-customblack: var(--color-card-bg);
+  --color-customgray: var(--color-border);
+  --color-customwhite: var(--color-text-primary);
+  --color-customlightgray: var(--color-border-light);
+  --color-page-bg: var(--color-page-bg);
+  --color-card-from: var(--color-card-gradient-from);
+  --color-card-to: var(--color-card-gradient-to);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-btn-bg: var(--color-button-bg);
+  --color-btn-active-bg: var(--color-button-active-bg);
+  --color-theme-border-bevel: var(--color-border-bevel);
+  --color-theme-placeholder: var(--color-placeholder);
+  --color-tooltip-bg: var(--color-tooltip-bg);
+  --color-tooltip-text: var(--color-tooltip-text);
+  --color-contact-outer-border: var(--color-contact-outer-border);
 
-html.theme-transitioning,
-html.theme-transitioning * {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
+  --shadow-glowblurple: var(--color-glow-accent);
+  --shadow-glowblurplesmall: var(--color-glow-accent-small);
+  --shadow-glowblurpleextrasmall: var(--color-glow-accent-xs);
+  --shadow-glowcustomblack: var(--color-shadow-black-glow);
+  --shadow-glowcustomblacksmall: var(--color-shadow-black-glow-sm);
 
-@font-face {
-  font-family: "Inter";
-  src: url("/src/assets/fonts/Inter/Inter-VariableFont.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 100 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("/src/assets/fonts/Inter/Inter-Italic-VariableFont.woff2")
-    format("woff2");
-  font-display: swap;
-  font-weight: 100 900;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("/src/assets/fonts/Instrument_Serif/InstrumentSerif-Regular.woff2")
-    format("woff2");
-  font-display: swap;
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("/src/assets/fonts/Instrument_Serif/InstrumentSerif-Italic.woff2")
-    format("woff2");
-  font-display: swap;
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/src/assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.woff2")
-    format("woff2");
-  font-display: swap;
-  font-weight: 100 900;
-  font-style: normal;
-}
+  --animate-shine: shine var(--duration) infinite linear;
+  --animate-spinner-blade: spinner-blade 1s linear infinite;
 
-html,
-body {
-  overscroll-behavior: none;
-  scroll-behavior: smooth;
-}
-
-.shine-through {
-  padding: 0px 37px 0px 37px;
-  color: #ffffff;
-  background: linear-gradient(
-    to right,
-    var(--color-shine-from) 0%,
-    var(--color-shine-mid) 10%,
-    var(--color-shine-to) 20%
-  );
-  background-position: 0;
-  -webkit-background-clip: text; /* For Safari and Chrome */
-  -moz-background-clip: text; /* For Firefox */
-  background-clip: text; /* Standard property */
-  -webkit-text-fill-color: transparent;
-  animation: shine 6s infinite linear;
-  animation-fill-mode: forwards;
-  -webkit-text-size-adjust: none;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -20px;
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
   }
-  60% {
-    background-position: 120px;
-  }
-  100% {
-    background-position: 240px;
+  @keyframes spinner-blade {
+    0% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 0.25;
+    }
+    100% {
+      opacity: 0.25;
+    }
   }
 }
-@layer components {
-  .spinner-blade {
-    position: absolute;
-    height: 20%;
-    width: 8%;
-    background-color: var(--color-text-primary);
-    border-radius: 1px;
-    animation: spinner-blade 1s linear infinite;
-    will-change: opacity;
-    top: 37%;
-    left: 44%;
-  }
 
-  .spinner-blade:nth-child(1) {
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility spinner-blade {
+  position: absolute;
+  height: 20%;
+  width: 8%;
+  background-color: var(--color-text-primary);
+  border-radius: 1px;
+  animation: spinner-blade 1s linear infinite;
+  will-change: opacity;
+  top: 37%;
+  left: 44%;
+
+  &:nth-child(1) {
     transform: rotate(0deg) translateY(-130%);
     animation-delay: -1.667s;
   }
 
-  .spinner-blade:nth-child(2) {
+  &:nth-child(2) {
     transform: rotate(30deg) translateY(-130%);
     animation-delay: -1.583s;
   }
 
-  .spinner-blade:nth-child(3) {
+  &:nth-child(3) {
     transform: rotate(60deg) translateY(-130%);
     animation-delay: -1.5s;
   }
 
-  .spinner-blade:nth-child(4) {
+  &:nth-child(4) {
     transform: rotate(90deg) translateY(-130%);
     animation-delay: -1.417s;
   }
 
-  .spinner-blade:nth-child(5) {
+  &:nth-child(5) {
     transform: rotate(120deg) translateY(-130%);
     animation-delay: -1.333s;
   }
 
-  .spinner-blade:nth-child(6) {
+  &:nth-child(6) {
     transform: rotate(150deg) translateY(-130%);
     animation-delay: -1.25s;
   }
 
-  .spinner-blade:nth-child(7) {
+  &:nth-child(7) {
     transform: rotate(180deg) translateY(-130%);
     animation-delay: -1.167s;
   }
 
-  .spinner-blade:nth-child(8) {
+  &:nth-child(8) {
     transform: rotate(210deg) translateY(-130%);
     animation-delay: -1.083s;
   }
 
-  .spinner-blade:nth-child(9) {
+  &:nth-child(9) {
     transform: rotate(240deg) translateY(-130%);
     animation-delay: -1s;
   }
 
-  .spinner-blade:nth-child(10) {
+  &:nth-child(10) {
     transform: rotate(270deg) translateY(-130%);
     animation-delay: -0.917s;
   }
 
-  .spinner-blade:nth-child(11) {
+  &:nth-child(11) {
     transform: rotate(300deg) translateY(-130%);
     animation-delay: -0.833s;
   }
 
-  .spinner-blade:nth-child(12) {
+  &:nth-child(12) {
     transform: rotate(330deg) translateY(-130%);
     animation-delay: -0.75s;
+  }
+}
+
+@layer utilities {
+  :root {
+    --color-page-bg: #f5f5f7;
+    --color-card-bg: #ffffff;
+    --color-card-gradient-from: #f8f8fa;
+    --color-card-gradient-to: #eeeeef;
+    --color-text-primary: #1a1a2e;
+    --color-text-secondary: #8b8b99;
+    --color-text-primary-70: rgba(26, 26, 46, 0.73);
+    --color-text-primary-0: rgba(26, 26, 46, 0);
+    --color-border: #e2e2e8;
+    --color-border-light: #c8c8d0;
+    --color-border-bevel: #d8d8e0;
+    --color-accent: #3643fc;
+    --color-accent-opa: rgba(54, 67, 252, 0.15);
+    --color-glow-accent: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
+    --color-glow-accent-small: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
+    --color-glow-accent-xs: 0px 0px 40px -7px rgba(54, 67, 252, 0.15);
+    --color-shadow-black-glow: -41px 30px 35px 23px rgba(200, 200, 210, 0.3);
+    --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(200, 200, 210, 0.3);
+    --color-marquee-gradient: #ffffff;
+    --color-markdown-link: #3643fc;
+    --color-markdown-link-hover: #2a35d4;
+    --color-shine-from: #c0c0c0;
+    --color-shine-mid: #3643fc;
+    --color-shine-to: #c0c0c0;
+    --color-button-bg: #e8e8f0;
+    --color-inset-shadow: rgba(245, 245, 247, 1);
+    --color-placeholder: #e0e0e8;
+    --color-about-card-border: #e8e8ef;
+    --color-button-active-bg: #ededf2;
+    --color-nav-bg: rgba(200, 200, 210, 0.4);
+    --color-nav-border: rgba(200, 200, 210, 0.4);
+    --color-nav-button-bg: rgba(255, 255, 255, 0.7);
+    --color-nav-button-active-bg: rgba(200, 200, 210, 0.6);
+    --color-nav-active-indicator: rgba(180, 180, 200, 0.6);
+    --color-tooltip-bg: #1a1a2e;
+    --color-tooltip-text: #f5f5f7;
+    --color-flickering-grid: rgba(50, 50, 80, 1);
+    --color-contact-outer-border: #c8c8d0;
+  }
+
+  .dark {
+    --color-page-bg: #03020f;
+    --color-card-bg: #0d0d0d;
+    --color-card-gradient-from: #1f1f1f;
+    --color-card-gradient-to: #0e0e0e;
+    --color-text-primary: #cccccc;
+    --color-text-secondary: #5c5c5a;
+    --color-text-primary-70: rgba(204, 204, 204, 0.73);
+    --color-text-primary-0: rgba(204, 204, 204, 0);
+    --color-border: #262626;
+    --color-border-light: #3e3e3e;
+    --color-border-bevel: #2a2a2a;
+    --color-accent: #3643fc;
+    --color-accent-opa: rgba(54, 67, 252, 0.4);
+    --color-glow-accent: 0px 0px 130px -7px rgba(54, 67, 252, 0.9);
+    --color-glow-accent-small: 0px 0px 130px -7px rgba(54, 67, 252, 0.9);
+    --color-glow-accent-xs: 0px 0px 40px -7px rgba(54, 67, 252, 0.9);
+    --color-shadow-black-glow: -41px 30px 35px 23px rgba(13, 13, 13, 1);
+    --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(13, 13, 13, 1);
+    --color-marquee-gradient: #0d0d0d;
+    --color-markdown-link: #6a62ff;
+    --color-markdown-link-hover: #5b6eae;
+    --color-shine-from: #717171;
+    --color-shine-mid: white;
+    --color-shine-to: #717171;
+    --color-button-bg: #2c2c32;
+    --color-inset-shadow: rgba(5, 4, 14, 1);
+    --color-placeholder: #2d2d2d;
+    --color-about-card-border: #131313;
+    --color-button-active-bg: #0f0f0f;
+    --color-nav-bg: rgba(63, 63, 63, 0.4);
+    --color-nav-border: rgba(66, 66, 66, 0.4);
+    --color-nav-button-bg: rgba(13, 13, 13, 0.7);
+    --color-nav-button-active-bg: rgba(63, 63, 63, 0.85);
+    --color-nav-active-indicator: #424242;
+    --color-tooltip-bg: #000000;
+    --color-tooltip-text: #cccccc;
+    --color-flickering-grid: rgba(204, 204, 204, 1);
+    --color-contact-outer-border: #666666;
+  }
+
+  html.theme-transitioning,
+  html.theme-transitioning * {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter/Inter-VariableFont.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter/Inter-Italic-VariableFont.woff2')
+      format('woff2');
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Instrument Serif';
+    src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Regular.woff2')
+      format('woff2');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Instrument Serif';
+    src: url('/src/assets/fonts/Instrument_Serif/InstrumentSerif-Italic.woff2')
+      format('woff2');
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/src/assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.woff2')
+      format('woff2');
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  html,
+  body {
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+  }
+
+  .shine-through {
+    padding: 0px 37px 0px 37px;
+    color: #ffffff;
+    background: linear-gradient(
+      to right,
+      var(--color-shine-from) 0%,
+      var(--color-shine-mid) 10%,
+      var(--color-shine-to) 20%
+    );
+    background-position: 0;
+    -webkit-background-clip: text; /* For Safari and Chrome */
+    -moz-background-clip: text; /* For Firefox */
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -20px;
+    }
+    60% {
+      background-position: 120px;
+    }
+    100% {
+      background-position: 240px;
+    }
   }
 }
 

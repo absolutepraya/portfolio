@@ -163,18 +163,18 @@ Expected: 0 results (all should be `bg-linear-to-*` now)
 **Step 2: Search for shadow/blur/rounded scale shifts**
 
 Check these v3→v4 renames happened:
-- `shadow-sm` → `shadow-xs` (if present)
-- `shadow` (bare) → `shadow-sm` (if present)
-- `blur-sm` → `blur-xs` (4 uses of `blur-sm` in codebase)
-- `rounded-sm` → `rounded-xs` (if present)
-- `rounded` (bare) → `rounded-sm` (if present)
+- `shadow-xs` → `shadow-2xs` (if present)
+- `shadow-sm` (bare) → `shadow-xs` (if present)
+- `blur-xs` → `blur-xs` (4 uses of `blur-xs` in codebase)
+- `rounded-xs` → `rounded-xs` (if present)
+- `rounded-sm` (bare) → `rounded-xs` (if present)
 
-Run: `grep -rn "blur-sm\b" src/` — should be 0 (replaced with `blur-xs`)
-Run: `grep -rn "shadow-sm\b" src/` — check if these are correct v4 (was bare `shadow` in v3)
+Run: `grep -rn "blur-xs\b" src/` — should be 0 (replaced with `blur-xs`)
+Run: `grep -rn "shadow-xs\b" src/` — check if these are correct v4 (was bare `shadow-sm` in v3)
 
-**Step 3: Check for `decoration-clone` → `box-decoration-clone`**
+**Step 3: Check for `box-decoration-clone` → `box-decoration-clone`**
 
-Run: `grep -rn "decoration-clone" src/`
+Run: `grep -rn "box-decoration-clone" src/`
 If found, it may need to become `box-decoration-clone` (check if the tool handled it).
 
 **Step 4: Fix any missed renames**

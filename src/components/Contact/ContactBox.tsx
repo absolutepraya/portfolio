@@ -35,15 +35,15 @@ const Contact = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
+      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-112 xl:w-272 xl:max-w-4000 xl:flex-row'
       delay={0.3}
       inView
       offset={20}
     >
-      {/* bg-gradient-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
+      {/* bg-linear-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
       {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
-        <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:-translate-x-0 xl:text-start'>
+        <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:translate-x-0 xl:text-start'>
           I&apos;m always up for...
         </p>
         <div className='flex w-full flex-col space-y-2 font-semibold text-4xl md:w-auto md:space-y-3 md:text-5xl'>
@@ -77,7 +77,7 @@ const Contact = () => {
             />
             <SplitText animateBy='letters' text='collabs' />
           </div>
-          <div className='flex items-center space-x-3 pl-[4.5rem] md:pl-36'>
+          <div className='flex items-center space-x-3 pl-18 md:pl-36'>
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
@@ -95,8 +95,8 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='!pt-2 relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-card-from to-card-to p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='!z-[-1] absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
+        <div className='pt-2! relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-linear-to-br from-card-from to-card-to p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+          <div className='z-[-1]! absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
           <img
             src={Pin}
             alt='Pin'
@@ -122,7 +122,7 @@ const Contact = () => {
             </div>
             {tabletView && (
               <a
-                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 href='mailto:daffa@abhipraya.dev'
                 target='_blank'
                 rel='noreferrer'
@@ -135,7 +135,7 @@ const Contact = () => {
             {tabletView && (
               <button
                 type='button'
-                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
               >
@@ -161,7 +161,7 @@ const Contact = () => {
               <IconBrandLinkedin size={20} stroke={2} />
             </div>
           </a>
-          <div className='!mt-6 h-0.5 w-full bg-customgray' />
+          <div className='mt-6! h-0.5 w-full bg-customgray' />
           <p className=''>Follow my other socials!</p>
           <div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a

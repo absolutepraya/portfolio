@@ -30,7 +30,7 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
       >
         {icon}
         {isHovered && desktopView && (
-          <div className='absolute -bottom-8 h-auto w-auto rounded bg-tooltip-bg px-1 text-tooltip-text transition-all duration-75'>
+          <div className='absolute -bottom-8 h-auto w-auto rounded-sm bg-tooltip-bg px-1 text-tooltip-text transition-all duration-75'>
             <p className='text-sm'>{text}</p>
           </div>
         )}

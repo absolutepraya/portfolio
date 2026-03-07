@@ -75,13 +75,13 @@ const Projects = () => {
 
   return (
     <section
-      className='!z-10 relative w-[90vw] flex-col space-y-12 xl:w-[68rem]'
+      className='z-10! relative w-[90vw] flex-col space-y-12 xl:w-272'
       id='projectssec'
     >
       <div id='projects' className='absolute -top-24' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
-          className='bg-gradient-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+          className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
             opacity: 1,
@@ -96,7 +96,7 @@ const Projects = () => {
           Stuff I&apos;ve built
         </motion.h2>
         <div
-          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-text-secondary opacity-60'}`}
+          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <motion.div
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
@@ -259,7 +259,7 @@ const Projects = () => {
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}
-                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall`}
+                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-linear-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

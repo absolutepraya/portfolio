@@ -336,8 +336,8 @@ const AchievementsBox = ({
 
   return (
     <BlurFade delay={0.3} inView inViewMargin='-1px' offset={20}>
-      <div className='!z-[40] relative flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
-        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-customgray border-t-[3px] bg-customblack bg-gradient-to-br from-card-from to-card-to shadow-lg'>
+      <div className='z-40! relative flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
+        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-customgray border-t-[3px] bg-customblack bg-linear-to-br from-card-from to-card-to shadow-lg'>
           {displayedAchievements.map((achievement) => (
             <BlurFade
               key={achievement.title}
@@ -485,7 +485,7 @@ const AchievementsBox = ({
                         <IconGift
                           size={20}
                           stroke={1.5}
-                          className='flex-shrink-0 text-purple-500'
+                          className='shrink-0 text-purple-500'
                         />
                         <div className='flex flex-col'>
                           <p>Bonus:</p>
@@ -557,7 +557,7 @@ const AchievementsBox = ({
           {showAll && (
             <BlurFade offset={8} inView>
               <div className='flex w-full items-center justify-center pt-4 pb-4 font-jetbrainsmono text-sm'>
-                <p className='!opacity-40'>and more to come...</p>
+                <p className='opacity-40!'>and more to come...</p>
               </div>
             </BlurFade>
           )}
@@ -570,7 +570,7 @@ const AchievementsBox = ({
               <motion.button
                 onClick={handleToggle}
                 className={
-                  'relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall'
+                  'relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-linear-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall'
                 }
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>

@@ -17,11 +17,11 @@ const LineShort = () => {
         once: true,
       }}
     >
-      <div className='h-16 w-[2.5px] bg-gradient-to-b from-transparent to-customlightgray' />
+      <div className='h-16 w-[2.5px] bg-linear-to-b from-transparent to-customlightgray' />
       <div className='flex flex-row justify-center'>
-        <div className='h-[2.5px] w-5 bg-gradient-to-r from-transparent to-customlightgray' />
+        <div className='h-[2.5px] w-5 bg-linear-to-r from-transparent to-customlightgray' />
         <div className='h-[2.5px] w-5 bg-customlightgray' />
-        <div className='h-[2.5px] w-5 bg-gradient-to-l from-transparent to-customlightgray' />
+        <div className='h-[2.5px] w-5 bg-linear-to-l from-transparent to-customlightgray' />
       </div>
     </motion.div>
   );

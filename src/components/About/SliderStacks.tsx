@@ -69,16 +69,16 @@ export const SliderStacks = () => {
         <button
           key={stack.alt}
           type='button'
-          className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-card-from to-card-to p-4 md:mx-3 md:h-20 md:w-20'
+          className='group relative mx-2 flex h-18 w-18 cursor-help items-center justify-center rounded-lg bg-linear-to-br from-card-from to-card-to p-4 md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0 md:h-20 md:w-20' />
-          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
+          <div className='absolute h-18 w-18 rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0 md:h-20 md:w-20' />
+          <div className='pointer-events-none absolute z-30 max-w-14 rounded-sm bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-16 md:text-xs'>
             {stack.alt}
           </div>
           <img
             src={stack.src}
             alt={stack.alt}
-            className='h-full w-full select-none object-contain transition-all duration-200 group-hover:blur-sm group-focus-visible:blur-sm'
+            className='h-full w-full select-none object-contain transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
             draggable='false'
           />
         </button>

@@ -49,7 +49,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='!z-[100] fixed top-8 flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border px-2.5 backdrop-blur-md lg:w-[55rem]'
+      className='z-100! fixed top-8 flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border px-2.5 backdrop-blur-md lg:w-220'
       style={{
         backgroundColor: 'var(--color-nav-bg)',
         borderColor: 'var(--color-nav-border)',
@@ -119,7 +119,7 @@ const NavBar = () => {
             rel='noopener'
           >
             <p className='text text-end font-semibold leading-4'>Reach out</p>
-            <div className='!mr-1 relative h-[20px] w-[20px] overflow-hidden'>
+            <div className='mr-1! relative h-[20px] w-[20px] overflow-hidden'>
               <div
                 className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
               >

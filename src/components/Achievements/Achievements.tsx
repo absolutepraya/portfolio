@@ -15,13 +15,13 @@ const Achievements = () => {
 
   return (
     <section
-      className='relative w-[90vw] flex-col space-y-12 xl:w-[68rem]'
+      className='relative w-[90vw] flex-col space-y-12 xl:w-272'
       id='achievementssec'
     >
       <div id='achievements' className='absolute -top-24' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
-          className='bg-gradient-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+          className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
             opacity: 1,
@@ -38,7 +38,7 @@ const Achievements = () => {
           Victory laps
         </motion.h2>
         <div
-          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-text-secondary opacity-60'}`}
+          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <motion.div
             className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
@@ -70,12 +70,12 @@ const Achievements = () => {
               color={isDark ? 'rgba(204, 204, 204, 1)' : 'rgba(50, 50, 80, 1)'}
               maxOpacity={0.3}
               flickerChance={0.2}
-              className={'!z-[0] absolute top-0 left-0 h-full w-full'}
+              className={'z-0! absolute top-0 left-0 h-full w-full'}
             />
           </motion.div>
         )}
         <div
-          className='!z-[0] absolute top-0 left-0 h-full w-[100%]'
+          className='z-0! absolute top-0 left-0 h-full w-full'
           style={{
             boxShadow: 'inset 0px 0px 40px 50px var(--color-inset-shadow)',
           }}
