@@ -18,9 +18,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 function getInitialTheme(): string {
   const stored = localStorage.getItem('theme');
   if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-    ? 'light'
-    : 'dark';
+  return 'light';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
