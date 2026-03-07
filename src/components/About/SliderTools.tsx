@@ -1,4 +1,3 @@
-import Marquee from 'react-fast-marquee';
 import AWS from '../../assets/stacks/aws.svg';
 import Azure from '../../assets/stacks/azure.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
@@ -17,7 +16,7 @@ import Qwen from '../../assets/stacks/qwen.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
-import { useTheme } from '../../lib/ThemeContext';
+import { Marquee } from '../marquee';
 
 interface ToolItem {
   src: string;
@@ -46,18 +45,14 @@ export const toolsList: ToolItem[] = [
 
 export const SliderTools = () => {
   const desktopView = DesktopView();
-  const { isDark } = useTheme();
 
   return (
     <Marquee
-      speed={40}
-      gradient={true}
-      gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
-      gradientWidth={110}
-      autoFill={true}
+      duration={25}
+      fade
+      fadeAmount={15}
       direction='right'
-      pauseOnClick={!desktopView}
-      pauseOnHover={desktopView}
+      pauseOnHover={!!desktopView}
     >
       {toolsList.map((tool) => (
         <button

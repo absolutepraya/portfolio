@@ -8,9 +8,8 @@ import {
   IconServer,
   IconShieldLock,
 } from '@tabler/icons-react';
-import Marquee from 'react-fast-marquee';
 import DesktopView from '../../lib/DesktopView';
-import { useTheme } from '../../lib/ThemeContext';
+import { Marquee } from '../marquee';
 import { RichButton } from '../rich-button';
 
 interface SkillItem {
@@ -30,17 +29,13 @@ const skillsData: SkillItem[] = [
 
 export const SliderSkills = () => {
   const desktopView = DesktopView();
-  const { isDark } = useTheme();
 
   return (
     <Marquee
-      speed={35}
-      gradient={true}
-      gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
-      gradientWidth={110}
-      autoFill={true}
+      duration={25}
+      fade
+      fadeAmount={15}
       direction='left'
-      pauseOnClick={!desktopView}
       pauseOnHover={!!desktopView}
     >
       {skillsData.map((skill) => {

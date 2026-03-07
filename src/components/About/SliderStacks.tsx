@@ -1,4 +1,3 @@
-import Marquee from 'react-fast-marquee';
 import Bun from '../../assets/stacks/bun.svg';
 import Django from '../../assets/stacks/django.svg';
 import Elysia from '../../assets/stacks/elysiajs.svg';
@@ -20,7 +19,7 @@ import Tailwind from '../../assets/stacks/tailwind.svg';
 import Tanstack from '../../assets/stacks/tanstack.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import DesktopView from '../../lib/DesktopView';
-import { useTheme } from '../../lib/ThemeContext';
+import { Marquee } from '../marquee';
 
 interface StackItem {
   src: string;
@@ -52,18 +51,14 @@ export const stacksList: StackItem[] = [
 
 export const SliderStacks = () => {
   const desktopView = DesktopView();
-  const { isDark } = useTheme();
 
   return (
     <Marquee
-      speed={40}
-      gradient={true}
-      gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
-      gradientWidth={110}
-      autoFill={true}
+      duration={25}
+      fade
+      fadeAmount={15}
       direction='left'
-      pauseOnClick={!desktopView}
-      pauseOnHover={desktopView}
+      pauseOnHover={!!desktopView}
     >
       {stacksList.map((stack) => (
         <button
