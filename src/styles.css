@@ -167,8 +167,8 @@
   --color-glow-accent: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
   --color-glow-accent-small: 0px 0px 130px -7px rgba(54, 67, 252, 0.15);
   --color-glow-accent-xs: 0px 0px 40px -7px rgba(54, 67, 252, 0.15);
-  --color-shadow-black-glow: -41px 30px 35px 23px rgba(200, 200, 210, 0.3);
-  --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(200, 200, 210, 0.3);
+  --color-shadow-black-glow: -41px 30px 35px 23px rgba(245, 245, 247, 1);
+  --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(245, 245, 247, 1);
   --color-marquee-gradient: #ffffff;
   --color-markdown-link: #3643fc;
   --color-markdown-link-hover: #2a35d4;
