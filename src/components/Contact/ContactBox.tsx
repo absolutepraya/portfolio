@@ -17,6 +17,7 @@ import SplitText from '../../blocks/TextAnimations/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { useTheme } from '../../lib/ThemeContext';
+import { Signature } from '../signature';
 
 const Contact = () => {
   const desktopView = DesktopView();
@@ -201,6 +202,14 @@ const Contact = () => {
               </div>
             </a>
           </div>
+          <Signature
+            text='Abhip'
+            fontSize={36}
+            color='var(--color-text-primary)'
+            duration={1.5}
+            className='mt-2 h-10 self-end'
+            inView
+          />
         </div>
       </BlurFade>
     </BlurFade>

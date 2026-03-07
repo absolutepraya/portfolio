@@ -172,9 +172,9 @@
   --color-marquee-gradient: #ffffff;
   --color-markdown-link: #3643fc;
   --color-markdown-link-hover: #2a35d4;
-  --color-shine-from: #c0c0c0;
+  --color-shine-from: rgba(26, 26, 46, 0.8);
   --color-shine-mid: white;
-  --color-shine-to: #c0c0c0;
+  --color-shine-to: rgba(26, 26, 46, 0.8);
   --color-button-bg: #e8e8f0;
   --color-inset-shadow: rgba(245, 245, 247, 1);
   --color-placeholder: #e0e0e8;
@@ -245,9 +245,9 @@
   --color-marquee-gradient: #0d0d0d;
   --color-markdown-link: #6a62ff;
   --color-markdown-link-hover: #5b6eae;
-  --color-shine-from: #717171;
+  --color-shine-from: rgba(204, 204, 204, 0.8);
   --color-shine-mid: white;
-  --color-shine-to: #717171;
+  --color-shine-to: rgba(204, 204, 204, 0.8);
   --color-button-bg: #2c2c32;
   --color-inset-shadow: rgba(5, 4, 14, 1);
   --color-placeholder: #2d2d2d;
