@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
-import { type ReactNode, useCallback, useEffect, useState } from 'react';
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { useTheme } from '../../lib/ThemeContext';
 import { cn } from '../../lib/utils';
 
 type Direction = 'TOP' | 'LEFT' | 'BOTTOM' | 'RIGHT';
@@ -25,6 +32,7 @@ export default function HoverBorderGradient({
 }: HoverBorderGradientProps) {
   const [hovered, setHovered] = useState(false);
   const [direction, setDirection] = useState<Direction>('TOP');
+  const { isDark } = useTheme();
 
   const rotateDirection = useCallback(
     (currentDirection: Direction) => {
@@ -38,17 +46,23 @@ export default function HoverBorderGradient({
     [clockwise],
   );
 
-  const movingMap: Record<Direction, string> = {
-    TOP: 'radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)',
-    LEFT: 'radial-gradient(16.6% 43.1% at 0% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)',
-    BOTTOM:
-      'radial-gradient(20.7% 50% at 50% 100%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)',
-    RIGHT:
-      'radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)',
-  };
+  const borderColor = isDark ? 'hsl(0, 0%, 100%)' : 'rgba(26, 26, 46, 0.8)';
+  const borderColorTransparent = isDark
+    ? 'rgba(255, 255, 255, 0)'
+    : 'rgba(26, 26, 46, 0)';
+  const highlightColor = isDark ? 'hsl(0, 0%, 100%)' : 'rgba(26, 26, 46, 0.9)';
 
-  const highlight =
-    'radial-gradient(75% 181.15942028985506% at 50% 50%, #3643FC 0%, rgba(255, 255, 255, 0) 100%)';
+  const movingMap: Record<Direction, string> = useMemo(
+    () => ({
+      TOP: `radial-gradient(20.7% 50% at 50% 0%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      LEFT: `radial-gradient(16.6% 43.1% at 0% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      BOTTOM: `radial-gradient(20.7% 50% at 50% 100%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      RIGHT: `radial-gradient(16.2% 41.199999999999996% at 100% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+    }),
+    [borderColor, borderColorTransparent],
+  );
+
+  const highlight = `radial-gradient(75% 181.15942028985506% at 50% 50%, ${highlightColor} 0%, rgba(255, 255, 255, 0) 100%)`;
 
   useEffect(() => {
     if (!hovered) {

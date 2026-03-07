@@ -36,20 +36,8 @@
   --shadow-glowcustomblack: var(--color-shadow-black-glow);
   --shadow-glowcustomblacksmall: var(--color-shadow-black-glow-sm);
 
-  --animate-shine: shine var(--duration) infinite linear;
   --animate-spinner-blade: spinner-blade 1s linear infinite;
 
-  @keyframes shine {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 100%;
-    }
-    to {
-      background-position: 0% 0%;
-    }
-  }
   @keyframes spinner-blade {
     0% {
       opacity: 0.85;
@@ -185,7 +173,7 @@
   --color-markdown-link: #3643fc;
   --color-markdown-link-hover: #2a35d4;
   --color-shine-from: #c0c0c0;
-  --color-shine-mid: #3643fc;
+  --color-shine-mid: white;
   --color-shine-to: #c0c0c0;
   --color-button-bg: #e8e8f0;
   --color-inset-shadow: rgba(245, 245, 247, 1);
