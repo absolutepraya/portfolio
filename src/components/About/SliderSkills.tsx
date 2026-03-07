@@ -11,6 +11,7 @@ import {
 import Marquee from 'react-fast-marquee';
 import DesktopView from '../../lib/DesktopView';
 import { useTheme } from '../../lib/ThemeContext';
+import { RichButton } from '../rich-button';
 
 interface SkillItem {
   name: string;
@@ -42,21 +43,22 @@ export const SliderSkills = () => {
       pauseOnClick={!desktopView}
       pauseOnHover={!!desktopView}
     >
-      {skillsData.map((skill, _) => {
+      {skillsData.map((skill) => {
         const IconComponent = skill.icon;
         return (
-          <div
+          <RichButton
             key={skill.name}
-            className='relative mx-3 flex h-36 w-48 flex-col items-center justify-center space-y-3 rounded-xl bg-linear-to-br from-card-from to-card-to px-4 text-text-secondary'
+            asChild
+            color='default'
+            className='mx-3 h-36 w-48 cursor-default rounded-xl hover:brightness-100 active:brightness-100'
           >
-            <div className='absolute h-[144px] w-[192px] rounded-xl border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0' />
-            <div className='cursor-pointer'>
-              <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
+            <div className='flex flex-col items-center justify-center space-y-3 px-4'>
+              <IconComponent className='z-20 size-6 scale-110' />
+              <p className='z-20 text-center font-jetbrainsmono text-lg'>
+                {skill.name}
+              </p>
             </div>
-            <p className='z-20 text-center font-jetbrainsmono text-lg'>
-              {skill.name}
-            </p>
-          </div>
+          </RichButton>
         );
       })}
     </Marquee>

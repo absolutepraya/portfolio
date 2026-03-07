@@ -40,7 +40,7 @@ interface RichButtonProps
 
 const colorMap: Record<Color, string> = {
   default:
-    'from-zinc-900/85 to-zinc-900 dark:from-zinc-100/85 dark:to-zinc-100',
+    'from-zinc-100/85 to-zinc-100 dark:from-zinc-900/85 dark:to-zinc-900',
   emerald: 'from-emerald-600/85 to-emerald-600 dark:from-emerald-600/75',
   blue: 'from-blue-600/85 to-blue-600 dark:from-blue-600/75',
   purple: 'from-purple-600/85 to-purple-600 dark:from-purple-600/75',
@@ -115,7 +115,7 @@ const RichButton = React.forwardRef<HTMLButtonElement, RichButtonProps>(
     const textShadowClasses = textShadowMap[color];
     const sizeClasses = sizeMap[size];
     const textColor =
-      color === 'default' ? 'text-white dark:text-zinc-900' : 'text-white';
+      color === 'default' ? 'text-zinc-900 dark:text-white' : 'text-white';
 
     return (
       <Comp
