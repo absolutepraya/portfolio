@@ -4,7 +4,7 @@
 
 ## Tech Stack
 
-React 18 + Vite 6 + Tailwind CSS 3 + Framer Motion + Bun
+React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
 
 Other key deps: @react-spring/web (SplitText/CountUp animations), @mui/joy (Tabs in Projects), @tabler/icons-react, react-fast-marquee, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility)
 
@@ -23,9 +23,10 @@ bun run knip         # Dead code detection
 
 ```
 src/
-├── main.jsx              # Entry point
-├── App.jsx               # Root layout
-├── styles.css            # Global CSS (@font-face, Tailwind, animations)
+├── main.tsx              # Entry point
+├── App.tsx               # Root layout
+├── styles.css            # Global CSS (@theme, @font-face, CSS variables, animations)
+├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
 ├── components/           # Page sections
 │   ├── NavBar/           # Floating nav with IntersectionObserver
 │   ├── About/            # Hero + skills/stacks marquees
@@ -33,7 +34,7 @@ src/
 │   ├── Achievements/     # Hackathon wins with image galleries
 │   ├── Projects/         # Project cards with tab filtering (MUI Joy)
 │   ├── Contact/          # Contact info + social links
-│   └── Footer.jsx        # Copyright + Jakarta clock
+│   ├── Footer/           # Copyright + Jakarta clock
 ├── blocks/               # Reusable animation components
 │   └── Animations/       # BlurFade, FlickeringGrid, HoverBorderGradient, IosSpinner
 │   └── TextAnimations/   # SplitText, CountUp (from reactbits.dev)
@@ -55,15 +56,17 @@ src/
 - Accent: blurple `#3643FC` (active states, hovers, glows, gradients)
 - Text: `#cccccc` base, gradients to `#5c5c5a` for section titles
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
-- Glow effects via custom Tailwind `boxShadow` tokens (`shadow-glowblurple*`)
+- Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 
 ## Conventions
 
-- JSX only (no TypeScript) — jsconfig.json for IDE/Vite module resolution
-- Biome is the sole linter + formatter (with Tailwind class sorting enabled via `useSortedClasses`)
+- TypeScript strict mode — tsconfig.json with `@/*` path alias
+- Tailwind v4 CSS-based config (`@theme` in styles.css, no tailwind.config.js)
+- `@tailwindcss/vite` plugin (no PostCSS config needed)
+- Biome is the sole linter + formatter (with Tailwind class sorting via `useSortedClasses` + `tailwindDirectives` CSS parsing)
 - Husky pre-commit hook runs `bun run check`
 - Single quotes, 2-space indent
-- Tailwind utility classes + custom responsive hooks (`DesktopView.js` >= 1024px, `TabletView.js` >= 768px)
+- Tailwind utility classes + custom responsive hooks (`DesktopView.ts` >= 1024px, `TabletView.ts` >= 768px)
 
 ## Agent Rules
 
