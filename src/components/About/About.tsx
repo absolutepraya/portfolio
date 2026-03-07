@@ -38,8 +38,8 @@ const About = () => {
           }}
         >
           <span className='relative ml-6! flex h-4 w-4 items-center justify-center'>
-            <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-blurple opacity-75' />
-            <span className='relative inline-flex h-3 w-3 rounded-full bg-blurple' />
+            <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-customwhite opacity-75' />
+            <span className='relative inline-flex h-3 w-3 rounded-full bg-customwhite' />
           </span>
           <p className='shine-through -mx-4! text-lg transition-all ease-in-out'>
             Let's ship AI that matters!
@@ -56,7 +56,7 @@ const About = () => {
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
           }}
-          className='-mt-12 max-w-200 text-center md:text-lg'
+          className='-mt-4 max-w-200 text-center md:text-lg'
         >
           Software, AI, and DevOps expert. From LLMs and AI agents to cloud
           systems and business automation. Leading teams and shipping results

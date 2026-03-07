@@ -16,10 +16,13 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
     <a href={link} aria-label={`Scroll to ${text}`} title={`Scroll to ${text}`}>
       {/** biome-ignore lint/a11y/noStaticElementInteractions: <X> */}
       <div
-        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-105 active:scale-95 ${isActive ? 'border-blurple bg-blurple bg-opacity-85 text-white active:bg-opacity-50' : 'text-text-secondary hover:bg-blurple hover:bg-opacity-40 active:bg-opacity-20'}`}
+        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-105 active:scale-95 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:opacity-70 active:opacity-50'}`}
         style={
           isActive
-            ? undefined
+            ? {
+                backgroundColor: 'var(--color-text-primary)',
+                borderColor: 'var(--color-text-primary)',
+              }
             : {
                 backgroundColor: 'var(--color-nav-button-bg)',
                 borderColor: 'var(--color-nav-border)',
@@ -37,7 +40,7 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
         {isActive && (
           <div
             className='absolute -bottom-2 h-[0.2rem] w-6 rounded-full transition-all duration-100 ease-in-out'
-            style={{ backgroundColor: 'var(--color-nav-active-indicator)' }}
+            style={{ backgroundColor: 'var(--color-text-primary)' }}
           />
         )}
       </div>
