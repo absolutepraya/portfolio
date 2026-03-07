@@ -20,6 +20,7 @@ import Tanstack from '../../assets/stacks/tanstack.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import DesktopView from '../../lib/DesktopView';
 import { Marquee } from '../marquee';
+import { RichButton } from '../rich-button';
 
 interface StackItem {
   src: string;
@@ -29,15 +30,15 @@ interface StackItem {
 export const stacksList: StackItem[] = [
   { src: JavaScript, alt: 'JavaScript' },
   { src: TypeScript, alt: 'TypeScript' },
-  { src: Tailwind, alt: 'Tailwind CSS' },
-  { src: Reactjs, alt: 'React.js' },
+  { src: Tailwind, alt: 'Tailwind' },
+  { src: Reactjs, alt: 'React' },
   { src: Next, alt: 'Next.js' },
   { src: Tanstack, alt: 'Tanstack' },
-  { src: Elysia, alt: 'Elysia.js' },
-  { src: Express, alt: 'Express.js' },
-  { src: Nest, alt: 'Nest.js' },
+  { src: Elysia, alt: 'Elysia' },
+  { src: Express, alt: 'Express' },
+  { src: Nest, alt: 'NestJS' },
   { src: Go, alt: 'Go' },
-  { src: Fiber, alt: 'Go Fiber' },
+  { src: Fiber, alt: 'Fiber' },
   { src: Python, alt: 'Python' },
   { src: Django, alt: 'Django' },
   { src: Flask, alt: 'Flask' },
@@ -54,29 +55,32 @@ export const SliderStacks = () => {
 
   return (
     <Marquee
-      duration={25}
+      duration={45}
       fade
       fadeAmount={15}
       direction='left'
       pauseOnHover={!!desktopView}
     >
       {stacksList.map((stack) => (
-        <button
+        <RichButton
           key={stack.alt}
-          type='button'
-          className='group relative mx-2 flex h-18 w-18 cursor-help items-center justify-center rounded-lg bg-linear-to-br from-card-from to-card-to p-4 md:mx-3 md:h-20 md:w-20'
+          asChild
+          shadow={false}
+          color='default'
+          className='group mx-2 h-18 w-18 cursor-help rounded-lg p-4 hover:brightness-100 active:brightness-100 md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-18 w-18 rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0 md:h-20 md:w-20' />
-          <div className='pointer-events-none absolute z-30 max-w-14 rounded-sm bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-16 md:text-xs'>
-            {stack.alt}
+          <div className='relative flex items-center justify-center'>
+            <div className='pointer-events-none absolute z-30 max-w-14 rounded-sm bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-16 md:text-xs'>
+              {stack.alt}
+            </div>
+            <img
+              src={stack.src}
+              alt={stack.alt}
+              className='h-full w-full select-none object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)] transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
+              draggable='false'
+            />
           </div>
-          <img
-            src={stack.src}
-            alt={stack.alt}
-            className='h-full w-full select-none object-contain transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
-            draggable='false'
-          />
-        </button>
+        </RichButton>
       ))}
     </Marquee>
   );

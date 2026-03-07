@@ -9,7 +9,6 @@ import GCP from '../../assets/stacks/gcp.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import GitHub from '../../assets/stacks/github.svg';
 import Jest from '../../assets/stacks/jest.svg';
-import Kimi from '../../assets/stacks/kimi.svg';
 import n8n from '../../assets/stacks/n8n.svg';
 import OpenAI from '../../assets/stacks/openai.svg';
 import Qwen from '../../assets/stacks/qwen.svg';
@@ -17,6 +16,7 @@ import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
 import { Marquee } from '../marquee';
+import { RichButton } from '../rich-button';
 
 interface ToolItem {
   src: string;
@@ -29,18 +29,17 @@ export const toolsList: ToolItem[] = [
   { src: Vitest, alt: 'Vitest' },
   { src: OpenAI, alt: 'OpenAI' },
   { src: Gemini, alt: 'Gemini' },
-  { src: Kimi, alt: 'Kimi (Self-Hosted)' },
-  { src: Qwen, alt: 'Qwen (Self-Hosted)' },
-  { src: Discord, alt: 'Discord Bot' },
-  { src: X, alt: 'X/Twitter Bot' },
+  { src: Qwen, alt: 'Qwen' },
+  { src: Discord, alt: 'Discord' },
+  { src: X, alt: 'X/Twitter' },
   { src: Docker, alt: 'Docker' },
-  { src: GitHub, alt: 'GitHub Actions (CI/CD)' },
+  { src: GitHub, alt: 'GitHub' },
   { src: Azure, alt: 'Azure' },
   { src: AWS, alt: 'AWS' },
-  { src: GCP, alt: 'Google Cloud Platform' },
+  { src: GCP, alt: 'GCP' },
   { src: Cloudflare, alt: 'Cloudflare' },
-  { src: n8n, alt: 'n8n (Self-Hosted)' },
-  { src: Dify, alt: 'Dify AI (Self-Hosted)' },
+  { src: n8n, alt: 'n8n' },
+  { src: Dify, alt: 'Dify AI' },
 ];
 
 export const SliderTools = () => {
@@ -48,29 +47,32 @@ export const SliderTools = () => {
 
   return (
     <Marquee
-      duration={25}
+      duration={45}
       fade
       fadeAmount={15}
       direction='right'
       pauseOnHover={!!desktopView}
     >
       {toolsList.map((tool) => (
-        <button
+        <RichButton
           key={tool.alt}
-          type='button'
-          className='group relative mx-2 flex h-18 w-18 cursor-help items-center justify-center rounded-lg bg-linear-to-br from-card-from to-card-to p-4 md:mx-3 md:h-20 md:w-20'
+          asChild
+          shadow={false}
+          color='default'
+          className='group mx-2 h-18 w-18 cursor-help rounded-lg p-4 hover:brightness-100 active:brightness-100 md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-18 w-18 rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0 md:h-20 md:w-20' />
-          <div className='pointer-events-none absolute z-30 max-w-14 rounded-sm bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-16 md:text-xs'>
-            {tool.alt}
+          <div className='relative flex items-center justify-center'>
+            <div className='pointer-events-none absolute z-30 max-w-14 rounded-sm bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-16 md:text-xs'>
+              {tool.alt}
+            </div>
+            <img
+              src={tool.src}
+              alt={tool.alt}
+              className='h-full w-full select-none object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)] transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
+              draggable='false'
+            />
           </div>
-          <img
-            src={tool.src}
-            alt={tool.alt}
-            className='h-full w-full select-none object-contain transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
-            draggable='false'
-          />
-        </button>
+        </RichButton>
       ))}
     </Marquee>
   );
