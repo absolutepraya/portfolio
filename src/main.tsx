@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from './lib/ThemeContext';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
-);
+const root = document.getElementById('root');
+if (root) {
+  ReactDOM.createRoot(root).render(
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>,
+  );
+}

@@ -194,7 +194,7 @@ const ProjectBox = ({
                 <img
                   src={
                     favicon ||
-                    `https://icon.horse/icon/${new URL(url!).hostname}`
+                    `https://icon.horse/icon/${new URL(url as string).hostname}`
                   }
                   alt={`${title} favicon`}
                   className='h-6 w-6 rounded-xs object-contain md:h-7 md:w-7'
