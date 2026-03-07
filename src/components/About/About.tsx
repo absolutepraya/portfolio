@@ -1,7 +1,7 @@
 import { IconSettings2, IconSparkles } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
-import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient/HoverBorderGradient';
+import BlurFade from '../../blocks/Animations/BlurFade';
+import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
 import BlurInDesc from './BlurInDesc';
 import { SliderSkills } from './SliderSkills';

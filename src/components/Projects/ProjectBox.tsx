@@ -42,7 +42,7 @@ import Vercel from '../../assets/stacks/vercel.svg';
 import Vite from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
+import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 

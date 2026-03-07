@@ -8,7 +8,7 @@ import {
   IconTrophy,
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
+import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import Button from './Button';

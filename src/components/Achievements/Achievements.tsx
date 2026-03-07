@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid/FlickeringGrid';
+import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 import achievementsData from '../../data/achievements_data.js';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';

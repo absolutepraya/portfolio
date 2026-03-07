@@ -19,9 +19,9 @@ import {
   useState,
 } from 'react';
 import ReactMarkdown from 'react-markdown';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
-import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
-import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
+import BlurFade from '../../blocks/Animations/BlurFade';
+import IosSpinner from '../../blocks/Animations/IosSpinner';
+import CountUp from '../../blocks/TextAnimations/CountUp';
 import type { Achievement } from '../../data/achievements_data';
 import DesktopView from '../../lib/DesktopView';
 import BotBorder from './BotBorder';

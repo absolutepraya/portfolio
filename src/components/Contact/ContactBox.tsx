@@ -12,8 +12,8 @@ import {
 import { useState } from 'react';
 import Hello from '../../assets/creds/hello.webp';
 import Pin from '../../assets/creds/pin.webp';
-import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
-import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
+import BlurFade from '../../blocks/Animations/BlurFade';
+import SplitText from '../../blocks/TextAnimations/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { useTheme } from '../../lib/ThemeContext';

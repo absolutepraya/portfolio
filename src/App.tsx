@@ -2,7 +2,7 @@ import About from './components/About/About';
 import Achievements from './components/Achievements/Achievements';
 import Contact from './components/Contact/Contact';
 import Experience from './components/Experience/Experience';
-import Copyright from './components/Footer';
+import Copyright from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Projects from './components/Projects/Projects';
 
