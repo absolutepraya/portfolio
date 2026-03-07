@@ -11,6 +11,19 @@ interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
   fadeAmount?: number;
 }
 
+const keyframesInjected = { current: false };
+
+function injectKeyframes() {
+  if (keyframesInjected.current) return;
+  keyframesInjected.current = true;
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes marquee-scroll-y { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  `;
+  document.head.appendChild(style);
+}
+
 export function Marquee({
   children,
   className,
@@ -24,122 +37,70 @@ export function Marquee({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = React.useState(false);
 
+  React.useEffect(() => {
+    injectKeyframes();
+  }, []);
+
   const items = React.Children.toArray(children);
   const isVertical = direction === 'up' || direction === 'down';
+  const isReverse = direction === 'right' || direction === 'down';
 
   return (
-    <>
-      <style>
-        {`
-        @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes scroll-reverse {
-          from {
-            transform: translateX(-50%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes scroll-y {
-          from {
-            transform: translateY(0);
-          }
-          to {
-            transform: translateY(-50%);
-          }
-        }
-
-        @keyframes scroll-y-reverse {
-          from {
-            transform: translateY(-50%);
-          }
-          to {
-            transform: translateY(0);
-          }
-        }
-
-        .marquee-scroller {
-          display: flex;
-          animation: ${
-            isVertical
-              ? direction === 'up'
-                ? 'scroll-y'
-                : 'scroll-y-reverse'
-              : direction === 'left'
-                ? 'scroll'
-                : 'scroll-reverse'
-          } ${duration}s linear infinite;
-        }
-
-        .marquee-scroller.paused {
-          animation-play-state: paused;
-        }
-      `}
-      </style>
-      {/* biome-ignore lint/a11y/noStaticElementInteractions: marquee pause on hover */}
+    // biome-ignore lint/a11y/noStaticElementInteractions: marquee pause on hover
+    <div
+      ref={containerRef}
+      className={cn(
+        'flex w-full overflow-hidden',
+        isVertical && 'flex-col',
+        className,
+      )}
+      style={{
+        ...(fade && {
+          maskImage: isVertical
+            ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${
+                100 - fadeAmount
+              }%, transparent 100%)`
+            : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${
+                100 - fadeAmount
+              }%, transparent 100%)`,
+          WebkitMaskImage: isVertical
+            ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${
+                100 - fadeAmount
+              }%, transparent 100%)`
+            : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${
+                100 - fadeAmount
+              }%, transparent 100%)`,
+        }),
+      }}
+      onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+      onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+      {...props}
+    >
       <div
-        ref={containerRef}
-        className={cn(
-          'flex w-full overflow-hidden',
-          isVertical && 'flex-col',
-          className,
-        )}
+        className={cn('flex shrink-0', isVertical && 'flex-col')}
         style={{
-          ...(fade && {
-            maskImage: isVertical
-              ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${
-                  100 - fadeAmount
-                }%, transparent 100%)`
-              : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${
-                  100 - fadeAmount
-                }%, transparent 100%)`,
-            WebkitMaskImage: isVertical
-              ? `linear-gradient(to bottom, transparent 0%, black ${fadeAmount}%, black ${
-                  100 - fadeAmount
-                }%, transparent 100%)`
-              : `linear-gradient(to right, transparent 0%, black ${fadeAmount}%, black ${
-                  100 - fadeAmount
-                }%, transparent 100%)`,
-          }),
+          animation: `${isVertical ? 'marquee-scroll-y' : 'marquee-scroll'} ${duration}s linear infinite`,
+          animationDirection: isReverse ? 'reverse' : 'normal',
+          animationPlayState: isPaused ? 'paused' : 'running',
         }}
-        onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-        onMouseLeave={() => pauseOnHover && setIsPaused(false)}
-        {...props}
       >
-        <div
-          className={cn(
-            'marquee-scroller flex shrink-0',
-            isVertical && 'flex-col',
-            isPaused && 'paused',
-          )}
-        >
-          {items.map((item) => (
-            <div
-              key={`a-${(item as React.ReactElement).key}`}
-              className={cn('flex shrink-0', isVertical && 'w-full')}
-            >
-              {item}
-            </div>
-          ))}
-          {items.map((item) => (
-            <div
-              key={`b-${(item as React.ReactElement).key}`}
-              className={cn('flex shrink-0', isVertical && 'w-full')}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
+        {items.map((item) => (
+          <div
+            key={`a-${(item as React.ReactElement).key}`}
+            className={cn('flex shrink-0', isVertical && 'w-full')}
+          >
+            {item}
+          </div>
+        ))}
+        {items.map((item) => (
+          <div
+            key={`b-${(item as React.ReactElement).key}`}
+            className={cn('flex shrink-0', isVertical && 'w-full')}
+          >
+            {item}
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

@@ -36,11 +36,11 @@ interface RichButtonProps
   size?: SizeVariant;
   className?: string;
   asChild?: boolean;
+  shadow?: boolean;
 }
 
 const colorMap: Record<Color, string> = {
-  default:
-    'from-zinc-100/85 to-zinc-100 dark:from-zinc-900/85 dark:to-zinc-900',
+  default: 'from-white to-zinc-100/85 dark:from-zinc-900/85 dark:to-zinc-900',
   emerald: 'from-emerald-600/85 to-emerald-600 dark:from-emerald-600/75',
   blue: 'from-blue-600/85 to-blue-600 dark:from-blue-600/75',
   purple: 'from-purple-600/85 to-purple-600 dark:from-purple-600/75',
@@ -67,7 +67,7 @@ const colorMap: Record<Color, string> = {
 
 const textShadowMap: Record<Color, string> = {
   default:
-    '[text-shadow:0_1px_0_rgb(0,0,0)] dark:[text-shadow:0_1px_0_rgb(255,255,255)]',
+    '[text-shadow:0_1px_0_rgb(255,255,255)] dark:[text-shadow:0_1px_0_rgb(0,0,0)]',
   emerald: '[text-shadow:0_1px_0_var(--color-emerald-800)]',
   blue: '[text-shadow:0_1px_0_var(--color-blue-800)]',
   purple: '[text-shadow:0_1px_0_var(--color-purple-800)]',
@@ -106,6 +106,7 @@ const RichButton = React.forwardRef<HTMLButtonElement, RichButtonProps>(
       size = 'default',
       className,
       asChild = false,
+      shadow = true,
       ...props
     },
     ref,
@@ -121,7 +122,10 @@ const RichButton = React.forwardRef<HTMLButtonElement, RichButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          'inset-shadow-2xs inset-shadow-white/25 inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap border border-zinc-950/35 bg-linear-to-b font-medium shadow-md shadow-zinc-950/20 ring-0 transition-[filter] duration-200 hover:brightness-110 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:brightness-95 disabled:pointer-events-none disabled:opacity-50 dark:border-0 dark:border-zinc-950/50 dark:bg-linear-to-t [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+          'inset-shadow-2xs inset-shadow-white/25 inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap border border-zinc-950/35 bg-linear-to-b font-medium ring-0 transition-[filter] duration-200 hover:brightness-110 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:brightness-95 disabled:pointer-events-none disabled:opacity-50 dark:border-0 dark:border-zinc-950/50 dark:bg-linear-to-t [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+          shadow
+            ? 'shadow-md shadow-zinc-950/20'
+            : 'shadow-[0_0_6px_0_rgba(0,0,0,0.1)]',
           colorClasses,
           sizeClasses,
           textColor,
