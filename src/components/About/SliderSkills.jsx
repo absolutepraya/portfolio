@@ -47,7 +47,7 @@ export const SliderSkills = () => {
             <div className='cursor-pointer'>
               <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
             </div>
-            <p className='z-20 text-center font-maplemono text-lg'>
+            <p className='z-20 text-center font-jetbrainsmono text-lg'>
               {skill.name}
             </p>
           </div>

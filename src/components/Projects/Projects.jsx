@@ -175,7 +175,7 @@ const Projects = () => {
                   bgcolor: 'var(--color-button-active-bg)',
                   border: '1px solid var(--color-border-light)',
                   borderRadius: 'full',
-                  fontFamily: 'Maple Mono',
+                  fontFamily: 'JetBrains Mono',
                   opacity: 0.8,
                   transition:
                     'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',

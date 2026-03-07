@@ -423,7 +423,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                       <ReactMarkdown>{achievement.desc}</ReactMarkdown>
                     </div>
                   )}
-                  <div className='flex flex-col space-y-1 font-maplemono'>
+                  <div className='flex flex-col space-y-1 font-jetbrainsmono'>
                     {achievement.award && (
                       <div
                         className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}
@@ -526,7 +526,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
           {showAll && (
             <BlurFade offset={8} inView>
-              <div className='flex w-full items-center justify-center pt-4 pb-4 font-maplemono text-sm'>
+              <div className='flex w-full items-center justify-center pt-4 pb-4 font-jetbrainsmono text-sm'>
                 <p className='!opacity-40'>and more to come...</p>
               </div>
             </BlurFade>

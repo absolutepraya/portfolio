@@ -116,7 +116,7 @@ const Contact = () => {
           <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
             <div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 md:py-0'>
               <IconMail size={desktopView ? 20 : 16} stroke={2} />
-              <p className='break-all font-maplemono font-semibold text-sm tracking-wider'>
+              <p className='break-all font-jetbrainsmono font-semibold text-sm tracking-wider'>
                 daffa@abhipraya.dev
               </p>
             </div>
@@ -163,7 +163,7 @@ const Contact = () => {
           </a>
           <div className='!mt-6 h-0.5 w-full bg-customgray' />
           <p className=''>Follow my other socials!</p>
-          <div className='flex w-full flex-col space-y-2 font-maplemono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
+          <div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
               target='_blank'

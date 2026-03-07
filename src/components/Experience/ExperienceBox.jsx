@@ -120,7 +120,7 @@ const ExperienceBox = ({
             />
           )}
           <p
-            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono transition-all duration-[380ms] ease-in-out`}
+            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono transition-all duration-[380ms] ease-in-out`}
           >
             {date}
           </p>
@@ -160,7 +160,7 @@ const ExperienceBox = ({
                     {role.title}
                   </p>
                   <p
-                    className={`font-maplemono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-maplemono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}
+                    className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono text-sm transition-all duration-[380ms] ease-in-out md:text-base`}
                   >
                     {role.date}
                   </p>

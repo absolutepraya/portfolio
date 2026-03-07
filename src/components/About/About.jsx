@@ -84,7 +84,9 @@ const About = () => {
             <div className='flex w-full flex-col items-start space-y-4'>
               <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
                 <IconSparkles size={16} stroke={1.5} color='#fff' />
-                <p className='font-maplemono text-sm lg:text-md'>Skillsets</p>
+                <p className='font-jetbrainsmono text-sm lg:text-md'>
+                  Skillsets
+                </p>
               </div>
               <p className='text-lg lg:text-xl'>
                 Expert in{' '}
@@ -129,7 +131,7 @@ const About = () => {
             <div className='flex w-full flex-col items-start space-y-4'>
               <div className='flex h-8 w-auto items-center space-x-2 rounded-lg border px-2 transition-all duration-100 hover:scale-105'>
                 <IconSettings2 size={16} stroke={1.5} />
-                <p className='font-maplemono text-sm lg:text-md'>
+                <p className='font-jetbrainsmono text-sm lg:text-md'>
                   Tech stack & tools
                 </p>
               </div>

@@ -22,7 +22,7 @@ const Copyright = () => {
   return (
     <footer className='flex w-full flex-col'>
       <div
-        className='flex h-24 w-full flex-col items-center justify-between space-y-2 border-customgray border-t py-4 font-maplemono text-xs md:h-16 md:flex-row md:space-y-0 md:px-8 md:py-0 md:text-xs lg:px-32'
+        className='flex h-24 w-full flex-col items-center justify-between space-y-2 border-customgray border-t py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:space-y-0 md:px-8 md:py-0 md:text-xs lg:px-32'
         style={{ backgroundColor: 'var(--color-nav-bg)' }}
       >
         <div className='flex flex-row items-center justify-start space-x-2 md:w-1/3'>

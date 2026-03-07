@@ -198,7 +198,7 @@ const ProjectBox = ({
               <p className='font-instrument text-2xl md:text-3xl'>{title}</p>
             </div>
             {!isSelfHosted && (
-              <p className='mt-[6px] text-end font-extrabold font-maplemono text-sm opacity-70 md:mt-[10px] md:text-md'>
+              <p className='mt-[6px] text-end font-extrabold font-jetbrainsmono text-sm opacity-70 md:mt-[10px] md:text-md'>
                 {date}
               </p>
             )}
@@ -213,14 +213,14 @@ const ProjectBox = ({
                     key={index}
                     className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
                   >
-                    <p className='font-maplemono text-blurple text-xs md:text-sm'>
+                    <p className='font-jetbrainsmono text-blurple text-xs md:text-sm'>
                       {t}
                     </p>
                   </div>
                 ))
               ) : (
                 <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
-                  <p className='font-maplemono text-blurple text-xs md:text-sm'>
+                  <p className='font-jetbrainsmono text-blurple text-xs md:text-sm'>
                     {type}
                   </p>
                 </div>
@@ -261,7 +261,7 @@ const ProjectBox = ({
                                   duration: 0.15,
                                   ease: 'easeInOut',
                                 }}
-                                className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-tooltip-bg px-[6px] py-[3px] font-maplemono text-tooltip-text text-xs'
+                                className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-tooltip-bg px-[6px] py-[3px] font-jetbrainsmono text-tooltip-text text-xs'
                               >
                                 <p className='text-nowrap'>
                                   {stackIcons[stack].name}

@@ -8,7 +8,6 @@ module.exports = {
         inter: ['Inter', 'sans-serif'],
         instrument: ['Instrument Serif', 'serif'],
         jetbrainsmono: ['JetBrains Mono', 'monospace'],
-        maplemono: ['Maple Mono', 'monospace'],
       },
       colors: {
         blurple: '#3643FC',
