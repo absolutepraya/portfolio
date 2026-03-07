@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.24",
     "husky": "^9.1.7",
@@ -46,6 +48,7 @@
     "postcss": "^8.5.6",
     "puppeteer": "^24.37.4",
     "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
     "vite": "^6.4.1"
   }
 }
