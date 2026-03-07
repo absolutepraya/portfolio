@@ -16,11 +16,13 @@ import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import SplitText from '../../blocks/TextAnimations/SplitText/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import { useTheme } from '../../lib/ThemeContext';
 
 const Contact = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [copied, setCopied] = useState(false);
+  const { isDark } = useTheme();
 
   const handleCopy = () => {
     const textToCopy = 'daffa@abhipraya.dev';
@@ -33,7 +35,7 @@ const Contact = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-[#666666] xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
+      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-[28rem] xl:w-[68rem] xl:max-w-[1000rem] xl:flex-row'
       delay={0.3}
       inView
       offset={20}
@@ -49,7 +51,9 @@ const Contact = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className='fill-black text-white'
+              className={
+                isDark ? 'fill-black text-white' : 'fill-white text-black'
+              }
             />
             <SplitText animateBy='letters' text='projects' />
           </div>
@@ -57,7 +61,9 @@ const Contact = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className='fill-black text-white'
+              className={
+                isDark ? 'fill-black text-white' : 'fill-white text-black'
+              }
             />
             <SplitText animateBy='letters' text='works' />
           </div>
@@ -65,7 +71,9 @@ const Contact = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className='fill-black text-white'
+              className={
+                isDark ? 'fill-black text-white' : 'fill-white text-black'
+              }
             />
             <SplitText animateBy='letters' text='collabs' />
           </div>
@@ -73,7 +81,9 @@ const Contact = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className='fill-black text-white'
+              className={
+                isDark ? 'fill-black text-white' : 'fill-white text-black'
+              }
             />
             <SplitText animateBy='letters' text='hackathons' />
           </div>
@@ -85,8 +95,8 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='!pt-2 relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='!z-[-1] absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-[#2a2a2a] border-r-0 border-b-0' />
+        <div className='!pt-2 relative flex h-fit w-full max-w-[30rem] rotate-[-3deg] flex-col justify-center space-y-4 rounded-3xl bg-gradient-to-br from-card-from to-card-to p-6 pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+          <div className='!z-[-1] absolute top-0 left-0 h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
           <img
             src={Pin}
             alt='Pin'
@@ -112,7 +122,7 @@ const Contact = () => {
             </div>
             {tabletView && (
               <a
-                className='flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-[0.5rem] transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 href='mailto:daffa@abhipraya.dev'
                 target='_blank'
                 rel='noreferrer'
@@ -125,7 +135,7 @@ const Contact = () => {
             {tabletView && (
               <button
                 type='button'
-                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-[#2c2c32] p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-[0.5rem] transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
               >

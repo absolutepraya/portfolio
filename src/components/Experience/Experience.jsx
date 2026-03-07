@@ -44,7 +44,7 @@ const Experience = () => {
       <div id='experience' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
-          className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+          className='bg-gradient-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
             opacity: 1,
@@ -60,7 +60,7 @@ const Experience = () => {
           The road so far
         </motion.h2>
         <div
-          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}
+          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <motion.div
             className='absolute h-1 w-full bg-customblack shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
@@ -110,7 +110,7 @@ const Experience = () => {
             <motion.button
               ref={buttonRef}
               onClick={handleToggle}
-              className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+              className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

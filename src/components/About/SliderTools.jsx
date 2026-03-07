@@ -17,6 +17,7 @@ import Qwen from '../../assets/stacks/qwen.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
+import { useTheme } from '../../lib/ThemeContext';
 
 export const toolsList = [
   { src: Figma, alt: 'Figma' },
@@ -40,12 +41,13 @@ export const toolsList = [
 
 export const SliderTools = () => {
   const desktopView = DesktopView();
+  const { isDark } = useTheme();
 
   return (
     <Marquee
       speed='40'
       gradient={true}
-      gradientColor='#0d0d0d'
+      gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
       gradientWidth={110}
       autoFill={true}
       direction='right'
@@ -56,10 +58,10 @@ export const SliderTools = () => {
         <button
           key={tool.alt}
           type='button'
-          className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-[#1f1f1f] to-[#0e0e0e] p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
+          className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-card-from to-card-to p-4 shadow-xl md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-[#2a2a2a] border-r-0 border-b-0 md:h-20 md:w-20' />
-          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-black px-1 py-1 text-center text-[#cccccc] text-[0.6rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
+          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 md:h-20 md:w-20' />
+          <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
             {tool.alt}
           </div>
           <img

@@ -29,7 +29,8 @@ const About = () => {
         <HoverBorderGradient
           containerClassName='rounded-full'
           as='button'
-          className='flex items-center border border-customgray bg-[#131313]'
+          className='flex items-center border border-customgray'
+          style={{ backgroundColor: 'var(--color-about-card-border)' }}
           onClick={() => {
             document.getElementById('contacts')?.scrollIntoView({
               behavior: 'smooth',

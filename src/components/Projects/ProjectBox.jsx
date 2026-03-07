@@ -147,7 +147,7 @@ const ProjectBox = ({
         className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}
       >
         {!isSelfHosted && (
-          <div className='aspect-[10/7] w-full bg-[#2d2d2d]'>
+          <div className='aspect-[10/7] w-full bg-theme-placeholder'>
             {isVideo ? (
               <video
                 ref={videoRef}
@@ -261,7 +261,7 @@ const ProjectBox = ({
                                   duration: 0.15,
                                   ease: 'easeInOut',
                                 }}
-                                className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-black px-[6px] py-[3px] font-maplemono text-xs'
+                                className='absolute -top-[32px] left-0 z-[100] transform rounded border-[0.5px] bg-tooltip-bg px-[6px] py-[3px] font-maplemono text-tooltip-text text-xs'
                               >
                                 <p className='text-nowrap'>
                                   {stackIcons[stack].name}
@@ -288,7 +288,7 @@ const ProjectBox = ({
             {isSelfHosted && <div className='flex w-fit' />}
             <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
               {url === '' ? (
-                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
+                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg opacity-30 md:w-10'>
                   <IconArrowUpRight stroke={1.5} size={desktopView ? 24 : 22} />
                 </div>
               ) : (
@@ -300,7 +300,7 @@ const ProjectBox = ({
                   title='Open deployed project URL'
                 >
                   <div
-                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
+                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
                   >
                     <IconArrowUpRight
                       stroke={1.5}
@@ -310,7 +310,7 @@ const ProjectBox = ({
                 </a>
               )}
               {github === '' ? (
-                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] opacity-30 md:w-10'>
+                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg opacity-30 md:w-10'>
                   <IconBrandGithub stroke={1.5} size={desktopView ? 24 : 22} />
                 </div>
               ) : (
@@ -322,7 +322,7 @@ const ProjectBox = ({
                   title='View project source code on GitHub'
                 >
                   <div
-                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
+                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
                   >
                     <IconBrandGithub
                       stroke={1.5}
@@ -339,7 +339,7 @@ const ProjectBox = ({
                   aria-label='Open project homepage'
                   title='Open project homepage'
                 >
-                  <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-[#2c2c32] transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple md:w-10'>
+                  <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple md:w-10'>
                     <IconHome stroke={1.5} size={desktopView ? 24 : 22} />
                   </div>
                 </a>

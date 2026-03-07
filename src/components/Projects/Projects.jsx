@@ -81,7 +81,7 @@ const Projects = () => {
       <div id='projects' className='absolute -top-24' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
-          className='bg-gradient-to-br from-customwhite to-[#5c5c5a] bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+          className='bg-gradient-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
             opacity: 1,
@@ -97,10 +97,10 @@ const Projects = () => {
           Stuff I&apos;ve built
         </motion.h2>
         <div
-          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-[#5c5c5a] opacity-60'}`}
+          className={`relative mt-1 w-full max-w-[35rem] rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-[1000rem] lg:flex-grow ${desktopView ? 'h-0.5 bg-white opacity-20' : 'h-0.5 bg-gradient-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <motion.div
-            className='absolute h-1 w-full bg-[#03020F] shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
+            className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
               transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
@@ -115,7 +115,7 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-[#03020F] px-4 text-customlightgray'>
+        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-4 text-customlightgray'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='20'
@@ -132,13 +132,13 @@ const Projects = () => {
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold text-gray-300'>Filter by type:</p>
+          <p className='font-semibold text-customlightgray'>Filter by type:</p>
         </div>
 
         <Tabs
           defaultValue={0}
           sx={{
-            bgcolor: '#03020F',
+            bgcolor: 'var(--color-page-bg)',
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
@@ -171,17 +171,17 @@ const Projects = () => {
                     'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
                 },
                 [`& .${tabClasses.root}[aria-selected="false"]`]: {
-                  color: '#ffffff',
-                  bgcolor: 'rgba(209, 213, 219, 0.03)',
-                  border: '1px solid #3e3e3e',
+                  color: 'var(--color-text-primary)',
+                  bgcolor: 'var(--color-button-active-bg)',
+                  border: '1px solid var(--color-border-light)',
                   borderRadius: 'full',
                   fontFamily: 'Maple Mono',
                   opacity: 0.8,
                   transition:
                     'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
                   '&:hover': {
-                    bgcolor: 'rgba(62, 62, 62, 0.2)',
-                    color: '#ffffff',
+                    bgcolor: 'var(--color-nav-button-bg)',
+                    color: 'var(--color-text-primary)',
                     transform: 'scale(1.05)',
                   },
                   '&:active': {
@@ -261,7 +261,7 @@ const Projects = () => {
                 <motion.button
                   ref={buttonRef}
                   onClick={handleToggle}
-                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-[#0f0f0f] py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-[#1f1f1f] hover:to-[#0e0e0e] hover:shadow-glowblurplesmall`}
+                  className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-gradient-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

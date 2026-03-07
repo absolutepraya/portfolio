@@ -52,7 +52,7 @@ const ExperienceBox = ({
   return (
     <motion.div
       ref={divRef}
-      className={`!pt-4 relative flex flex-col items-center space-y-3 rounded-3xl bg-[#0f0f0f] from-[#1f1f1f] to-[#0e0e0e] p-6 transition-all duration-[480ms] ease-in-out lg:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
+      className={`!pt-4 relative flex flex-col items-center space-y-3 rounded-3xl bg-btn-active-bg from-card-from to-card-to p-6 transition-all duration-[480ms] ease-in-out lg:w-[45rem] ${isInView ? (desktopView ? 'border-opacity-100 bg-gradient-to-br shadow-glowblurple' : 'border-opacity-100 bg-gradient-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
     >
       <div
         ref={divRef}
@@ -61,7 +61,13 @@ const ExperienceBox = ({
       <div
         className={`absolute -top-[4rem] -z-10 font-black transition-all duration-[380ms] ease-in-out md:-top-[6.6rem] ${isInView ? 'opacity-100' : 'opacity-40'}`}
       >
-        <p className='bg-gradient-to-b from-0% from-[#ccccccb9] to-[#cccccc00] to-[67%] bg-clip-text text-[3.3rem] text-transparent tracking-wide md:text-[6rem]'>
+        <p
+          className='bg-gradient-to-b from-0% to-[67%] bg-clip-text text-[3.3rem] text-transparent tracking-wide md:text-[6rem]'
+          style={{
+            backgroundImage:
+              'linear-gradient(to bottom, var(--color-text-primary-70) 0%, var(--color-text-primary-0) 67%)',
+          }}
+        >
           {orgShort ? orgShort : org}
         </p>
       </div>
