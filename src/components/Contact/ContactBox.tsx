@@ -203,7 +203,7 @@ const Contact = () => {
             </a>
           </div>
           <Signature
-            text='Abhip'
+            text='Abhipraya'
             fontSize={36}
             color='var(--color-text-primary)'
             duration={1.5}

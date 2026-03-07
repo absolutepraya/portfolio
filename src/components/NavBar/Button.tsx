@@ -16,7 +16,7 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
     <a href={link} aria-label={`Scroll to ${text}`} title={`Scroll to ${text}`}>
       {/** biome-ignore lint/a11y/noStaticElementInteractions: <X> */}
       <div
-        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-105 active:scale-95 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:opacity-70 active:opacity-50'}`}
+        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-103 active:scale-97 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:text-customwhite active:opacity-50'}`}
         style={
           isActive
             ? {

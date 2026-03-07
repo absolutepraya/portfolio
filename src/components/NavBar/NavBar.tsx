@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import { Signature } from '../signature';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 
@@ -63,10 +64,13 @@ const NavBar = () => {
       <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
         {desktopView && <ButtonImg />}
         {desktopView && (
-          <div className='flex flex-col justify-start'>
-            <p className='text-start font-bold'>Daffa Abhipraya</p>
-            <p className='text-start'>SWE & AI, CS @ UI</p>
-          </div>
+          <Signature
+            text='Abhipraya'
+            fontSize={36}
+            color='var(--color-text-primary)'
+            duration={1.5}
+            className='h-14 max-w-32'
+          />
         )}
       </div>
       <div className='flex w-1/3 flex-row justify-center space-x-3'>
