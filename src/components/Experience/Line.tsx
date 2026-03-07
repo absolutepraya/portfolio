@@ -13,8 +13,7 @@ const Line = () => {
         transition: { duration: 0.6, ease: 'circOut' },
       }}
       viewport={{
-        marginTop: desktopView ? '-100px' : '-14px',
-        marginBottom: desktopView ? '-100px' : '-14px',
+        margin: desktopView ? '-100px 0px -100px 0px' : '-14px 0px -14px 0px',
         once: true,
       }}
     >

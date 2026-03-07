@@ -29,8 +29,9 @@ const Achievements = () => {
             transition: { duration: 0.8, ease: 'circOut' },
           }}
           viewport={{
-            marginTop: desktopView ? '-100px' : '-14px',
-            marginBottom: desktopView ? '-100px' : '-14px',
+            margin: desktopView
+              ? '-100px 0px -100px 0px'
+              : '-14px 0px -14px 0px',
             once: true,
           }}
         >
@@ -46,8 +47,9 @@ const Achievements = () => {
               transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
-              marginTop: desktopView ? '-100px' : '-14px',
-              marginBottom: desktopView ? '-100px' : '-14px',
+              margin: desktopView
+                ? '-100px 0px -100px 0px'
+                : '-14px 0px -14px 0px',
               once: true,
             }}
           />

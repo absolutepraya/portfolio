@@ -3,6 +3,19 @@ import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import DesktopView from '../../lib/DesktopView';
 
+interface ExperienceBoxProps {
+  title: string;
+  org: string;
+  orgShort?: string;
+  logo: string;
+  date: string;
+  desc: string;
+  url: string;
+  previousTitles?: string[];
+  previousDates?: string[];
+  alignCenter?: boolean;
+}
+
 const ExperienceBox = ({
   title,
   org,
@@ -14,9 +27,9 @@ const ExperienceBox = ({
   previousTitles,
   previousDates,
   alignCenter,
-}) => {
+}: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
-  const divRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
   const desktopView = DesktopView();
 
   useEffect(() => {

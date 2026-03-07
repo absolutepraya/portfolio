@@ -22,7 +22,12 @@ import TypeScript from '../../assets/stacks/typescript.svg';
 import DesktopView from '../../lib/DesktopView';
 import { useTheme } from '../../lib/ThemeContext';
 
-export const stacksList = [
+interface StackItem {
+  src: string;
+  alt: string;
+}
+
+export const stacksList: StackItem[] = [
   { src: JavaScript, alt: 'JavaScript' },
   { src: TypeScript, alt: 'TypeScript' },
   { src: Tailwind, alt: 'Tailwind CSS' },
@@ -51,7 +56,7 @@ export const SliderStacks = () => {
 
   return (
     <Marquee
-      speed='40'
+      speed={40}
       gradient={true}
       gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
       gradientWidth={110}

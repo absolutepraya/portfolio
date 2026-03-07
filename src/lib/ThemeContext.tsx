@@ -1,14 +1,21 @@
 import {
   createContext,
+  type ReactNode,
   useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react';
 
-const ThemeContext = createContext();
+interface ThemeContextType {
+  theme: string;
+  toggleTheme: () => void;
+  isDark: boolean;
+}
 
-function getInitialTheme() {
+const ThemeContext = createContext<ThemeContextType | null>(null);
+
+function getInitialTheme(): string {
   const stored = localStorage.getItem('theme');
   if (stored === 'light' || stored === 'dark') return stored;
   return window.matchMedia('(prefers-color-scheme: light)').matches
@@ -16,14 +23,16 @@ function getInitialTheme() {
     : 'dark';
 }
 
-export function ThemeProvider({ children }) {
+export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState(getInitialTheme);
 
-  const applyTheme = useCallback((t) => {
+  const applyTheme = useCallback((t: string) => {
     const root = document.documentElement;
     root.classList.toggle('dark', t === 'dark');
     root.style.colorScheme = t;
-    const meta = document.querySelector('meta[name="theme-color"]');
+    const meta = document.querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"]',
+    );
     if (meta) meta.content = t === 'dark' ? '#03020F' : '#f5f5f7';
   }, []);
 
@@ -46,7 +55,7 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: light)');
-    const handler = (e) => {
+    const handler = (e: MediaQueryListEvent) => {
       if (localStorage.getItem('theme')) return;
       const next = e.matches ? 'light' : 'dark';
       setTheme(next);
@@ -65,6 +74,10 @@ export function ThemeProvider({ children }) {
   );
 }
 
-export function useTheme() {
-  return useContext(ThemeContext);
+export function useTheme(): ThemeContextType {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
 }

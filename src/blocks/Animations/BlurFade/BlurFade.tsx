@@ -1,9 +1,30 @@
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  type Variants,
+} from 'framer-motion';
+import { type ReactNode, useRef } from 'react';
+
+interface BlurFadeProps {
+  children: ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  variant?: Variants;
+  duration?: number;
+  delay?: number;
+  offset?: number;
+  direction?: 'up' | 'down' | 'left' | 'right';
+  inView?: boolean;
+  inViewMargin?: string;
+  blur?: string;
+  scale?: number;
+}
 
 export default function BlurFade({
   children,
   className,
+  style,
   variant,
   duration = 0.4,
   delay = 0,
@@ -13,9 +34,12 @@ export default function BlurFade({
   inViewMargin = '-50px',
   blur = '6px',
   scale = 1,
-}) {
-  const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+}: BlurFadeProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inViewResult = useInView(ref, {
+    once: true,
+    margin: inViewMargin as `${number}px`,
+  });
   const isInView = !inView || inViewResult;
   const defaultVariants = {
     hidden: {
@@ -47,6 +71,7 @@ export default function BlurFade({
           ease: 'easeOut',
         }}
         className={className}
+        style={style}
       >
         {children}
       </motion.div>

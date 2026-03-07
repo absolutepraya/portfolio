@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import DesktopView from '../../lib/DesktopView';
 
-const Line = () => {
+const LineShort = () => {
   const desktopView = DesktopView();
 
   return (
@@ -13,8 +13,7 @@ const Line = () => {
         transition: { duration: 0.6, ease: 'circOut' },
       }}
       viewport={{
-        marginTop: desktopView ? '-100px' : '-14px',
-        marginBottom: desktopView ? '-100px' : '-14px',
+        margin: desktopView ? '-100px 0px -100px 0px' : '-14px 0px -14px 0px',
         once: true,
       }}
     >
@@ -28,4 +27,4 @@ const Line = () => {
   );
 };
 
-export default Line;
+export default LineShort;

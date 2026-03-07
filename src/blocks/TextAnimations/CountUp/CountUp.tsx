@@ -7,6 +7,19 @@
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
+interface CountUpProps {
+  to: number;
+  from?: number;
+  direction?: 'up' | 'down';
+  delay?: number;
+  duration?: number;
+  className?: string;
+  startWhen?: boolean;
+  separator?: string;
+  onStart?: () => void;
+  onEnd?: () => void;
+}
+
 export default function CountUp({
   to,
   from = 0,
@@ -18,8 +31,8 @@ export default function CountUp({
   separator = '',
   onStart,
   onEnd,
-}) {
-  const ref = useRef(null);
+}: CountUpProps) {
+  const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === 'down' ? to : from);
 
   // Calculate damping and stiffness based on duration
@@ -89,7 +102,7 @@ export default function CountUp({
         };
 
         const formattedNumber = Intl.NumberFormat('en-US', options).format(
-          latest.toFixed(0),
+          Number.parseFloat(latest.toFixed(0)),
         );
 
         ref.current.textContent = separator

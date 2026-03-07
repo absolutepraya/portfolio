@@ -1,5 +1,27 @@
 // Import organizer logos
 
+export interface Article {
+  platform: string;
+  url: string;
+}
+
+export interface Achievement {
+  title: string;
+  organizer: string;
+  organizerUrl: string;
+  organizerLogo: string;
+  date: string;
+  desc: string;
+  award: string;
+  awardInt: number;
+  prizeCurr?: string;
+  prizeInt?: number;
+  bonus?: string[];
+  location: string;
+  articles?: Article[];
+  imagesPath?: string;
+}
+
 import Alibaba from '../assets/orgs/alibaba.webp';
 import ASSI from '../assets/orgs/assi.webp';
 import JIHS from '../assets/orgs/jihs.webp';
@@ -7,7 +29,7 @@ import Kemenkeu from '../assets/orgs/kemenkeu.webp';
 import Microsoft from '../assets/orgs/microsoft.svg';
 import UC from '../assets/orgs/uc.webp';
 
-const achievementsData = [
+const achievementsData: Achievement[] = [
   {
     title: 'Gov-AI Hackathon 2024',
     organizer: 'Kemenkeu (Ministry of Finance) RI',

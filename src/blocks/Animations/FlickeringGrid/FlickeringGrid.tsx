@@ -1,4 +1,29 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type HTMLAttributes,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+
+interface FlickeringGridProps extends HTMLAttributes<HTMLDivElement> {
+  squareSize?: number;
+  gridGap?: number;
+  flickerChance?: number;
+  color?: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  maxOpacity?: number;
+}
+
+interface GridParams {
+  cols: number;
+  rows: number;
+  squares: Float32Array;
+  dpr: number;
+}
 
 export const FlickeringGrid = ({
   squareSize = 4,
@@ -10,14 +35,14 @@ export const FlickeringGrid = ({
   className,
   maxOpacity = 0.3,
   ...props
-}) => {
-  const canvasRef = useRef(null);
-  const containerRef = useRef(null);
+}: FlickeringGridProps) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
 
   const memoizedColor = useMemo(() => {
-    const toRGBA = (color) => {
+    const toRGBA = (color: string) => {
       if (typeof window === 'undefined') {
         return 'rgba(0, 0, 0,';
       }
@@ -34,7 +59,7 @@ export const FlickeringGrid = ({
   }, [color]);
 
   const setupCanvas = useCallback(
-    (canvas, width, height) => {
+    (canvas: HTMLCanvasElement, width: number, height: number): GridParams => {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
@@ -56,7 +81,7 @@ export const FlickeringGrid = ({
   );
 
   const updateSquares = useCallback(
-    (squares, deltaTime) => {
+    (squares: Float32Array, deltaTime: number) => {
       for (let i = 0; i < squares.length; i++) {
         if (Math.random() < flickerChance * deltaTime) {
           squares[i] = Math.random() * maxOpacity;
@@ -67,7 +92,15 @@ export const FlickeringGrid = ({
   );
 
   const drawGrid = useCallback(
-    (ctx, width, height, cols, rows, squares, dpr) => {
+    (
+      ctx: CanvasRenderingContext2D,
+      width: number,
+      height: number,
+      cols: number,
+      rows: number,
+      squares: Float32Array,
+      dpr: number,
+    ) => {
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = 'transparent';
       ctx.fillRect(0, 0, width, height);
@@ -96,8 +129,8 @@ export const FlickeringGrid = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animationFrameId;
-    let gridParams;
+    let animationFrameId: number;
+    let gridParams: GridParams;
 
     const updateCanvasSize = () => {
       const newWidth = width || container.clientWidth;
@@ -109,7 +142,7 @@ export const FlickeringGrid = ({
     updateCanvasSize();
 
     let lastTime = 0;
-    const animate = (time) => {
+    const animate = (time: number) => {
       if (!isInView) return;
 
       const deltaTime = (time - lastTime) / 1000;

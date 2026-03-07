@@ -1,4 +1,14 @@
-const IosSpinner = ({ className = '', size = 'md', ...props }) => {
+interface IosSpinnerProps {
+  className?: string;
+  size?: 'sm' | 'md' | 'lg' | '3xl';
+  [key: string]: unknown;
+}
+
+const IosSpinner = ({
+  className = '',
+  size = 'md',
+  ...props
+}: IosSpinnerProps) => {
   const blades = [
     'blade-0',
     'blade-1',

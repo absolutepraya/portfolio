@@ -10,28 +10,54 @@ import {
   IconNews,
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  type Dispatch,
+  type SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import ReactMarkdown from 'react-markdown';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import IosSpinner from '../../blocks/Animations/IosSpinner/IosSpinner';
 import CountUp from '../../blocks/TextAnimations/CountUp/CountUp';
+import type { Achievement } from '../../data/achievements_data';
 import DesktopView from '../../lib/DesktopView';
 import BotBorder from './BotBorder';
 
-const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
+interface AchievementsBoxProps {
+  achievementData: Achievement[];
+  showAll: boolean;
+  setShowAll: Dispatch<SetStateAction<boolean>>;
+}
+
+const AchievementsBox = ({
+  achievementData,
+  showAll,
+  setShowAll,
+}: AchievementsBoxProps) => {
   const desktopView = DesktopView();
-  const buttonRef = useRef(null);
-  const [currentImageIndexes, setCurrentImageIndexes] = useState({});
-  const [achievementImages, setAchievementImages] = useState({});
-  const [imageLoadingStates, setImageLoadingStates] = useState({});
-  const [imageLoadedStates, setImageLoadedStates] = useState({});
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndexes, setCurrentImageIndexes] = useState<
+    Record<string, number>
+  >({});
+  const [achievementImages, setAchievementImages] = useState<
+    Record<string, (string | null)[]>
+  >({});
+  const [imageLoadingStates, setImageLoadingStates] = useState<
+    Record<string, boolean[]>
+  >({});
+  const [imageLoadedStates, setImageLoadedStates] = useState<
+    Record<string, boolean[]>
+  >({});
 
   const displayedAchievements = showAll
     ? achievementData
     : achievementData.slice(0, 3);
 
   const loadFirstImage = useCallback(
-    async (achievementTitle) => {
+    async (achievementTitle: string) => {
       try {
         const achievement = achievementData.find(
           (a) => a.title === achievementTitle,
@@ -42,13 +68,11 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
           '/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}',
           { eager: false },
         );
-        const imagePaths = [];
+        const imagePaths: string[] = [];
 
+        const { imagesPath } = achievement;
         Object.keys(imageModules).forEach((path) => {
-          const normalizedAchievementPath = achievement.imagesPath.replace(
-            'src/',
-            '/src/',
-          );
+          const normalizedAchievementPath = imagesPath.replace('src/', '/src/');
           if (path.includes(normalizedAchievementPath)) {
             imagePaths.push(path);
           }
@@ -57,7 +81,9 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
         imagePaths.sort();
 
         if (imagePaths[0]) {
-          const imageModule = await imageModules[imagePaths[0]]();
+          const imageModule = (await imageModules[imagePaths[0]]()) as {
+            default: string;
+          };
 
           setAchievementImages((prev) => ({
             ...prev,
@@ -98,21 +124,22 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
 
   useEffect(() => {
     const initializeImageStates = async () => {
-      const imagesData = {};
-      const loadingStates = {};
-      const loadedStates = {};
+      const imagesData: Record<string, (string | null)[]> = {};
+      const loadingStates: Record<string, boolean[]> = {};
+      const loadedStates: Record<string, boolean[]> = {};
 
       for (const achievement of achievementData) {
         if (achievement.imagesPath) {
+          const { imagesPath } = achievement;
           try {
             const imageModules = import.meta.glob(
               '/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}',
               { eager: false },
             );
-            const imagePaths = [];
+            const imagePaths: string[] = [];
 
             Object.keys(imageModules).forEach((path) => {
-              const normalizedAchievementPath = achievement.imagesPath.replace(
+              const normalizedAchievementPath = imagesPath.replace(
                 'src/',
                 '/src/',
               );
@@ -149,7 +176,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
       setImageLoadingStates(loadingStates);
       setImageLoadedStates(loadedStates);
 
-      const initialIndexes = {};
+      const initialIndexes: Record<string, number> = {};
       Object.keys(imagesData).forEach((title) => {
         initialIndexes[title] = 0;
       });
@@ -167,7 +194,10 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     initializeImageStates();
   }, [achievementData, loadFirstImage]);
 
-  const loadImageAtIndex = async (achievementTitle, imageIndex) => {
+  const loadImageAtIndex = async (
+    achievementTitle: string,
+    imageIndex: number,
+  ) => {
     if (
       imageLoadedStates[achievementTitle]?.[imageIndex] ||
       imageLoadingStates[achievementTitle]?.[imageIndex]
@@ -188,17 +218,15 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
       );
       if (!achievement?.imagesPath) return;
 
+      const { imagesPath } = achievement;
       const imageModules = import.meta.glob(
         '/src/assets/achievements/**/*.{png,jpg,jpeg,webp,gif}',
         { eager: false },
       );
-      const imagePaths = [];
+      const imagePaths: string[] = [];
 
       Object.keys(imageModules).forEach((path) => {
-        const normalizedAchievementPath = achievement.imagesPath.replace(
-          'src/',
-          '/src/',
-        );
+        const normalizedAchievementPath = imagesPath.replace('src/', '/src/');
         if (path.includes(normalizedAchievementPath)) {
           imagePaths.push(path);
         }
@@ -207,7 +235,9 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
       imagePaths.sort();
 
       if (imagePaths[imageIndex]) {
-        const imageModule = await imageModules[imagePaths[imageIndex]]();
+        const imageModule = (await imageModules[imagePaths[imageIndex]]()) as {
+          default: string;
+        };
 
         setAchievementImages((prev) => ({
           ...prev,
@@ -255,7 +285,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     }
   };
 
-  const handlePrevImage = (achievementTitle) => {
+  const handlePrevImage = (achievementTitle: string) => {
     const images = achievementImages[achievementTitle];
     if (!images || images.length === 0) return;
 
@@ -274,7 +304,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     }
   };
 
-  const handleNextImage = (achievementTitle) => {
+  const handleNextImage = (achievementTitle: string) => {
     const images = achievementImages[achievementTitle];
     if (!images || images.length === 0) return;
 
@@ -293,7 +323,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
     }
   };
 
-  const handleDotClick = (achievementTitle, index) => {
+  const handleDotClick = (achievementTitle: string, index: number) => {
     setCurrentImageIndexes((prev) => ({
       ...prev,
       [achievementTitle]: index,
@@ -340,7 +370,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                             src={
                               achievementImages[achievement.title][
                                 currentImageIndexes[achievement.title]
-                              ]
+                              ] ?? undefined
                             }
                             alt={achievement.title}
                             className='h-full w-full rounded-xl object-cover'
@@ -468,7 +498,7 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                                 )
                                 .map((bonusKey, index) => (
                                   <li key={bonusKey}>
-                                    {achievement.bonus[index]}
+                                    {achievement.bonus?.[index]}
                                   </li>
                                 ))}
                             </ul>
@@ -501,12 +531,12 @@ const AchievementsBox = ({ achievementData, showAll, setShowAll }) => {
                                 .map((articleKey, index) => (
                                   <li key={articleKey}>
                                     <a
-                                      href={achievement.articles[index].url}
+                                      href={achievement.articles?.[index].url}
                                       target='_blank'
                                       rel='noreferrer'
                                       className='text-[#3b82f6] hover:text-[#2563eb]'
                                     >
-                                      {achievement.articles[index].platform}
+                                      {achievement.articles?.[index].platform}
                                     </a>
                                   </li>
                                 ))}

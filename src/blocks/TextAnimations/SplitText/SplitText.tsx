@@ -5,7 +5,21 @@
 */
 
 import { animated, useSprings } from '@react-spring/web';
-import { useEffect, useRef, useState } from 'react';
+import { type CSSProperties, useEffect, useRef, useState } from 'react';
+
+interface SplitTextProps {
+  text?: string;
+  className?: string;
+  delay?: number;
+  animationFrom?: Record<string, unknown>;
+  animationTo?: Record<string, unknown>;
+  easing?: string;
+  threshold?: number;
+  rootMargin?: string;
+  textAlign?: CSSProperties['textAlign'];
+  onLetterAnimationComplete?: () => void;
+  animateBy?: 'words' | 'letters';
+}
 
 const SplitText = ({
   text = '',
@@ -18,7 +32,7 @@ const SplitText = ({
   rootMargin = '-100px',
   textAlign = 'center',
   onLetterAnimationComplete,
-}) => {
+}: SplitTextProps) => {
   const words = text.split(' ').map((word) => word.split(''));
   const wordKeys = (() => {
     let offset = 0;
@@ -31,31 +45,34 @@ const SplitText = ({
   })();
   const letters = words.flat();
   const [inView, setInView] = useState(false);
-  const ref = useRef();
+  const ref = useRef<HTMLParagraphElement>(null);
   const animatedCount = useRef(0);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(ref.current);
+          observer.unobserve(element);
         }
       },
       { threshold, rootMargin },
     );
 
-    observer.observe(ref.current);
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  const springs = useSprings(
+  const [springs] = useSprings(
     letters.length,
     letters.map((_, i) => ({
       from: animationFrom,
       to: inView
-        ? async (next) => {
+        ? async (next: (props: Record<string, unknown>) => Promise<void>) => {
             await next(animationTo);
             animatedCount.current += 1;
             if (
@@ -68,7 +85,7 @@ const SplitText = ({
         : animationFrom,
       delay: i * delay,
       config: { easing },
-    })),
+    })) as unknown as Parameters<typeof useSprings>[1],
   );
 
   return (
@@ -88,6 +105,7 @@ const SplitText = ({
               letterIndex;
 
             return (
+              // @ts-expect-error -- react-spring animated types lack children in strict mode
               <animated.span
                 key={index}
                 style={springs[index]}

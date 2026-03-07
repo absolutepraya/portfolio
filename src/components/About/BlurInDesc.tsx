@@ -1,7 +1,17 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
-export default function BlurInDesc({ className, variant, duration = 0.8 }) {
+interface BlurInDescProps {
+  className?: string;
+  variant?: Variants;
+  duration?: number;
+}
+
+export default function BlurInDesc({
+  className,
+  variant,
+  duration = 0.8,
+}: BlurInDescProps) {
   const defaultVariants = {
     hidden: { filter: 'blur(10px)', opacity: 0 },
     visible: { filter: 'blur(0px)', opacity: 1 },

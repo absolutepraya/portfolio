@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import DesktopView from '../../lib/DesktopView';
 
-const Button = ({ icon = null, text, link, isActive }) => {
+interface ButtonProps {
+  icon?: ReactNode;
+  text: string;
+  link: string;
+  isActive: boolean;
+}
+
+const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const desktopView = DesktopView();
 

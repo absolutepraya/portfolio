@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const DesktopView = () => {
+const DesktopView = (): boolean => {
   const [desktopView, setDesktopView] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {

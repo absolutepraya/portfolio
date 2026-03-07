@@ -1,5 +1,18 @@
 // Import organization logos
 
+interface Experience {
+  title: string;
+  org: string;
+  orgShort?: string;
+  url: string;
+  logo: string;
+  date: string;
+  desc: string;
+  alignCenter?: boolean;
+  previousTitles?: string[];
+  previousDates?: string[];
+}
+
 import CO80 from '../assets/orgs/80co.webp';
 import Aiccountant from '../assets/orgs/aiccountant.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
@@ -10,7 +23,7 @@ import RISTEK from '../assets/orgs/ristek.svg';
 import SB from '../assets/orgs/sb.webp';
 import TVI from '../assets/orgs/tvi.webp';
 
-const experienceData = [
+const experienceData: Experience[] = [
   {
     title: 'Fullstack Engineer',
     org: 'Aiccountant',

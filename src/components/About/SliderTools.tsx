@@ -19,7 +19,12 @@ import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
 import { useTheme } from '../../lib/ThemeContext';
 
-export const toolsList = [
+interface ToolItem {
+  src: string;
+  alt: string;
+}
+
+export const toolsList: ToolItem[] = [
   { src: Figma, alt: 'Figma' },
   { src: Jest, alt: 'Jest' },
   { src: Vitest, alt: 'Vitest' },
@@ -45,7 +50,7 @@ export const SliderTools = () => {
 
   return (
     <Marquee
-      speed='40'
+      speed={40}
       gradient={true}
       gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
       gradientWidth={110}

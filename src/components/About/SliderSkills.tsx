@@ -1,4 +1,5 @@
 import {
+  type Icon,
   IconAutomation,
   IconBrain,
   IconBrandGithubCopilot,
@@ -11,7 +12,12 @@ import Marquee from 'react-fast-marquee';
 import DesktopView from '../../lib/DesktopView';
 import { useTheme } from '../../lib/ThemeContext';
 
-const skillsData = [
+interface SkillItem {
+  name: string;
+  icon: Icon;
+}
+
+const skillsData: SkillItem[] = [
   { name: 'Fullstack Engineering', icon: IconCode },
   { name: 'LLM Integration', icon: IconBrandGithubCopilot },
   { name: 'AI Agent Development', icon: IconBrain },
@@ -27,7 +33,7 @@ export const SliderSkills = () => {
 
   return (
     <Marquee
-      speed='35'
+      speed={35}
       gradient={true}
       gradientColor={isDark ? '#0d0d0d' : '#ffffff'}
       gradientWidth={110}

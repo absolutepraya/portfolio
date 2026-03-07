@@ -46,7 +46,27 @@ import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 
-const stackIcons = {
+interface StackIcon {
+  src: string;
+  name: string;
+}
+
+interface ProjectBoxProps {
+  preview?: string | null;
+  isVideo?: boolean;
+  title: string;
+  type: string | string[];
+  date: string;
+  subtitle: string;
+  stacks?: string[];
+  url?: string | null;
+  github?: string | null;
+  homepage?: string | null;
+  favicon?: string | null;
+  disableHover?: boolean;
+}
+
+const stackIcons: Record<string, StackIcon> = {
   docker: { src: Docker, name: 'Docker' },
   express: { src: Express, name: 'Express' },
   javascript: { src: JavaScript, name: 'JavaScript' },
@@ -98,11 +118,11 @@ const ProjectBox = ({
   homepage = null,
   favicon = null,
   disableHover = false,
-}) => {
+}: ProjectBoxProps) => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [hovered, setHovered] = useState('');
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Check if this is a Self-Hosted project
   const isSelfHosted = Array.isArray(type)
@@ -134,8 +154,8 @@ const ProjectBox = ({
     };
   }, [isVideo]);
 
-  let urlVisibility;
-  let githubVisibility;
+  let urlVisibility: string | undefined;
+  let githubVisibility: string | undefined;
   if (!url) urlVisibility = 'opacity-30';
   if (!github) githubVisibility = 'opacity-30';
 
@@ -151,7 +171,7 @@ const ProjectBox = ({
             {isVideo ? (
               <video
                 ref={videoRef}
-                src={preview}
+                src={preview ?? undefined}
                 className='h-full w-full object-cover'
                 muted
                 loop
@@ -174,23 +194,24 @@ const ProjectBox = ({
                 <img
                   src={
                     favicon ||
-                    `https://icon.horse/icon/${new URL(url).hostname}`
+                    `https://icon.horse/icon/${new URL(url!).hostname}`
                   }
                   alt={`${title} favicon`}
                   className='h-6 w-6 rounded-sm object-contain md:h-7 md:w-7'
                   onError={(e) => {
+                    const target = e.target as HTMLImageElement;
                     // If manual favicon fails and we have a URL, try icon.horse
                     if (
                       favicon &&
                       url &&
                       url !== '' &&
-                      !e.target.dataset.triedFallback
+                      !target.dataset.triedFallback
                     ) {
-                      e.target.dataset.triedFallback = 'true';
-                      e.target.src = `https://icon.horse/icon/${new URL(url).hostname}`;
+                      target.dataset.triedFallback = 'true';
+                      target.src = `https://icon.horse/icon/${new URL(url).hostname}`;
                     } else {
                       // Hide if all options fail
-                      e.target.style.display = 'none';
+                      target.style.display = 'none';
                     }
                   }}
                 />
@@ -293,7 +314,7 @@ const ProjectBox = ({
                 </div>
               ) : (
                 <a
-                  href={url}
+                  href={url ?? undefined}
                   target='_blank'
                   rel='noreferrer'
                   aria-label='Open deployed project URL'
@@ -315,7 +336,7 @@ const ProjectBox = ({
                 </div>
               ) : (
                 <a
-                  href={github}
+                  href={github ?? undefined}
                   target='_blank'
                   rel='noreferrer'
                   aria-label='View project source code on GitHub'

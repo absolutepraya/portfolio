@@ -10,7 +10,7 @@ import {
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
-import projectsData from '../../data/projects_data.js';
+import projectsData from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
@@ -18,10 +18,10 @@ import SepBorder from './SepBorder';
 const Projects = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
-  const buttonRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Filter projects by type
-  const getFilteredProjects = (type) => {
+  const getFilteredProjects = (type: string) => {
     if (type === 'All') {
       // Exclude Under Dev and Self-Hosted projects from All category
       return projectsData.filter((project) => {
@@ -89,8 +89,7 @@ const Projects = () => {
             transition: { duration: 0.8, ease: 'circOut' },
           }}
           viewport={{
-            marginTop: desktopView ? '-100px' : '-14px',
-            marginBottom: desktopView ? '-100px' : '-14px',
+            margin: desktopView ? '-100px' : '-14px',
             once: true,
           }}
         >
@@ -106,8 +105,7 @@ const Projects = () => {
               transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
-              marginTop: desktopView ? '-100px' : '-14px',
-              marginBottom: desktopView ? '-100px' : '-14px',
+              margin: desktopView ? '-100px' : '-14px',
               once: true,
             }}
           />

@@ -1,5 +1,19 @@
 // Import project images and videos
 
+interface Project {
+  preview?: string | null;
+  isVideo?: boolean;
+  title: string;
+  type: string[];
+  date: string;
+  subtitle: string;
+  stacks: string[];
+  url: string;
+  github: string;
+  favicon?: string;
+  homepage?: string;
+}
+
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
 import ALSAEcompIcon from '../assets/projects/alsaecomp-icon.webp';
 import AurumVideo from '../assets/projects/aurum.mp4';
@@ -21,7 +35,7 @@ import Portfolio from '../assets/projects/portfolio.webp';
 import PortfolioIcon from '../assets/projects/portfolio-icon.svg';
 import Rumble from '../assets/projects/rumble.webp';
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     preview: AurumVideo,
     isVideo: true,
