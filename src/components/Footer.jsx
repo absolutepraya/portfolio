@@ -2,10 +2,12 @@ import { IconBrandGithub, IconClock, IconCopyright } from '@tabler/icons-react';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
 import DesktopView from '../lib/DesktopView';
+import { useTheme } from '../lib/ThemeContext';
 
 const Copyright = () => {
   const [currentTime, setCurrentTime] = useState('');
   const desktopView = DesktopView();
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const updateTime = () => {
@@ -32,12 +34,20 @@ const Copyright = () => {
           <IconClock size={desktopView ? 16 : 14} />
           <p>{currentTime}</p>
         </div>
-        <div className='flex flex-row items-center justify-end space-x-2 md:w-1/3'>
+        <div className='flex flex-row items-center justify-center space-x-2 md:w-1/3 md:justify-end'>
           <p>Built by me</p>
           <IconBrandGithub size={desktopView ? 16 : 14} />
           <a href='https://github.com/absolutepraya/portfolio'>
             <p className='underline underline-offset-2'>Source code</p>
           </a>
+          <p>·</p>
+          <button
+            type='button'
+            onClick={toggleTheme}
+            className='underline underline-offset-2 transition-opacity hover:opacity-70'
+          >
+            {isDark ? 'ur eyes hurt? try light' : 'ur eyes hurt? try dark'}
+          </button>
         </div>
       </div>
     </footer>

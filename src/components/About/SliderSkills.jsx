@@ -43,7 +43,7 @@ export const SliderSkills = () => {
             key={skill.name}
             className='relative mx-3 flex h-36 w-48 flex-col items-center justify-center space-y-3 rounded-xl bg-gradient-to-br from-card-from to-card-to px-4 text-text-secondary'
           >
-            <div className='absolute h-[144px] w-[192px] rounded-xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
+            <div className='absolute h-[144px] w-[192px] rounded-xl border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0' />
             <div className='cursor-pointer'>
               <IconComponent className='z-20 scale-110 transition-all duration-100 hover:scale-125' />
             </div>

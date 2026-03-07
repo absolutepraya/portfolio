@@ -4,16 +4,13 @@ import {
   IconBriefcase2,
   IconHome,
   IconMail,
-  IconMoon,
   IconSend,
-  IconSun,
   IconTrophy,
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import BlurFade from '../../blocks/Animations/BlurFade/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import { useTheme } from '../../lib/ThemeContext';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
 
@@ -22,7 +19,6 @@ const NavBar = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [isHover, setIsHover] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
@@ -53,7 +49,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='!z-[100] fixed top-8 flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border-t-2 px-2.5 backdrop-blur-md lg:w-[55rem]'
+      className='!z-[100] fixed top-8 flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border px-2.5 backdrop-blur-md lg:w-[55rem]'
       style={{
         backgroundColor: 'var(--color-nav-bg)',
         borderColor: 'var(--color-nav-border)',
@@ -107,28 +103,11 @@ const NavBar = () => {
         />
       </div>
       <div className='flex flex-row items-center justify-end gap-2 lg:w-1/3'>
-        <button
-          type='button'
-          onClick={toggleTheme}
-          className='flex h-14 w-14 items-center justify-center rounded-2xl border-t shadow-xl transition-all hover:scale-105 active:scale-95'
-          style={{
-            backgroundColor: 'var(--color-nav-button-bg)',
-            borderColor: 'var(--color-nav-border)',
-          }}
-          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-          {isDark ? (
-            <IconSun size={20} stroke={2} />
-          ) : (
-            <IconMoon size={20} stroke={2} />
-          )}
-        </button>
         {desktopView && (
           <a
             href='https://www.linkedin.com/in/daffaabhipraya/'
             target='_blank'
-            className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border-t pr-3 pl-4 shadow-xl transition-all hover:scale-105'
+            className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border pr-3 pl-4 text-text-secondary shadow-md transition-all hover:scale-105 hover:text-customwhite'
             style={{
               backgroundColor: 'var(--color-nav-button-bg)',
               borderColor: 'var(--color-nav-border)',

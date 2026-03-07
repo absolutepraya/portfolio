@@ -66,7 +66,7 @@ export const SliderStacks = () => {
           type='button'
           className='group relative mx-2 flex h-[4.5rem] w-[4.5rem] cursor-help items-center justify-center rounded-lg bg-gradient-to-br from-card-from to-card-to p-4 md:mx-3 md:h-20 md:w-20'
         >
-          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 md:h-20 md:w-20' />
+          <div className='absolute h-[4.5rem] w-[4.5rem] rounded-lg border-2 border-theme-border-bevel border-r-0 border-b-0 border-l-0 md:h-20 md:w-20' />
           <div className='pointer-events-none absolute z-30 max-w-[3.5rem] rounded bg-tooltip-bg px-1 py-1 text-center text-[0.6rem] text-tooltip-text opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:max-w-[4rem] md:text-xs'>
             {stack.alt}
           </div>

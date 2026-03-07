@@ -5,7 +5,7 @@ const ButtonImg = () => {
   return (
     <div>
       <div
-        className='group relative flex h-14 w-14 items-center justify-center rounded-2xl shadow-xl hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
+        className='group relative flex h-14 w-14 items-center justify-center rounded-2xl shadow-md hover:bg-blurple hover:bg-opacity-40 active:bg-blurple active:bg-opacity-85'
         style={{ border: '1px solid var(--color-nav-border)' }}
       >
         <img
