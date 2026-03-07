@@ -50,11 +50,11 @@ export const SliderSkills = () => {
             key={skill.name}
             asChild
             color='default'
-            className='mx-3 h-36 w-48 cursor-default rounded-xl hover:brightness-100 active:brightness-100'
+            className='mx-3 h-36 w-48 cursor-default rounded-xl text-text-secondary transition-colors duration-150 hover:text-customwhite hover:brightness-100 active:brightness-100'
           >
             <div className='flex flex-col items-center justify-center space-y-3 px-4'>
               <IconComponent className='z-20 size-6 scale-110' />
-              <p className='z-20 text-center font-jetbrainsmono text-lg'>
+              <p className='z-20 text-wrap text-center font-jetbrainsmono text-lg'>
                 {skill.name}
               </p>
             </div>
