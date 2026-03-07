@@ -9,7 +9,7 @@ const Button = ({ icon = null, text, link, isActive }) => {
     <a href={link} aria-label={`Scroll to ${text}`} title={`Scroll to ${text}`}>
       {/** biome-ignore lint/a11y/noStaticElementInteractions: <X> */}
       <div
-        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-105 active:scale-95 ${isActive ? 'border-blurple bg-blurple bg-opacity-85 active:bg-opacity-50' : 'text-text-secondary hover:bg-blurple hover:bg-opacity-40 hover:text-customwhite active:bg-opacity-20'}`}
+        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-105 active:scale-95 ${isActive ? 'border-blurple bg-blurple bg-opacity-85 text-white active:bg-opacity-50' : 'text-text-secondary hover:bg-blurple hover:bg-opacity-40 active:bg-opacity-20'}`}
         style={
           isActive
             ? undefined

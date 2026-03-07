@@ -32,9 +32,9 @@
   --color-placeholder: #e0e0e8;
   --color-about-card-border: #e8e8ef;
   --color-button-active-bg: #ededf2;
-  --color-nav-bg: rgba(226, 226, 232, 0.4);
+  --color-nav-bg: rgba(200, 200, 210, 0.4);
   --color-nav-border: rgba(200, 200, 210, 0.4);
-  --color-nav-button-bg: rgba(226, 226, 232, 0.4);
+  --color-nav-button-bg: rgba(255, 255, 255, 0.7);
   --color-nav-button-active-bg: rgba(200, 200, 210, 0.6);
   --color-nav-active-indicator: rgba(180, 180, 200, 0.6);
   --color-tooltip-bg: #1a1a2e;
@@ -73,9 +73,9 @@
   --color-placeholder: #2d2d2d;
   --color-about-card-border: #131313;
   --color-button-active-bg: #0f0f0f;
-  --color-nav-bg: rgba(38, 38, 38, 0.4);
+  --color-nav-bg: rgba(63, 63, 63, 0.4);
   --color-nav-border: rgba(66, 66, 66, 0.4);
-  --color-nav-button-bg: rgba(63, 63, 63, 0.4);
+  --color-nav-button-bg: rgba(13, 13, 13, 0.7);
   --color-nav-button-active-bg: rgba(63, 63, 63, 0.85);
   --color-nav-active-indicator: #424242;
   --color-tooltip-bg: #000000;
