@@ -56,7 +56,7 @@ const About = () => {
             hidden: { filter: 'blur(10px)', opacity: 0 },
             visible: { filter: 'blur(0px)', opacity: 0.9 },
           }}
-          className='-mt-4 max-w-200 text-center md:text-lg'
+          className='mt-6 max-w-200 text-center md:text-lg'
         >
           Software, AI, and DevOps expert. From LLMs and AI agents to cloud
           systems and business automation. Leading teams and shipping results

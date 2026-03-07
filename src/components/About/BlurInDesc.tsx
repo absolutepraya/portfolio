@@ -25,12 +25,11 @@ export default function BlurInDesc({
       transition={{ duration, delay: 0.5 }}
       variants={combinedVariants}
       className={cn(
-        'bg-linear-to-br from-customwhite to-text-secondary bg-clip-text text-center font-instrument text-[3.4rem] text-transparent leading-[3.2rem] md:text-6xl lg:text-7xl',
+        'bg-linear-to-br from-customwhite to-text-secondary bg-clip-text pb-1 text-center font-instrument text-[3.4rem] text-transparent leading-[3.6rem] md:text-6xl md:leading-[4rem] lg:text-7xl lg:leading-[5rem]',
         className,
       )}
     >
       Systems thinker. Product builder. AI tinkerer. Cloud wrangler.
-      <br />
     </motion.h1>
   );
 }
