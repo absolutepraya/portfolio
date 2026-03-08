@@ -24,6 +24,7 @@ import IosSpinner from '../../blocks/Animations/IosSpinner';
 import CountUp from '../../blocks/TextAnimations/CountUp';
 import type { Achievement } from '../../data/achievements_data';
 import DesktopView from '../../lib/DesktopView';
+import { RichButton } from '../rich-button';
 import BotBorder from './BotBorder';
 
 interface AchievementsBoxProps {
@@ -428,23 +429,23 @@ const AchievementsBox = ({
                     </h2>
                     <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                       {achievement.organizer && achievement.organizerUrl && (
-                        <div className='rounded-md border border-blurple bg-blurple bg-opacity-10 px-2 transition-all duration-200 hover:bg-blurple hover:bg-opacity-100'>
+                        <RichButton size='sm' color='default' asChild>
                           <a
-                            className='text-blurple text-sm transition-colors duration-200 hover:text-white group-hover:text-white md:text-base'
+                            className='text-xs md:text-sm'
                             href={achievement.organizerUrl}
                             target='_blank'
                             rel='noreferrer'
                           >
                             by {achievement.organizer}
+                            {achievement.organizerLogo && (
+                              <img
+                                src={`${achievement.organizerLogo}`}
+                                alt={achievement.organizer}
+                                className='h-4 w-4 object-contain'
+                              />
+                            )}
                           </a>
-                        </div>
-                      )}
-                      {achievement.organizerLogo && (
-                        <img
-                          src={`${achievement.organizerLogo}`}
-                          alt={achievement.organizer}
-                          className='h-6 w-6 object-contain'
-                        />
+                        </RichButton>
                       )}
                     </div>
                   </div>
