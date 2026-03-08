@@ -72,7 +72,7 @@ const ExperienceBox = ({
         className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-customgray border-r-0 border-b-0 ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
       />
       <div
-        className={`absolute -top-14 -z-10 font-black transition-all duration-380 ease-in-out md:-top-[6rem] ${isInView ? 'opacity-100' : 'opacity-40'}`}
+        className={`absolute -top-14 -z-10 font-black transition-all duration-500 ease-in-out md:-top-[6rem] ${isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
       >
         <p
           className='bg-linear-to-b from-0% to-67% bg-clip-text text-[3.3rem] text-transparent tracking-wide md:text-[6rem]'
