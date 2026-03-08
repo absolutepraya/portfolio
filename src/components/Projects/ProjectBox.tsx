@@ -164,7 +164,7 @@ const ProjectBox = ({
   return (
     <BlurFade className='h-full' delay={0.05} offset={15} inView>
       <div
-        className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-100 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}
+        className={`flex h-full flex-col overflow-hidden rounded-3xl border-2 border-customgray bg-customblack py-0 shadow-lg ${disableHover ? '' : 'transition-all duration-200 md:hover:scale-[101%] md:hover:border-blurple md:hover:shadow-glowblurpleextrasmall'}`}
       >
         {!isSelfHosted && (
           <div className='aspect-10/7 w-full bg-theme-placeholder'>

@@ -338,7 +338,7 @@ const AchievementsBox = ({
   return (
     <BlurFade delay={0.3} inView inViewMargin='-1px' offset={20}>
       <div className='relative z-40! flex h-auto w-full flex-col items-center justify-center rounded-lg transition-all duration-200 md:p-20'>
-        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border-customgray border-t-[3px] bg-customblack bg-linear-to-br from-card-from to-card-to shadow-lg'>
+        <div className='flex h-full w-full flex-col space-y-4 rounded-3xl border border-customgray bg-customblack shadow-lg'>
           {displayedAchievements.map((achievement) => (
             <BlurFade
               key={achievement.title}
