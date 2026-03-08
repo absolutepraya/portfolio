@@ -67,26 +67,36 @@ const SplitText = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  const [springs] = useSprings(
-    letters.length,
-    letters.map((_, i) => ({
-      from: animationFrom,
-      to: inView
-        ? async (next: (props: Record<string, unknown>) => Promise<void>) => {
-            await next(animationTo);
-            animatedCount.current += 1;
-            if (
-              animatedCount.current === letters.length &&
-              onLetterAnimationComplete
-            ) {
-              onLetterAnimationComplete();
-            }
+  const [springs, api] = useSprings(letters.length, () => ({
+    ...animationFrom,
+  }));
+
+  useEffect(() => {
+    if (inView) {
+      api.start((i) => ({
+        ...animationTo,
+        delay: i * delay,
+        config: { easing },
+        onRest: () => {
+          animatedCount.current += 1;
+          if (
+            animatedCount.current === letters.length &&
+            onLetterAnimationComplete
+          ) {
+            onLetterAnimationComplete();
           }
-        : animationFrom,
-      delay: i * delay,
-      config: { easing },
-    })) as unknown as Parameters<typeof useSprings>[1],
-  );
+        },
+      }));
+    }
+  }, [
+    inView,
+    api,
+    animationTo,
+    delay,
+    easing,
+    letters.length,
+    onLetterAnimationComplete,
+  ]);
 
   return (
     <p
@@ -109,7 +119,7 @@ const SplitText = ({
               <animated.span
                 key={index}
                 style={springs[index]}
-                className='inline-block transform transition-opacity will-change-transform'
+                className='inline-block will-change-transform'
               >
                 {letter}
               </animated.span>

@@ -86,8 +86,8 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-linear-to-br from-card-from to-card-to p-6 pt-2! pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='absolute top-0 left-0 z-[-1]! h-full w-full rounded-3xl border-2 border-theme-border-bevel border-r-0 border-b-0' />
+        <div className='relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-customblack p-6 pt-2! pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
+          <div className='absolute top-0 left-0 z-[-1]! h-full w-full rounded-3xl border border-customgray' />
           <img
             src={Pin}
             alt='Pin'
@@ -153,7 +153,7 @@ const Contact = () => {
             </div>
           </a>
           <div className='mt-6! h-0.5 w-full bg-customgray' />
-          <p className=''>Follow my other socials!</p>
+          <p className=''>Find me on other platforms!</p>
           <div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
             <a
               href='https://github.com/absolutepraya'
