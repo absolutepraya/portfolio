@@ -1,12 +1,10 @@
 import {
   type Icon,
-  IconAutomation,
   IconBrain,
   IconBrandGithubCopilot,
   IconCloud,
   IconCode,
   IconServer,
-  IconShieldLock,
 } from '@tabler/icons-react';
 import DesktopView from '../../lib/DesktopView';
 import { Marquee } from '../marquee';
@@ -23,8 +21,6 @@ const skillsData: SkillItem[] = [
   { name: 'AI Agent Development', icon: IconBrain },
   { name: 'DevOps', icon: IconServer },
   { name: 'Cloud Engineering', icon: IconCloud },
-  { name: 'Business Automation', icon: IconAutomation },
-  { name: 'Cybersecurity', icon: IconShieldLock },
 ];
 
 export const SliderSkills = () => {

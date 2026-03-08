@@ -2,12 +2,11 @@ import Bun from '../../assets/stacks/bun.svg';
 import Django from '../../assets/stacks/django.svg';
 import Elysia from '../../assets/stacks/elysiajs.svg';
 import Express from '../../assets/stacks/express.svg';
+import FastAPI from '../../assets/stacks/fastapi.svg';
 import Fiber from '../../assets/stacks/fiber.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
-import Flask from '../../assets/stacks/flask.svg';
 import Go from '../../assets/stacks/go.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
-import Nest from '../../assets/stacks/nestjs.svg';
 import Next from '../../assets/stacks/nextjs.svg';
 import PostgreSQL from '../../assets/stacks/postgresql.svg';
 import PowerSync from '../../assets/stacks/powersync.svg';
@@ -36,12 +35,11 @@ export const stacksList: StackItem[] = [
   { src: Tanstack, alt: 'Tanstack' },
   { src: Elysia, alt: 'Elysia' },
   { src: Express, alt: 'Express' },
-  { src: Nest, alt: 'NestJS' },
+  { src: FastAPI, alt: 'FastAPI' },
   { src: Go, alt: 'Go' },
   { src: Fiber, alt: 'Fiber' },
   { src: Python, alt: 'Python' },
   { src: Django, alt: 'Django' },
-  { src: Flask, alt: 'Flask' },
   { src: PostgreSQL, alt: 'PostgreSQL' },
   { src: Firebase, alt: 'Firebase' },
   { src: Redis, alt: 'Redis' },

@@ -1,19 +1,13 @@
-import AWS from '../../assets/stacks/aws.svg';
 import Azure from '../../assets/stacks/azure.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
 import Dify from '../../assets/stacks/dify.svg';
-import Discord from '../../assets/stacks/discord.svg';
 import Docker from '../../assets/stacks/docker.svg';
-import Figma from '../../assets/stacks/figma.svg';
 import GCP from '../../assets/stacks/gcp.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
 import GitHub from '../../assets/stacks/github.svg';
-import Jest from '../../assets/stacks/jest.svg';
-import n8n from '../../assets/stacks/n8n.svg';
 import OpenAI from '../../assets/stacks/openai.svg';
 import Qwen from '../../assets/stacks/qwen.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
-import X from '../../assets/stacks/x.svg';
 import DesktopView from '../../lib/DesktopView';
 import { Marquee } from '../marquee';
 import { RichButton } from '../rich-button';
@@ -24,21 +18,15 @@ interface ToolItem {
 }
 
 export const toolsList: ToolItem[] = [
-  { src: Figma, alt: 'Figma' },
-  { src: Jest, alt: 'Jest' },
   { src: Vitest, alt: 'Vitest' },
   { src: OpenAI, alt: 'OpenAI' },
   { src: Gemini, alt: 'Gemini' },
   { src: Qwen, alt: 'Qwen' },
-  { src: Discord, alt: 'Discord' },
-  { src: X, alt: 'X/Twitter' },
   { src: Docker, alt: 'Docker' },
   { src: GitHub, alt: 'GitHub' },
   { src: Azure, alt: 'Azure' },
-  { src: AWS, alt: 'AWS' },
   { src: GCP, alt: 'GCP' },
   { src: Cloudflare, alt: 'Cloudflare' },
-  { src: n8n, alt: 'n8n' },
   { src: Dify, alt: 'Dify AI' },
 ];
 
