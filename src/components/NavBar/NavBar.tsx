@@ -64,13 +64,22 @@ const NavBar = () => {
       <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
         {desktopView && <ButtonImg />}
         {desktopView && (
-          <Signature
-            text='Abhipraya'
-            fontSize={36}
-            color='var(--color-text-primary)'
-            duration={1.5}
-            className='h-14 max-w-32'
-          />
+          <div className='relative h-14 max-w-32'>
+            <Signature
+              text='Abhipraya'
+              fontSize={36}
+              color='var(--color-page-bg)'
+              duration={1.5}
+              className='absolute top-[3px] left-[0.5px] h-14 max-w-32'
+            />
+            <Signature
+              text='Abhipraya'
+              fontSize={36}
+              color='var(--color-text-primary)'
+              duration={1.5}
+              className='relative z-10 h-14 max-w-32'
+            />
+          </div>
         )}
       </div>
       <div className='flex w-1/3 flex-row justify-center space-x-3'>

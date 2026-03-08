@@ -1,7 +1,6 @@
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: <X> */
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <X> */
 
-import { Tab, TabList, TabPanel, Tabs, tabClasses } from '@mui/joy';
 import {
   IconArrowNarrowDownDashed,
   IconArrowNarrowUpDashed,
@@ -12,6 +11,7 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import projectsData from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
+import { Badge } from '../badge';
 import { PopButton } from '../pop-button';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
@@ -19,7 +19,20 @@ import SepBorder from './SepBorder';
 const Projects = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState('All');
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const filterOptions = [
+    { label: 'All', icon: null },
+    { label: 'Fullstack', icon: null },
+    { label: 'Frontend', icon: null },
+    { label: 'Backend', icon: null },
+    { label: 'Mobile', icon: null },
+    { label: 'CLI App', icon: null },
+    { label: 'Video Game', icon: null },
+    { label: 'Self-Hosted', icon: IconServer },
+    { label: 'Under Dev', icon: IconTool },
+  ];
 
   // Filter projects by type
   const getFilteredProjects = (type: string) => {
@@ -64,15 +77,6 @@ const Projects = () => {
       setShowAll(true);
     }
   };
-
-  const fullstackProjects = getFilteredProjects('Fullstack');
-  const frontendProjects = getFilteredProjects('Frontend');
-  const backendProjects = getFilteredProjects('Backend');
-  const mobileProjects = getFilteredProjects('Mobile');
-  const cliProjects = getFilteredProjects('CLI App');
-  const gameProjects = getFilteredProjects('Video Game');
-  const selfHostedProjects = getFilteredProjects('Self-Hosted');
-  const ongoingProjects = getFilteredProjects('Under Dev');
 
   return (
     <section
@@ -134,320 +138,103 @@ const Projects = () => {
           <p className='font-semibold text-customlightgray'>Filter by type:</p>
         </div>
 
-        <Tabs
-          defaultValue={0}
-          sx={{
-            bgcolor: 'var(--color-page-bg)',
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-            alignItems: 'center',
-          }}
-        >
-          <div className='w-full pb-2 lg:px-24 lg:pb-0'>
-            <TabList
-              disableUnderline
-              sx={{
-                p: 0.5,
-                pb: 0,
-                mb: 0,
-                gap: 1.5,
-                borderRadius: 'full',
-                bgcolor: 'transparent',
-                width: '100%',
-                minWidth: 'fit-content',
-                border: '2px solid transparent',
-                mx: 'auto',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                [`& .${tabClasses.root}[aria-selected="true"]`]: {
-                  color: '#5566FF',
-                  border: '1px solid #5566FF',
-                  borderRadius: 'full',
-                  bgcolor: 'rgba(85, 102, 255, 0.15)',
-                  transform: 'scale(1)',
-                  transition:
-                    'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease, border 0.075s ease',
-                },
-                [`& .${tabClasses.root}[aria-selected="false"]`]: {
-                  color: 'var(--color-text-primary)',
-                  bgcolor: 'var(--color-button-active-bg)',
-                  border: '1px solid var(--color-border-light)',
-                  borderRadius: 'full',
-                  fontFamily: 'JetBrains Mono',
-                  opacity: 0.8,
-                  transition:
-                    'transform 0.075s ease, color 0.075s ease, background-color 0.075s ease',
-                  '&:hover': {
-                    bgcolor: 'var(--color-nav-button-bg)',
-                    color: 'var(--color-text-primary)',
-                    transform: 'scale(1.05)',
-                  },
-                  '&:active': {
-                    transform: 'scale(0.95)',
-                  },
-                },
-                '& .MuiTab-root': {
-                  fontFamily: 'JetBrains Mono',
-                  borderRadius: 'md',
-                  whiteSpace: 'nowrap',
-                },
-              }}
-            >
-              <Tab disableIndicator>All</Tab>
-              <Tab disableIndicator>Fullstack</Tab>
-              <Tab disableIndicator>Frontend</Tab>
-              <Tab disableIndicator>Backend</Tab>
-              <Tab disableIndicator>Mobile</Tab>
-              <Tab disableIndicator>CLI App</Tab>
-              <Tab disableIndicator>Video Game</Tab>
-              <Tab disableIndicator>
-                <div className='flex items-center space-x-2.5'>
-                  <IconServer size={16} />
-                  <span>Self-Hosted</span>
-                </div>
-              </Tab>
-              <Tab disableIndicator>
-                <div className='flex items-center space-x-2.5'>
-                  <IconTool size={16} />
-                  <span>Under Dev</span>
-                </div>
-              </Tab>
-            </TabList>
-          </div>
-
-          <SepBorder />
-
-          <TabPanel value={0} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'>
-              {displayedAllProjects.map((project, index) => {
-                const shouldMask =
-                  !showAll &&
-                  ((desktopView && (index === 4 || index === 5)) ||
-                    (!desktopView && index === 4));
-                const maskStyle = shouldMask
-                  ? {
-                      WebkitMaskImage:
-                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
-                      maskImage:
-                        'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
-                    }
-                  : undefined;
-                return (
-                  <div key={index} style={maskStyle} className='h-full'>
-                    <ProjectBox
-                      preview={project.preview}
-                      isVideo={project.isVideo}
-                      title={project.title}
-                      type={project.type}
-                      date={project.date}
-                      subtitle={project.subtitle}
-                      stacks={project.stacks}
-                      url={project.url}
-                      github={project.github}
-                      homepage={project.homepage}
-                      favicon={project.favicon}
-                      disableHover={shouldMask}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-            {allProjects.length > 4 && (
-              <div
-                className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}
+        <div className='flex w-full flex-wrap justify-center gap-2 lg:px-24'>
+          {filterOptions.map((option) => {
+            const IconComp = option.icon;
+            return (
+              <button
+                key={option.label}
+                type='button'
+                className='cursor-pointer transition-transform duration-75 hover:scale-105 active:scale-95'
+                onClick={() => {
+                  setSelectedFilter(option.label);
+                  setShowAll(false);
+                }}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, ease: 'circOut' }}
+                <Badge
+                  size='lg'
+                  className={
+                    selectedFilter === option.label
+                      ? 'bg-customwhite text-customblack'
+                      : 'border border-customgray bg-customblack text-customwhite opacity-80'
+                  }
                 >
-                  <PopButton
-                    ref={buttonRef}
-                    onClick={handleToggle}
-                    className='gap-2 pr-3 font-jetbrainsmono'
-                  >
-                    <span>{showAll ? 'Show Less' : 'Show More'}</span>
-                    {showAll ? (
-                      <IconArrowNarrowUpDashed size={20} stroke={2} />
-                    ) : (
-                      <IconArrowNarrowDownDashed size={20} stroke={2} />
-                    )}
-                  </PopButton>
-                </motion.div>
+                  {IconComp && <IconComp size={14} className='mr-1.5' />}
+                  {option.label}
+                </Badge>
+              </button>
+            );
+          })}
+        </div>
+
+        <SepBorder />
+
+        <div
+          key={selectedFilter}
+          className='mt-2 grid w-full grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'
+        >
+          {(selectedFilter === 'All'
+            ? displayedAllProjects
+            : getFilteredProjects(selectedFilter)
+          ).map((project, index) => {
+            const shouldMask =
+              selectedFilter === 'All' &&
+              !showAll &&
+              ((desktopView && (index === 4 || index === 5)) ||
+                (!desktopView && index === 4));
+            const maskStyle = shouldMask
+              ? {
+                  WebkitMaskImage:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                  maskImage:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)',
+                }
+              : undefined;
+            return (
+              <div key={index} style={maskStyle} className='h-full'>
+                <ProjectBox
+                  preview={project.preview}
+                  isVideo={project.isVideo}
+                  title={project.title}
+                  type={project.type}
+                  date={project.date}
+                  subtitle={project.subtitle}
+                  stacks={project.stacks}
+                  url={project.url}
+                  github={project.github}
+                  homepage={project.homepage}
+                  favicon={project.favicon}
+                  disableHover={shouldMask}
+                />
               </div>
-            )}
-          </TabPanel>
-
-          <TabPanel value={1} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {fullstackProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={2} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {frontendProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={3} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {backendProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={4} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {mobileProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={5} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {cliProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={6} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {gameProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={7} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {selfHostedProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-
-          <TabPanel value={8} sx={{ p: 0, mt: 2 }}>
-            <div className='grid grid-cols-1 gap-8 text-customwhite lg:grid-cols-2'>
-              {ongoingProjects.map((project, index) => (
-                <ProjectBox
-                  key={index}
-                  preview={project.preview}
-                  isVideo={project.isVideo}
-                  title={project.title}
-                  type={project.type}
-                  date={project.date}
-                  subtitle={project.subtitle}
-                  stacks={project.stacks}
-                  url={project.url}
-                  github={project.github}
-                  homepage={project.homepage}
-                  favicon={project.favicon}
-                />
-              ))}
-            </div>
-          </TabPanel>
-        </Tabs>
+            );
+          })}
+        </div>
+        {selectedFilter === 'All' && allProjects.length > 4 && (
+          <div
+            className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: 'circOut' }}
+            >
+              <PopButton
+                ref={buttonRef}
+                onClick={handleToggle}
+                className='gap-2 pr-3 font-jetbrainsmono'
+              >
+                <span>{showAll ? 'Show Less' : 'Show More'}</span>
+                {showAll ? (
+                  <IconArrowNarrowUpDashed size={20} stroke={2} />
+                ) : (
+                  <IconArrowNarrowDownDashed size={20} stroke={2} />
+                )}
+              </PopButton>
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );
