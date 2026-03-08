@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import { RichButton } from '../rich-button';
 import { Signature } from '../signature';
 import Button from './Button';
 import ButtonImg from './ButtonImg';
@@ -117,34 +118,35 @@ const NavBar = () => {
       </div>
       <div className='flex flex-row items-center justify-end gap-2 lg:w-1/3'>
         {desktopView && (
-          <a
-            href='https://www.linkedin.com/in/daffaabhipraya/'
-            target='_blank'
-            className='relative flex h-14 w-fit cursor-pointer flex-row items-center justify-center space-x-2 rounded-2xl border pr-3 pl-4 text-text-secondary shadow-md transition-all hover:scale-105 hover:text-customwhite'
-            style={{
-              backgroundColor: 'var(--color-nav-button-bg)',
-              borderColor: 'var(--color-nav-border)',
-            }}
-            aria-label='Reach out on LinkedIn'
-            title='Reach out on LinkedIn'
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            rel='noopener'
+          <RichButton
+            className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-all hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'
+            shadow={false}
+            asChild
           >
-            <p className='text text-end font-semibold leading-4'>Reach out</p>
-            <div className='relative mr-1! h-[20px] w-[20px] overflow-hidden'>
-              <div
-                className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
-              >
-                <IconBrandLinkedin size={20} stroke={2} />
+            <a
+              href='https://www.linkedin.com/in/daffaabhipraya/'
+              target='_blank'
+              aria-label='Reach out on LinkedIn'
+              title='Reach out on LinkedIn'
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
+              rel='noopener'
+            >
+              <p className='text text-end font-semibold leading-4'>Reach out</p>
+              <div className='relative mr-1! h-5 w-5 overflow-hidden'>
+                <div
+                  className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
+                >
+                  <IconBrandLinkedin size={20} stroke={2} />
+                </div>
+                <div
+                  className={`absolute ${isHover ? 'translate-y-0' : 'translate-y-40'} transition-all duration-200`}
+                >
+                  <IconSend size={20} stroke={2} />
+                </div>
               </div>
-              <div
-                className={`absolute ${isHover ? 'translate-y-0' : 'translate-y-40'} transition-all duration-200`}
-              >
-                <IconSend size={20} stroke={2} />
-              </div>
-            </div>
-          </a>
+            </a>
+          </RichButton>
         )}
       </div>
     </BlurFade>

@@ -10,7 +10,7 @@ const Contact = () => {
       className='relative z-10! flex flex-col space-y-12'
       id='contactsec'
     >
-      <div id='contacts' className='absolute -top-24' />
+      <div id='contacts' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'

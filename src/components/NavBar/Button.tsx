@@ -1,5 +1,6 @@
 import { type ReactNode, useState } from 'react';
 import DesktopView from '../../lib/DesktopView';
+import { RichButton } from '../rich-button';
 
 interface ButtonProps {
   icon?: ReactNode;
@@ -13,21 +14,16 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
   const desktopView = DesktopView();
 
   return (
-    <a href={link} aria-label={`Scroll to ${text}`} title={`Scroll to ${text}`}>
-      {/** biome-ignore lint/a11y/noStaticElementInteractions: <X> */}
-      <div
-        className={`relative flex h-14 w-14 flex-col items-center justify-center rounded-2xl border shadow-md transition-all duration-75 hover:scale-103 active:scale-97 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:text-customwhite active:opacity-50'}`}
-        style={
-          isActive
-            ? {
-                backgroundColor: 'var(--color-text-primary)',
-                borderColor: 'var(--color-text-primary)',
-              }
-            : {
-                backgroundColor: 'var(--color-nav-button-bg)',
-                borderColor: 'var(--color-nav-border)',
-              }
-        }
+    <RichButton
+      className={`relative aspect-square h-14 rounded-2xl p-0 transition-all duration-75 hover:scale-103 hover:brightness-100 active:scale-97 [&_svg]:size-5 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:text-customwhite active:opacity-50'}`}
+      color={isActive ? 'zinc' : 'default'}
+      shadow={false}
+      asChild
+    >
+      <a
+        href={link}
+        aria-label={`Scroll to ${text}`}
+        title={`Scroll to ${text}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -43,8 +39,8 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
             style={{ backgroundColor: 'var(--color-text-primary)' }}
           />
         )}
-      </div>
-    </a>
+      </a>
+    </RichButton>
   );
 };
 

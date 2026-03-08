@@ -83,7 +83,7 @@ const Projects = () => {
       className='relative z-10! w-[90vw] flex-col space-y-12 xl:w-272'
       id='projectssec'
     >
-      <div id='projects' className='absolute -top-24' />
+      <div id='projects' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
         <motion.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
@@ -118,7 +118,7 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-4 text-customlightgray'>
+        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-4 text-foreground/40'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='20'
