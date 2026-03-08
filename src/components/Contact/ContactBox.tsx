@@ -113,7 +113,7 @@ const Contact = () => {
             </div>
             {tabletView && (
               <a
-                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:bg-customwhite/10 hover:text-customwhite'
                 href='mailto:daffa@abhipraya.dev'
                 target='_blank'
                 rel='noreferrer'
@@ -126,7 +126,7 @@ const Contact = () => {
             {tabletView && (
               <button
                 type='button'
-                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:cursor-pointer hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'
+                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:cursor-pointer hover:bg-customwhite/10 hover:text-customwhite'
                 onClick={() => handleCopy()}
                 title='Copy my email address!'
               >
@@ -145,7 +145,7 @@ const Contact = () => {
             aria-label='Reach out on LinkedIn'
             title='Reach out on LinkedIn'
           >
-            <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-blurple hover:text-customwhite md:h-10 md:px-3 md:py-0'>
+            <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-customblack hover:text-customwhite md:h-10 md:px-3 md:py-0'>
               <p className='font-semibold text-sm'>
                 or hit me up on <span className='font-extrabold'>LinkedIn</span>
               </p>
@@ -162,7 +162,7 @@ const Contact = () => {
               aria-label='absolutepraya on GitHub'
               title='absolutepraya on GitHub'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
                 <IconBrandGithub size={21} stroke={2} />
                 <p className='underline underline-offset-4'>absolutepraya</p>
               </div>
@@ -174,7 +174,7 @@ const Contact = () => {
               aria-label='___abhipraya on Instagram'
               title='___abhipraya on Instagram'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
                 <IconBrandInstagram size={21} stroke={2} />
                 <p className='underline underline-offset-4'>___abhipraya</p>
               </div>
@@ -186,7 +186,7 @@ const Contact = () => {
               aria-label='Daffa Abhipraya on Spotify'
               title='Daffa Abhipraya on Spotify'
             >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-blurple'>
+              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
                 <IconBrandSpotify size={21} stroke={2} />
                 <p className='underline underline-offset-4'>Daffa Abhipraya</p>
               </div>

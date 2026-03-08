@@ -385,7 +385,7 @@ const AchievementsBox = ({
                         <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
                           <button
                             type='button'
-                            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
+                            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-customwhite md:w-10'
                             onClick={() => handlePrevImage(achievement.title)}
                           >
                             <IconChevronLeft
@@ -410,7 +410,7 @@ const AchievementsBox = ({
                           </div>
                           <button
                             type='button'
-                            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-blurple md:w-10'
+                            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-all duration-100 ease-in-out hover:text-customwhite md:w-10'
                             onClick={() => handleNextImage(achievement.title)}
                           >
                             <IconChevronRight

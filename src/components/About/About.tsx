@@ -71,7 +71,7 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[40%]'
         >
-          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'>
+          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blue-600 lg:hover:shadow-glowblurpleextrasmall'>
             <div className='relative flex items-center justify-center lg:h-46'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
@@ -117,7 +117,7 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[39.3rem]'
         >
-          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blurple lg:hover:shadow-glowblurpleextrasmall'>
+          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blue-600 lg:hover:shadow-glowblurpleextrasmall'>
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (

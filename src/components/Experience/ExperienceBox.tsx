@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import DesktopView from '../../lib/DesktopView';
 
@@ -29,8 +29,44 @@ const ExperienceBox = ({
   alignCenter,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
+  const [logoColor, setLogoColor] = useState('rgb(37, 99, 235)');
   const divRef = useRef<HTMLDivElement>(null);
   const desktopView = DesktopView();
+
+  const extractColor = useCallback((src: string) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.drawImage(img, 0, 0);
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let r = 0;
+      let g = 0;
+      let b = 0;
+      let count = 0;
+      for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 3] < 128) continue;
+        r += data[i];
+        g += data[i + 1];
+        b += data[i + 2];
+        count++;
+      }
+      if (count > 0) {
+        setLogoColor(
+          `rgb(${Math.round(r / count)}, ${Math.round(g / count)}, ${Math.round(b / count)})`,
+        );
+      }
+    };
+    img.src = src;
+  }, []);
+
+  useEffect(() => {
+    if (logo) extractColor(logo);
+  }, [logo, extractColor]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -100,7 +136,12 @@ const ExperienceBox = ({
               title={`Open ${org} website`}
             >
               {org}
-              <div className='absolute bottom-[0.11rem] h-[1.8px] w-full rounded-full bg-linear-to-br from-[#d3d3ee] to-blurple' />
+              <div
+                className='absolute bottom-[0.11rem] h-[1.8px] w-full rounded-full'
+                style={{
+                  background: logoColor,
+                }}
+              />
             </a>
           ) : (
             <div className='flex flex-row items-center space-x-2'>
@@ -119,7 +160,10 @@ const ExperienceBox = ({
               >
                 {org}
                 <div
-                  className={`absolute bottom-[0.040rem] h-[1.8px] w-full rounded-full bg-linear-to-br from-[#d3d3ee] to-blurple opacity-0 transition-all duration-480 ease-in ${isInView ? 'opacity-100' : ''}`}
+                  className={`absolute bottom-[0.040rem] h-[1.8px] w-full rounded-full opacity-0 transition-all duration-480 ease-in ${isInView ? 'opacity-100' : ''}`}
+                  style={{
+                    background: logoColor,
+                  }}
                 />
               </a>
             </div>
