@@ -45,6 +45,7 @@ import X from '../../assets/stacks/x.svg';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
+import { Badge } from '../badge';
 
 interface StackIcon {
   src: string;
@@ -224,29 +225,20 @@ const ProjectBox = ({
               </p>
             )}
           </div>
-          <div className='flex flex-row items-center space-x-2'>
-            <p className='font-bold'>Type: </p>
-            <div className='flex flex-row flex-wrap gap-2'>
-              {Array.isArray(type) ? (
-                type.map((t, index) => (
-                  <div
-                    // biome-ignore lint/suspicious/noArrayIndexKey: <X>
-                    key={index}
-                    className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'
-                  >
-                    <p className='font-jetbrainsmono text-blurple text-xs md:text-sm'>
-                      {t}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div className='w-fit rounded-md border border-blurple bg-blurple bg-opacity-10 px-2'>
-                  <p className='font-jetbrainsmono text-blurple text-xs md:text-sm'>
-                    {type}
-                  </p>
-                </div>
-              )}
-            </div>
+          <div className='flex flex-row flex-wrap gap-1.5'>
+            {Array.isArray(type) ? (
+              type.map((t, index) => (
+                <Badge
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <X>
+                  key={index}
+                  variant='default'
+                >
+                  {t}
+                </Badge>
+              ))
+            ) : (
+              <Badge variant='default'>{type}</Badge>
+            )}
           </div>
           <p className='text-justify text-[0.925rem]'>{subtitle}</p>
           <div className='flex grow' />
