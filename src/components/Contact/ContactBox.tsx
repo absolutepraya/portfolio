@@ -184,28 +184,24 @@ const ContactBox = () => {
             draggable='false'
           />
 
-          {/* Card content */}
-          <div className='relative z-5 flex h-full flex-col justify-between p-7 md:p-8'>
-            {/* Top row: PFP + Title */}
-            <div className='flex items-center space-x-3'>
-              <div className='shrink-0 rounded-full bg-gradient-to-br from-[#c0c0c0] via-[#e8e8e8] to-[#a0a0a0] p-[2px]'>
+          {/* Card content — Layout A: horizontal split */}
+          <div className='relative z-5 flex h-full flex-row p-7 md:p-8'>
+            {/* Left: PFP + Name + Title */}
+            <div className='flex flex-col justify-between'>
+              {/* PFP with chrome ring */}
+              <div className='shrink-0 self-start rounded-full bg-gradient-to-br from-[#c0c0c0] via-[#e8e8e8] to-[#a0a0a0] p-[2px]'>
                 <img
                   src={PFP}
                   alt='Profile'
-                  className='h-11 w-11 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0'
+                  className='h-16 w-16 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
                   draggable='false'
                 />
               </div>
-              <p className='font-inter text-[#6b6b78] text-xs uppercase tracking-widest'>
-                Software & AI Engineer
-              </p>
-            </div>
 
-            {/* Middle: Name (left) + Links (right) */}
-            <div className='flex flex-1 items-end justify-between gap-4 pt-2'>
+              {/* Name + Title */}
               <div>
                 <h3
-                  className='font-instrument text-4xl leading-[1.1] md:text-5xl'
+                  className='font-instrument text-3xl leading-[1.1] md:text-4xl'
                   style={{
                     background:
                       'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
@@ -218,9 +214,16 @@ const ContactBox = () => {
                   <br />
                   Abhipraya
                 </h3>
+                <p className='mt-1.5 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
+                  Software & AI Engineer
+                </p>
               </div>
+            </div>
 
-              <div className='flex flex-col items-end space-y-1.5'>
+            {/* Right: Links + Signature */}
+            <div className='flex flex-1 flex-col items-end justify-between pl-4'>
+              {/* Links */}
+              <div className='flex flex-col items-end space-y-2'>
                 {links.map((link) => (
                   <div
                     key={link.text}
@@ -256,17 +259,8 @@ const ContactBox = () => {
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Bottom: Metallic separator + Signature */}
-            <div className='flex items-end justify-between pt-2'>
-              <div
-                className='mr-4 h-px flex-1'
-                style={{
-                  background:
-                    'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
-                }}
-              />
+              {/* Signature */}
               <Signature
                 text='Abhipraya'
                 fontSize={32}
