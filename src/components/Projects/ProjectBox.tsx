@@ -46,6 +46,7 @@ import BlurFade from '../../blocks/Animations/BlurFade';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { Badge } from '../badge';
+import { PopButton } from '../pop-button';
 
 interface StackIcon {
   src: string;
@@ -154,11 +155,6 @@ const ProjectBox = ({
       }
     };
   }, [isVideo]);
-
-  let urlVisibility: string | undefined;
-  let githubVisibility: string | undefined;
-  if (!url) urlVisibility = 'opacity-30';
-  if (!github) githubVisibility = 'opacity-30';
 
   const STACKS_PER_LINE = 8;
 
@@ -299,63 +295,59 @@ const ProjectBox = ({
               </div>
             )}
             {isSelfHosted && <div className='flex w-fit' />}
-            <div className='flex h-[9vw] w-auto flex-row space-x-2 md:h-10 md:space-x-3'>
+            <div className='flex w-auto flex-row space-x-2 md:space-x-3'>
               {url === '' ? (
-                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg opacity-30 md:w-10'>
-                  <IconArrowUpRight stroke={1.5} size={desktopView ? 24 : 22} />
-                </div>
+                <PopButton className='aspect-square p-0' disabled>
+                  <IconArrowUpRight stroke={1.5} size={desktopView ? 20 : 18} />
+                </PopButton>
               ) : (
-                <a
-                  href={url ?? undefined}
-                  target='_blank'
-                  rel='noreferrer'
-                  aria-label='Open deployed project URL'
-                  title='Open deployed project URL'
-                >
-                  <div
-                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg md:w-10 ${urlVisibility ? urlVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
+                <PopButton className='aspect-square p-0' asChild>
+                  <a
+                    href={url ?? undefined}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label='Open deployed project URL'
+                    title='Open deployed project URL'
                   >
                     <IconArrowUpRight
                       stroke={1.5}
-                      size={desktopView ? 24 : 22}
+                      size={desktopView ? 20 : 18}
                     />
-                  </div>
-                </a>
+                  </a>
+                </PopButton>
               )}
               {github === '' ? (
-                <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg opacity-30 md:w-10'>
-                  <IconBrandGithub stroke={1.5} size={desktopView ? 24 : 22} />
-                </div>
+                <PopButton size='sm' disabled>
+                  <IconBrandGithub stroke={1.5} size={desktopView ? 20 : 18} />
+                </PopButton>
               ) : (
-                <a
-                  href={github ?? undefined}
-                  target='_blank'
-                  rel='noreferrer'
-                  aria-label='View project source code on GitHub'
-                  title='View project source code on GitHub'
-                >
-                  <div
-                    className={`flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg md:w-10 ${githubVisibility ? githubVisibility : 'transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple'}`}
+                <PopButton className='aspect-square p-0' asChild>
+                  <a
+                    href={github ?? undefined}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label='View project source code on GitHub'
+                    title='View project source code on GitHub'
                   >
                     <IconBrandGithub
                       stroke={1.5}
-                      size={desktopView ? 24 : 22}
+                      size={desktopView ? 20 : 18}
                     />
-                  </div>
-                </a>
+                  </a>
+                </PopButton>
               )}
               {isSelfHosted && homepage && (
-                <a
-                  href={homepage}
-                  target='_blank'
-                  rel='noreferrer'
-                  aria-label='Open project homepage'
-                  title='Open project homepage'
-                >
-                  <div className='flex h-full w-[9vw] items-center justify-center rounded-lg bg-btn-bg transition-all duration-100 ease-in-out hover:bg-blurple hover:bg-opacity-30 hover:text-blurple md:w-10'>
-                    <IconHome stroke={1.5} size={desktopView ? 24 : 22} />
-                  </div>
-                </a>
+                <PopButton className='aspect-square p-0' asChild>
+                  <a
+                    href={homepage}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label='Open project homepage'
+                    title='Open project homepage'
+                  >
+                    <IconHome stroke={1.5} size={desktopView ? 20 : 18} />
+                  </a>
+                </PopButton>
               )}
             </div>
           </div>
