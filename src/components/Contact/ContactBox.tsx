@@ -7,27 +7,45 @@ import {
   IconNotebook,
   IconPointer,
 } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import Pin from '../../assets/creds/pin.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import SplitText from '../../blocks/TextAnimations/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import { useTheme } from '../../lib/ThemeContext';
 import { Signature } from '../signature';
 
 const ContactBox = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [copied, setCopied] = useState(false);
-  const { isDark } = useTheme();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('daffa@abhipraya.dev');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setMousePos({ x, y });
+  }, []);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setMousePos({ x: 0.5, y: 0.5 });
+  };
+
+  const tiltX = isHovered ? (mousePos.y - 0.5) * -20 : 0;
+  const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
 
   const links = [
     {
@@ -69,9 +87,7 @@ const ContactBox = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className={
-                isDark ? 'fill-black text-white' : 'fill-white text-black'
-              }
+              className='fill-white text-black'
             />
             <SplitText animateBy='letters' text='AI solutions' />
           </div>
@@ -79,9 +95,7 @@ const ContactBox = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className={
-                isDark ? 'fill-black text-white' : 'fill-white text-black'
-              }
+              className='fill-white text-black'
             />
             <SplitText animateBy='letters' text='competitions' />
           </div>
@@ -89,92 +103,166 @@ const ContactBox = () => {
             <IconPointer
               size={tabletView ? 20 : 16}
               stroke={2}
-              className={
-                isDark ? 'fill-black text-white' : 'fill-white text-black'
-              }
+              className='fill-white text-black'
             />
             <SplitText animateBy='letters' text='opportunities' />
           </div>
         </div>
       </div>
+
       <BlurFade
         className='flex w-full flex-col items-center justify-center space-y-2 p-6 xl:w-1/2'
         delay={desktopView ? 0.8 : 0.3}
         inView
         offset={30}
       >
-        <div className='relative flex w-full max-w-120 -rotate-2 flex-col space-y-5 rounded-2xl border border-[#e5e5e5] bg-[#fafaf9] p-7 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl md:-rotate-3 md:p-8'>
+        {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
+        <div
+          ref={cardRef}
+          className='relative w-full max-w-120 cursor-default select-none overflow-hidden rounded-2xl border border-[#e5e5e5] bg-[#fafaf9] shadow-lg transition-shadow duration-300 hover:shadow-xl md:max-w-130'
+          style={{
+            aspectRatio: '3 / 2',
+            transform: isHovered
+              ? `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
+              : 'perspective(800px) rotate(-2deg)',
+            transition: isHovered
+              ? 'transform 0.1s ease-out, box-shadow 0.3s ease'
+              : 'transform 0.4s ease-out, box-shadow 0.3s ease',
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Holographic shimmer overlay */}
+          <div
+            className='pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay'
+            style={{
+              background: `linear-gradient(
+                ${110 + (mousePos.x - 0.5) * 60}deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 20%,
+                rgba(200, 220, 255, 0.15) 40%,
+                rgba(255, 200, 255, 0.1) 60%,
+                rgba(200, 255, 220, 0.12) 80%,
+                transparent 100%
+              )`,
+              opacity: isHovered ? 1 : 0.3,
+              transition: 'opacity 0.3s ease',
+            }}
+          />
+
+          {/* Light reflection / spotlight */}
+          <div
+            className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
+            style={{
+              background: isHovered
+                ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
+                : 'none',
+              transition: 'opacity 0.3s ease',
+            }}
+          />
+
           {/* Pin decoration */}
           <img
             src={Pin}
             alt='Pin'
-            className='absolute -top-12 -right-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
+            className='absolute -top-12 -right-10 z-30 w-16 scale-[85%] drop-shadow-md md:scale-90'
             draggable='false'
           />
 
-          {/* Header: PFP + Name + Title */}
-          <div className='flex items-center space-x-4'>
-            <img
-              src={PFP}
-              alt='Profile'
-              className='h-12 w-12 shrink-0 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0'
-              draggable='false'
-            />
-            <div>
-              <h3 className='font-instrument text-2xl text-[#1a1a2e]'>
-                Daffa Abhipraya
-              </h3>
-              <p className='text-[#6b6b78] text-sm'>Fullstack Developer</p>
+          {/* Card content */}
+          <div className='relative z-5 flex h-full flex-col justify-between p-7 md:p-8'>
+            {/* Top row: PFP + Title */}
+            <div className='flex items-center space-x-3'>
+              <div className='shrink-0 rounded-full bg-gradient-to-br from-[#c0c0c0] via-[#e8e8e8] to-[#a0a0a0] p-[2px]'>
+                <img
+                  src={PFP}
+                  alt='Profile'
+                  className='h-11 w-11 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0'
+                  draggable='false'
+                />
+              </div>
+              <p className='font-inter text-[#6b6b78] text-xs uppercase tracking-widest'>
+                Software & AI Engineer
+              </p>
+            </div>
+
+            {/* Middle: Name (left) + Links (right) */}
+            <div className='flex flex-1 items-end justify-between gap-4 pt-2'>
+              <div>
+                <h3
+                  className='font-instrument text-4xl leading-[1.1] md:text-5xl'
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  Daffa
+                  <br />
+                  Abhipraya
+                </h3>
+              </div>
+
+              <div className='flex flex-col items-end space-y-1.5'>
+                {links.map((link) => (
+                  <div
+                    key={link.text}
+                    className='flex items-center space-x-1.5'
+                  >
+                    <link.icon
+                      size={14}
+                      stroke={1.8}
+                      className='shrink-0 text-[#6b6b78]'
+                    />
+                    <a
+                      href={link.href}
+                      target='_blank'
+                      rel='noreferrer'
+                      className='font-jetbrainsmono text-[#1a1a2e] text-[11px] underline-offset-3 transition-colors hover:text-[#3643FC] hover:underline md:text-xs'
+                    >
+                      {link.text}
+                    </a>
+                    {link.copyable && tabletView && (
+                      <button
+                        type='button'
+                        className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
+                        onClick={handleCopy}
+                        title='Copy email'
+                      >
+                        {copied ? (
+                          <IconCheck size={12} stroke={2} />
+                        ) : (
+                          <IconCopy size={12} stroke={2} />
+                        )}
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom: Metallic separator + Signature */}
+            <div className='flex items-end justify-between pt-2'>
+              <div
+                className='mr-4 h-px flex-1'
+                style={{
+                  background:
+                    'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
+                }}
+              />
+              <Signature
+                text='Abhipraya'
+                fontSize={32}
+                color='#1a1a2e'
+                duration={1.5}
+                className='h-8 shrink-0'
+                inView
+              />
             </div>
           </div>
-
-          {/* Separator */}
-          <div className='h-px w-full bg-[#e5e5e5]' />
-
-          {/* Links */}
-          <div className='flex flex-col space-y-2.5'>
-            {links.map((link) => (
-              <div key={link.text} className='flex items-center space-x-2'>
-                <link.icon
-                  size={16}
-                  stroke={1.8}
-                  className='shrink-0 text-[#6b6b78]'
-                />
-                <a
-                  href={link.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-[#3643FC] hover:underline md:text-sm'
-                >
-                  {link.text}
-                </a>
-                {link.copyable && tabletView && (
-                  <button
-                    type='button'
-                    className='ml-1 rounded-md p-1 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
-                    onClick={handleCopy}
-                    title='Copy email'
-                  >
-                    {copied ? (
-                      <IconCheck size={14} stroke={2} />
-                    ) : (
-                      <IconCopy size={14} stroke={2} />
-                    )}
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Signature */}
-          <Signature
-            text='Abhipraya'
-            fontSize={36}
-            color='#1a1a2e'
-            duration={1.5}
-            className='mt-1 h-10 self-end'
-            inView
-          />
         </div>
       </BlurFade>
     </BlurFade>
