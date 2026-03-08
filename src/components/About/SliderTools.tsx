@@ -56,7 +56,7 @@ export const SliderTools = () => {
             <img
               src={tool.src}
               alt={tool.alt}
-              className='h-full w-full select-none object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)] transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
+              className='h-full w-full select-none object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.18)] transition-all duration-200 group-hover:blur-xs group-focus-visible:blur-xs'
               draggable='false'
             />
           </div>
