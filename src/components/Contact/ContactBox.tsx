@@ -10,6 +10,7 @@ import {
 import { useCallback, useRef, useState } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
+import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 import SplitText from '../../blocks/TextAnimations/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
@@ -137,16 +138,15 @@ const ContactBox = () => {
           onMouseEnter={desktopView ? handleMouseEnter : undefined}
           onMouseLeave={desktopView ? handleMouseLeave : undefined}
         >
-          {/* Inner card bg */}
-          <div className='absolute inset-[3px] z-0 rounded-xl bg-[#fafaf9]' />
-
-          {/* Holographic shimmer overlay */}
-          <div
-            className={`pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay ${!desktopView ? 'animate-[shimmer_6s_ease-in-out_infinite]' : ''}`}
-            style={
-              desktopView
-                ? {
-                    background: `linear-gradient(
+          {/* Inner card — clips content inside border */}
+          <div className='absolute inset-[3px] z-5 overflow-hidden rounded-xl bg-[#fafaf9]'>
+            {/* Holographic shimmer overlay (inside inner card for proper clipping) */}
+            <div
+              className={`pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay ${!desktopView ? 'animate-[shimmer_6s_ease-in-out_infinite]' : ''}`}
+              style={
+                desktopView
+                  ? {
+                      background: `linear-gradient(
                       ${110 + (mousePos.x - 0.5) * 60}deg,
                       transparent 0%,
                       rgba(255, 255, 255, 0.1) 20%,
@@ -155,106 +155,123 @@ const ContactBox = () => {
                       rgba(200, 255, 220, 0.12) 80%,
                       transparent 100%
                     )`,
-                    opacity: isHovered ? 1 : 0.3,
-                    transition: 'opacity 0.3s ease',
-                  }
-                : {
-                    background:
-                      'linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.1) 20%, rgba(200,220,255,0.15) 40%, rgba(255,200,255,0.1) 60%, rgba(200,255,220,0.12) 80%, transparent 100%)',
-                    opacity: 0.4,
-                  }
-            }
-          />
-
-          {/* Light reflection / spotlight (desktop only) */}
-          {desktopView && (
-            <div
-              className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
-              style={{
-                background: isHovered
-                  ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
-                  : 'none',
-                transition: 'opacity 0.3s ease',
-              }}
+                      opacity: isHovered ? 1 : 0.3,
+                      transition: 'opacity 0.3s ease',
+                    }
+                  : {
+                      background:
+                        'linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.1) 20%, rgba(200,220,255,0.15) 40%, rgba(255,200,255,0.1) 60%, rgba(200,255,220,0.12) 80%, transparent 100%)',
+                      opacity: 0.4,
+                    }
+              }
             />
-          )}
 
-          {/* Card content */}
-          <div className='relative z-5 flex h-full flex-col p-7 md:p-8'>
-            {/* Top: PFP + Name/Title */}
-            <div className='flex items-center space-x-4'>
-              <img
-                src={PFP}
-                alt='Profile'
-                className='h-16 w-16 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
-                draggable='false'
+            {/* Light reflection / spotlight (desktop only) */}
+            {desktopView && (
+              <div
+                className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
+                style={{
+                  background: isHovered
+                    ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
+                    : 'none',
+                  transition: 'opacity 0.3s ease',
+                }}
               />
-              <div>
-                <h3
-                  className='font-instrument text-[2.5rem] leading-[1.1] md:text-[3.25rem]'
-                  style={{
-                    background:
-                      'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Daffa Abhipraya
-                </h3>
-                <p className='mt-1 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
-                  Software & AI Engineer
-                </p>
-              </div>
-            </div>
+            )}
 
-            {/* Metallic separator */}
-            <div
-              className='mt-5 h-px w-full'
-              style={{
-                background:
-                  'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
-              }}
-            />
-
-            {/* Links: 2x2 grid */}
-            <div className='mt-4 grid grid-cols-2 gap-x-4 gap-y-2'>
-              {links.map((link) => (
-                <div key={link.text} className='flex items-center space-x-1.5'>
-                  <link.icon
-                    size={14}
-                    stroke={1.8}
-                    className='shrink-0 text-[#6b6b78]'
-                  />
-                  <a
-                    href={link.href}
-                    target='_blank'
-                    rel='noreferrer'
-                    className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-blue-600 hover:underline md:text-sm'
+            {/* Card content */}
+            <div className='relative z-5 flex h-full flex-col p-7 md:p-8'>
+              {/* Top: PFP + Name/Title */}
+              <div className='flex items-center space-x-4'>
+                <img
+                  src={PFP}
+                  alt='Profile'
+                  className='h-16 w-16 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
+                  draggable='false'
+                />
+                <div>
+                  <h3
+                    className='font-instrument text-[2.5rem] leading-[1.1] md:text-[3.25rem]'
+                    style={{
+                      background:
+                        'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
                   >
-                    {link.text}
-                  </a>
-                  {link.copyable && tabletView && (
-                    <button
-                      type='button'
-                      className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
-                      onClick={handleCopy}
-                      title='Copy email'
-                    >
-                      {copied ? (
-                        <IconCheck size={12} stroke={2} />
-                      ) : (
-                        <IconCopy size={12} stroke={2} />
-                      )}
-                    </button>
-                  )}
+                    Daffa Abhipraya
+                  </h3>
+                  <p className='mt-1 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
+                    Software & AI Engineer
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Metallic separator */}
+              <div
+                className='mt-5 h-px w-full'
+                style={{
+                  background:
+                    'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
+                }}
+              />
+
+              {/* Links: 2x2 grid */}
+              <div className='mt-4 grid grid-cols-2 gap-x-4 gap-y-2'>
+                {links.map((link) => (
+                  <div
+                    key={link.text}
+                    className='flex items-center space-x-1.5'
+                  >
+                    <link.icon
+                      size={14}
+                      stroke={1.8}
+                      className='shrink-0 text-[#6b6b78]'
+                    />
+                    <a
+                      href={link.href}
+                      target='_blank'
+                      rel='noreferrer'
+                      className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-blue-600 hover:underline md:text-sm'
+                    >
+                      {link.text}
+                    </a>
+                    {link.copyable && tabletView && (
+                      <button
+                        type='button'
+                        className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
+                        onClick={handleCopy}
+                        title='Copy email'
+                      >
+                        {copied ? (
+                          <IconCheck size={12} stroke={2} />
+                        ) : (
+                          <IconCopy size={12} stroke={2} />
+                        )}
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className='flex-1' />
             </div>
 
-            {/* Bottom: empty space for future graphic */}
-            <div className='flex-1' />
+            {/* Bottom: FlickeringGrid graphic — flush to edges */}
+            <div className='absolute inset-x-0 bottom-0 h-28'>
+              <div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-[#fafaf9] to-transparent' />
+              <FlickeringGrid
+                squareSize={6}
+                gridGap={5}
+                flickerChance={0.3}
+                color='rgb(160, 160, 160)'
+                maxOpacity={0.3}
+                className='h-full w-full'
+              />
+            </div>
           </div>
+          {/* end inner card */}
         </div>
       </BlurFade>
     </BlurFade>
