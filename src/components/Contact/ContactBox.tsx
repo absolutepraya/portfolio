@@ -9,12 +9,10 @@ import {
 } from '@tabler/icons-react';
 import { useCallback, useRef, useState } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
-import Pin from '../../assets/creds/pin.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import SplitText from '../../blocks/TextAnimations/SplitText';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
-import { Signature } from '../signature';
 
 const ContactBox = () => {
   const desktopView = DesktopView();
@@ -56,12 +54,12 @@ const ContactBox = () => {
     },
     {
       icon: IconBrandLinkedin,
-      text: 'linkedin.com/in/daffaabhipraya',
+      text: 'daffaabhipraya',
       href: 'https://linkedin.com/in/daffaabhipraya',
     },
     {
       icon: IconBrandGithub,
-      text: 'github.com/absolutepraya',
+      text: 'absolutepraya',
       href: 'https://github.com/absolutepraya',
     },
     {
@@ -119,9 +117,11 @@ const ContactBox = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className='relative w-full max-w-120 cursor-default select-none overflow-hidden rounded-2xl border border-[#e5e5e5] bg-[#fafaf9] shadow-lg transition-shadow duration-300 hover:shadow-xl md:max-w-130'
+          className='relative w-full max-w-120 cursor-default select-none rounded-2xl p-[3px] shadow-lg transition-shadow duration-300 hover:shadow-xl md:max-w-130'
           style={{
             aspectRatio: '3 / 2',
+            background:
+              'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
             transform: desktopView
               ? isHovered
                 ? `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
@@ -137,6 +137,9 @@ const ContactBox = () => {
           onMouseEnter={desktopView ? handleMouseEnter : undefined}
           onMouseLeave={desktopView ? handleMouseLeave : undefined}
         >
+          {/* Inner card bg */}
+          <div className='absolute inset-[3px] z-0 rounded-xl bg-[#fafaf9]' />
+
           {/* Holographic shimmer overlay */}
           <div
             className={`pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay ${!desktopView ? 'animate-[shimmer_6s_ease-in-out_infinite]' : ''}`}
@@ -176,32 +179,19 @@ const ContactBox = () => {
             />
           )}
 
-          {/* Pin decoration */}
-          <img
-            src={Pin}
-            alt='Pin'
-            className='absolute -top-12 -right-10 z-30 w-16 scale-[85%] drop-shadow-md md:scale-90'
-            draggable='false'
-          />
-
-          {/* Card content — Layout A: horizontal split */}
-          <div className='relative z-5 flex h-full flex-row p-7 md:p-8'>
-            {/* Left: PFP + Name + Title */}
-            <div className='flex flex-col justify-between'>
-              {/* PFP with chrome ring */}
-              <div className='shrink-0 self-start rounded-full bg-gradient-to-br from-[#c0c0c0] via-[#e8e8e8] to-[#a0a0a0] p-[2px]'>
-                <img
-                  src={PFP}
-                  alt='Profile'
-                  className='h-16 w-16 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
-                  draggable='false'
-                />
-              </div>
-
-              {/* Name + Title */}
+          {/* Card content */}
+          <div className='relative z-5 flex h-full flex-col p-7 md:p-8'>
+            {/* Top: PFP + Name/Title */}
+            <div className='flex items-center space-x-4'>
+              <img
+                src={PFP}
+                alt='Profile'
+                className='h-16 w-16 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
+                draggable='false'
+              />
               <div>
                 <h3
-                  className='font-instrument text-3xl leading-[1.1] md:text-4xl'
+                  className='font-instrument text-[2.5rem] leading-[1.1] md:text-[3.25rem]'
                   style={{
                     background:
                       'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
@@ -210,66 +200,60 @@ const ContactBox = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Daffa
-                  <br />
-                  Abhipraya
+                  Daffa Abhipraya
                 </h3>
-                <p className='mt-1.5 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
+                <p className='mt-1 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
                   Software & AI Engineer
                 </p>
               </div>
             </div>
 
-            {/* Right: Links + Signature */}
-            <div className='flex flex-1 flex-col items-end justify-between pl-4'>
-              {/* Links */}
-              <div className='flex flex-col items-end space-y-2'>
-                {links.map((link) => (
-                  <div
-                    key={link.text}
-                    className='flex items-center space-x-1.5'
-                  >
-                    <link.icon
-                      size={14}
-                      stroke={1.8}
-                      className='shrink-0 text-[#6b6b78]'
-                    />
-                    <a
-                      href={link.href}
-                      target='_blank'
-                      rel='noreferrer'
-                      className='font-jetbrainsmono text-[#1a1a2e] text-[11px] underline-offset-3 transition-colors hover:text-[#3643FC] hover:underline md:text-xs'
-                    >
-                      {link.text}
-                    </a>
-                    {link.copyable && tabletView && (
-                      <button
-                        type='button'
-                        className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
-                        onClick={handleCopy}
-                        title='Copy email'
-                      >
-                        {copied ? (
-                          <IconCheck size={12} stroke={2} />
-                        ) : (
-                          <IconCopy size={12} stroke={2} />
-                        )}
-                      </button>
-                    )}
-                  </div>
-                ))}
-              </div>
+            {/* Metallic separator */}
+            <div
+              className='mt-5 h-px w-full'
+              style={{
+                background:
+                  'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
+              }}
+            />
 
-              {/* Signature */}
-              <Signature
-                text='Abhipraya'
-                fontSize={32}
-                color='#1a1a2e'
-                duration={1.5}
-                className='h-8 shrink-0'
-                inView
-              />
+            {/* Links: 2x2 grid */}
+            <div className='mt-4 grid grid-cols-2 gap-x-4 gap-y-2'>
+              {links.map((link) => (
+                <div key={link.text} className='flex items-center space-x-1.5'>
+                  <link.icon
+                    size={14}
+                    stroke={1.8}
+                    className='shrink-0 text-[#6b6b78]'
+                  />
+                  <a
+                    href={link.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-blue-600 hover:underline md:text-sm'
+                  >
+                    {link.text}
+                  </a>
+                  {link.copyable && tabletView && (
+                    <button
+                      type='button'
+                      className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
+                      onClick={handleCopy}
+                      title='Copy email'
+                    >
+                      {copied ? (
+                        <IconCheck size={12} stroke={2} />
+                      ) : (
+                        <IconCopy size={12} stroke={2} />
+                      )}
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
+
+            {/* Bottom: empty space for future graphic */}
+            <div className='flex-1' />
           </div>
         </div>
       </BlurFade>
