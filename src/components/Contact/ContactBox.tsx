@@ -122,45 +122,59 @@ const ContactBox = () => {
           className='relative w-full max-w-120 cursor-default select-none overflow-hidden rounded-2xl border border-[#e5e5e5] bg-[#fafaf9] shadow-lg transition-shadow duration-300 hover:shadow-xl md:max-w-130'
           style={{
             aspectRatio: '3 / 2',
-            transform: isHovered
-              ? `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
-              : 'perspective(800px) rotate(-2deg)',
-            transition: isHovered
-              ? 'transform 0.1s ease-out, box-shadow 0.3s ease'
-              : 'transform 0.4s ease-out, box-shadow 0.3s ease',
+            transform: desktopView
+              ? isHovered
+                ? `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
+                : 'perspective(800px) rotate(-2deg)'
+              : 'rotate(-2deg)',
+            transition: desktopView
+              ? isHovered
+                ? 'transform 0.1s ease-out, box-shadow 0.3s ease'
+                : 'transform 0.4s ease-out, box-shadow 0.3s ease'
+              : 'none',
           }}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseMove={desktopView ? handleMouseMove : undefined}
+          onMouseEnter={desktopView ? handleMouseEnter : undefined}
+          onMouseLeave={desktopView ? handleMouseLeave : undefined}
         >
           {/* Holographic shimmer overlay */}
           <div
-            className='pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay'
-            style={{
-              background: `linear-gradient(
-                ${110 + (mousePos.x - 0.5) * 60}deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.1) 20%,
-                rgba(200, 220, 255, 0.15) 40%,
-                rgba(255, 200, 255, 0.1) 60%,
-                rgba(200, 255, 220, 0.12) 80%,
-                transparent 100%
-              )`,
-              opacity: isHovered ? 1 : 0.3,
-              transition: 'opacity 0.3s ease',
-            }}
+            className={`pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay ${!desktopView ? 'animate-[shimmer_6s_ease-in-out_infinite]' : ''}`}
+            style={
+              desktopView
+                ? {
+                    background: `linear-gradient(
+                      ${110 + (mousePos.x - 0.5) * 60}deg,
+                      transparent 0%,
+                      rgba(255, 255, 255, 0.1) 20%,
+                      rgba(200, 220, 255, 0.15) 40%,
+                      rgba(255, 200, 255, 0.1) 60%,
+                      rgba(200, 255, 220, 0.12) 80%,
+                      transparent 100%
+                    )`,
+                    opacity: isHovered ? 1 : 0.3,
+                    transition: 'opacity 0.3s ease',
+                  }
+                : {
+                    background:
+                      'linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.1) 20%, rgba(200,220,255,0.15) 40%, rgba(255,200,255,0.1) 60%, rgba(200,255,220,0.12) 80%, transparent 100%)',
+                    opacity: 0.4,
+                  }
+            }
           />
 
-          {/* Light reflection / spotlight */}
-          <div
-            className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
-            style={{
-              background: isHovered
-                ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
-                : 'none',
-              transition: 'opacity 0.3s ease',
-            }}
-          />
+          {/* Light reflection / spotlight (desktop only) */}
+          {desktopView && (
+            <div
+              className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
+              style={{
+                background: isHovered
+                  ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
+                  : 'none',
+                transition: 'opacity 0.3s ease',
+              }}
+            />
+          )}
 
           {/* Pin decoration */}
           <img
