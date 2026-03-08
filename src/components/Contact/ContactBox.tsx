@@ -1,16 +1,14 @@
 import {
   IconBrandGithub,
-  IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandSpotify,
   IconCheck,
   IconCopy,
   IconMail,
+  IconNotebook,
   IconPointer,
-  IconSend,
 } from '@tabler/icons-react';
 import { useState } from 'react';
-import Hello from '../../assets/creds/hello.webp';
+import PFP from '../../assets/creds/pfp.webp';
 import Pin from '../../assets/creds/pin.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import SplitText from '../../blocks/TextAnimations/SplitText';
@@ -19,20 +17,41 @@ import TabletView from '../../lib/TabletView';
 import { useTheme } from '../../lib/ThemeContext';
 import { Signature } from '../signature';
 
-const Contact = () => {
+const ContactBox = () => {
   const desktopView = DesktopView();
   const tabletView = TabletView();
   const [copied, setCopied] = useState(false);
   const { isDark } = useTheme();
 
   const handleCopy = () => {
-    const textToCopy = 'daffa@abhipraya.dev';
-    navigator.clipboard.writeText(textToCopy);
+    navigator.clipboard.writeText('daffa@abhipraya.dev');
     setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
+    setTimeout(() => setCopied(false), 2000);
   };
+
+  const links = [
+    {
+      icon: IconMail,
+      text: 'daffa@abhipraya.dev',
+      href: 'mailto:daffa@abhipraya.dev',
+      copyable: true,
+    },
+    {
+      icon: IconBrandLinkedin,
+      text: 'linkedin.com/in/daffaabhipraya',
+      href: 'https://linkedin.com/in/daffaabhipraya',
+    },
+    {
+      icon: IconBrandGithub,
+      text: 'github.com/absolutepraya',
+      href: 'https://github.com/absolutepraya',
+    },
+    {
+      icon: IconNotebook,
+      text: 'blog.abhipraya.dev',
+      href: 'https://blog.abhipraya.dev',
+    },
+  ];
 
   return (
     <BlurFade
@@ -41,8 +60,6 @@ const Contact = () => {
       inView
       offset={20}
     >
-      {/* bg-linear-to-b from-[rgba(54,67,252,0.01)] from-20% to-[rgba(54,67,252,0.2)] */}
-      {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
         <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:translate-x-0 xl:text-start'>
           Always up for...
@@ -86,118 +103,76 @@ const Contact = () => {
         inView
         offset={30}
       >
-        <div className='relative flex h-fit w-full max-w-120 -rotate-3 flex-col justify-center space-y-4 rounded-3xl bg-customblack p-6 pt-2! pb-8 shadow-xl md:rotate-[-4deg] md:p-8'>
-          <div className='absolute top-0 left-0 z-[-1]! h-full w-full rounded-3xl border border-customgray' />
+        <div className='relative flex w-full max-w-120 -rotate-2 flex-col space-y-5 rounded-2xl border border-[#e5e5e5] bg-[#fafaf9] p-7 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl md:-rotate-3 md:p-8'>
+          {/* Pin decoration */}
           <img
             src={Pin}
             alt='Pin'
             className='absolute -top-12 -right-10 w-16 scale-[85%] drop-shadow-md md:scale-90'
             draggable='false'
           />
-          <img
-            src={Hello}
-            alt='Hello'
-            className='absolute -bottom-4 -left-6 w-12 drop-shadow-md'
-            draggable='false'
-          />
-          <p className='md:text-lg'>
-            Feel free to reach out for collab purposes or just a friendly hello
-            :D
-          </p>
-          <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-2xl md:h-10'>
-            <div className='relative flex h-full items-center space-x-2 rounded-lg border border-customwhite px-3 py-2 transition-all duration-100 md:py-0'>
-              <IconMail size={desktopView ? 20 : 16} stroke={2} />
-              <p className='break-all font-jetbrainsmono font-semibold text-sm tracking-wider'>
-                daffa@abhipraya.dev
-              </p>
+
+          {/* Header: PFP + Name + Title */}
+          <div className='flex items-center space-x-4'>
+            <img
+              src={PFP}
+              alt='Profile'
+              className='h-12 w-12 shrink-0 rounded-full object-cover grayscale transition duration-200 hover:grayscale-0'
+              draggable='false'
+            />
+            <div>
+              <h3 className='font-instrument text-2xl text-[#1a1a2e]'>
+                Daffa Abhipraya
+              </h3>
+              <p className='text-[#6b6b78] text-sm'>Fullstack Developer</p>
             </div>
-            {tabletView && (
-              <a
-                className='flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:bg-customwhite/10 hover:text-customwhite'
-                href='mailto:daffa@abhipraya.dev'
-                target='_blank'
-                rel='noreferrer'
-                aria-label='Send me an email!'
-                title='Send me an email!'
-              >
-                <IconSend size={tabletView ? 20 : 16} stroke={2} />
-              </a>
-            )}
-            {tabletView && (
-              <button
-                type='button'
-                className='clickable flex h-full w-10 items-center justify-center rounded-lg bg-btn-bg p-2 transition-all duration-100 hover:cursor-pointer hover:bg-customwhite/10 hover:text-customwhite'
-                onClick={() => handleCopy()}
-                title='Copy my email address!'
-              >
-                {copied ? (
-                  <IconCheck size={tabletView ? 20 : 16} stroke={2} />
-                ) : (
-                  <IconCopy size={tabletView ? 20 : 16} stroke={2} />
+          </div>
+
+          {/* Separator */}
+          <div className='h-px w-full bg-[#e5e5e5]' />
+
+          {/* Links */}
+          <div className='flex flex-col space-y-2.5'>
+            {links.map((link) => (
+              <div key={link.text} className='flex items-center space-x-2'>
+                <link.icon
+                  size={16}
+                  stroke={1.8}
+                  className='shrink-0 text-[#6b6b78]'
+                />
+                <a
+                  href={link.href}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-[#3643FC] hover:underline md:text-sm'
+                >
+                  {link.text}
+                </a>
+                {link.copyable && tabletView && (
+                  <button
+                    type='button'
+                    className='ml-1 rounded-md p-1 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
+                    onClick={handleCopy}
+                    title='Copy email'
+                  >
+                    {copied ? (
+                      <IconCheck size={14} stroke={2} />
+                    ) : (
+                      <IconCopy size={14} stroke={2} />
+                    )}
+                  </button>
                 )}
-              </button>
-            )}
+              </div>
+            ))}
           </div>
-          <a
-            href='https://www.linkedin.com/in/daffaabhipraya/'
-            target='_blank'
-            rel='noreferrer'
-            aria-label='Reach out on LinkedIn'
-            title='Reach out on LinkedIn'
-          >
-            <div className='flex h-auto w-fit flex-row items-center justify-center space-x-2 rounded-lg bg-customwhite px-3 py-2 text-customblack transition-all duration-100 hover:bg-customblack hover:text-customwhite md:h-10 md:px-3 md:py-0'>
-              <p className='font-semibold text-sm'>
-                or hit me up on <span className='font-extrabold'>LinkedIn</span>
-              </p>
-              <IconBrandLinkedin size={20} stroke={2} />
-            </div>
-          </a>
-          <div className='mt-6! h-0.5 w-full bg-customgray' />
-          <p className=''>Find me on other platforms!</p>
-          <div className='flex w-full flex-col space-y-2 font-jetbrainsmono text-[0.850rem] md:flex-row md:justify-between md:space-y-0'>
-            <a
-              href='https://github.com/absolutepraya'
-              target='_blank'
-              rel='noreferrer'
-              aria-label='absolutepraya on GitHub'
-              title='absolutepraya on GitHub'
-            >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
-                <IconBrandGithub size={21} stroke={2} />
-                <p className='underline underline-offset-4'>absolutepraya</p>
-              </div>
-            </a>
-            <a
-              href='https://www.instagram.com/___abhipraya/'
-              target='_blank'
-              rel='noreferrer'
-              aria-label='___abhipraya on Instagram'
-              title='___abhipraya on Instagram'
-            >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
-                <IconBrandInstagram size={21} stroke={2} />
-                <p className='underline underline-offset-4'>___abhipraya</p>
-              </div>
-            </a>
-            <a
-              href='https://open.spotify.com/user/daffaabhiprayaputra'
-              target='_blank'
-              rel='noreferrer'
-              aria-label='Daffa Abhipraya on Spotify'
-              title='Daffa Abhipraya on Spotify'
-            >
-              <div className='flex flex-row items-center space-x-1 transition-all duration-100 hover:text-customwhite'>
-                <IconBrandSpotify size={21} stroke={2} />
-                <p className='underline underline-offset-4'>Daffa Abhipraya</p>
-              </div>
-            </a>
-          </div>
+
+          {/* Signature */}
           <Signature
             text='Abhipraya'
             fontSize={36}
-            color='var(--color-text-primary)'
+            color='#1a1a2e'
             duration={1.5}
-            className='mt-2 h-10 self-end'
+            className='mt-1 h-10 self-end'
             inView
           />
         </div>
@@ -206,4 +181,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactBox;
