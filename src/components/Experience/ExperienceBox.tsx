@@ -65,11 +65,11 @@ const ExperienceBox = ({
   return (
     <motion.div
       ref={divRef}
-      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-btn-active-bg from-card-from to-card-to p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? (desktopView ? 'border-opacity-100 bg-linear-to-br shadow-glowblurple' : 'border-opacity-100 bg-linear-to-br shadow-glowblurplesmall') : 'border-opacity-20'}`}
+      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-customblack p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? 'shadow-lg' : ''}`}
     >
       <div
         ref={divRef}
-        className={`absolute top-0 h-full w-full rounded-3xl border-[3px] border-customgray border-r-0 border-b-0 ${isInView ? (desktopView ? 'border-opacity-100' : 'border-opacity-100') : 'border-opacity-20'}`}
+        className={`absolute top-0 h-full w-full rounded-3xl border border-customgray ${isInView ? 'border-opacity-100' : 'border-opacity-20'}`}
       />
       <div
         className={`absolute -top-14 -z-10 font-black transition-all duration-500 ease-in-out md:-top-[6rem] ${isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
