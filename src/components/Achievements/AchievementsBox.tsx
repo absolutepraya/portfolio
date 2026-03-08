@@ -24,6 +24,7 @@ import IosSpinner from '../../blocks/Animations/IosSpinner';
 import CountUp from '../../blocks/TextAnimations/CountUp';
 import type { Achievement } from '../../data/achievements_data';
 import DesktopView from '../../lib/DesktopView';
+import { PopButton } from '../pop-button';
 import { RichButton } from '../rich-button';
 import BotBorder from './BotBorder';
 
@@ -568,11 +569,9 @@ const AchievementsBox = ({
               className='flex w-full items-center justify-center pt-4 pb-8'
               ref={buttonRef}
             >
-              <motion.button
+              <PopButton
                 onClick={handleToggle}
-                className={
-                  'relative flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-linear-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall'
-                }
+                className='gap-2 pr-3 font-jetbrainsmono'
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>
                 {showAll ? (
@@ -580,7 +579,7 @@ const AchievementsBox = ({
                 ) : (
                   <IconArrowNarrowDownDashed size={20} stroke={2} />
                 )}
-              </motion.button>
+              </PopButton>
             </motion.div>
           )}
         </div>

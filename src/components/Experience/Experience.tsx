@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import DesktopView from '../../lib/DesktopView';
+import { PopButton } from '../pop-button';
 import ExperienceBox from './ExperienceBox';
 import Line from './Line';
 import LineShort from './LineShort';
@@ -109,22 +110,25 @@ const Experience = () => {
           <>
             {!showAll && <Line />}
             {showAll && <LineShort />}
-            <motion.button
-              ref={buttonRef}
-              onClick={handleToggle}
-              className={`relative ${showAll ? '' : ''} flex items-center space-x-2 rounded-full border-2 border-customgray bg-btn-active-bg py-3 pr-4 pl-6 font-jetbrainsmono font-semibold text-customwhite transition-all duration-300 hover:border-blurple hover:bg-linear-to-br hover:from-card-from hover:to-card-to hover:shadow-glowblurplesmall`}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: 'circOut' }}
             >
-              <span>{showAll ? 'Show Less' : 'Show More'}</span>
-              {showAll ? (
-                <IconArrowNarrowUpDashed size={20} stroke={2} />
-              ) : (
-                <IconArrowNarrowDownDashed size={20} stroke={2} />
-              )}
-            </motion.button>
+              <PopButton
+                ref={buttonRef}
+                onClick={handleToggle}
+                className='gap-2 pr-3 font-jetbrainsmono'
+              >
+                <span>{showAll ? 'Show Less' : 'Show More'}</span>
+                {showAll ? (
+                  <IconArrowNarrowUpDashed size={20} stroke={2} />
+                ) : (
+                  <IconArrowNarrowDownDashed size={20} stroke={2} />
+                )}
+              </PopButton>
+            </motion.div>
           </>
         )}
       </div>
