@@ -23,6 +23,7 @@ interface SlideUpTextProps {
   className?: string;
   wordClass?: string;
   charClass?: string;
+  animatedClass?: string;
   autoStart?: boolean;
   onStart?: () => void;
   onComplete?: () => void;
@@ -56,6 +57,7 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
       className,
       wordClass,
       charClass,
+      animatedClass,
       autoStart = true,
       onStart,
       onComplete,
@@ -198,7 +200,7 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
                         ? onComplete
                         : undefined
                     }
-                    className='inline-block'
+                    className={cn('inline-block', animatedClass)}
                   >
                     {char}
                   </motion.span>

@@ -15,7 +15,7 @@ const About = () => {
 
   return (
     <section
-      className='relative mt-36! flex w-[90vw] flex-col items-center lg:mt-40! xl:w-272'
+      className='relative mt-28! flex w-[90vw] flex-col items-center md:mt-36! lg:mt-40! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
@@ -52,7 +52,8 @@ const About = () => {
           split='words'
           delay={0.5}
           stagger={0.06}
-          className='justify-center bg-linear-to-br from-customwhite to-text-secondary bg-clip-text pb-1 text-center font-instrument text-[3.4rem] text-transparent leading-[3.6rem] md:text-6xl md:leading-[4rem] lg:text-7xl lg:leading-[5rem]'
+          className='justify-center pb-1 text-center font-instrument text-[3.4rem] leading-[3.6rem] md:text-6xl md:leading-[4rem] lg:text-7xl lg:leading-[5rem]'
+          animatedClass='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text text-transparent'
         >
           I build software that thinks, scales, and ships.
         </SlideUpText>
