@@ -35,7 +35,7 @@ export const SliderTools = () => {
 
   return (
     <Marquee
-      duration={45}
+      duration={30}
       fade
       fadeAmount={15}
       direction='right'

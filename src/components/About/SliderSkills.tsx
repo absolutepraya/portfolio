@@ -28,7 +28,7 @@ export const SliderSkills = () => {
 
   return (
     <Marquee
-      duration={40}
+      duration={25}
       fade
       fadeAmount={15}
       direction='left'
