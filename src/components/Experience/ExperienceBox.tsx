@@ -101,7 +101,7 @@ const ExperienceBox = ({
   return (
     <motion.div
       ref={divRef}
-      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-customblack p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? 'shadow-lg' : ''}`}
+      className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-customblack p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? 'shadow-2xl' : ''}`}
     >
       <div
         ref={divRef}

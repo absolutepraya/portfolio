@@ -12,8 +12,6 @@
   --font-instrument: Instrument Serif, serif;
   --font-jetbrainsmono: JetBrains Mono, monospace;
 
-  --color-blurple: #3643fc;
-  --color-blurpleopa: var(--color-accent-opa);
   --color-customblack: var(--color-card-bg);
   --color-customgray: var(--color-border);
   --color-customwhite: var(--color-text-primary);
@@ -30,9 +28,6 @@
   --color-tooltip-text: var(--color-tooltip-text);
   --color-contact-outer-border: var(--color-contact-outer-border);
 
-  --shadow-glowblurple: var(--color-glow-accent);
-  --shadow-glowblurplesmall: var(--color-glow-accent-small);
-  --shadow-glowblurpleextrasmall: var(--color-glow-accent-xs);
   --shadow-glowcustomblack: var(--color-shadow-black-glow);
   --shadow-glowcustomblacksmall: var(--color-shadow-black-glow-sm);
 
@@ -172,9 +167,6 @@
   --color-marquee-gradient: #ffffff;
   --color-markdown-link: #3643fc;
   --color-markdown-link-hover: #2a35d4;
-  --color-shine-from: rgba(26, 26, 46, 0.8);
-  --color-shine-mid: white;
-  --color-shine-to: rgba(26, 26, 46, 0.8);
   --color-button-bg: #e8e8f0;
   --color-inset-shadow: rgba(245, 245, 247, 1);
   --color-placeholder: #e0e0e8;
@@ -245,9 +237,6 @@
   --color-marquee-gradient: #0d0d0d;
   --color-markdown-link: #6a62ff;
   --color-markdown-link-hover: #5b6eae;
-  --color-shine-from: rgba(204, 204, 204, 0.8);
-  --color-shine-mid: white;
-  --color-shine-to: rgba(204, 204, 204, 0.8);
   --color-button-bg: #2c2c32;
   --color-inset-shadow: rgba(5, 4, 14, 1);
   --color-placeholder: #2d2d2d;
@@ -348,41 +337,6 @@ html,
 body {
   overscroll-behavior: none;
   scroll-behavior: smooth;
-}
-
-.shine-through {
-  padding: 0px 37px 0px 37px;
-  color: #ffffff;
-  background: linear-gradient(
-    to right,
-    var(--color-shine-from) 0%,
-    var(--color-shine-mid) 10%,
-    var(--color-shine-to) 20%
-  );
-  background-position: 0;
-  -webkit-background-clip: text; /* For Safari and Chrome */
-  -moz-background-clip: text; /* For Firefox */
-  background-clip: text; /* Standard property */
-  -webkit-text-fill-color: transparent;
-  animation: shine 6s infinite linear;
-  animation-fill-mode: forwards;
-  -webkit-text-size-adjust: none;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -20px;
-  }
-  60% {
-    background-position: 120px;
-  }
-  100% {
-    background-position: 240px;
-  }
 }
 
 @keyframes spinner-blade {

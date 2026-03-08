@@ -54,10 +54,10 @@ export default function HoverBorderGradient({
 
   const movingMap: Record<Direction, string> = useMemo(
     () => ({
-      TOP: `radial-gradient(20.7% 50% at 50% 0%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
-      LEFT: `radial-gradient(16.6% 43.1% at 0% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
-      BOTTOM: `radial-gradient(20.7% 50% at 50% 100%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
-      RIGHT: `radial-gradient(16.2% 41.199999999999996% at 100% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      TOP: `radial-gradient(30% 60% at 50% 0%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      LEFT: `radial-gradient(25% 55% at 0% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      BOTTOM: `radial-gradient(30% 60% at 50% 100%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
+      RIGHT: `radial-gradient(25% 55% at 100% 50%, ${borderColor} 0%, ${borderColorTransparent} 100%)`,
     }),
     [borderColor, borderColorTransparent],
   );
@@ -86,7 +86,7 @@ export default function HoverBorderGradient({
     >
       <div
         className={cn(
-          'z-10 w-auto rounded-[inherit] bg-page-bg py-2',
+          'z-10 w-auto rounded-[inherit] border border-customgray bg-customblack py-2',
           className,
         )}
       >
@@ -110,7 +110,7 @@ export default function HoverBorderGradient({
         }}
         transition={{ ease: 'linear', duration: duration ?? 1 }}
       />
-      <div className='absolute inset-[2px] z-1 flex-none rounded-[inherit] bg-page-bg' />
+      <div className='absolute inset-[2px] z-1 flex-none rounded-[inherit] bg-customblack' />
     </Tag>
   );
 }

@@ -1,9 +1,10 @@
-import { IconSettings2, IconSparkles } from '@tabler/icons-react';
+import { IconPlayHandball, IconSwords } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
 import { RichButton } from '../rich-button';
+import { ShimmerText } from '../shimmer-text';
 import BlurInDesc from './BlurInDesc';
 import { SliderSkills } from './SliderSkills';
 import { SliderStacks, stacksList } from './SliderStacks';
@@ -30,21 +31,20 @@ const About = () => {
         <HoverBorderGradient
           containerClassName='rounded-full'
           as='button'
-          className='flex items-center border border-customgray'
-          style={{ backgroundColor: 'var(--color-about-card-border)' }}
+          className='flex items-center'
           onClick={() => {
             document.getElementById('contacts')?.scrollIntoView({
               behavior: 'smooth',
             });
           }}
         >
-          <span className='relative ml-6! flex h-4 w-4 items-center justify-center'>
-            <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-customwhite opacity-75' />
-            <span className='relative inline-flex h-3 w-3 rounded-full bg-customwhite' />
-          </span>
-          <p className='shine-through -mx-4! text-lg transition-all ease-in-out'>
+          <ShimmerText
+            className='px-4 font-semibold text-base'
+            duration={2}
+            delay={2}
+          >
             Let's ship AI that matters!
-          </p>
+          </ShimmerText>
         </HoverBorderGradient>
       </motion.div>
       <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-center justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
@@ -71,7 +71,7 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[40%]'
         >
-          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blue-600 lg:hover:shadow-glowblurpleextrasmall'>
+          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:scale-[101%]'>
             <div className='relative flex items-center justify-center lg:h-46'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
@@ -88,25 +88,16 @@ const About = () => {
                 color='default'
                 className='cursor-default hover:brightness-100 active:brightness-100'
               >
-                <IconSparkles size={16} stroke={1.5} />
+                <IconPlayHandball size={16} stroke={1.5} />
                 <span className='font-jetbrainsmono text-sm lg:text-md'>
                   What I do
                 </span>
               </RichButton>
               <p className='text-lg lg:text-xl'>
-                I ship{' '}
-                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-                  fullstack apps
-                </b>{' '}
-                and{' '}
-                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-                  AI products
-                </b>
-                , and I make sure they{' '}
-                <i className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text font-medium text-transparent'>
-                  actually work
-                </i>
-                .
+                I ship <b className='text-customwhite'>fullstack apps</b> and{' '}
+                <b className='text-customwhite'>AI products</b>, and I make sure
+                they{' '}
+                <i className='font-medium text-customwhite'>actually work</i>.
               </p>
             </div>
           </div>
@@ -117,7 +108,7 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[39.3rem]'
         >
-          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:border-blue-600 lg:hover:shadow-glowblurpleextrasmall'>
+          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:scale-[101%]'>
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
@@ -135,21 +126,16 @@ const About = () => {
                 color='default'
                 className='cursor-default hover:brightness-100 active:brightness-100'
               >
-                <IconSettings2 size={16} stroke={1.5} />
+                <IconSwords size={16} stroke={1.5} />
                 <span className='font-jetbrainsmono text-sm lg:text-md'>
                   What I use
                 </span>
               </RichButton>
               <p className='text-lg lg:text-xl'>
                 Always keeping up with the{' '}
-                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-                  latest tech
-                </b>
-                , picking what fits, and{' '}
-                <i className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text font-medium text-transparent'>
-                  shipping fast
-                </i>
-                .
+                <b className='text-customwhite'>latest tech</b>, picking what
+                fits, and{' '}
+                <i className='font-medium text-customwhite'>shipping fast</i>.
               </p>
             </div>
             {/* Intentional: hidden text lists all skills for SEO indexing since the marquee images aren't text-crawlable */}

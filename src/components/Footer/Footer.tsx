@@ -42,15 +42,16 @@ const Copyright = () => {
           </a>
         </div>
         <div className='flex flex-row items-center justify-center md:w-1/4'>
-          <button
-            type='button'
-            onClick={toggleTheme}
-            className='underline underline-offset-2 transition-opacity hover:opacity-70'
-          >
-            {isDark
-              ? 'Not liking the dark? Try light'
-              : 'Not liking the light? Try dark'}
-          </button>
+          <p>
+            {isDark ? 'Not liking the dark? ' : 'Not liking the light? '}
+            <button
+              type='button'
+              onClick={toggleTheme}
+              className='cursor-pointer underline underline-offset-2 transition-opacity hover:opacity-70'
+            >
+              {isDark ? 'Try light' : 'Try dark'}
+            </button>
+          </p>
         </div>
       </div>
     </footer>
