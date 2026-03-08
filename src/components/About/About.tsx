@@ -90,25 +90,21 @@ const About = () => {
               >
                 <IconSparkles size={16} stroke={1.5} />
                 <span className='font-jetbrainsmono text-sm lg:text-md'>
-                  Skillsets
+                  What I do
                 </span>
               </RichButton>
               <p className='text-lg lg:text-xl'>
-                Expert in{' '}
-                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
-                  Software
+                I ship{' '}
+                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
+                  fullstack apps
+                </b>{' '}
+                and{' '}
+                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
+                  AI products
                 </b>
-                ,{' '}
-                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
-                  AI
-                </b>
-                , and{' '}
-                <b className='bg-linear-to-br from-[#d4d7ff] to-blurple bg-clip-text text-transparent'>
-                  DevOps
-                </b>
-                . Regularly competing in{' '}
-                <i className='bg-linear-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
-                  Hackathons
+                , and I make sure they{' '}
+                <i className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text font-medium text-transparent'>
+                  actually work
                 </i>
                 .
               </p>
@@ -141,20 +137,19 @@ const About = () => {
               >
                 <IconSettings2 size={16} stroke={1.5} />
                 <span className='font-jetbrainsmono text-sm lg:text-md'>
-                  Tech stack & tools
+                  What I use
                 </span>
               </RichButton>
               <p className='text-lg lg:text-xl'>
-                Achieving peak <i>efficiency</i> and <i>performance</i> through
-                careful{' '}
-                <i className='bg-linear-to-br from-[#878fff] to-blurple bg-clip-text font-medium text-transparent'>
-                  attention to detail
+                Always keeping up with the{' '}
+                <b className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent'>
+                  latest tech
+                </b>
+                , picking what fits, and{' '}
+                <i className='bg-linear-to-br from-blue-400 to-blue-600 bg-clip-text font-medium text-transparent'>
+                  shipping fast
                 </i>
-                , ensuring{' '}
-                <b className='bg-linear-to-br from-[#f4f4f9] to-blurple bg-clip-text text-transparent'>
-                  perfection
-                </b>{' '}
-                in every project.
+                .
               </p>
             </div>
             {/* Intentional: hidden text lists all skills for SEO indexing since the marquee images aren't text-crawlable */}
