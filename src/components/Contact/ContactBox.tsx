@@ -72,7 +72,7 @@ const ContactBox = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-112 xl:w-272 xl:max-w-4000 xl:flex-row'
+      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-160 xl:w-272 xl:max-w-4000 xl:flex-row'
       delay={0.3}
       inView
       offset={20}
