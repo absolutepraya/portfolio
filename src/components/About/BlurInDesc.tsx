@@ -29,7 +29,7 @@ export default function BlurInDesc({
         className,
       )}
     >
-      Systems thinker. Product builder. AI tinkerer. Cloud wrangler.
+      I build software that thinks, scales, and ships.
     </motion.h1>
   );
 }

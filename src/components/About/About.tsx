@@ -5,7 +5,7 @@ import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
 import { RichButton } from '../rich-button';
 import { ShimmerText } from '../shimmer-text';
-import BlurInDesc from './BlurInDesc';
+import { SlideUpText } from '../slide-up-text';
 import { SliderSkills } from './SliderSkills';
 import { SliderStacks, stacksList } from './SliderStacks';
 import { SliderTools, toolsList } from './SliderTools';
@@ -48,21 +48,23 @@ const About = () => {
         </HoverBorderGradient>
       </motion.div>
       <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-center justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
-        <BlurInDesc />
-        <motion.p
-          initial='hidden'
-          animate='visible'
-          transition={{ duration: 0.8, delay: 0.5 }}
-          variants={{
-            hidden: { filter: 'blur(10px)', opacity: 0 },
-            visible: { filter: 'blur(0px)', opacity: 0.9 },
-          }}
-          className='mt-6 max-w-200 text-center md:text-lg'
+        <SlideUpText
+          split='words'
+          delay={0.5}
+          stagger={0.06}
+          className='justify-center bg-linear-to-br from-customwhite to-text-secondary bg-clip-text pb-1 text-center font-instrument text-[3.4rem] text-transparent leading-[3.6rem] md:text-6xl md:leading-[4rem] lg:text-7xl lg:leading-[5rem]'
         >
-          Software, AI, and DevOps expert. From LLMs and AI agents to cloud
-          systems and business automation. Leading teams and shipping results
-          from client milestones to hackathon victories.
-        </motion.p>
+          I build software that thinks, scales, and ships.
+        </SlideUpText>
+        <SlideUpText
+          split='words'
+          delay={1}
+          stagger={0.04}
+          className='mt-6 max-w-200 justify-center text-center opacity-90 md:text-lg'
+        >
+          Fullstack apps, AI agents, cloud infrastructure. I build the whole
+          thing, start to finish, and I've won hackathons doing it.
+        </SlideUpText>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade

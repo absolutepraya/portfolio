@@ -107,7 +107,7 @@ const Projects = () => {
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
-              transition: { duration: 2, ease: 'circInOut', delay: 0.3 },
+              transition: { duration: 1.2, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
               margin: desktopView ? '-100px' : '-14px',
