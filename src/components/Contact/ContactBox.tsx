@@ -45,7 +45,7 @@ const Contact = () => {
       {/* <TopBorder /> */}
       <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
         <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:translate-x-0 xl:text-start'>
-          I&apos;m always up for...
+          Always up for...
         </p>
         <div className='flex w-full flex-col space-y-2 font-semibold text-4xl md:w-auto md:space-y-3 md:text-5xl'>
           <div className='flex items-center space-x-3 pl-0'>
@@ -56,7 +56,7 @@ const Contact = () => {
                 isDark ? 'fill-black text-white' : 'fill-white text-black'
               }
             />
-            <SplitText animateBy='letters' text='projects' />
+            <SplitText animateBy='letters' text='AI solutions' />
           </div>
           <div className='flex items-center space-x-3 pl-6 md:pl-12'>
             <IconPointer
@@ -66,7 +66,7 @@ const Contact = () => {
                 isDark ? 'fill-black text-white' : 'fill-white text-black'
               }
             />
-            <SplitText animateBy='letters' text='works' />
+            <SplitText animateBy='letters' text='competitions' />
           </div>
           <div className='flex items-center space-x-3 pl-12 md:pl-24'>
             <IconPointer
@@ -76,17 +76,7 @@ const Contact = () => {
                 isDark ? 'fill-black text-white' : 'fill-white text-black'
               }
             />
-            <SplitText animateBy='letters' text='collabs' />
-          </div>
-          <div className='flex items-center space-x-3 pl-18 md:pl-36'>
-            <IconPointer
-              size={tabletView ? 20 : 16}
-              stroke={2}
-              className={
-                isDark ? 'fill-black text-white' : 'fill-white text-black'
-              }
-            />
-            <SplitText animateBy='letters' text='hackathons' />
+            <SplitText animateBy='letters' text='opportunities' />
           </div>
         </div>
       </div>
