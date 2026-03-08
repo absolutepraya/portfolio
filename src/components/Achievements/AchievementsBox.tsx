@@ -400,7 +400,7 @@ const AchievementsBox = ({
                                 <button
                                   key={dotId}
                                   type='button'
-                                  className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-200 ${index === currentImageIndexes[achievement.title] ? 'bg-customwhite' : 'bg-customwhite bg-opacity-40 hover:bg-opacity-70'}`}
+                                  className={`cursor-pointer rounded-full transition-all duration-300 ${index === currentImageIndexes[achievement.title] ? 'h-2 w-5 bg-customwhite' : 'h-2 w-2 bg-customwhite/20 hover:bg-customwhite/40'}`}
                                   onClick={() =>
                                     handleDotClick(achievement.title, index)
                                   }
