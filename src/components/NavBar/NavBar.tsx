@@ -49,7 +49,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='fixed top-4 z-100! flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border px-2.5 backdrop-blur-md md:top-8 lg:w-220'
+      className='fixed top-4 right-4 left-4 z-100! flex h-[4.9rem] !md:scale-100 scale-[97%] flex-row items-center justify-between rounded-3xl border px-2.5 backdrop-blur-md md:top-8 md:right-auto md:left-auto lg:w-220'
       style={{
         backgroundColor: 'var(--color-nav-bg)',
         borderColor: 'var(--color-nav-border)',
@@ -60,26 +60,27 @@ const NavBar = () => {
       direction='down'
       scale={tabletView ? 1 : 0.87}
     >
+      {/* LEFT: Signature (mobile + desktop) */}
       <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
-        {desktopView && (
-          <div className='relative ml-4 h-14 max-w-40'>
-            <Signature
-              text='Abhipraya'
-              fontSize={42}
-              color='var(--color-page-bg)'
-              duration={1.5}
-              className='absolute top-[3px] left-[0.5px] h-14 max-w-40'
-            />
-            <Signature
-              text='Abhipraya'
-              fontSize={42}
-              color='var(--color-text-primary)'
-              duration={1.5}
-              className='relative z-10 h-14 max-w-40'
-            />
-          </div>
-        )}
+        <div className='relative ml-2 h-10 max-w-24 md:ml-4 md:h-14 md:max-w-40'>
+          <Signature
+            text={tabletView ? 'Abhipraya' : 'Abhip'}
+            fontSize={tabletView ? 42 : 28}
+            color='var(--color-page-bg)'
+            duration={1.5}
+            className='absolute top-[3px] left-[0.5px] h-10 max-w-24 md:h-14 md:max-w-40'
+          />
+          <Signature
+            text={tabletView ? 'Abhipraya' : 'Abhip'}
+            fontSize={tabletView ? 42 : 28}
+            color='var(--color-text-primary)'
+            duration={1.5}
+            className='relative z-10 h-10 max-w-24 md:h-14 md:max-w-40'
+          />
+        </div>
       </div>
+
+      {/* CENTER: Nav buttons */}
       <div className='flex w-1/3 flex-row justify-center space-x-3'>
         <Button
           icon={<IconHome />}
@@ -106,6 +107,8 @@ const NavBar = () => {
           isActive={activeSection === 'projectssec'}
         />
       </div>
+
+      {/* RIGHT: LinkedIn (desktop only) */}
       <div className='flex flex-row items-center justify-end gap-2 lg:w-1/3'>
         {desktopView && (
           <RichButton
