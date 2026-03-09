@@ -186,18 +186,18 @@ const ContactBox = () => {
             )}
 
             {/* Card content */}
-            <div className='relative z-5 flex h-full flex-col p-7 md:p-8'>
+            <div className='relative z-5 flex h-full flex-col p-8 md:p-10'>
               {/* Top: PFP + Name/Title */}
               <div className='flex items-center space-x-4'>
                 <img
                   src={PFP}
                   alt='Profile'
-                  className='h-16 w-16 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-20 md:w-20'
+                  className='h-18 w-18 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-22 md:w-22'
                   draggable='false'
                 />
                 <div>
                   <h3
-                    className='inline-block font-instrument text-[2.5rem] text-transparent leading-[1.1] md:text-[3.25rem]'
+                    className='inline-block font-bold font-instrument text-[2.75rem] text-transparent leading-[1.1] md:text-[3.5rem]'
                     style={{
                       backgroundImage:
                         'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
@@ -207,7 +207,7 @@ const ContactBox = () => {
                   >
                     Daffa Abhipraya
                   </h3>
-                  <p className='mt-1 font-inter text-[10px] text-white/70 uppercase tracking-widest md:text-xs'>
+                  <p className='mt-1.5 font-inter text-white/70 text-xs uppercase tracking-widest md:text-sm'>
                     Software & AI Engineer
                   </p>
                 </div>
@@ -238,7 +238,7 @@ const ContactBox = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className='font-jetbrainsmono text-white text-xs underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-sm'
+                      className='font-jetbrainsmono text-sm text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-base'
                     >
                       {link.text}
                     </a>
@@ -264,7 +264,7 @@ const ContactBox = () => {
             </div>
 
             {/* Bottom: FlickeringGrid graphic — flush to edges */}
-            <div className='absolute inset-x-0 bottom-0 h-28'>
+            <div className='absolute inset-x-0 bottom-0 h-32'>
               {/* <div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-[#c0c0c0] via-[#c0c0c0]/80 to-transparent' /> */}
               <FlickeringGrid
                 squareSize={6}
