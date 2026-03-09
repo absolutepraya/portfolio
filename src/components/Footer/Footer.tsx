@@ -2,12 +2,10 @@ import { IconBrandGithub, IconClock, IconCopyright } from '@tabler/icons-react';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
 import DesktopView from '../../lib/DesktopView';
-import { useTheme } from '../../lib/ThemeContext';
 
 const Copyright = () => {
   const [currentTime, setCurrentTime] = useState('');
   const desktopView = DesktopView();
-  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const updateTime = () => {
@@ -22,36 +20,26 @@ const Copyright = () => {
   return (
     <footer className='flex w-full flex-col'>
       <div
-        className='flex h-auto w-full flex-col items-center justify-between space-y-2 border-customgray border-t py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:space-y-0 md:px-8 md:py-0 md:text-xs lg:px-32'
+        className='flex h-auto w-full flex-col items-center space-y-2 border-customgray border-t py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:justify-around md:space-y-0 md:py-0 md:text-xs'
         style={{ backgroundColor: 'var(--color-nav-bg)' }}
       >
-        <div className='flex flex-row items-center justify-center space-x-2 md:w-1/4'>
+        <div className='flex flex-row items-center justify-center space-x-2'>
           <IconCopyright size={desktopView ? 16 : 14} />
           <p>2024-2026 — All Rights Reserved.</p>
         </div>
-        <div className='flex flex-row items-center justify-center space-x-2 md:w-1/4'>
-          <p>Jakarta, Indonesia</p>
+        <div className='flex flex-row items-center justify-center space-x-2'>
+          <p>Jakarta, ID</p>
           <IconClock size={desktopView ? 16 : 14} />
           <p>{currentTime}</p>
         </div>
-        <div className='flex flex-row items-center justify-center space-x-2 md:w-1/4'>
-          <p>Built by me</p>
+        <div className='flex flex-row items-center justify-center space-x-2'>
           <IconBrandGithub size={desktopView ? 16 : 14} />
           <a href='https://github.com/absolutepraya/portfolio'>
             <p className='underline underline-offset-2'>Source code</p>
           </a>
         </div>
-        <div className='flex flex-row items-center justify-center md:w-1/4'>
-          <p>
-            {isDark ? 'Not liking the dark? ' : 'Not liking the light? '}
-            <button
-              type='button'
-              onClick={toggleTheme}
-              className='cursor-pointer underline underline-offset-2 transition-opacity hover:opacity-70'
-            >
-              {isDark ? 'Try light' : 'Try dark'}
-            </button>
-          </p>
+        <div className='flex flex-row items-center justify-center'>
+          <p>Too bright? Sorry, dark is under dev</p>
         </div>
       </div>
     </footer>
