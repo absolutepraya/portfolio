@@ -47,7 +47,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='fixed top-4 right-4 left-4 z-100! flex h-14 flex-row items-center justify-between rounded-2xl border px-2 backdrop-blur-md md:top-8 md:h-[4.9rem] md:rounded-3xl md:px-2.5 lg:right-auto lg:left-auto lg:w-220'
+      className='fixed top-4 right-4 left-4 z-100! flex h-15 flex-row items-center justify-between rounded-2xl border px-2 backdrop-blur-md md:top-8 md:h-[4.9rem] md:rounded-3xl md:px-2.5 lg:right-auto lg:left-auto lg:w-220'
       style={{
         backgroundColor: 'var(--color-nav-bg)',
         borderColor: 'var(--color-nav-border)',

@@ -13,11 +13,11 @@ const About = () => {
 
   return (
     <section
-      className='relative mt-18! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
+      className='relative mt-14! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
-      <div className='mt-12 mb-10 flex w-full flex-col items-center gap-8 md:mb-14 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
+      <div className='mt-12 mb-10 flex w-full flex-col items-center gap-6 md:mb-14 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
         {/* LEFT: Profile card */}
         <ProfileCard />
 

@@ -172,7 +172,7 @@ const ProfileCard = () => {
 
             {/* Metallic separator */}
             <div
-              className='mt-5 h-px w-full'
+              className='mt-5 h-0.5 w-full'
               style={{
                 background:
                   'linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3))',
