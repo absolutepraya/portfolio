@@ -3,7 +3,6 @@ import {
   IconBrandLinkedin,
   IconBriefcase2,
   IconHome,
-  IconMail,
   IconSend,
   IconTrophy,
 } from '@tabler/icons-react';
@@ -105,12 +104,6 @@ const NavBar = () => {
           text='Projects'
           link='#projects'
           isActive={activeSection === 'projectssec'}
-        />
-        <Button
-          icon={<IconMail />}
-          text='Contacts'
-          link='#contacts'
-          isActive={activeSection === 'contactsec'}
         />
       </div>
       <div className='flex flex-row items-center justify-end gap-2 lg:w-1/3'>

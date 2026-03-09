@@ -6,6 +6,7 @@ import DesktopView from '../../lib/DesktopView';
 import { RichButton } from '../rich-button';
 import { ShimmerText } from '../shimmer-text';
 import { SlideUpText } from '../slide-up-text';
+import ProfileCard from './ProfileCard';
 import { SliderSkills } from './SliderSkills';
 import { SliderStacks, stacksList } from './SliderStacks';
 import { SliderTools, toolsList } from './SliderTools';
@@ -32,11 +33,6 @@ const About = () => {
           containerClassName='rounded-full'
           as='button'
           className='flex items-center'
-          onClick={() => {
-            document.getElementById('contacts')?.scrollIntoView({
-              behavior: 'smooth',
-            });
-          }}
         >
           <ShimmerText
             className='px-4 font-semibold text-base'
@@ -47,25 +43,31 @@ const About = () => {
           </ShimmerText>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-start justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
-        <SlideUpText
-          split='words'
-          delay={0.5}
-          stagger={0.06}
-          className='pb-1 text-left font-instrument text-[3.8rem] leading-[4rem] md:text-7xl md:leading-[5rem] lg:text-8xl lg:leading-[6rem]'
-          animatedClass='text-customwhite'
-        >
-          I build software that thinks, scales, and ships.
-        </SlideUpText>
-        <SlideUpText
-          split='words'
-          delay={1}
-          stagger={0.04}
-          className='mt-6 max-w-200 text-left text-lg opacity-90 md:text-xl'
-        >
-          Fullstack apps, AI agents, cloud infrastructure. I build the whole
-          thing, start to finish, and I've won hackathons doing it.
-        </SlideUpText>
+      <div className='mt-12 mb-14 flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
+        {/* LEFT: Profile card */}
+        <ProfileCard />
+
+        {/* RIGHT: Hero text */}
+        <div className='flex flex-col items-start justify-center'>
+          <SlideUpText
+            split='words'
+            delay={0.5}
+            stagger={0.06}
+            className='pb-1 text-left font-instrument text-3xl leading-[2.2rem] md:text-4xl md:leading-[2.8rem] lg:text-5xl lg:leading-[3.2rem]'
+            animatedClass='text-customwhite'
+          >
+            I build software that thinks, scales, and ships.
+          </SlideUpText>
+          <SlideUpText
+            split='words'
+            delay={1}
+            stagger={0.04}
+            className='mt-6 max-w-200 text-left text-sm opacity-90 md:text-base'
+          >
+            Fullstack apps, AI agents, cloud infrastructure. I build the whole
+            thing, start to finish, and I've won hackathons doing it.
+          </SlideUpText>
+        </div>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
