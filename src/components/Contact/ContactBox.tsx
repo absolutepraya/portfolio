@@ -72,7 +72,7 @@ const ContactBox = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col items-center rounded-3xl border-contact-outer-border pt-12 pb-28 lg:w-272 lg:max-w-4000 lg:flex-row lg:justify-around'
+      className='relative z-20 flex w-[90vw] flex-col items-center gap-8 rounded-3xl border-contact-outer-border pt-12 pb-12 lg:w-272 lg:max-w-4000 lg:flex-row lg:justify-around lg:gap-0 lg:pb-28'
       delay={0.3}
       inView
       offset={20}
@@ -110,7 +110,7 @@ const ContactBox = () => {
       </div>
 
       <BlurFade
-        className='flex flex-col items-center justify-center space-y-2 p-6'
+        className='-mb-24 flex flex-col items-center justify-center space-y-2 p-6 sm:-mb-16 md:-mb-8 lg:mb-0'
         delay={desktopView ? 0.8 : 0.3}
         inView
         offset={30}
@@ -118,7 +118,7 @@ const ContactBox = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className='relative w-full min-w-130 max-w-130 origin-top scale-[0.6] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.7] md:min-w-145 md:max-w-145 md:scale-85 lg:scale-100'
+          className='relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:min-w-145 md:max-w-145 md:scale-90 lg:scale-100'
           style={{
             aspectRatio: '3 / 2',
             background:
