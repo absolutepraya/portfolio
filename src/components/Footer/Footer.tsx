@@ -74,7 +74,7 @@ const Copyright = () => {
             </a>
           </div>
           <div className='flex flex-row items-center justify-center'>
-            <p>Too bright? Sorry, dark is under dev</p>
+            <p>Sorry, dark mode is under dev</p>
           </div>
         </div>
       </div>
