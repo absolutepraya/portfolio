@@ -14,7 +14,6 @@ import TabletView from '../../lib/TabletView';
 import { RichButton } from '../rich-button';
 import { Signature } from '../signature';
 import Button from './Button';
-import ButtonImg from './ButtonImg';
 
 const NavBar = () => {
   const [activeSection, setActiveSection] = useState('aboutsec');
@@ -63,28 +62,26 @@ const NavBar = () => {
       scale={tabletView ? 1 : 0.87}
     >
       <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
-        {desktopView && <ButtonImg />}
         {desktopView && (
-          <div className='relative h-14 max-w-32'>
+          <div className='relative ml-4 h-14 max-w-40'>
             <Signature
               text='Abhipraya'
-              fontSize={36}
+              fontSize={42}
               color='var(--color-page-bg)'
               duration={1.5}
-              className='absolute top-[3px] left-[0.5px] h-14 max-w-32'
+              className='absolute top-[3px] left-[0.5px] h-14 max-w-40'
             />
             <Signature
               text='Abhipraya'
-              fontSize={36}
+              fontSize={42}
               color='var(--color-text-primary)'
               duration={1.5}
-              className='relative z-10 h-14 max-w-32'
+              className='relative z-10 h-14 max-w-40'
             />
           </div>
         )}
       </div>
       <div className='flex w-1/3 flex-row justify-center space-x-3'>
-        {!desktopView && <ButtonImg />}
         <Button
           icon={<IconHome />}
           text='Home'

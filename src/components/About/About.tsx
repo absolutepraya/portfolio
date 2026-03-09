@@ -47,13 +47,13 @@ const About = () => {
           </ShimmerText>
         </HoverBorderGradient>
       </motion.div>
-      <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-center justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
+      <div className='mt-12 mb-14 flex min-h-108 max-w-92 flex-col items-start justify-center px-2 md:min-h-100 md:w-216 md:max-w-4000 md:px-0'>
         <SlideUpText
           split='words'
           delay={0.5}
           stagger={0.06}
-          className='justify-center pb-1 text-center font-instrument text-[3.4rem] leading-[3.6rem] md:text-6xl md:leading-[4rem] lg:text-7xl lg:leading-[5rem]'
-          animatedClass='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text text-transparent'
+          className='pb-1 text-left font-instrument text-[3.8rem] leading-[4rem] md:text-7xl md:leading-[5rem] lg:text-8xl lg:leading-[6rem]'
+          animatedClass='text-customwhite'
         >
           I build software that thinks, scales, and ships.
         </SlideUpText>
@@ -61,7 +61,7 @@ const About = () => {
           split='words'
           delay={1}
           stagger={0.04}
-          className='mt-6 max-w-200 justify-center text-center opacity-90 md:text-lg'
+          className='mt-6 max-w-200 text-left text-lg opacity-90 md:text-xl'
         >
           Fullstack apps, AI agents, cloud infrastructure. I build the whole
           thing, start to finish, and I've won hackathons doing it.
@@ -74,8 +74,8 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[40%]'
         >
-          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:scale-[101%]'>
-            <div className='relative flex items-center justify-center lg:h-46'>
+          <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg'>
+            <div className='relative flex items-center justify-center overflow-visible lg:h-46'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
                 <div className='absolute -top-2 -left-px z-10 h-[105%] w-1 bg-customblack' />
@@ -111,7 +111,7 @@ const About = () => {
           duration={0.5}
           className='w-full lg:w-[39.3rem]'
         >
-          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg transition-all duration-200 lg:hover:scale-[101%]'>
+          <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg'>
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>
               {/* To fix transparent shadow gap for in Marquee for mobile */}
               {!desktopView && (
