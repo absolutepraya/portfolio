@@ -15,7 +15,7 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
 
   return (
     <RichButton
-      className={`relative aspect-square h-14 rounded-2xl p-0 transition-all duration-75 hover:scale-103 hover:brightness-100 active:scale-97 [&_svg]:size-5 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:text-customwhite active:opacity-50'}`}
+      className={`relative aspect-square h-10 rounded-xl p-0 transition-all duration-75 hover:scale-103 hover:brightness-100 active:scale-97 md:h-14 md:rounded-2xl [&_svg]:size-4 md:[&_svg]:size-5 ${isActive ? 'text-white active:opacity-70' : 'text-text-secondary hover:text-customwhite active:opacity-50'}`}
       color={isActive ? 'zinc' : 'default'}
       shadow={false}
       asChild
