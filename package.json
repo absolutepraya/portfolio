@@ -22,30 +22,37 @@
     "heroku-postbuild": "bun install && bun run vite build && bun run scripts/prerender.js && rm -rf .cache/puppeteer node_modules/puppeteer node_modules/@puppeteer"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/joy": "^5.0.0-beta.52",
+    "@fontsource-variable/geist": "^5.2.8",
+    "@radix-ui/react-slot": "^1.2.4",
     "@react-spring/web": "^9.7.5",
     "@tabler/icons-react": "^3.36.1",
+    "@types/opentype.js": "^1.3.9",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "moment-timezone": "^0.6.0",
+    "motion": "^12.35.1",
+    "opentype.js": "^1.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-fast-marquee": "^1.6.5",
+    "react-grab": "^0.1.26",
     "react-markdown": "^10.1.0",
     "serve": "^14.2.5",
-    "tailwind-merge": "^2.6.1"
+    "shadcn": "^4.0.0",
+    "tailwind-merge": "^3.5.0",
+    "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.2",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.7.0",
-    "autoprefixer": "^10.4.24",
     "husky": "^9.1.7",
     "knip": "^5.84.1",
-    "postcss": "^8.5.6",
     "puppeteer": "^24.37.4",
-    "tailwindcss": "^3.4.19",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3",
     "vite": "^6.4.1"
   }
 }

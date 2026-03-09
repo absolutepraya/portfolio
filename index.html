@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="module">
+      if (import.meta.env.DEV) {
+        import('react-grab');
+      }
+    </script>
     <meta charset="UTF-8" />
     <link
       rel="icon"
@@ -63,11 +68,8 @@
       type="font/woff2"
       crossorigin="anonymous"
     />
-    <link
-      rel="preload"
-      href="/src/assets/hero/hero1.webp"
-      as="image"
-    />
+    <!-- Hero image preload disabled while hero gradients are turned off -->
+    <!-- <link rel="preload" href="/src/assets/hero/hero1.webp" as="image" /> -->
     <link
       rel="preload"
       href="/src/assets/creds/pfp.webp"
@@ -98,10 +100,18 @@
     </script>
   </head>
   <body>
+    <script>
+      (() => {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'dark') document.documentElement.classList.add('dark');
+        document.documentElement.style.colorScheme = t;
+      })();
+    </script>
     <div id="root"></div>
     <script
       type="module"
-      src="/src/main.jsx"
+      src="/src/main.tsx"
     ></script>
   </body>
 </html>

@@ -2,6 +2,13 @@
 
 Personal portfolio site built with React 18, Vite 6, Tailwind CSS 3, and Framer Motion. Packaged with Bun.
 
+## Lighthouse
+
+|  | Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|---|
+| Desktop | 94 | 91 | 100 | 100 |
+| Mobile | 56 | 91 | 100 | 100 |
+
 ## Setup
 
 ```bash
