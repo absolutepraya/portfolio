@@ -72,12 +72,12 @@ const ContactBox = () => {
 
   return (
     <BlurFade
-      className='relative z-20 flex w-[90vw] flex-col rounded-3xl border-contact-outer-border xl:h-160 xl:w-272 xl:max-w-4000 xl:flex-row'
+      className='relative z-20 flex w-[90vw] flex-col items-center rounded-3xl border-contact-outer-border pt-12 pb-28 lg:w-272 lg:max-w-4000 lg:flex-row lg:justify-around'
       delay={0.3}
       inView
       offset={20}
     >
-      <div className='flex w-auto flex-col items-center justify-center space-y-4 p-8 md:p-12'>
+      <div className='flex w-auto flex-col items-center justify-center space-y-4'>
         <p className='w-full text-start font-instrument text-5xl md:-translate-x-8 md:text-center md:text-6xl xl:translate-x-0 xl:text-start'>
           Always up for...
         </p>
@@ -110,7 +110,7 @@ const ContactBox = () => {
       </div>
 
       <BlurFade
-        className='flex w-full flex-col items-center justify-center space-y-2 p-6 xl:w-1/2'
+        className='flex flex-col items-center justify-center space-y-2 p-6'
         delay={desktopView ? 0.8 : 0.3}
         inView
         offset={30}
@@ -118,7 +118,7 @@ const ContactBox = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className='relative w-full min-w-120 max-w-120 origin-top scale-[0.65] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-75 md:min-w-130 md:max-w-130 md:scale-100'
+          className='relative w-full min-w-130 max-w-130 origin-top scale-[0.6] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.7] md:min-w-145 md:max-w-145 md:scale-85 lg:scale-100'
           style={{
             aspectRatio: '3 / 2',
             background:
