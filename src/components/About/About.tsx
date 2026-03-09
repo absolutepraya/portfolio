@@ -16,33 +16,10 @@ const About = () => {
 
   return (
     <section
-      className='relative mt-28! flex w-[90vw] flex-col items-center md:mt-36! lg:mt-40! xl:w-272'
+      className='relative mt-22! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
-      <motion.div
-        initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
-        animate={{
-          scale: desktopView ? 1 : 0.95,
-          opacity: 1,
-          filter: 'blur(0px)',
-          transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
-        }}
-      >
-        <HoverBorderGradient
-          containerClassName='rounded-full'
-          as='button'
-          className='flex items-center'
-        >
-          <ShimmerText
-            className='px-4 font-semibold text-base'
-            duration={2}
-            delay={2}
-          >
-            Let's ship AI that matters!
-          </ShimmerText>
-        </HoverBorderGradient>
-      </motion.div>
       <div className='mt-12 mb-14 flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
         {/* LEFT: Profile card */}
         <ProfileCard />
@@ -67,6 +44,30 @@ const About = () => {
             Fullstack apps, AI agents, cloud infrastructure. I build the whole
             thing, start to finish, and I've won hackathons doing it.
           </SlideUpText>
+          <motion.div
+            className='mt-6'
+            initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
+            animate={{
+              scale: desktopView ? 1 : 0.95,
+              opacity: 1,
+              filter: 'blur(0px)',
+              transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
+            }}
+          >
+            <HoverBorderGradient
+              containerClassName='rounded-full'
+              as='button'
+              className='flex items-center'
+            >
+              <ShimmerText
+                className='px-4 font-semibold text-base'
+                duration={2}
+                delay={2}
+              >
+                Let's ship AI that matters!
+              </ShimmerText>
+            </HoverBorderGradient>
+          </motion.div>
         </div>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>

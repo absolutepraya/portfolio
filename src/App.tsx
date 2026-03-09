@@ -16,7 +16,7 @@ const App = () => {
         </div>
 
         <div className='mt-20 w-full rounded-t-[3rem] border-white/20 border-t bg-page-bg shadow-2xl md:mt-32 md:rounded-t-[5rem]'>
-          <div className='flex flex-col items-center space-y-20 pt-20 md:space-y-32 md:pt-32'>
+          <div className='flex flex-col items-center space-y-20 pt-20 pb-24 md:space-y-32 md:pt-32'>
             <Experience />
             <Achievements />
             <Projects />
