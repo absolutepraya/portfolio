@@ -31,7 +31,7 @@ interface SlideUpTextProps {
   once?: boolean;
 }
 
-export interface SlideUpTextRef {
+interface SlideUpTextRef {
   startAnimation: () => void;
   reset: () => void;
 }
@@ -230,4 +230,3 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
 SlideUpText.displayName = 'SlideUpText';
 
 export { SlideUpText };
-export type { SlideUpTextProps };

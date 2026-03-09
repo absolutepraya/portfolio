@@ -29,8 +29,7 @@ type Color =
 
 type SizeVariant = 'sm' | 'default' | 'lg';
 
-export interface PopButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface PopButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: Color;
   size?: SizeVariant;
   children: React.ReactNode;
