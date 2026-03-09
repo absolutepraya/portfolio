@@ -118,7 +118,7 @@ const ContactBox = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className='relative w-full min-w-120 max-w-120 origin-top scale-[0.65] cursor-default select-none rounded-2xl p-[3px] shadow-lg transition-shadow duration-300 hover:shadow-xl sm:scale-75 md:min-w-130 md:max-w-130 md:scale-100'
+          className='relative w-full min-w-120 max-w-120 origin-top scale-[0.65] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-75 md:min-w-130 md:max-w-130 md:scale-100'
           style={{
             aspectRatio: '3 / 2',
             background:
@@ -143,7 +143,7 @@ const ContactBox = () => {
             className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
             style={{
               background:
-                'linear-gradient(145deg, #a8a8a8, #d0d0d0, #b8b8b8, #c8c8c8)',
+                'linear-gradient(145deg, #8a8a8a, #b0b0b0, #9a9a9a, #a8a8a8)',
             }}
           >
             {/* Holographic shimmer overlay (inside inner card for proper clipping) */}
