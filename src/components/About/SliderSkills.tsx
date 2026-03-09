@@ -45,8 +45,8 @@ export const SliderSkills = () => {
             className='[&_svg]:!size-6 mx-3 h-36 w-48 cursor-default rounded-xl text-text-secondary transition-colors duration-150 hover:text-customwhite hover:brightness-100 active:brightness-100'
           >
             <div className='flex flex-col items-center justify-center space-y-1.5 px-4'>
-              <IconComponent className='z-20 size-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.18)]' />
-              <p className='z-20 text-wrap text-center font-jetbrainsmono text-lg drop-shadow-[0_1px_2px_rgba(0,0,0,0.18)]'>
+              <IconComponent className='z-20 size-6 drop-shadow-[0_1px_1px_rgba(0,0,0,0.08)]' />
+              <p className='z-20 text-wrap text-center font-jetbrainsmono text-lg drop-shadow-[0_1px_1px_rgba(0,0,0,0.08)]'>
                 {skill.name}
               </p>
             </div>
