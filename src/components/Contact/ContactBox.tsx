@@ -207,7 +207,7 @@ const ContactBox = () => {
                   >
                     Daffa Abhipraya
                   </h3>
-                  <p className='mt-1.5 font-inter text-white/70 text-xs uppercase tracking-widest md:text-sm'>
+                  <p className='mt-1.5 font-inter text-sm text-white uppercase tracking-widest md:text-base'>
                     Software & AI Engineer
                   </p>
                 </div>
@@ -229,33 +229,34 @@ const ContactBox = () => {
                     key={link.text}
                     className='flex items-center space-x-1.5'
                   >
-                    <link.icon
-                      size={14}
-                      stroke={1.8}
-                      className='shrink-0 text-white/70'
-                    />
-                    <a
-                      href={link.href}
-                      target='_blank'
-                      rel='noreferrer'
-                      className='font-jetbrainsmono text-sm text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-base'
-                    >
-                      {link.text}
-                    </a>
-                    {link.copyable && tabletView && (
+                    {link.copyable ? (
                       <button
                         type='button'
-                        className='ml-0.5 rounded-md p-0.5 text-white/70 transition-colors hover:cursor-pointer hover:bg-white/20 hover:text-white'
+                        className='shrink-0 text-white/70 transition-colors hover:cursor-pointer hover:text-white'
                         onClick={handleCopy}
                         title='Copy email'
                       >
                         {copied ? (
-                          <IconCheck size={12} stroke={2} />
+                          <IconCheck size={18} stroke={1.8} />
                         ) : (
-                          <IconCopy size={12} stroke={2} />
+                          <IconCopy size={18} stroke={1.8} />
                         )}
                       </button>
+                    ) : (
+                      <link.icon
+                        size={18}
+                        stroke={1.8}
+                        className='shrink-0 text-white/70'
+                      />
                     )}
+                    <a
+                      href={link.href}
+                      target='_blank'
+                      rel='noreferrer'
+                      className='font-jetbrainsmono text-base text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-lg'
+                    >
+                      {link.text}
+                    </a>
                   </div>
                 ))}
               </div>
@@ -264,7 +265,7 @@ const ContactBox = () => {
             </div>
 
             {/* Bottom: FlickeringGrid graphic — flush to edges */}
-            <div className='absolute inset-x-0 bottom-0 h-32'>
+            <div className='absolute inset-x-0 bottom-0 h-28'>
               {/* <div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-[#c0c0c0] via-[#c0c0c0]/80 to-transparent' /> */}
               <FlickeringGrid
                 squareSize={6}
