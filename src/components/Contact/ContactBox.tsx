@@ -139,7 +139,13 @@ const ContactBox = () => {
           onMouseLeave={desktopView ? handleMouseLeave : undefined}
         >
           {/* Inner card — clips content inside border */}
-          <div className='absolute inset-[3px] z-5 overflow-hidden rounded-xl bg-[#fafaf9]'>
+          <div
+            className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
+            style={{
+              background:
+                'linear-gradient(145deg, #a8a8a8, #d0d0d0, #b8b8b8, #c8c8c8)',
+            }}
+          >
             {/* Holographic shimmer overlay (inside inner card for proper clipping) */}
             <div
               className={`pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay ${!desktopView ? 'animate-[shimmer_6s_ease-in-out_infinite]' : ''}`}
@@ -191,18 +197,17 @@ const ContactBox = () => {
                 />
                 <div>
                   <h3
-                    className='font-instrument text-[2.5rem] leading-[1.1] md:text-[3.25rem]'
+                    className='inline-block font-instrument text-[2.5rem] text-transparent leading-[1.1] md:text-[3.25rem]'
                     style={{
-                      background:
-                        'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
+                      backgroundImage:
+                        'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
                       WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
                     }}
                   >
                     Daffa Abhipraya
                   </h3>
-                  <p className='mt-1 font-inter text-[#6b6b78] text-[10px] uppercase tracking-widest md:text-xs'>
+                  <p className='mt-1 font-inter text-[10px] text-white/70 uppercase tracking-widest md:text-xs'>
                     Software & AI Engineer
                   </p>
                 </div>
@@ -213,7 +218,7 @@ const ContactBox = () => {
                 className='mt-5 h-px w-full'
                 style={{
                   background:
-                    'linear-gradient(90deg, #c0c0c0, #e8e8e8, #a0a0a0, #d4d4d4)',
+                    'linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3))',
                 }}
               />
 
@@ -227,20 +232,20 @@ const ContactBox = () => {
                     <link.icon
                       size={14}
                       stroke={1.8}
-                      className='shrink-0 text-[#6b6b78]'
+                      className='shrink-0 text-white/70'
                     />
                     <a
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className='font-jetbrainsmono text-[#1a1a2e] text-xs underline-offset-3 transition-colors hover:text-blue-600 hover:underline md:text-sm'
+                      className='font-jetbrainsmono text-white text-xs underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-sm'
                     >
                       {link.text}
                     </a>
                     {link.copyable && tabletView && (
                       <button
                         type='button'
-                        className='ml-0.5 rounded-md p-0.5 text-[#6b6b78] transition-colors hover:cursor-pointer hover:bg-[#e5e5e5] hover:text-[#1a1a2e]'
+                        className='ml-0.5 rounded-md p-0.5 text-white/70 transition-colors hover:cursor-pointer hover:bg-white/20 hover:text-white'
                         onClick={handleCopy}
                         title='Copy email'
                       >
@@ -260,12 +265,12 @@ const ContactBox = () => {
 
             {/* Bottom: FlickeringGrid graphic — flush to edges */}
             <div className='absolute inset-x-0 bottom-0 h-28'>
-              <div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-[#fafaf9] to-transparent' />
+              {/* <div className='pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-[#c0c0c0] via-[#c0c0c0]/80 to-transparent' /> */}
               <FlickeringGrid
                 squareSize={6}
                 gridGap={5}
                 flickerChance={0.3}
-                color='rgb(160, 160, 160)'
+                color='rgb(255, 255, 255)'
                 maxOpacity={0.3}
                 className='h-full w-full'
               />
