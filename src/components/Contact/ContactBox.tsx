@@ -122,7 +122,7 @@ const ContactBox = () => {
           style={{
             aspectRatio: '3 / 2',
             background:
-              'linear-gradient(135deg, #b0b0b0, #e0e0e0, #909090, #d0d0d0)',
+              'linear-gradient(135deg, #6a6a6a, #9a9a9a, #757575, #909090)',
             transform: desktopView
               ? isHovered
                 ? `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`
@@ -143,7 +143,7 @@ const ContactBox = () => {
             className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
             style={{
               background:
-                'linear-gradient(145deg, #8a8a8a, #b0b0b0, #9a9a9a, #a8a8a8)',
+                'linear-gradient(145deg, #666666, #a0a0a0, #747474, #959595)',
             }}
           >
             {/* Holographic shimmer overlay (inside inner card for proper clipping) */}
