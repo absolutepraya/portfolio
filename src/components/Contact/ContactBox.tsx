@@ -118,7 +118,7 @@ const ContactBox = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className='relative w-full max-w-120 cursor-default select-none rounded-2xl p-[3px] shadow-lg transition-shadow duration-300 hover:shadow-xl md:max-w-130'
+          className='relative w-full min-w-120 max-w-120 origin-top scale-[0.65] cursor-default select-none rounded-2xl p-[3px] shadow-lg transition-shadow duration-300 hover:shadow-xl sm:scale-75 md:min-w-130 md:max-w-130 md:scale-100'
           style={{
             aspectRatio: '3 / 2',
             background:
