@@ -212,7 +212,7 @@ const Projects = () => {
         </div>
         {selectedFilter === 'All' && allProjects.length > 4 && (
           <div
-            className={`${showAll ? 'mt-20' : '-mt-16'} flex w-full justify-center`}
+            className={`${showAll ? 'mt-20' : '-mt-16'} relative z-10 flex w-full justify-center`}
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
