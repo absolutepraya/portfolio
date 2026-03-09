@@ -17,7 +17,7 @@ const About = () => {
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
-      <div className='mt-12 mb-14 flex w-full flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
+      <div className='mt-12 mb-10 flex w-full flex-col items-center gap-8 md:mb-14 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
         {/* LEFT: Profile card */}
         <ProfileCard />
 
