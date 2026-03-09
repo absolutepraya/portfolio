@@ -46,6 +46,84 @@
   }
 }
 
+@keyframes cardHint {
+  0% {
+    transform: perspective(800px) rotateX(1.5deg) rotateY(0deg);
+  }
+  4.17% {
+    transform: perspective(800px) rotateX(1.45deg) rotateY(0.39deg);
+  }
+  8.33% {
+    transform: perspective(800px) rotateX(1.3deg) rotateY(0.75deg);
+  }
+  12.5% {
+    transform: perspective(800px) rotateX(1.06deg) rotateY(1.06deg);
+  }
+  16.67% {
+    transform: perspective(800px) rotateX(0.75deg) rotateY(1.3deg);
+  }
+  20.83% {
+    transform: perspective(800px) rotateX(0.39deg) rotateY(1.45deg);
+  }
+  25% {
+    transform: perspective(800px) rotateX(0deg) rotateY(1.5deg);
+  }
+  29.17% {
+    transform: perspective(800px) rotateX(-0.39deg) rotateY(1.45deg);
+  }
+  33.33% {
+    transform: perspective(800px) rotateX(-0.75deg) rotateY(1.3deg);
+  }
+  37.5% {
+    transform: perspective(800px) rotateX(-1.06deg) rotateY(1.06deg);
+  }
+  41.67% {
+    transform: perspective(800px) rotateX(-1.3deg) rotateY(0.75deg);
+  }
+  45.83% {
+    transform: perspective(800px) rotateX(-1.45deg) rotateY(0.39deg);
+  }
+  50% {
+    transform: perspective(800px) rotateX(-1.5deg) rotateY(0deg);
+  }
+  54.17% {
+    transform: perspective(800px) rotateX(-1.45deg) rotateY(-0.39deg);
+  }
+  58.33% {
+    transform: perspective(800px) rotateX(-1.3deg) rotateY(-0.75deg);
+  }
+  62.5% {
+    transform: perspective(800px) rotateX(-1.06deg) rotateY(-1.06deg);
+  }
+  66.67% {
+    transform: perspective(800px) rotateX(-0.75deg) rotateY(-1.3deg);
+  }
+  70.83% {
+    transform: perspective(800px) rotateX(-0.39deg) rotateY(-1.45deg);
+  }
+  75% {
+    transform: perspective(800px) rotateX(0deg) rotateY(-1.5deg);
+  }
+  79.17% {
+    transform: perspective(800px) rotateX(0.39deg) rotateY(-1.45deg);
+  }
+  83.33% {
+    transform: perspective(800px) rotateX(0.75deg) rotateY(-1.3deg);
+  }
+  87.5% {
+    transform: perspective(800px) rotateX(1.06deg) rotateY(-1.06deg);
+  }
+  91.67% {
+    transform: perspective(800px) rotateX(1.3deg) rotateY(-0.75deg);
+  }
+  95.83% {
+    transform: perspective(800px) rotateX(1.45deg) rotateY(-0.39deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(1.5deg) rotateY(0deg);
+  }
+}
+
 @keyframes shimmer {
   0%,
   100% {
