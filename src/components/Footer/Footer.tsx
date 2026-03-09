@@ -30,7 +30,8 @@ const Copyright = () => {
           <HoverBorderGradient
             containerClassName='rounded-full'
             as='button'
-            className='flex items-center text-xs'
+            className='flex cursor-pointer items-center text-xs'
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <ShimmerText
               className='px-3 font-semibold text-xs'
@@ -56,7 +57,8 @@ const Copyright = () => {
             <HoverBorderGradient
               containerClassName='rounded-full'
               as='button'
-              className='flex items-center text-xs'
+              className='flex cursor-pointer items-center text-xs'
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <ShimmerText
                 className='px-3 font-semibold text-xs'
