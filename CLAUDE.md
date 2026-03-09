@@ -83,3 +83,32 @@ src/
 ## Deployment
 
 Heroku via `Procfile` (`web: bun run start`). Site live at abhipraya.dev. OG images hosted on Cloudinary.
+
+- **App name:** `absolutepraya-portfolio`
+- **Stack:** heroku-24 (Cedar generation)
+- **Buildpacks:** chrome-for-testing, heroku-buildpack-bun, heroku/nodejs
+- **Git remotes:** `origin` (GitHub), `heroku` (Heroku git)
+- **Deploy:** `git push heroku core:main` (pushes core branch to Heroku main)
+
+### Heroku CLI commands
+
+```bash
+# Deployment & releases
+heroku releases -a absolutepraya-portfolio          # List recent releases
+heroku releases:info -a absolutepraya-portfolio      # Latest release details
+heroku releases:rollback -a absolutepraya-portfolio  # Rollback to previous release
+heroku releases:rollback v201 -a absolutepraya-portfolio  # Rollback to specific version
+
+# Logs & monitoring
+heroku logs -a absolutepraya-portfolio -n 100        # Last 100 log lines
+heroku logs -a absolutepraya-portfolio --tail         # Stream logs in real-time
+heroku logs -a absolutepraya-portfolio -s app         # App logs only (not Heroku router)
+
+# Dyno management
+heroku ps -a absolutepraya-portfolio                  # Check dyno status
+heroku ps:restart -a absolutepraya-portfolio           # Restart all dynos
+
+# Config & info
+heroku config -a absolutepraya-portfolio              # View config/env vars
+heroku buildpacks -a absolutepraya-portfolio           # List buildpacks
+```
