@@ -1,7 +1,9 @@
 import { IconBrandGithub, IconClock, IconCopyright } from '@tabler/icons-react';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
+import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
+import { ShimmerText } from '../shimmer-text';
 
 const Copyright = () => {
   const [currentTime, setCurrentTime] = useState('');
@@ -18,7 +20,22 @@ const Copyright = () => {
   }, []);
 
   return (
-    <footer className='flex w-full flex-col'>
+    <footer className='flex w-full flex-col items-center'>
+      <div className='mb-6'>
+        <HoverBorderGradient
+          containerClassName='rounded-full'
+          as='button'
+          className='flex items-center'
+        >
+          <ShimmerText
+            className='px-4 font-semibold text-base'
+            duration={2}
+            delay={2}
+          >
+            Let's ship AI that matters!
+          </ShimmerText>
+        </HoverBorderGradient>
+      </div>
       <div
         className='flex h-auto w-full flex-col items-center space-y-2 border-customgray border-t py-4 font-jetbrainsmono text-xs md:h-16 md:flex-row md:justify-around md:space-y-0 md:py-0 md:text-xs'
         style={{ backgroundColor: 'var(--color-nav-bg)' }}

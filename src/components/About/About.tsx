@@ -1,10 +1,7 @@
 import { IconPlayHandball, IconSwords } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
 import BlurFade from '../../blocks/Animations/BlurFade';
-import HoverBorderGradient from '../../blocks/Animations/HoverBorderGradient';
 import DesktopView from '../../lib/DesktopView';
 import { RichButton } from '../rich-button';
-import { ShimmerText } from '../shimmer-text';
 import { SlideUpText } from '../slide-up-text';
 import ProfileCard from './ProfileCard';
 import { SliderSkills } from './SliderSkills';
@@ -16,7 +13,7 @@ const About = () => {
 
   return (
     <section
-      className='relative mt-22! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
+      className='relative mt-18! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
@@ -25,12 +22,12 @@ const About = () => {
         <ProfileCard />
 
         {/* RIGHT: Hero text */}
-        <div className='flex flex-col items-start justify-center'>
+        <div className='-mt-26 flex flex-col items-start justify-center md:mt-0'>
           <SlideUpText
             split='words'
             delay={0.5}
             stagger={0.06}
-            className='pb-1 text-left font-instrument text-3xl leading-[2.2rem] md:text-4xl md:leading-[2.8rem] lg:text-5xl lg:leading-[3.2rem]'
+            className='pb-1 text-left font-instrument text-4xl leading-[2.6rem] md:text-4xl md:leading-[2.8rem] lg:text-5xl lg:leading-[3.2rem]'
             animatedClass='text-customwhite'
           >
             I build software that thinks, scales, and ships.
@@ -39,35 +36,11 @@ const About = () => {
             split='words'
             delay={1}
             stagger={0.04}
-            className='mt-6 max-w-200 text-left text-sm opacity-90 md:text-base'
+            className='mt-3 max-w-200 text-left text-sm opacity-90 md:mt-6 md:text-base'
           >
             Fullstack apps, AI agents, cloud infrastructure. I build the whole
             thing, start to finish, and I've won hackathons doing it.
           </SlideUpText>
-          <motion.div
-            className='mt-6'
-            initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
-            animate={{
-              scale: desktopView ? 1 : 0.95,
-              opacity: 1,
-              filter: 'blur(0px)',
-              transition: { duration: 0.8, ease: 'easeInOut', delay: 0.5 },
-            }}
-          >
-            <HoverBorderGradient
-              containerClassName='rounded-full'
-              as='button'
-              className='flex items-center'
-            >
-              <ShimmerText
-                className='px-4 font-semibold text-base'
-                duration={2}
-                delay={2}
-              >
-                Let's ship AI that matters!
-              </ShimmerText>
-            </HoverBorderGradient>
-          </motion.div>
         </div>
       </div>
       <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
