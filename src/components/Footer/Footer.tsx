@@ -42,7 +42,7 @@ const Copyright = () => {
             </ShimmerText>
           </HoverBorderGradient>
         </div>
-        <div className='relative flex h-auto w-full flex-col items-center space-y-2 border-customgray border-t pt-1 pb-1 md:h-16 md:flex-row md:justify-around md:space-y-0 md:border-t-0 md:py-0'>
+        <div className='flex h-auto w-full flex-col items-center space-y-2 border-customgray border-t pt-1 pb-1 md:h-16 md:flex-row md:justify-around md:space-y-0 md:border-t-0 md:py-0'>
           <div className='flex flex-row items-center justify-center space-x-2'>
             <IconCopyright size={desktopView ? 16 : 14} />
             <p>2024-2026 — All Rights Reserved.</p>
@@ -53,7 +53,7 @@ const Copyright = () => {
             <p>{currentTime}</p>
           </div>
           {/* Desktop only: pill centered absolutely */}
-          <div className='hidden md:absolute md:left-1/2 md:flex md:-translate-x-1/2'>
+          <div className='hidden md:flex'>
             <HoverBorderGradient
               containerClassName='rounded-full'
               as='button'
