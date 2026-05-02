@@ -80,9 +80,19 @@ src/
 
 - After every turn where files are edited, always run `bun run check` and `bun run knip` to ensure lint/format compliance and no dead code is introduced.
 
+## Vanity Redirects
+
+`redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-for-gina` → Spotify playlist). At build time, `scripts/generate-redirects.js` reads it and writes `dist/serve.json` with a `redirects` array. `serve` (via `serve-handler`) natively reads `serve.json` from the served directory and emits real HTTP 302 responses — no SPA load, no meta-refresh.
+
+- Default status: 302 (so destinations can be changed without browser cache lock-in).
+- Both `/slug` and `/slug/` are emitted per entry to handle stray trailing slashes.
+- Add a new redirect: edit `redirects.json`, then redeploy. No code changes.
+- ⚠️ Slugs must not collide with real paths under `dist/` (e.g. `assets`, anything that exists as a static file/dir) — redirects run before static file serving and would shadow real assets.
+- ⚠️ Vite dev server does NOT honor `serve.json`, so redirects only work after `bun run build && bun run start` (or in production).
+
 ## Deployment
 
-Heroku via `Procfile` (`web: bun run start`). Site live at abhipraya.dev. OG images hosted on Cloudinary.
+Heroku via `Procfile` (`web: bun run start` → `bun run serve -s dist`). Site live at abhipraya.dev. OG images hosted on Cloudinary.
 
 - **App name:** `absolutepraya-portfolio`
 - **Stack:** heroku-24 (Cedar generation)
