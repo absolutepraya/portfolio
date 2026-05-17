@@ -14,6 +14,8 @@ import Python from '../../assets/stacks/python.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import Reactjs from '../../assets/stacks/react.svg';
 import Redis from '../../assets/stacks/redis.svg';
+import Remix from '../../assets/stacks/remix.svg';
+import Supabase from '../../assets/stacks/supabase.svg';
 import Tailwind from '../../assets/stacks/tailwind.svg';
 import Tanstack from '../../assets/stacks/tanstack.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
@@ -32,6 +34,7 @@ export const stacksList: StackItem[] = [
   { src: Tailwind, alt: 'Tailwind' },
   { src: Reactjs, alt: 'React' },
   { src: Next, alt: 'Next.js' },
+  { src: Remix, alt: 'Remix' },
   { src: Tanstack, alt: 'Tanstack' },
   { src: Elysia, alt: 'Elysia' },
   { src: Express, alt: 'Express' },
@@ -41,6 +44,7 @@ export const stacksList: StackItem[] = [
   { src: Python, alt: 'Python' },
   { src: Django, alt: 'Django' },
   { src: PostgreSQL, alt: 'PostgreSQL' },
+  { src: Supabase, alt: 'Supabase' },
   { src: Firebase, alt: 'Firebase' },
   { src: Redis, alt: 'Redis' },
   { src: RabbitMQ, alt: 'RabbitMQ' },
