@@ -35,8 +35,8 @@ const experienceData: Experience[] = [
   },
   {
     title: 'AI Engineer (R&D)',
-    org: 'PT. Teknologi Vision Indonesia',
-    orgShort: 'TekVis',
+    org: 'Technet Vision Indonesia',
+    orgShort: 'Technet',
     url: 'https://tekvision.co.id/',
     logo: TVI,
     date: '08/2025 - 12/2025',
