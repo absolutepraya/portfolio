@@ -1,7 +1,16 @@
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import ReactMarkdown from 'react-markdown';
 import DesktopView from '../../lib/DesktopView';
+
+const COLLAPSED_HEIGHT_PX = 320; // 20rem — fixed height for all collapsed cards
 
 interface ExperienceBoxProps {
   title: string;
@@ -29,9 +38,35 @@ const ExperienceBox = ({
   alignCenter,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [contentHeight, setContentHeight] = useState<number | null>(null);
   const [logoColor, setLogoColor] = useState('rgb(37, 99, 235)');
   const divRef = useRef<HTMLDivElement>(null);
+  const descContentRef = useRef<HTMLDivElement>(null);
   const desktopView = DesktopView();
+
+  // Measure natural height of the description so all collapsed cards use the
+  // same fixed height, and short descriptions skip the collapse entirely.
+  useLayoutEffect(() => {
+    if (!descContentRef.current) return;
+    const measure = () => {
+      if (descContentRef.current) {
+        setContentHeight(descContentRef.current.scrollHeight);
+      }
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(descContentRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const needsCollapse =
+    contentHeight !== null && contentHeight > COLLAPSED_HEIGHT_PX;
+  const currentDescHeight: number | 'auto' = !needsCollapse
+    ? 'auto'
+    : isExpanded
+      ? (contentHeight as number)
+      : COLLAPSED_HEIGHT_PX;
 
   const extractColor = useCallback((src: string) => {
     const img = new Image();
@@ -183,10 +218,45 @@ const ExperienceBox = ({
           </p>
         </div>
       </div>
-      <div
-        className={`markdown-content z-20 !md:mt-4 text-sm md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out ${alignCenter ? 'text-center' : 'text-justify'}`}
-      >
-        <ReactMarkdown>{desc}</ReactMarkdown>
+      <div className='z-20 flex w-full flex-col items-center'>
+        <div
+          className='w-full overflow-hidden transition-[height] duration-500 ease-in-out'
+          style={{
+            height:
+              currentDescHeight === 'auto' ? 'auto' : `${currentDescHeight}px`,
+            maskImage:
+              needsCollapse && !isExpanded
+                ? 'linear-gradient(to bottom, black 65%, transparent 100%)'
+                : undefined,
+            WebkitMaskImage:
+              needsCollapse && !isExpanded
+                ? 'linear-gradient(to bottom, black 65%, transparent 100%)'
+                : undefined,
+          }}
+        >
+          <div
+            ref={descContentRef}
+            className={`markdown-content text-sm transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
+          >
+            <ReactMarkdown>{desc}</ReactMarkdown>
+          </div>
+        </div>
+        {needsCollapse && (
+          <button
+            type='button'
+            onClick={() => setIsExpanded((prev) => !prev)}
+            aria-expanded={isExpanded}
+            aria-label={isExpanded ? 'Show less' : 'Show more'}
+            className='mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite'
+          >
+            {isExpanded ? (
+              <IconChevronUp size={16} stroke={2} />
+            ) : (
+              <IconChevronDown size={16} stroke={2} />
+            )}
+            <span>{isExpanded ? 'Read less' : 'Read more'}</span>
+          </button>
+        )}
       </div>
 
       {previousTitles && previousDates && (
