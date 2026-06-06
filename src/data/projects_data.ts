@@ -388,6 +388,27 @@ const projectsData: Project[] = [
     github: 'https://github.com/nicolargo/glances',
     homepage: 'https://nicolargo.github.io/glances/',
   },
+  {
+    title: 'RSSHub (Self-Hosted)',
+    type: ['Self-Hosted'],
+    date: '05/2026',
+    subtitle:
+      'RSSHub is an open-source, extensible RSS feed generator that turns almost any website into a customizable RSS/Atom/JSON feed, even sites that dropped native RSS support (social media, news, forums, and more). Self-hosted on my VPS (basic-auth gated) to follow many sources from a single reader.',
+    stacks: ['docker', 'nodejs', 'redis'],
+    url: '',
+    github: 'https://github.com/DIYgod/RSSHub',
+    homepage: 'https://docs.rsshub.app/',
+  },
+  {
+    title: 'Hermes Agent (Self-Hosted)',
+    type: ['Self-Hosted', 'AI Agent'],
+    date: '05/2026',
+    subtitle:
+      'A self-hosted AI agent ("Yanto") running 24/7 on my VPS, reachable over Telegram and Discord. It wires a configurable LLM to MCP servers and a library of custom skills (charts, maps, finance, weather, Google Workspace, RSS), with identity-aware permissions (owner vs guest) and a smart-approval system that auto-judges safe vs risky actions.',
+    stacks: ['python', 'openai'],
+    url: '',
+    github: '',
+  },
 ];
 
 export default projectsData;
