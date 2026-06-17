@@ -37,6 +37,26 @@ import Rumble from '../assets/projects/rumble.webp';
 
 const projectsData: Project[] = [
   {
+    preview: null,
+    title: 'SIRA: Smart Invoice Reminder AI',
+    type: ['Fullstack', 'AI'],
+    date: '06/2026',
+    subtitle:
+      "SIRA is an accounts-receivable automation platform built for a real client. It scores each client's payment risk daily from their payment history and sends tone-graded reminder emails (polite, firm, or warning) based on the risk, with a finance dashboard, an admin approval workflow, and internal Telegram alerts.",
+    stacks: [
+      'reactjs',
+      'vitejs',
+      'typescript',
+      'tailwindcss',
+      'python',
+      'supabase',
+      'postgresql',
+      'redis',
+    ],
+    url: '',
+    github: '',
+  },
+  {
     preview: AurumVideo,
     isVideo: true,
     title: 'Aurum Art Gallery',
@@ -86,7 +106,7 @@ const projectsData: Project[] = [
     type: ['Fullstack'],
     date: '04/2025',
     subtitle:
-      'PINTARU is an AI-powered platform that offers 2 features: 1) AI-generated video explanations to answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals for kids, with custom moral value and custom characters. This is our greatest project yet, guaranteed to make you impressed. Right now, it is still limited to several users.',
+      'PINTARU is an AI-powered platform with 2 features: 1) AI-generated video explanations that answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals, custom moral values, and custom characters for kids.',
     stacks: [
       'bun',
       'nextjs',

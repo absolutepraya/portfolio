@@ -15,6 +15,7 @@ interface Experience {
 
 import CO80 from '../assets/orgs/80co.webp';
 import Aiccountant from '../assets/orgs/aiccountant.webp';
+import Avanade from '../assets/orgs/avanade.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
 import DDP0 from '../assets/orgs/ddp0.svg';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
@@ -25,12 +26,22 @@ import TVI from '../assets/orgs/tvi.webp';
 
 const experienceData: Experience[] = [
   {
-    title: 'AI-Native Fullstack Engineer',
+    title: 'AI Solution Intern',
+    org: 'Avanade',
+    orgShort: 'Avanade',
+    url: 'https://www.avanade.com/',
+    logo: Avanade,
+    date: '03/2026 - Present',
+    desc: '- Designed and pitched **Microsoft-stack AI** solution architectures to enterprise clients (**a leading Indonesian bank** and **a major pulp & paper group**) as the technical partner alongside Business Development, turning business problems into **Azure** designs, PoC proposals, business cases, and live demos across procurement and HR\n- For the pulp & paper group, architected a **Microsoft Fabric Power BI Copilot** PoC for natural-language procurement analytics (semantic model, hybrid on-prem data-tiering, RLS/CLS) and a **three-agent MRO sourcing system** on **Microsoft Foundry** automating SAP S/4HANA to Ariba, re-architected from low-code to **pro-code (Azure Functions)** after client discovery\n- Built an end-to-end **Azure SRE Agent** demo: a sample FSI loan API (**Node.js/Express**, **Azure SQL**, App Insights) with 7 fault-injection types, deployable to both **Azure VM** and **Azure Container Apps**, where the agent autonomously remediates safe incidents and proposes human-approved fixes on **Azure Monitor** alerts',
+    alignCenter: false,
+  },
+  {
+    title: 'Fullstack & AI Engineer',
     org: 'Aiccountant',
     url: 'https://aiccountant.id/',
     logo: Aiccountant,
-    date: '01/2026 - Present',
-    desc: '- Led the **WhatsApp Customer Service AI Agent** rewrite on **Cloudflare Agents SDK** and **Vercel AI SDK** with 7+ tools (knowledge-base search, transaction management, human escalation), multimodal **Gemini Flash** receipt auto-processing from photo uploads, Telegram-based human handoff, and a real-time admin conversation viewer for live message intervention\n- Designed and shipped the **user categorization rules engine** that auto-categorizes new transactions by merchant name and short-circuits the LLM pipeline on hit. Pattern matching combines **substring**, **trigram**, and **Gemini embedding** similarity to survive messy bank-descriptor variants, with system-suggested rules after detecting repeated miscategorization and atomic retroactive application across historical transactions\n- Built the **merchant normalization pipeline** that turns inconsistent bank-statement counterparties into canonical merchants. Async enrichment runs through **Brave Search** (Indonesia-geo) and **Gemini 3.1 Flash** structured output, gated by a Telegram admin review queue before promotion to a canonical merchants table backed by **OpenAI embeddings** for semantic lookup\n- Powered **45,000+ AI workflow runs at 96.2% success rate** across Gmail ingestion, email classification, and agent execution, instrumented with **PostHog** product analytics and **Sentry** user-journey traces across all Cloudflare Workers, routed through **Cloudflare AI Gateway** for unified LLM observability\n- Designed the **marketing landing page** end-to-end (animated phone-simulation hero auto-cycling through product tabs, interactive product demos, testimonial carousel, multilingual ID/EN, **PostHog** CTA funnel tracking; built on **Remix** + **Framer Motion**) and the **budgeting feature** (Smart Budget AI-suggested monthly limits, Manual Budget income-based allocation, per-category traffic-light indicators), backed by **PowerSync** offline-first reactive queries computing budget vs. actual in real time',
+    date: '01/2026 - 06/2026',
+    desc: '- Led the **WhatsApp Customer Service AI Agent** rewrite on **Cloudflare** (**Agents SDK**, **Durable Objects**, **Workflows**) and **Vercel AI SDK** with 10+ tools (knowledge-base search, transaction logging, spending analytics, support tickets, human escalation) and multimodal receipt reading from photo uploads; cut its **LLM cost** by roughly 50% with prompt-cache-optimized prompts, and re-architected messaging onto a **channel-agnostic** schema so Telegram and other channels plug in without a rewrite\n- Designed and shipped the **user categorization rules engine** that auto-categorizes new transactions by merchant name and short-circuits the LLM pipeline on hit. Pattern matching combines **word-boundary substring**, **trigram**, and **Gemini embedding** similarity to survive messy bank-descriptor variants, with system-suggested rules and atomic retroactive application across historical transactions, cutting manual rule-saves from 3-10s to under half a second\n- Built the **merchant normalization pipeline** that turns inconsistent bank-statement counterparties into canonical merchants. Async enrichment runs through **Brave Search** (Indonesia-geo) and **Gemini 2.5 Flash** structured output, gated by a Telegram admin review queue before promotion to a canonical merchants table backed by **OpenAI embeddings**, plus folding brand extraction into the email classifier to drop a per-email LLM call\n- Powered **45,000+ AI workflow runs at 96.2% success rate** across Gmail ingestion, email classification, and agent execution, and instrumented the rule-suggestion adoption funnel and time-to-prompt latency in **PostHog**\n- Designed the **marketing landing page** end-to-end (animated phone-simulation hero auto-cycling through product tabs, interactive product demos, testimonial carousel, multilingual ID/EN, **PostHog** CTA funnel tracking; built on **Remix** + **Framer Motion**) and the **budgeting feature** (Smart Budget AI-suggested monthly limits, Manual Budget income-based allocation, per-category traffic-light indicators), backed by **PowerSync** offline-first reactive queries computing budget vs. actual in real time',
     alignCenter: false,
   },
   {
@@ -40,7 +51,7 @@ const experienceData: Experience[] = [
     url: 'https://tekvision.co.id/',
     logo: TVI,
     date: '08/2025 - 12/2025',
-    desc: '- Automating insurance claims processing for a client using OCR and multimodal LLMs, cutting manual review time and improving fraud detection accuracy, ensuring faster, fairer claim approvals.\n- Researching the feasibility of **photoplethysmogram (PPG)** for AI-based medical purposes',
+    desc: '- Automated insurance-claims processing for a client using **OCR** and **multimodal LLMs**, cutting manual review time and improving fraud-detection accuracy for faster, fairer claim approvals\n- Researched the feasibility of **photoplethysmogram (PPG)** signals for AI-based medical applications',
   },
   {
     title: 'Product Engineer Intern',
