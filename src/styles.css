@@ -383,6 +383,21 @@ html.theme-transitioning * {
     box-shadow 0.3s ease;
 }
 
+/* Theme toggle circular reveal: let the clip-path animation own the motion
+   instead of the default view-transition crossfade. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+/* New (incoming) theme paints on top so the circle reveals it over the old. */
+::view-transition-new(root) {
+  z-index: 1;
+}
+::view-transition-old(root) {
+  z-index: 0;
+}
+
 @font-face {
   font-family: "Inter";
   src: url("/src/assets/fonts/Inter/Inter-VariableFont.woff2") format("woff2");

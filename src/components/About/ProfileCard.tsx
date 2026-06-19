@@ -10,8 +10,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
+import { useTheme } from '../../lib/ThemeContext';
 
 const ProfileCard = () => {
+  const { isDark } = useTheme();
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
@@ -66,6 +68,45 @@ const ProfileCard = () => {
   const tiltX = isHovered ? (mousePos.y - 0.5) * -20 : 0;
   const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
 
+  // Metallic palette: brushed silver in light, graphite titanium in dark.
+  const metal = isDark
+    ? {
+        outer: 'linear-gradient(135deg, #3a3a3e, #55555c, #2e2e32, #48484e)',
+        inner: 'linear-gradient(145deg, #2c2c30, #4a4a52, #26262a, #3e3e44)',
+        name: 'linear-gradient(135deg, #f1f1f5, #c8c8d2, #ffffff, #dcdce4)',
+        separator:
+          'linear-gradient(90deg, rgba(220,220,232,0.12), rgba(220,220,232,0.38), rgba(220,220,232,0.12))',
+        shimmer: `linear-gradient(
+          ${110 + (mousePos.x - 0.5) * 60}deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.06) 20%,
+          rgba(150, 180, 255, 0.1) 40%,
+          rgba(210, 160, 255, 0.07) 60%,
+          rgba(150, 230, 200, 0.08) 80%,
+          transparent 100%
+        )`,
+        spotlight: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(220, 224, 235, 0.18) 0%, transparent 60%)`,
+        grid: 'rgb(210, 210, 222)',
+      }
+    : {
+        outer: 'linear-gradient(135deg, #6a6a6a, #9a9a9a, #757575, #909090)',
+        inner: 'linear-gradient(145deg, #666666, #a0a0a0, #747474, #959595)',
+        name: 'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
+        separator:
+          'linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3))',
+        shimmer: `linear-gradient(
+          ${110 + (mousePos.x - 0.5) * 60}deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.1) 20%,
+          rgba(200, 220, 255, 0.15) 40%,
+          rgba(255, 200, 255, 0.1) 60%,
+          rgba(200, 255, 220, 0.12) 80%,
+          transparent 100%
+        )`,
+        spotlight: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`,
+        grid: 'rgb(255, 255, 255)',
+      };
+
   const links = [
     {
       icon: IconMail,
@@ -102,8 +143,7 @@ const ProfileCard = () => {
         className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:min-w-145 md:max-w-145 md:scale-90 lg:scale-100 ${ready && !isHovered ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
         style={{
           aspectRatio: '3 / 2',
-          background:
-            'linear-gradient(135deg, #6a6a6a, #9a9a9a, #757575, #909090)',
+          background: metal.outer,
           ...(!ready && {
             transform: 'perspective(800px) rotateX(0deg) rotateY(0deg)',
             transition: 'transform 0.4s ease-out, box-shadow 0.3s ease',
@@ -125,23 +165,14 @@ const ProfileCard = () => {
         <div
           className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
           style={{
-            background:
-              'linear-gradient(145deg, #666666, #a0a0a0, #747474, #959595)',
+            background: metal.inner,
           }}
         >
           {/* Holographic shimmer overlay (inside inner card for proper clipping) */}
           <div
             className='pointer-events-none absolute inset-0 z-10 rounded-2xl mix-blend-overlay'
             style={{
-              background: `linear-gradient(
-                ${110 + (mousePos.x - 0.5) * 60}deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.1) 20%,
-                rgba(200, 220, 255, 0.15) 40%,
-                rgba(255, 200, 255, 0.1) 60%,
-                rgba(200, 255, 220, 0.12) 80%,
-                transparent 100%
-              )`,
+              background: metal.shimmer,
               opacity: isHovered ? 1 : 0.3,
               transition: 'opacity 0.3s ease',
             }}
@@ -151,9 +182,7 @@ const ProfileCard = () => {
           <div
             className='pointer-events-none absolute inset-0 z-20 rounded-2xl'
             style={{
-              background: isHovered
-                ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.3) 0%, transparent 60%)`
-                : 'none',
+              background: isHovered ? metal.spotlight : 'none',
               transition: 'opacity 0.3s ease',
             }}
           />
@@ -172,8 +201,7 @@ const ProfileCard = () => {
                 <h3
                   className='inline-block font-bold font-instrument text-[2.75rem] text-transparent leading-[1.1] md:text-[3.5rem]'
                   style={{
-                    backgroundImage:
-                      'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
+                    backgroundImage: metal.name,
                     WebkitBackgroundClip: 'text',
                     backgroundClip: 'text',
                   }}
@@ -190,8 +218,7 @@ const ProfileCard = () => {
             <div
               className='mt-5 h-0.5 w-full'
               style={{
-                background:
-                  'linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.6), rgba(255,255,255,0.3))',
+                background: metal.separator,
               }}
             />
 
@@ -240,7 +267,7 @@ const ProfileCard = () => {
               squareSize={6}
               gridGap={5}
               flickerChance={0.3}
-              color='rgb(255, 255, 255)'
+              color={metal.grid}
               maxOpacity={0.3}
               className='h-full w-full'
             />

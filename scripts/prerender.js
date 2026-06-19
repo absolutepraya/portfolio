@@ -56,6 +56,13 @@ async function prerender() {
   });
   const page = await browser.newPage();
 
+  // Prerender in light mode so the static markup matches the default theme.
+  // The pre-paint script in index.html re-resolves the real theme (localStorage
+  // / system preference) before first paint, so dark visitors still get dark.
+  await page.emulateMediaFeatures([
+    { name: 'prefers-color-scheme', value: 'light' },
+  ]);
+
   await page.goto(`http://localhost:${PORT}/`, {
     waitUntil: 'networkidle0',
     timeout: 30000,
