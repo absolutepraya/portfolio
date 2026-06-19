@@ -12,7 +12,6 @@ import DesktopView from '../../lib/DesktopView';
 import { RichButton } from '../rich-button';
 import { Signature } from '../signature';
 import Button from './Button';
-import ThemeToggle from './ThemeToggle';
 
 const NavBar = () => {
   const [activeSection, setActiveSection] = useState('aboutsec');
@@ -107,9 +106,8 @@ const NavBar = () => {
         />
       </div>
 
-      {/* RIGHT: Theme toggle (always) + LinkedIn (desktop only) */}
-      <div className='flex flex-row items-center justify-end gap-1.5 md:gap-3 lg:w-1/3'>
-        <ThemeToggle />
+      {/* RIGHT: LinkedIn (desktop only) */}
+      <div className='hidden flex-row items-center justify-end gap-2 lg:flex lg:w-1/3'>
         {desktopView && (
           <RichButton
             className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-all hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'

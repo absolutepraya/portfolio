@@ -75,6 +75,9 @@ const Copyright = () => {
               <p className='underline underline-offset-2'>Source code</p>
             </a>
           </div>
+          <div className='flex flex-row items-center justify-center'>
+            <p>Sorry, dark mode is under dev</p>
+          </div>
         </div>
       </div>
     </footer>

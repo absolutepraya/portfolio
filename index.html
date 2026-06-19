@@ -103,18 +103,9 @@
   </head>
   <body>
     <script>
-      // Resolve theme before first paint (no FOUC). Mirrors getInitialTheme/applyTheme.
       (() => {
-        let t = localStorage.getItem('theme');
-        if (t !== 'light' && t !== 'dark')
-          t = window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
-        const r = document.documentElement;
-        r.classList.toggle('dark', t === 'dark');
-        r.style.colorScheme = t;
-        const m = document.querySelector('meta[name="theme-color"]');
-        if (m) m.content = t === 'dark' ? '#03020F' : '#f5f5f7';
+        document.documentElement.classList.remove('dark');
+        document.documentElement.style.colorScheme = 'light';
       })();
     </script>
     <div id="root"></div>
