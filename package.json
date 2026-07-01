@@ -10,6 +10,9 @@
     "ignoreDependencies": [
       "serve",
       "husky"
+    ],
+    "ignoreBinaries": [
+      "vercel"
     ]
   },
   "scripts": {
@@ -17,6 +20,7 @@
     "build": "bun run vite build && bun run scripts/prerender.js && bun run scripts/generate-redirects.js",
     "check": "bunx biome check --write --unsafe .",
     "start": "bun run serve -s dist",
+    "deploy": "bun run scripts/generate-redirects.js && vercel build --prod && vercel deploy --prebuilt --prod",
     "knip": "knip",
     "heroku-prebuild": "rm -f package-lock.json",
     "heroku-postbuild": "bun install && bun run vite build && bun run scripts/prerender.js && bun run scripts/generate-redirects.js && rm -rf .cache/puppeteer node_modules/puppeteer node_modules/@puppeteer"

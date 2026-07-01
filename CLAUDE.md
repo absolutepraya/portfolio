@@ -82,43 +82,31 @@ src/
 
 ## Vanity Redirects
 
-`redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-for-gina` → Spotify playlist). At build time, `scripts/generate-redirects.js` reads it and writes `dist/serve.json` with a `redirects` array. `serve` (via `serve-handler`) natively reads `serve.json` from the served directory and emits real HTTP 302 responses — no SPA load, no meta-refresh.
+`redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-buat-gina` → Spotify playlist) and is the single source of truth. `scripts/generate-redirects.js` reads it and writes two files:
 
-- Default status: 302 (so destinations can be changed without browser cache lock-in).
-- Both `/slug` and `/slug/` are emitted per entry to handle stray trailing slashes.
-- Add a new redirect: edit `redirects.json`, then redeploy. No code changes.
-- ⚠️ Slugs must not collide with real paths under `dist/` (e.g. `assets`, anything that exists as a static file/dir) — redirects run before static file serving and would shadow real assets.
-- ⚠️ Vite dev server does NOT honor `serve.json`, so redirects only work after `bun run build && bun run start` (or in production).
+- **`vercel.json`** (repo root, committed) — production. Vercel serves the `redirects` array (each `statusCode: 302`). The generator MERGES into the existing `vercel.json`, only managing the `redirects` key, and preserves the `services` + catch-all `rewrites` blocks that `vercel link` writes. Vercel evaluates redirects before rewrites, so vanity slugs win over the SPA catch-all.
+- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the prod build via `bun run start` (`serve`/serve-handler). Emits both `/slug` and `/slug/` forms.
+
+- Status: 302 (temporary, so destinations can change without browser cache lock-in).
+- Add a new redirect: edit `redirects.json`, then `bun run deploy` (regenerates `vercel.json`). No code changes.
+- ⚠️ Slugs must not collide with real static paths (e.g. `assets`) — redirects match before static files.
+- ⚠️ Vite dev server does NOT honor either file; redirects only work after `bun run build && bun run start` (or in production on Vercel).
 
 ## Deployment
 
-Heroku via `Procfile` (`web: bun run start` → `bun run serve -s dist`). Site live at abhipraya.dev. OG images hosted on Cloudinary.
+**Vercel** — project `abhipraya-portfolio`, team `daffa-abhipraya-putras-projects`. Live at abhipraya.dev + www.abhipraya.dev. OG preview image is `public/preview.webp` (served from the site, not Cloudinary).
 
-- **App name:** `absolutepraya-portfolio`
-- **Stack:** heroku-24 (Cedar generation)
-- **Buildpacks:** chrome-for-testing, heroku-buildpack-bun, heroku/nodejs
-- **Git remotes:** `origin` (GitHub), `heroku` (Heroku git)
-- **Deploy:** `git push heroku core:main` (pushes core branch to Heroku main)
-
-### Heroku CLI commands
+**Why prebuilt CLI deploys (not git-push auto-deploy):** the build runs a Puppeteer prerender (`scripts/prerender.js`) that needs headless Chrome, which is fragile in Vercel's cloud build. So we build locally (Chrome works on the Mac) and upload the prebuilt output.
 
 ```bash
-# Deployment & releases
-heroku releases -a absolutepraya-portfolio          # List recent releases
-heroku releases:info -a absolutepraya-portfolio      # Latest release details
-heroku releases:rollback -a absolutepraya-portfolio  # Rollback to previous release
-heroku releases:rollback v201 -a absolutepraya-portfolio  # Rollback to specific version
-
-# Logs & monitoring
-heroku logs -a absolutepraya-portfolio -n 100        # Last 100 log lines
-heroku logs -a absolutepraya-portfolio --tail         # Stream logs in real-time
-heroku logs -a absolutepraya-portfolio -s app         # App logs only (not Heroku router)
-
-# Dyno management
-heroku ps -a absolutepraya-portfolio                  # Check dyno status
-heroku ps:restart -a absolutepraya-portfolio           # Restart all dynos
-
-# Config & info
-heroku config -a absolutepraya-portfolio              # View config/env vars
-heroku buildpacks -a absolutepraya-portfolio           # List buildpacks
+bun run deploy   # generate-redirects → vercel build --prod → vercel deploy --prebuilt --prod
 ```
+
+- **First-time setup per machine:** `vercel login`, then `vercel pull --yes --environment production` (creates `.vercel/`, which is gitignored). Requires the `vercel` CLI on PATH (installed globally).
+- **DNS:** abhipraya.dev + www are on Cloudflare as **dns-only** (grey cloud) → Vercel `76.76.21.21` (apex A) / CNAME www → apex. Same pattern as `blog.abhipraya.dev`. Vercel auto-issues + renews the Let's Encrypt cert (CAA already allows `letsencrypt.org`). If a cert stalls after a DNS change, force it: `vercel certs issue abhipraya.dev www.abhipraya.dev`.
+- **Rollback:** deployments are immutable; `vercel rollback` or promote a previous deployment in the dashboard.
+- `vercel.json` is committed; `.vercel/` is gitignored.
+
+### Legacy: Heroku (being retired)
+
+Was Heroku (`git push heroku core:main`, `Procfile` → `bun run start`, `chrome-for-testing` buildpack for the prerender). GitHub Student credits expire **2026-07-31**; after that any usage is billed. The `heroku` git remote and `heroku-prebuild`/`heroku-postbuild` scripts remain for rollback during transition. **To decommission before 7/31:** delete the app (`heroku apps:destroy -a absolutepraya-portfolio`), then remove the card in the billing dashboard so nothing accrues.

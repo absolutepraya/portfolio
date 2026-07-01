@@ -8,6 +8,9 @@ dist-ssr
 *.local
 .vite-cache/
 
+# Vercel (project link + local build output; vercel.json IS committed)
+.vercel
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
