@@ -15,7 +15,7 @@ interface Experience {
 
 import CO80 from '../assets/orgs/80co.webp';
 import Aiccountant from '../assets/orgs/aiccountant.webp';
-import Avanade from '../assets/orgs/avanade.webp';
+// import Avanade from '../assets/orgs/avanade.webp'; // TODO: re-enable with Avanade experience below
 import COMPFEST from '../assets/orgs/compfest.webp';
 import DDP0 from '../assets/orgs/ddp0.svg';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
@@ -25,6 +25,9 @@ import SB from '../assets/orgs/sb.webp';
 import TVI from '../assets/orgs/tvi.webp';
 
 const experienceData: Experience[] = [
+  // TODO: Avanade experience temporarily hidden. Re-enable by removing this
+  // block comment wrapper and uncommenting the Avanade import above.
+  /*
   {
     title: 'AI Solution Intern',
     org: 'Avanade',
@@ -35,6 +38,7 @@ const experienceData: Experience[] = [
     desc: '- Designed and pitched **Microsoft-stack AI** solution architectures to enterprise clients (**a leading Indonesian bank** and **a major pulp & paper group**) as the technical partner alongside Business Development, turning business problems into **Azure** designs, PoC proposals, business cases, and live demos across procurement and HR\n- For the pulp & paper group, architected a **Microsoft Fabric Power BI Copilot** PoC for natural-language procurement analytics (semantic model, hybrid on-prem data-tiering, RLS/CLS) and a **three-agent MRO sourcing system** on **Microsoft Foundry** automating SAP S/4HANA to Ariba, re-architected from low-code to **pro-code (Azure Functions)** after client discovery\n- Built an end-to-end **Azure SRE Agent** demo: a sample FSI loan API (**Node.js/Express**, **Azure SQL**, App Insights) with 7 fault-injection types, deployable to both **Azure VM** and **Azure Container Apps**, where the agent autonomously remediates safe incidents and proposes human-approved fixes on **Azure Monitor** alerts',
     alignCenter: false,
   },
+  */
   {
     title: 'Fullstack & AI Engineer',
     org: 'Aiccountant',
