@@ -53,7 +53,9 @@ src/
 
 - Single-page app with anchor-based scroll navigation (no React Router)
 - NavBar uses IntersectionObserver to highlight active section
-- Sections: About → Experience → Achievements → Projects
+- Sections: About → Experience → Achievements → Projects. The project list
+  includes original work and materially maintained open-source forks, but not
+  generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
 

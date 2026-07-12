@@ -4,7 +4,6 @@
 import {
   IconArrowNarrowDownDashed,
   IconArrowNarrowUpDashed,
-  IconServer,
   IconTool,
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
@@ -30,22 +29,19 @@ const Projects = () => {
     { label: 'Mobile', icon: null },
     { label: 'CLI App', icon: null },
     { label: 'Video Game', icon: null },
-    { label: 'Self-Hosted', icon: IconServer },
+    { label: 'Open Source', icon: null },
     { label: 'Under Dev', icon: IconTool },
   ];
 
   // Filter projects by type
   const getFilteredProjects = (type: string) => {
     if (type === 'All') {
-      // Exclude Under Dev and Self-Hosted projects from All category
+      // Exclude projects still under development from the default category.
       return projectsData.filter((project) => {
         if (Array.isArray(project.type)) {
-          return (
-            !project.type.includes('Under Dev') &&
-            !project.type.includes('Self-Hosted')
-          );
+          return !project.type.includes('Under Dev');
         }
-        return project.type !== 'Under Dev' && project.type !== 'Self-Hosted';
+        return project.type !== 'Under Dev';
       });
     }
 
