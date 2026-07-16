@@ -197,27 +197,6 @@ const projectsData: Project[] = [
     github: 'https://github.com/absolutepraya/dm2-calculator',
   },
   {
-    preview: null,
-    title: 'Cobaju',
-    type: ['Fullstack', 'Extension', 'Under Dev'],
-    date: '03/2025',
-    subtitle:
-      'Cobaju is an online shopping companion, where you can see yourself in the clothes you want, complete with accurate sizing details in a matter of seconds. Cobaju collects clothing pictures you choose from the e-commerce website you visit and combines with your full-body image to see how it would fit you!',
-    stacks: [
-      'nextjs',
-      'typescript',
-      'tailwindcss',
-      'supabase',
-      'vitejs',
-      'reactjs',
-      'tailwindcss',
-      'gemini',
-      'openai',
-    ],
-    url: '',
-    github: '',
-  },
-  {
     favicon: ALSAEcompIcon,
     preview: ALSAEcomp,
     title: 'ALSA LC FH UI E-Comp Portal',

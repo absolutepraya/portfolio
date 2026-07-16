@@ -4,7 +4,6 @@
 import {
   IconArrowNarrowDownDashed,
   IconArrowNarrowUpDashed,
-  IconTool,
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
@@ -30,30 +29,9 @@ const Projects = () => {
     { label: 'CLI App', icon: null },
     { label: 'Video Game', icon: null },
     { label: 'Open Source', icon: null },
-    { label: 'Under Dev', icon: IconTool },
   ];
 
-  // Filter projects by type
-  const getFilteredProjects = (type: string) => {
-    if (type === 'All') {
-      // Exclude projects still under development from the default category.
-      return projectsData.filter((project) => {
-        if (Array.isArray(project.type)) {
-          return !project.type.includes('Under Dev');
-        }
-        return project.type !== 'Under Dev';
-      });
-    }
-
-    return projectsData.filter((project) => {
-      if (Array.isArray(project.type)) {
-        return project.type.includes(type);
-      }
-      return project.type === type;
-    });
-  };
-
-  const allProjects = getFilteredProjects('All');
+  const allProjects = projectsData;
   const displayedAllProjects = showAll
     ? allProjects
     : allProjects.slice(0, desktopView ? 6 : 5);
@@ -171,7 +149,9 @@ const Projects = () => {
         >
           {(selectedFilter === 'All'
             ? displayedAllProjects
-            : getFilteredProjects(selectedFilter)
+            : projectsData.filter((project) =>
+                project.type.includes(selectedFilter),
+              )
           ).map((project, index) => {
             const shouldMask =
               selectedFilter === 'All' &&
