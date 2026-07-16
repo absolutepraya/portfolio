@@ -11,7 +11,6 @@ interface Project {
   url: string;
   github: string;
   favicon?: string;
-  homepage?: string;
 }
 
 import ALSAEcomp from '../assets/projects/alsaecomp.webp';
@@ -45,7 +44,6 @@ const projectsData: Project[] = [
     stacks: ['docker', 'meilisearch', 'openai'],
     url: 'https://keep.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/karakeep',
-    homepage: 'https://karakeep.app/',
   },
   {
     title: 'Hermes Agent',

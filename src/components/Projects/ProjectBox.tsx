@@ -1,8 +1,4 @@
-import {
-  IconArrowUpRight,
-  IconBrandGithub,
-  IconHome,
-} from '@tabler/icons-react';
+import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import NoImage from '../../assets/projects/noimage.webp';
@@ -63,7 +59,6 @@ interface ProjectBoxProps {
   stacks?: string[];
   url?: string | null;
   github?: string | null;
-  homepage?: string | null;
   favicon?: string | null;
   disableHover?: boolean;
 }
@@ -117,7 +112,6 @@ const ProjectBox = ({
   stacks = [],
   url = null,
   github = null,
-  homepage = null,
   favicon = null,
   disableHover = false,
 }: ProjectBoxProps) => {
@@ -284,14 +278,10 @@ const ProjectBox = ({
               ))}
             </div>
             <div className='flex w-auto flex-row space-x-2 md:space-x-3'>
-              {url === '' ? (
-                <PopButton className='aspect-square p-0' disabled>
-                  <IconArrowUpRight stroke={1.5} size={desktopView ? 20 : 18} />
-                </PopButton>
-              ) : (
+              {url && (
                 <PopButton className='aspect-square p-0' asChild>
                   <a
-                    href={url ?? undefined}
+                    href={url}
                     target='_blank'
                     rel='noreferrer'
                     aria-label='Open deployed project URL'
@@ -304,14 +294,10 @@ const ProjectBox = ({
                   </a>
                 </PopButton>
               )}
-              {github === '' ? (
-                <PopButton className='aspect-square p-0' disabled>
-                  <IconBrandGithub stroke={1.5} size={desktopView ? 20 : 18} />
-                </PopButton>
-              ) : (
+              {github && (
                 <PopButton className='aspect-square p-0' asChild>
                   <a
-                    href={github ?? undefined}
+                    href={github}
                     target='_blank'
                     rel='noreferrer'
                     aria-label='View project source code on GitHub'
@@ -321,19 +307,6 @@ const ProjectBox = ({
                       stroke={1.5}
                       size={desktopView ? 20 : 18}
                     />
-                  </a>
-                </PopButton>
-              )}
-              {isSelfHosted && homepage && (
-                <PopButton className='aspect-square p-0' asChild>
-                  <a
-                    href={homepage}
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='Open project homepage'
-                    title='Open project homepage'
-                  >
-                    <IconHome stroke={1.5} size={desktopView ? 20 : 18} />
                   </a>
                 </PopButton>
               )}
