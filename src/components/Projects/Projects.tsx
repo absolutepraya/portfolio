@@ -98,11 +98,11 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-5 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-4 text-foreground/40'>
+        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-5 text-foreground/40'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='20'
-            height='20'
+            width='22'
+            height='22'
             viewBox='0 0 24 24'
             fill='none'
             stroke='currentColor'
@@ -115,10 +115,12 @@ const Projects = () => {
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold text-customlightgray'>Filter by type:</p>
+          <p className='font-semibold text-base text-customlightgray'>
+            Filter by type:
+          </p>
         </div>
 
-        <div className='flex w-full flex-wrap justify-center gap-2 lg:px-24'>
+        <div className='flex w-full flex-wrap justify-center gap-3 lg:px-24'>
           {filterOptions.map((option) => {
             return (
               <button
@@ -134,8 +136,8 @@ const Projects = () => {
                   size='lg'
                   className={
                     selectedFilter === option
-                      ? 'bg-customwhite text-customblack'
-                      : 'border border-customgray bg-customblack text-customwhite opacity-80'
+                      ? 'bg-customwhite px-3 py-2 text-customblack text-sm md:px-4 md:py-2.5 md:text-base'
+                      : 'border border-customgray bg-customblack px-3 py-2 text-customwhite text-sm opacity-80 md:px-4 md:py-2.5 md:text-base'
                   }
                 >
                   {option === 'all' ? 'All' : projectKindLabels[option]}
