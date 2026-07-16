@@ -59,6 +59,7 @@ interface StackIcon {
 interface ProjectBoxProps {
   preview?: string | null;
   isVideo?: boolean;
+  videoPlaybackRate?: number;
   title: string;
   kind: ProjectKind;
   tags: ProjectTag[];
@@ -114,6 +115,7 @@ const stackIcons: Record<string, StackIcon> = {
 const ProjectBox = ({
   preview = null,
   isVideo = false,
+  videoPlaybackRate = 1,
   title,
   kind,
   tags,
@@ -133,27 +135,28 @@ const ProjectBox = ({
   useEffect(() => {
     if (!isVideo || !videoRef.current) return;
 
+    const video = videoRef.current;
+    video.playbackRate = videoPlaybackRate;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            videoRef.current?.play();
+            video.play();
           } else {
-            videoRef.current?.pause();
+            video.pause();
           }
         });
       },
       { threshold: 0.1 },
     );
 
-    observer.observe(videoRef.current);
+    observer.observe(video);
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      observer.unobserve(video);
     };
-  }, [isVideo]);
+  }, [isVideo, videoPlaybackRate]);
 
   const STACKS_PER_LINE = 8;
 

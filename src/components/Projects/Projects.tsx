@@ -35,10 +35,12 @@ const Projects = () => {
     'agent',
   ];
 
-  const allProjects = projectsData;
-  const displayedAllProjects = showAll
-    ? allProjects
-    : allProjects.slice(0, desktopView ? 6 : 5);
+  const visibleProjects =
+    selectedFilter === 'all'
+      ? showAll
+        ? projectsData
+        : projectsData.slice(0, desktopView ? 6 : 5)
+      : projectsData.filter((project) => project.kind === selectedFilter);
 
   const handleToggle = () => {
     if (showAll) {
@@ -146,13 +148,10 @@ const Projects = () => {
         <SepBorder />
 
         <div
-          key={selectedFilter}
+          key={`${selectedFilter}-${showAll}`}
           className='mt-2 grid w-full grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'
         >
-          {(selectedFilter === 'all'
-            ? displayedAllProjects
-            : projectsData.filter((project) => project.kind === selectedFilter)
-          ).map((project, index) => {
+          {visibleProjects.map((project, index) => {
             const shouldMask =
               selectedFilter === 'all' &&
               !showAll &&
@@ -171,6 +170,7 @@ const Projects = () => {
                 <ProjectBox
                   preview={project.preview}
                   isVideo={project.isVideo}
+                  videoPlaybackRate={project.videoPlaybackRate}
                   title={project.title}
                   kind={project.kind}
                   tags={project.tags}
@@ -186,7 +186,7 @@ const Projects = () => {
             );
           })}
         </div>
-        {selectedFilter === 'All' && allProjects.length > 4 && (
+        {selectedFilter === 'all' && projectsData.length > 4 && (
           <div
             className={`${showAll ? 'mt-20' : '-mt-16'} relative z-10 flex w-full justify-center`}
           >

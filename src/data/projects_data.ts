@@ -14,7 +14,8 @@ export type ProjectTag =
   | 'ai'
   | 'automation'
   | 'open-source'
-  | 'knowledge-graph';
+  | 'knowledge-graph'
+  | 'personal-assistant';
 
 export const projectKindLabels: Record<ProjectKind, string> = {
   web: 'Web',
@@ -32,11 +33,13 @@ export const projectTagLabels: Record<ProjectTag, string> = {
   automation: 'Automation',
   'open-source': 'Open source',
   'knowledge-graph': 'Knowledge graph',
+  'personal-assistant': 'Personal assistant',
 };
 
 interface Project {
   preview?: string | null;
   isVideo?: boolean;
+  videoPlaybackRate?: number;
   title: string;
   kind: ProjectKind;
   tags: ProjectTag[];
@@ -91,7 +94,7 @@ const projectsData: Project[] = [
   {
     title: 'Hermes Agent',
     kind: 'agent',
-    tags: ['ai', 'automation'],
+    tags: ['ai', 'automation', 'personal-assistant'],
     date: '05/2026',
     subtitle:
       'A 24/7 AI agent I built and operate on my VPS, available through Telegram, Discord, and WhatsApp. It combines a configurable LLM with custom skills and MCP integrations for charts, finance, weather, Google Workspace, and RSS, plus identity-aware permissions and risk-based approvals.',
@@ -123,6 +126,7 @@ const projectsData: Project[] = [
   {
     preview: AurumVideo,
     isVideo: true,
+    videoPlaybackRate: 2,
     title: 'Aurum Art Gallery',
     kind: 'web',
     tags: ['full-stack', 'ai', 'knowledge-graph'],
@@ -138,16 +142,17 @@ const projectsData: Project[] = [
       'gemini',
       'vercelaisdk',
     ],
-    url: 'https://aurum.abhipraya.dev/',
+    url: '',
     github: 'https://github.com/absolutepraya/aurum-knowledge-graph',
   },
   {
     preview: BKUIVideo,
     isVideo: true,
+    videoPlaybackRate: 2,
     title: 'Bedah Kampus UI 2025',
     kind: 'web',
     tags: ['full-stack'],
-    date: '11/2024',
+    date: '11/2025',
     subtitle:
       'A comprehensive event platform for Bedah Kampus UI 2025 featuring a high-performance landing page, an integrated ticketing and merchandise store with Midtrans payment gateway, and a robust admin dashboard. The system also includes a mobile-optimized QR code check-in tool, enabling the committee to scan tickets and verify participants in real-time at the venue.',
     stacks: ['nextjs', 'typescript', 'bun', 'supabase', 'midtrans'],
