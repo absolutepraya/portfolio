@@ -71,6 +71,7 @@ import PintaruIcon from '../assets/projects/pintaru-icon.png';
 import Portfolio from '../assets/projects/portfolio.webp';
 import PortfolioIcon from '../assets/projects/portfolio-icon.svg';
 import Rumble from '../assets/projects/rumble.webp';
+import SIRAVideo from '../assets/projects/sira.mp4';
 
 const projectsData: Project[] = [
   {
@@ -103,7 +104,8 @@ const projectsData: Project[] = [
     github: '',
   },
   {
-    preview: null,
+    preview: SIRAVideo,
+    isVideo: true,
     title: 'SIRA: Smart Invoice Reminder AI',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
