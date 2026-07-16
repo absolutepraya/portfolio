@@ -1,10 +1,45 @@
 // Import project images and videos
 
+export type ProjectKind =
+  | 'web'
+  | 'mobile'
+  | 'backend'
+  | 'cli'
+  | 'game'
+  | 'agent';
+
+export type ProjectTag =
+  | 'full-stack'
+  | 'frontend'
+  | 'ai'
+  | 'automation'
+  | 'open-source'
+  | 'knowledge-graph';
+
+export const projectKindLabels: Record<ProjectKind, string> = {
+  web: 'Web',
+  mobile: 'Mobile',
+  backend: 'Backend',
+  cli: 'CLI',
+  game: 'Game',
+  agent: 'Agent',
+};
+
+export const projectTagLabels: Record<ProjectTag, string> = {
+  'full-stack': 'Full-stack',
+  frontend: 'Frontend',
+  ai: 'AI',
+  automation: 'Automation',
+  'open-source': 'Open source',
+  'knowledge-graph': 'Knowledge graph',
+};
+
 interface Project {
   preview?: string | null;
   isVideo?: boolean;
   title: string;
-  type: string[];
+  kind: ProjectKind;
+  tags: ProjectTag[];
   date: string;
   subtitle: string;
   stacks: string[];
@@ -37,7 +72,8 @@ import Rumble from '../assets/projects/rumble.webp';
 const projectsData: Project[] = [
   {
     title: 'Karakeep',
-    type: ['Open Source', 'Fullstack'],
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'open-source'],
     date: '06/2025',
     subtitle:
       'A maintained fork of Karakeep, an open-source bookmark-everything app for links, notes, and images with AI tagging and full-text search. I run my own production build and deployment pipeline, tailored Docker services, and a private instance.',
@@ -47,7 +83,8 @@ const projectsData: Project[] = [
   },
   {
     title: 'Hermes Agent',
-    type: ['AI Agent', 'Automation'],
+    kind: 'agent',
+    tags: ['ai', 'automation'],
     date: '05/2026',
     subtitle:
       'A 24/7 AI agent I built and operate on my VPS, available through Telegram, Discord, and WhatsApp. It combines a configurable LLM with custom skills and MCP integrations for charts, finance, weather, Google Workspace, and RSS, plus identity-aware permissions and risk-based approvals.',
@@ -58,7 +95,8 @@ const projectsData: Project[] = [
   {
     preview: null,
     title: 'SIRA: Smart Invoice Reminder AI',
-    type: ['Fullstack', 'AI'],
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'automation'],
     date: '06/2026',
     subtitle:
       "SIRA is an accounts-receivable automation platform built for a real client. It scores each client's payment risk daily from their payment history and sends tone-graded reminder emails (polite, firm, or warning) based on the risk, with a finance dashboard, an admin approval workflow, and internal Telegram alerts.",
@@ -79,7 +117,8 @@ const projectsData: Project[] = [
     preview: AurumVideo,
     isVideo: true,
     title: 'Aurum Art Gallery',
-    type: ['Fullstack', 'Web App', 'Knowledge Graph'],
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'knowledge-graph'],
     date: '11/2025',
     subtitle:
       'Aurum is an AI-powered knowledge graph platform that revolutionizes art exploration. It combines a semantic search engine for finding artworks by description, an interactive force-directed graph to visualize complex relationships between artists and movements, and a RAG-based "Museum Guide" chatbot that provides context-aware educational insights by synthesizing internal graph data with external Wikidata enrichment.',
@@ -99,7 +138,8 @@ const projectsData: Project[] = [
     preview: BKUIVideo,
     isVideo: true,
     title: 'Bedah Kampus UI 2025',
-    type: ['Fullstack', 'Web App'],
+    kind: 'web',
+    tags: ['full-stack'],
     date: '11/2024',
     subtitle:
       'A comprehensive event platform for Bedah Kampus UI 2025 featuring a high-performance landing page, an integrated ticketing and merchandise store with Midtrans payment gateway, and a robust admin dashboard. The system also includes a mobile-optimized QR code check-in tool, enabling the committee to scan tickets and verify participants in real-time at the venue.',
@@ -122,7 +162,8 @@ const projectsData: Project[] = [
     preview: PintaruVideo,
     isVideo: true,
     title: 'PINTARU',
-    type: ['Fullstack'],
+    kind: 'web',
+    tags: ['full-stack', 'ai'],
     date: '04/2025',
     subtitle:
       'PINTARU is an AI-powered platform with 2 features: 1) AI-generated video explanations that answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals, custom moral values, and custom characters for kids.',
@@ -148,7 +189,8 @@ const projectsData: Project[] = [
   {
     preview: NuSantap,
     title: 'NuSantap (Gov-AI)',
-    type: ['Fullstack', 'Mobile'],
+    kind: 'mobile',
+    tags: ['full-stack', 'ai'],
     date: '11/2024',
     subtitle:
       'NuSantap is an app that uses AI and Computer Vision to provide personalized meal recommendations based on nutritional needs and local food availability, optimizing the "Makan Bergizi Gratis" program.',
@@ -169,7 +211,8 @@ const projectsData: Project[] = [
   {
     preview: GrabAuto,
     title: 'GrabAuto (hackjakarta 2024)',
-    type: ['Frontend'],
+    kind: 'web',
+    tags: ['frontend', 'ai'],
     date: '07/2024',
     subtitle:
       "Grab feature that uses gen-AI to diagnose vehicle issues (even when the user has no idea what's wrong), find the nearest mechanics, book a repair service, and predict the cost. Built in 23 hours during hackjakarta.",
@@ -188,7 +231,8 @@ const projectsData: Project[] = [
   {
     preview: DM2Calc,
     title: 'Discrete Math Calculator',
-    type: ['CLI App'],
+    kind: 'cli',
+    tags: [],
     date: '02/2024',
     subtitle:
       "A collection of tools for solving Discrete Math problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more.",
@@ -200,7 +244,8 @@ const projectsData: Project[] = [
     favicon: ALSAEcompIcon,
     preview: ALSAEcomp,
     title: 'ALSA LC FH UI E-Comp Portal',
-    type: ['Frontend'],
+    kind: 'web',
+    tags: ['frontend'],
     date: '02/2025',
     subtitle:
       'This website serves as the portal for ALSA FH UI E-Comp, a national competition held by ALSA LC UI. It features information about the competition categories, timeline, participants accomodation, etc.',
@@ -211,7 +256,8 @@ const projectsData: Project[] = [
   {
     preview: Rumble,
     title: 'Rumble Backend',
-    type: ['Backend'],
+    kind: 'backend',
+    tags: [],
     date: '01/2025',
     subtitle:
       'Rumble is an On-Chain Solana Battle Royale Game. This is the backend server for Rumble, handling user authentication, game logic, player management, etc. Game announcements are sent via X (Twitter) Bot using X API v2.',
@@ -222,7 +268,8 @@ const projectsData: Project[] = [
   {
     preview: null,
     title: 'SwiftCash',
-    type: ['Fullstack'],
+    kind: 'web',
+    tags: ['full-stack'],
     date: '02/2025',
     subtitle:
       'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system. Built by maxxing out Next.js performance optimizations.',
@@ -240,7 +287,8 @@ const projectsData: Project[] = [
   {
     preview: null,
     title: 'NuSantap Dashboard',
-    type: ['Fullstack'],
+    kind: 'web',
+    tags: ['full-stack', 'ai'],
     date: '11/2024',
     subtitle:
       'A dashboard for NuSantap, featuring analytics graphs, user meal QR scans, and a stunting prevalence map at both provincial and national levels, with the ability to generate and manage weekly meal plans.',
@@ -260,7 +308,8 @@ const projectsData: Project[] = [
   {
     preview: Ngandung,
     title: 'Ngandung: Ngemil di Bandung',
-    type: ['Fullstack', 'Mobile'],
+    kind: 'mobile',
+    tags: ['full-stack'],
     date: '11/2024',
     subtitle:
       'Ngandung is an application that makes it easy for users to find information about foods and stores in Bandung, leave reviews, and save favorite stores.',
@@ -279,7 +328,8 @@ const projectsData: Project[] = [
   {
     preview: DesaKedisan,
     title: 'Desa Kedisan Tourism Portal',
-    type: ['Frontend'],
+    kind: 'web',
+    tags: ['frontend'],
     date: '10/2024',
     subtitle:
       'A front-end website that serves as information center of Desa Kedisan, a small tourism village in Gianyar, Bali. This website showcases the essence of the village, its culture, and its tourism spots.',
@@ -291,7 +341,8 @@ const projectsData: Project[] = [
   {
     preview: Portfolio,
     title: 'Personal Portfolio',
-    type: ['Frontend'],
+    kind: 'web',
+    tags: ['frontend'],
     date: '08/2024',
     subtitle:
       'Personal portfolio website, showcasing skills, experiences, achievements, and projects. Contents are to be updated regularly. Feel free to explore and reach out!',
@@ -311,7 +362,8 @@ const projectsData: Project[] = [
   {
     preview: MIPAOpenHouse,
     title: 'Open House FMIPA UI 2024',
-    type: ['Fullstack'],
+    kind: 'web',
+    tags: ['full-stack'],
     date: '06/2024',
     subtitle:
       'Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.',
@@ -332,7 +384,8 @@ const projectsData: Project[] = [
   {
     preview: GusDur,
     title: 'The Legend of Gus Dur: EoTR',
-    type: ['Video Game'],
+    kind: 'game',
+    tags: [],
     date: '12/2022',
     subtitle:
       "A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency.",

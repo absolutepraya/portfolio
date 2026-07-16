@@ -39,6 +39,12 @@ import Vite from '../../assets/stacks/vitejs.svg';
 import Vitest from '../../assets/stacks/vitest.svg';
 import X from '../../assets/stacks/x.svg';
 import BlurFade from '../../blocks/Animations/BlurFade';
+import {
+  type ProjectKind,
+  type ProjectTag,
+  projectKindLabels,
+  projectTagLabels,
+} from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
 import TabletView from '../../lib/TabletView';
 import { Badge } from '../badge';
@@ -53,7 +59,8 @@ interface ProjectBoxProps {
   preview?: string | null;
   isVideo?: boolean;
   title: string;
-  type: string | string[];
+  kind: ProjectKind;
+  tags: ProjectTag[];
   date: string;
   subtitle: string;
   stacks?: string[];
@@ -106,7 +113,8 @@ const ProjectBox = ({
   preview = null,
   isVideo = false,
   title,
-  type,
+  kind,
+  tags,
   date,
   subtitle,
   stacks = [],
@@ -207,19 +215,12 @@ const ProjectBox = ({
             </p>
           </div>
           <div className='flex flex-row flex-wrap gap-1.5'>
-            {Array.isArray(type) ? (
-              type.map((t, index) => (
-                <Badge
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <X>
-                  key={index}
-                  variant='default'
-                >
-                  {t}
-                </Badge>
-              ))
-            ) : (
-              <Badge variant='default'>{type}</Badge>
-            )}
+            <Badge variant='default'>{projectKindLabels[kind]}</Badge>
+            {tags.map((tag) => (
+              <Badge key={tag} variant='default'>
+                {projectTagLabels[tag]}
+              </Badge>
+            ))}
           </div>
           <p className='text-justify text-[0.925rem]'>{subtitle}</p>
           <div className='flex grow' />

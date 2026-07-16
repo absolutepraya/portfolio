@@ -7,7 +7,10 @@ import {
 } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
-import projectsData from '../../data/projects_data';
+import projectsData, {
+  type ProjectKind,
+  projectKindLabels,
+} from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
 import { Badge } from '../badge';
 import { PopButton } from '../pop-button';
@@ -17,18 +20,19 @@ import SepBorder from './SepBorder';
 const Projects = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('All');
+  const [selectedFilter, setSelectedFilter] = useState<ProjectKind | 'all'>(
+    'all',
+  );
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const filterOptions = [
-    { label: 'All', icon: null },
-    { label: 'Fullstack', icon: null },
-    { label: 'Frontend', icon: null },
-    { label: 'Backend', icon: null },
-    { label: 'Mobile', icon: null },
-    { label: 'CLI App', icon: null },
-    { label: 'Video Game', icon: null },
-    { label: 'Open Source', icon: null },
+  const filterOptions: Array<ProjectKind | 'all'> = [
+    'all',
+    'web',
+    'mobile',
+    'backend',
+    'cli',
+    'game',
+    'agent',
   ];
 
   const allProjects = projectsData;
@@ -114,27 +118,25 @@ const Projects = () => {
 
         <div className='flex w-full flex-wrap justify-center gap-2 lg:px-24'>
           {filterOptions.map((option) => {
-            const IconComp = option.icon;
             return (
               <button
-                key={option.label}
+                key={option}
                 type='button'
                 className='cursor-pointer transition-transform duration-75 hover:scale-105 active:scale-95'
                 onClick={() => {
-                  setSelectedFilter(option.label);
+                  setSelectedFilter(option);
                   setShowAll(false);
                 }}
               >
                 <Badge
                   size='lg'
                   className={
-                    selectedFilter === option.label
+                    selectedFilter === option
                       ? 'bg-customwhite text-customblack'
                       : 'border border-customgray bg-customblack text-customwhite opacity-80'
                   }
                 >
-                  {IconComp && <IconComp size={14} className='mr-1.5' />}
-                  {option.label}
+                  {option === 'all' ? 'All' : projectKindLabels[option]}
                 </Badge>
               </button>
             );
@@ -147,14 +149,12 @@ const Projects = () => {
           key={selectedFilter}
           className='mt-2 grid w-full grid-cols-1 items-stretch gap-8 text-customwhite lg:grid-cols-2'
         >
-          {(selectedFilter === 'All'
+          {(selectedFilter === 'all'
             ? displayedAllProjects
-            : projectsData.filter((project) =>
-                project.type.includes(selectedFilter),
-              )
+            : projectsData.filter((project) => project.kind === selectedFilter)
           ).map((project, index) => {
             const shouldMask =
-              selectedFilter === 'All' &&
+              selectedFilter === 'all' &&
               !showAll &&
               ((desktopView && (index === 4 || index === 5)) ||
                 (!desktopView && index === 4));
@@ -172,7 +172,8 @@ const Projects = () => {
                   preview={project.preview}
                   isVideo={project.isVideo}
                   title={project.title}
-                  type={project.type}
+                  kind={project.kind}
+                  tags={project.tags}
                   date={project.date}
                   subtitle={project.subtitle}
                   stacks={project.stacks}
