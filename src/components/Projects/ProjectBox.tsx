@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import NoImage from '../../assets/projects/noimage.webp';
 import Azure from '../../assets/stacks/azure.svg';
 import Bun from '../../assets/stacks/bun.svg';
+import Claude from '../../assets/stacks/claude.svg';
 import Cloudflare from '../../assets/stacks/cloudflare.svg';
 import Dart from '../../assets/stacks/dart.svg';
 import DigitalOcean from '../../assets/stacks/digitalocean.svg';
@@ -88,6 +89,7 @@ const stackIcons: Record<string, StackIcon> = {
   gemini: { src: Gemini, name: 'Gemini' },
   supabase: { src: Supabase, name: 'Supabase' },
   azure: { src: Azure, name: 'Azure' },
+  claude: { src: Claude, name: 'Claude' },
   openai: { src: OpenAI, name: 'OpenAI' },
   nextjs: { src: Next, name: 'Next.js' },
   firebase: { src: Firebase, name: 'Firebase' },
@@ -224,7 +226,7 @@ const ProjectBox = ({
           </div>
           <p className='text-justify text-[0.925rem]'>{subtitle}</p>
           <div className='flex grow' />
-          <div className='mt-4! flex h-auto w-full flex-row items-start justify-between'>
+          <div className='mt-4! flex min-h-12 w-full flex-row items-center justify-between'>
             <div className='flex w-fit flex-col space-y-2 rounded-sm'>
               {Array.from({
                 length: Math.ceil(stacks.length / STACKS_PER_LINE),

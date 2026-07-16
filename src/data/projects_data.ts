@@ -77,7 +77,14 @@ const projectsData: Project[] = [
     date: '06/2025',
     subtitle:
       'A maintained fork of Karakeep, an open-source bookmark-everything app for links, notes, and images with AI tagging and full-text search. I run my own production build and deployment pipeline, tailored Docker services, and a private instance.',
-    stacks: ['docker', 'meilisearch', 'openai'],
+    stacks: [
+      'nextjs',
+      'nodejs',
+      'typescript',
+      'docker',
+      'meilisearch',
+      'openai',
+    ],
     url: 'https://keep.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/karakeep',
   },
@@ -88,7 +95,7 @@ const projectsData: Project[] = [
     date: '05/2026',
     subtitle:
       'A 24/7 AI agent I built and operate on my VPS, available through Telegram, Discord, and WhatsApp. It combines a configurable LLM with custom skills and MCP integrations for charts, finance, weather, Google Workspace, and RSS, plus identity-aware permissions and risk-based approvals.',
-    stacks: ['python', 'openai', 'docker'],
+    stacks: ['python', 'claude', 'openai', 'docker'],
     url: '',
     github: '',
   },
