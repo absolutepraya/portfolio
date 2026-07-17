@@ -1,0 +1,10 @@
+worktree_path = ".worktrees"
+port_offset_interval = 100
+max_slots = 9
+name_strategy = "cities"
+branch_template = "absolutepraya/{name}"
+default_base = "origin/core"
+
+setup = [
+  "bun install --frozen-lockfile",
+]
