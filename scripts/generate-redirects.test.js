@@ -15,10 +15,10 @@ describe('renderWorkersRedirects', () => {
   test('emits temporary rules for slash and trailing-slash variants', () => {
     expect(
       renderWorkersRedirects({
-        'tracklist-buat-gina': 'https://example.com/playlist',
+        'example-redirect': 'https://example.com/destination',
       }),
     ).toBe(
-      '/tracklist-buat-gina https://example.com/playlist 302\n/tracklist-buat-gina/ https://example.com/playlist 302\n',
+      '/example-redirect https://example.com/destination 302\n/example-redirect/ https://example.com/destination 302\n',
     );
   });
 
