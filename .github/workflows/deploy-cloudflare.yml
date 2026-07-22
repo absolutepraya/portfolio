@@ -1,0 +1,44 @@
+name: Deploy Cloudflare portfolio
+
+on:
+  pull_request:
+    branches: [core]
+  push:
+    branches: [core]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-portfolio-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - run: bun install --frozen-lockfile
+      - run: bunx puppeteer browsers install
+      - run: bun run build
+      - name: Deploy production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/core'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.113.0"
+          command: deploy
+      - name: Upload pull-request preview
+        if: github.event_name == 'pull_request'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.113.0"
+          command: deploy --name abhipraya-portfolio-pr-${{ github.event.pull_request.number }}

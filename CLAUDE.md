@@ -86,28 +86,22 @@ src/
 
 `redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-buat-gina` → Spotify playlist) and is the single source of truth. `scripts/generate-redirects.js` reads it and writes two files:
 
-- **`vercel.json`** (repo root, committed) — production. Vercel serves the `redirects` array (each `statusCode: 302`). The generator MERGES into the existing `vercel.json`, only managing the `redirects` key, and preserves the `services` + catch-all `rewrites` blocks that `vercel link` writes. Vercel evaluates redirects before rewrites, so vanity slugs win over the SPA catch-all.
-- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the prod build via `bun run start` (`serve`/serve-handler). Emits both `/slug` and `/slug/` forms.
+- **`public/_redirects`** (generated, committed) — production. Cloudflare Workers Static Assets parses these temporary `302` rules before serving assets. It emits both `/slug` and `/slug/` forms.
+- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the production build via `bun run start` (`serve`/serve-handler). It emits the same two forms.
 
 - Status: 302 (temporary, so destinations can change without browser cache lock-in).
-- Add a new redirect: edit `redirects.json`, then `bun run deploy` (regenerates `vercel.json`). No code changes.
+- Add a new redirect: edit `redirects.json`, then `bun run build`. No code changes.
 - ⚠️ Slugs must not collide with real static paths (e.g. `assets`) — redirects match before static files.
-- ⚠️ Vite dev server does NOT honor either file; redirects only work after `bun run build && bun run start` (or in production on Vercel).
+- ⚠️ Vite dev server does NOT honor either file; redirects work after `bun run build && bun run start` or on Cloudflare production.
 
 ## Deployment
 
-**Vercel** — project `abhipraya-portfolio`, team `daffa-abhipraya-putras-projects`. Live at abhipraya.dev + www.abhipraya.dev. OG preview image is `public/preview.webp` (served from the site, not Cloudinary).
+**Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
-**Why prebuilt CLI deploys (not git-push auto-deploy):** the build runs a Puppeteer prerender (`scripts/prerender.js`) that needs headless Chrome, which is fragile in Vercel's cloud build. So we build locally (Chrome works on the Mac) and upload the prebuilt output.
-
-```bash
-bun run deploy   # generate-redirects → vercel build --prod → vercel deploy --prebuilt --prod
-```
-
-- **First-time setup per machine:** `vercel login`, then `vercel pull --yes --environment production` (creates `.vercel/`, which is gitignored). Requires the `vercel` CLI on PATH (installed globally).
-- **DNS:** abhipraya.dev + www are on Cloudflare as **dns-only** (grey cloud) → Vercel `76.76.21.21` (apex A) / CNAME www → apex. Same pattern as `blog.abhipraya.dev`. Vercel auto-issues + renews the Let's Encrypt cert (CAA already allows `letsencrypt.org`). If a cert stalls after a DNS change, force it: `vercel certs issue abhipraya.dev www.abhipraya.dev`.
-- **Rollback:** deployments are immutable; `vercel rollback` or promote a previous deployment in the dashboard.
-- `vercel.json` is committed; `.vercel/` is gitignored.
+- **Production domains:** `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
+- **Local verification:** run `bun run build`, then `bun run start`. Validate the generated `public/_redirects` and the prerendered homepage before pushing.
+- **Rollback:** remove the two Cloudflare custom-domain routes and restore only the observed Vercel apex A record and `www` CNAME. Do not change other DNS records.
+- **CI credentials:** GitHub Actions uses its own scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Never reuse, commit, or print local credentials.
 
 ### Legacy: Heroku (being retired)
 
