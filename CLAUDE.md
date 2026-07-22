@@ -96,18 +96,12 @@ src/
 
 ## Deployment
 
-**Vercel** — project `abhipraya-portfolio`, team `daffa-abhipraya-putras-projects`. Live at abhipraya.dev + www.abhipraya.dev. OG preview image is `public/preview.webp` (served from the site, not Cloudinary).
+**Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
-**Why prebuilt CLI deploys (not git-push auto-deploy):** the build runs a Puppeteer prerender (`scripts/prerender.js`) that needs headless Chrome, which is fragile in Vercel's cloud build. So we build locally (Chrome works on the Mac) and upload the prebuilt output.
-
-```bash
-bun run deploy   # generate-redirects → vercel build --prod → vercel deploy --prebuilt --prod
-```
-
-- **First-time setup per machine:** `vercel login`, then `vercel pull --yes --environment production` (creates `.vercel/`, which is gitignored). Requires the `vercel` CLI on PATH (installed globally).
-- **DNS:** abhipraya.dev + www are on Cloudflare as **dns-only** (grey cloud) → Vercel `76.76.21.21` (apex A) / CNAME www → apex. Same pattern as `blog.abhipraya.dev`. Vercel auto-issues + renews the Let's Encrypt cert (CAA already allows `letsencrypt.org`). If a cert stalls after a DNS change, force it: `vercel certs issue abhipraya.dev www.abhipraya.dev`.
-- **Rollback:** deployments are immutable; `vercel rollback` or promote a previous deployment in the dashboard.
-- `vercel.json` is committed; `.vercel/` is gitignored.
+- **Production domains:** `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
+- **Local verification:** run `bun run build`, then `bun run start`. Validate the generated `public/_redirects` and the prerendered homepage before pushing.
+- **Rollback:** remove the two Cloudflare custom-domain routes and restore only the observed Vercel apex A record and `www` CNAME. Do not change other DNS records.
+- **CI credentials:** GitHub Actions uses its own scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Never reuse, commit, or print local credentials.
 
 ### Legacy: Heroku (being retired)
 
