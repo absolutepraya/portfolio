@@ -6,6 +6,7 @@ const REDIRECTS_FILE = join(ROOT, 'redirects.json');
 const DIST_DIR = join(ROOT, 'dist');
 const PUBLIC_DIR = join(ROOT, 'public');
 const WORKERS_OUT = join(PUBLIC_DIR, '_redirects');
+const DIST_WORKERS_OUT = join(DIST_DIR, '_redirects');
 const SERVE_OUT = join(DIST_DIR, 'serve.json');
 
 export function renderWorkersRedirects(redirects) {
@@ -23,10 +24,13 @@ export function generateRedirectArtifacts() {
     ? JSON.parse(readFileSync(REDIRECTS_FILE, 'utf8'))
     : {};
 
+  const workersRedirects = renderWorkersRedirects(redirects);
+
   mkdirSync(PUBLIC_DIR, { recursive: true });
-  writeFileSync(WORKERS_OUT, renderWorkersRedirects(redirects));
+  writeFileSync(WORKERS_OUT, workersRedirects);
 
   if (existsSync(DIST_DIR)) {
+    writeFileSync(DIST_WORKERS_OUT, workersRedirects);
     const serveConfig = {
       redirects: Object.entries(redirects).flatMap(([slug, destination]) => [
         { source: `/${slug}`, destination, type: 302 },
