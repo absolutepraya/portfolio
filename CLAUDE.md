@@ -86,13 +86,13 @@ src/
 
 `redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-buat-gina` → Spotify playlist) and is the single source of truth. `scripts/generate-redirects.js` reads it and writes two files:
 
-- **`vercel.json`** (repo root, committed) — production. Vercel serves the `redirects` array (each `statusCode: 302`). The generator MERGES into the existing `vercel.json`, only managing the `redirects` key, and preserves the `services` + catch-all `rewrites` blocks that `vercel link` writes. Vercel evaluates redirects before rewrites, so vanity slugs win over the SPA catch-all.
-- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the prod build via `bun run start` (`serve`/serve-handler). Emits both `/slug` and `/slug/` forms.
+- **`public/_redirects`** (generated, committed) — production. Cloudflare Workers Static Assets parses these temporary `302` rules before serving assets. It emits both `/slug` and `/slug/` forms.
+- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the production build via `bun run start` (`serve`/serve-handler). It emits the same two forms.
 
 - Status: 302 (temporary, so destinations can change without browser cache lock-in).
-- Add a new redirect: edit `redirects.json`, then `bun run deploy` (regenerates `vercel.json`). No code changes.
+- Add a new redirect: edit `redirects.json`, then `bun run build`. No code changes.
 - ⚠️ Slugs must not collide with real static paths (e.g. `assets`) — redirects match before static files.
-- ⚠️ Vite dev server does NOT honor either file; redirects only work after `bun run build && bun run start` (or in production on Vercel).
+- ⚠️ Vite dev server does NOT honor either file; redirects work after `bun run build && bun run start` or on Cloudflare production.
 
 ## Deployment
 
