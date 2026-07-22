@@ -3,6 +3,16 @@
   "name": "abhipraya-portfolio",
   "compatibility_date": "2026-07-22",
   "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "abhipraya.dev",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.abhipraya.dev",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"
