@@ -98,7 +98,7 @@ src/
 
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
-- **Production domains:** `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
+- **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
 - **Local verification:** run `bun run build`, then `bun run start`. Validate the generated `public/_redirects` and the prerendered homepage before pushing.
 - **Rollback:** remove the two Cloudflare custom-domain routes and restore only the observed Vercel apex A record and `www` CNAME. Do not change other DNS records.
 - **CI credentials:** GitHub Actions uses its own scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Never reuse, commit, or print local credentials.
