@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { m } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 type Variant =
@@ -67,7 +67,7 @@ export function ShimmerText({
   return (
     <div className='group overflow-hidden'>
       <div>
-        <motion.div
+        <m.div
           className={cn(
             'inline-block [--shimmer-contrast:rgba(255,255,255,0.6)] dark:[--shimmer-contrast:rgba(0,0,0,0.5)]',
             variantMap[variant],
@@ -99,7 +99,7 @@ export function ShimmerText({
           }}
         >
           <span>{children}</span>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

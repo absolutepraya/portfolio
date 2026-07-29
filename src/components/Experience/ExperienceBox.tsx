@@ -1,5 +1,5 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   useCallback,
   useEffect,
@@ -121,20 +121,20 @@ const ExperienceBox = ({
       },
     );
 
-    if (divRef.current) {
-      observer.observe(divRef.current);
+    const element = divRef.current;
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (divRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(divRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, []);
 
   return (
-    <motion.div
+    <m.div
       ref={divRef}
       className={`relative flex flex-col items-center space-y-3 rounded-3xl bg-customblack p-6 pt-4! transition-all duration-480 ease-in-out lg:w-180 ${isInView ? 'shadow-2xl' : ''}`}
     >
@@ -220,7 +220,7 @@ const ExperienceBox = ({
       </div>
       <div className='z-20 flex w-full flex-col items-center'>
         <div
-          className='w-full overflow-hidden transition-[height] duration-500 ease-in-out'
+          className='w-full overflow-hidden'
           style={{
             height:
               currentDescHeight === 'auto' ? 'auto' : `${currentDescHeight}px`,
@@ -236,7 +236,7 @@ const ExperienceBox = ({
         >
           <div
             ref={descContentRef}
-            className={`markdown-content text-sm transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
+            className={`markdown-content text-sm transition-[opacity] duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
           >
             <ReactMarkdown>{desc}</ReactMarkdown>
           </div>
@@ -260,7 +260,7 @@ const ExperienceBox = ({
       </div>
 
       {previousTitles && previousDates && (
-        <motion.div className={'flex w-full flex-col'}>
+        <m.div className={'flex w-full flex-col'}>
           <div
             className={`mt-2 mb-4 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
           />
@@ -270,33 +270,30 @@ const ExperienceBox = ({
             Previous/other roles:
           </p>
           <div className='flex w-full flex-col space-y-2'>
-            {previousTitles
-              .map((previousTitle, index) => ({
-                key: `${previousTitle}-${previousDates[index] ?? ''}-${index}`,
-                title: previousTitle,
-                date: previousDates[index],
-              }))
-              .map((role) => (
+            {previousTitles.map((title, index) => {
+              const date = previousDates[index];
+              return (
                 <div
                   className='flex w-full flex-row items-center justify-between'
-                  key={role.key}
+                  key={`${title}-${date ?? ''}`}
                 >
                   <p
                     className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-380 ease-in-out md:text-2xl`}
                   >
-                    {role.title}
+                    {title}
                   </p>
                   <p
-                    className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono text-sm transition-all duration-380 ease-in-out md:text-base`}
+                    className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} text-sm transition-all duration-380 ease-in-out md:text-base`}
                   >
-                    {role.date}
+                    {date}
                   </p>
                 </div>
-              ))}
+              );
+            })}
           </div>
-        </motion.div>
+        </m.div>
       )}
-    </motion.div>
+    </m.div>
   );
 };
 

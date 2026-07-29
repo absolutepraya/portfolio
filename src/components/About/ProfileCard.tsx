@@ -11,6 +11,30 @@ import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 
+const links = [
+  {
+    icon: IconMail,
+    text: 'daffa@abhipraya.dev',
+    href: 'mailto:daffa@abhipraya.dev',
+    copyable: true,
+  },
+  {
+    icon: IconBrandLinkedin,
+    text: 'daffaabhipraya',
+    href: 'https://linkedin.com/in/daffaabhipraya',
+  },
+  {
+    icon: IconBrandGithub,
+    text: 'absolutepraya',
+    href: 'https://github.com/absolutepraya',
+  },
+  {
+    icon: IconNotebook,
+    text: 'blog.abhipraya.dev',
+    href: 'https://blog.abhipraya.dev',
+  },
+];
+
 const ProfileCard = () => {
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -65,30 +89,6 @@ const ProfileCard = () => {
 
   const tiltX = isHovered ? (mousePos.y - 0.5) * -20 : 0;
   const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
-
-  const links = [
-    {
-      icon: IconMail,
-      text: 'daffa@abhipraya.dev',
-      href: 'mailto:daffa@abhipraya.dev',
-      copyable: true,
-    },
-    {
-      icon: IconBrandLinkedin,
-      text: 'daffaabhipraya',
-      href: 'https://linkedin.com/in/daffaabhipraya',
-    },
-    {
-      icon: IconBrandGithub,
-      text: 'absolutepraya',
-      href: 'https://github.com/absolutepraya',
-    },
-    {
-      icon: IconNotebook,
-      text: 'blog.abhipraya.dev',
-      href: 'https://blog.abhipraya.dev',
-    },
-  ];
 
   return (
     <BlurFade

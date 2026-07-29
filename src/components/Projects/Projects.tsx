@@ -5,7 +5,7 @@ import {
   IconArrowNarrowDownDashed,
   IconArrowNarrowUpDashed,
 } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useRef, useState } from 'react';
 import projectsData, {
   type ProjectKind,
@@ -17,6 +17,16 @@ import { PopButton } from '../pop-button';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
 
+const filterOptions: Array<ProjectKind | 'all'> = [
+  'all',
+  'web',
+  'mobile',
+  'backend',
+  'cli',
+  'game',
+  'agent',
+];
+
 const Projects = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
@@ -24,16 +34,6 @@ const Projects = () => {
     'all',
   );
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const filterOptions: Array<ProjectKind | 'all'> = [
-    'all',
-    'web',
-    'mobile',
-    'backend',
-    'cli',
-    'game',
-    'agent',
-  ];
 
   const visibleProjects =
     selectedFilter === 'all'
@@ -65,7 +65,7 @@ const Projects = () => {
     >
       <div id='projects' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
-        <motion.h2
+        <m.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
@@ -79,15 +79,15 @@ const Projects = () => {
           }}
         >
           Stuff I&apos;ve built
-        </motion.h2>
+        </m.h2>
         <div
           className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
-          <motion.div
+          <m.div
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
-              transition: { duration: 1.2, ease: 'circInOut', delay: 0.3 },
+              transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
               margin: desktopView ? '-100px' : '-14px',
@@ -168,7 +168,7 @@ const Projects = () => {
                 }
               : undefined;
             return (
-              <div key={index} style={maskStyle} className='h-full'>
+              <div key={project.title} style={maskStyle} className='h-full'>
                 <ProjectBox
                   preview={project.preview}
                   isVideo={project.isVideo}
@@ -192,7 +192,7 @@ const Projects = () => {
           <div
             className={`${showAll ? 'mt-20' : '-mt-16'} relative z-10 flex w-full justify-center`}
           >
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -210,7 +210,7 @@ const Projects = () => {
                   <IconArrowNarrowDownDashed size={20} stroke={2} />
                 )}
               </PopButton>
-            </motion.div>
+            </m.div>
           </div>
         )}
       </div>

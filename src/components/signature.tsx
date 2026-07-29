@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'motion/react';
+import { m } from 'framer-motion';
 import opentype from 'opentype.js';
 import { useEffect, useId, useState } from 'react';
 
@@ -13,6 +13,11 @@ interface SignatureProps {
   inView?: boolean;
   once?: boolean;
 }
+
+const variants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: { pathLength: 1, opacity: 1 },
+};
 
 export function Signature({
   text = 'Signature',
@@ -33,6 +38,8 @@ export function Signature({
   const maskId = `signature-reveal-${useId().replace(/:/g, '')}`;
 
   useEffect(() => {
+    let cancelled = false;
+
     async function load() {
       try {
         // Try multiple paths to ensure font loads correctly
@@ -68,24 +75,26 @@ export function Signature({
           x += advanceWidth * (fontSize / font.unitsPerEm);
         }
 
-        setPaths(newPaths);
-        setWidth(x + horizontalPadding);
+        if (!cancelled) {
+          setPaths(newPaths);
+          setWidth(x + horizontalPadding);
+        }
       } catch {
-        setPaths([]);
-        setWidth(text.length * fontSize * 0.6);
+        if (!cancelled) {
+          setPaths([]);
+          setWidth(text.length * fontSize * 0.6);
+        }
       }
     }
 
-    load();
+    void load();
+    return () => {
+      cancelled = true;
+    };
   }, [text, fontSize, baseline, horizontalPadding]);
 
-  const variants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: { pathLength: 1, opacity: 1 },
-  };
-
   return (
-    <motion.svg
+    <m.svg
       key={paths.length}
       width={width}
       height={height}
@@ -100,7 +109,7 @@ export function Signature({
       <defs>
         <mask id={maskId} maskUnits='userSpaceOnUse'>
           {paths.map((d, i) => (
-            <motion.path
+            <m.path
               key={`p-${d}`}
               d={d}
               stroke='white'
@@ -127,7 +136,7 @@ export function Signature({
       </defs>
 
       {paths.map((d, i) => (
-        <motion.path
+        <m.path
           key={`s-${d}`}
           d={d}
           stroke={color}
@@ -156,6 +165,6 @@ export function Signature({
           <path key={`f-${d}`} d={d} fill={color} />
         ))}
       </g>
-    </motion.svg>
+    </m.svg>
   );
 }

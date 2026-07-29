@@ -24,13 +24,7 @@ export default defineConfig({
     ],
   },
   optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      '@react-spring/web',
-      'framer-motion',
-      'react-fast-marquee',
-    ],
+    include: ['react', 'react-dom', 'framer-motion'],
     exclude: ['react-scan'],
   },
   build: {
@@ -38,7 +32,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          'animation-vendor': ['@react-spring/web', 'framer-motion'],
+          'animation-vendor': ['framer-motion'],
         },
       },
     },
