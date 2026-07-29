@@ -15,6 +15,8 @@ bun install          # Install dependencies
 bun run dev          # Dev server (Vite)
 bun run build        # Production build
 bun run check        # Lint + format (Biome)
+bun run verify       # Full blocking CI-equivalent quality suite
+bun run react-doctor # Advisory full React Doctor scan
 bun run start        # Serve production build (serve -s dist)
 bun run knip         # Dead code detection
 ```
@@ -77,6 +79,7 @@ src/
 - Husky pre-commit hook runs `bun run check`
 - Single quotes, 2-space indent
 - Tailwind utility classes + custom responsive hooks (`DesktopView.ts` >= 1024px, `TabletView.ts` >= 768px)
+- CI runs distinct blocking format, lint, typecheck, test, React Doctor (minimum score 99), build, and main-bundle budget checks. `knip` is advisory because its static analysis can need manual review.
 
 ## Agent Rules
 

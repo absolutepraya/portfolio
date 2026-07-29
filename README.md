@@ -1,6 +1,6 @@
 # Portfolio — abhipraya.dev
 
-Personal portfolio site built with React 18, Vite 6, Tailwind CSS 3, and Framer Motion. Packaged with Bun.
+Personal portfolio site built with React 18, Vite 6, Tailwind CSS 4, and Framer Motion. Packaged with Bun.
 
 ## Lighthouse
 
@@ -41,6 +41,16 @@ bun run check
 bun run knip
 ```
 
+## Quality checks
+
+The required local equivalent of the blocking CI checks is:
+
+```bash
+bun run verify
+```
+
+Individual commands are available for format verification, linting, typechecking, tests, React Doctor, and the production bundle budget. `bun run react-doctor:staged` is advisory and only scans the Git index. The full React Doctor baseline and CI threshold are documented in [docs/react-doctor.md](docs/react-doctor.md).
+
 ## Build
 
 ```bash
@@ -49,7 +59,7 @@ bun run build
 
 ## Production
 
-Deployed on Heroku. To serve the production build locally:
+Deployed on Cloudflare Workers Static Assets. To serve the production build locally:
 
 ```bash
 bun run start

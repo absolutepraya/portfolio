@@ -31,3 +31,6 @@ keys/
 .tips/
 .personal/
 .playwright-mcp/
+
+# React Doctor reports are local diagnostics, never source artifacts.
+.react-doctor-*.json
