@@ -305,6 +305,13 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Keep wide desktop layouts compact without changing the responsive breakpoints. */
+@media (min-width: 1280px) {
+  html {
+    font-size: 70%;
+  }
+}
+
 .dark {
   --color-page-bg: #03020f;
   --color-card-bg: #0d0d0d;
