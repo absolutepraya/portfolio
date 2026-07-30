@@ -69,7 +69,6 @@ src/
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
-- Desktop density: at viewports `>= 1280px`, the root font size is 70% so the rem-based design system is more compact without changing responsive breakpoints. Tablet and mobile retain the default size.
 
 ## Conventions
 
