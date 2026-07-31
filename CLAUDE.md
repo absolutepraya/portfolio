@@ -69,6 +69,7 @@ src/
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
+- Responsive density: all major sections share the `content-canvas` utility (`min(90vw, 64rem)`). Compact desktop is 1024–1279px, where space-constrained compositions stack; wide desktop starts at 1280px and restores their horizontal layouts.
 
 ## Conventions
 

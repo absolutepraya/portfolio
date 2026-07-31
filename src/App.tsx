@@ -12,7 +12,7 @@ const App = () => {
       <div className='relative flex flex-col items-center overflow-hidden bg-page-bg font-inter text-customwhite'>
         <NavBar />
 
-        <main className='mt-0! flex w-full flex-col items-center space-y-20 pb-24 md:space-y-32'>
+        <main className='mt-0! flex w-full flex-col items-center space-y-20 pb-24 md:space-y-32 lg:space-y-24 xl:space-y-28'>
           <About />
           <Experience />
           <Achievements />

@@ -39,11 +39,11 @@ const Experience = () => {
 
   return (
     <section
-      className='relative flex w-[90vw] flex-col xl:w-272'
+      className='relative flex flex-col content-canvas'
       id='experiencesec'
     >
       <div id='experience' className='absolute -top-36' />
-      <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
+      <div className='flex flex-col items-center xl:flex-row xl:space-x-8'>
         <m.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
@@ -62,10 +62,10 @@ const Experience = () => {
           The road so far
         </m.h2>
         <div
-          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
+          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 xl:mt-3 xl:w-auto xl:max-w-4000 xl:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <m.div
-            className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
+            className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall xl:-top-2 xl:h-4 xl:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
               transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
