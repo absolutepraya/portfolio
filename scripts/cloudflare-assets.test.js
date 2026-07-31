@@ -16,6 +16,7 @@ test('defines secure revalidation and immutable asset caching at the edge', asyn
     'Cache-Control: public, max-age=0, must-revalidate',
   );
   expect(headers).toContain('/assets/*');
+  expect(headers).toContain('! Cache-Control');
   expect(headers).toContain(
     'Cache-Control: public, max-age=31536000, immutable',
   );

@@ -87,6 +87,26 @@ async function assertResponse(pathname, expectedStatus, expectedContentType) {
   return response;
 }
 
+async function assertHeaderEventually(
+  pathname,
+  header,
+  expectedValue,
+  description,
+  initialResponse,
+) {
+  let response = initialResponse;
+  for (let attempt = 1; attempt <= deploymentAttempts; attempt += 1) {
+    if (response.headers.get(header)?.includes(expectedValue)) return;
+
+    if (attempt === deploymentAttempts) {
+      fail(`${description} is incorrect`);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 2_000));
+    response = await assertResponse(pathname, 200);
+  }
+}
+
 await Promise.all([
   requireFile('dist/index.html'),
   requireFile('dist/robots.txt'),
@@ -164,13 +184,19 @@ for (let attempt = 1; attempt <= deploymentAttempts; attempt += 1) {
   policyHome = await assertResponse('/', 200, 'text/html');
 }
 
-assert(
-  css.headers.get('cache-control')?.includes('max-age=31536000'),
-  'Stylesheet cache policy is incorrect',
+await assertHeaderEventually(
+  deployedPath(stylesheet),
+  'cache-control',
+  'max-age=31536000',
+  'Stylesheet cache policy',
+  css,
 );
-assert(
-  fontResponse.headers.get('cache-control')?.includes('max-age=31536000'),
-  'Font cache policy is incorrect',
+await assertHeaderEventually(
+  deployedPath(font),
+  'cache-control',
+  'max-age=31536000',
+  'Font cache policy',
+  fontResponse,
 );
 
 if (isProduction) {
