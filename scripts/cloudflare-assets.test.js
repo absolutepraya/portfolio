@@ -16,6 +16,7 @@ test('defines secure revalidation and immutable asset caching at the edge', asyn
     'Cache-Control: public, max-age=0, must-revalidate',
   );
   expect(headers).toContain('/assets/*');
+  expect(headers).toContain('! Cache-Control');
   expect(headers).toContain(
     'Cache-Control: public, max-age=31536000, immutable',
   );
@@ -31,6 +32,7 @@ test('keeps the Cloudflare deployment smoke contract versioned', async () => {
   expect(smokeScript).toContain('Cloudflare deployment smoke test passed');
   expect(smokeScript).toContain('strict-transport-security');
   expect(smokeScript).toContain('max-age=31536000');
+  expect(smokeScript).toContain('const deploymentAttempts = 60;');
   expect(smokeScript).toContain('Production is still served by Vercel');
 });
 
