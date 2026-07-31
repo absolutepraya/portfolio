@@ -102,9 +102,17 @@ src/
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
-- **Local verification:** run `bun run build`, then `bun run start`. Validate the generated `public/_redirects` and the prerendered homepage before pushing.
+- **Deployment contract:** `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `.github/workflows/deploy-cloudflare.yml`, and `scripts/smoke-cloudflare-deployment.mjs` must remain aligned.
+- **Local verification:** run `bun run build`, `bun run start`, then `bun run smoke:deployment -- https://example.workers.dev`. Validate the generated redirect rules and prerendered homepage before pushing.
+- **CI release flow:** `Verify` runs the full `bun run verify` suite, validates the generated `dist/` files, and uploads that directory as the only deployable artifact. Same-repository pull requests deploy and smoke-test public `workers.dev` previews. A `core` push deploys the same artifact through the `absolutepraya-portfolio` GitHub environment, then smoke-tests `https://abhipraya.dev`. Closing a same-repository pull request deletes its preview Worker.
+- **Branch protection:** `core` requires a pull request and the `Verify` check. No approval is mandatory; force pushes and branch deletion are blocked.
+- **Fork safety:** fork pull requests receive verification only, never Cloudflare credentials.
+- **Cache and security policy:** `public/_headers` revalidates HTML and mutable root files. All fingerprinted Vite files in `/assets/*` are immutable for one year. The policy also sets HSTS, `nosniff`, strict referrer handling, frame denial, and a restrictive permissions policy. Do not add CSP, Rocket Loader, Auto Minify, or broad zone-level cache settings without a separate compatibility audit.
+- **Analytics:** Cloudflare Web Analytics is already enabled by automatic setup for the zone. Do not add a manual beacon or third-party analytics. Confirm live analytics with the browser network requests to `static.cloudflareinsights.com` and `/cdn-cgi/rum`.
+- **Purge:** use a targeted Cloudflare cache purge for an exceptional stale root asset. Routine deploys use the Worker asset manifest and do not need a whole-cache purge.
 - **Rollback:** remove the two Cloudflare custom-domain routes and restore only the observed Vercel apex A record and `www` CNAME. Do not change other DNS records.
 - **CI credentials:** GitHub Actions uses its own scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Never reuse, commit, or print local credentials.
+- **DNSSEC:** DNSSEC for `abhipraya.dev` is pending the Registrar.eu transfer from Hostinger. Do not add a DS record at Hostinger, cancel the current Cloudflare DNSSEC setup, or enable multi-signer or multi-provider DNS. After the transfer completes, add Cloudflare's displayed DS record at Registrar.eu and verify the public DS record before declaring DNSSEC active.
 
 ### Legacy: Heroku (being retired)
 

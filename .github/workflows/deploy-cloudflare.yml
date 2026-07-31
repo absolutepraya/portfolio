@@ -3,6 +3,7 @@ name: Deploy Cloudflare portfolio
 on:
   pull_request:
     branches: [core]
+    types: [opened, synchronize, reopened, closed]
   push:
     branches: [core]
 
@@ -14,8 +15,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork == false
+  verify:
+    name: Verify
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -25,20 +27,102 @@ jobs:
           bun-version: 1.3.14
       - run: bun install --frozen-lockfile
       - run: bunx puppeteer browsers install
-      - run: bun run build
-      - name: Deploy production
-        if: github.event_name == 'push' && github.ref == 'refs/heads/core'
-        uses: cloudflare/wrangler-action@v4
+      - run: bun run verify
+      - name: Verify generated artifact
+        run: |
+          test -f dist/index.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/_headers
+          test -f dist/_redirects
+          find dist/assets -type f -name '*.css' -print -quit | grep -q .
+          find dist/assets -type f -name '*.js' -print -quit | grep -q .
+      - uses: actions/upload-artifact@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.113.0"
-          command: deploy
-      - name: Upload pull-request preview
-        if: github.event_name == 'pull_request'
+          name: site
+          path: dist
+          retention-days: 1
+
+  deploy-preview:
+    name: Deploy preview
+    needs: verify
+    if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+      - name: Deploy public preview
+        id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.113.0"
           command: deploy --env preview --name abhipraya-portfolio-pr-${{ github.event.pull_request.number }}
+      - name: Smoke-test preview
+        env:
+          WRANGLER_OUTPUT: ${{ steps.deploy.outputs.command-output }}
+        run: |
+          set -o pipefail
+          preview_url="$(printf '%s\n' "$WRANGLER_OUTPUT" | grep -Eo 'https://[^[:space:]]+\.workers\.dev' | head -n 1)"
+          test -n "$preview_url"
+          bun scripts/smoke-cloudflare-deployment.mjs "$preview_url"
+          echo "preview_url=$preview_url" >> "$GITHUB_ENV"
+      - name: Publish preview URL
+        run: |
+          echo '## Cloudflare preview' >> "$GITHUB_STEP_SUMMARY"
+          echo "$preview_url" >> "$GITHUB_STEP_SUMMARY"
+
+  deploy-production:
+    name: Deploy production
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/core'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: absolutepraya-portfolio
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
+      - name: Deploy production Worker
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.113.0"
+          command: deploy
+      - name: Smoke-test production domain
+        run: bun scripts/smoke-cloudflare-deployment.mjs https://abhipraya.dev --production
+
+  delete-preview:
+    name: Delete preview
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete closed pull-request preview
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          service="abhipraya-portfolio-pr-${{ github.event.pull_request.number }}"
+          status="$(curl --silent --show-error --output /tmp/delete-preview.json --write-out '%{http_code}' --request DELETE \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/services/$service")"
+          if [ "$status" = 200 ] || [ "$status" = 404 ]; then
+            exit 0
+          fi
+          cat /tmp/delete-preview.json
+          exit 1
