@@ -11,30 +11,6 @@ import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 
-const links = [
-  {
-    icon: IconMail,
-    text: 'daffa@abhipraya.dev',
-    href: 'mailto:daffa@abhipraya.dev',
-    copyable: true,
-  },
-  {
-    icon: IconBrandLinkedin,
-    text: 'daffaabhipraya',
-    href: 'https://linkedin.com/in/daffaabhipraya',
-  },
-  {
-    icon: IconBrandGithub,
-    text: 'absolutepraya',
-    href: 'https://github.com/absolutepraya',
-  },
-  {
-    icon: IconNotebook,
-    text: 'blog.abhipraya.dev',
-    href: 'https://blog.abhipraya.dev',
-  },
-];
-
 const ProfileCard = () => {
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -90,16 +66,40 @@ const ProfileCard = () => {
   const tiltX = isHovered ? (mousePos.y - 0.5) * -20 : 0;
   const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
 
+  const links = [
+    {
+      icon: IconMail,
+      text: 'daffa@abhipraya.dev',
+      href: 'mailto:daffa@abhipraya.dev',
+      copyable: true,
+    },
+    {
+      icon: IconBrandLinkedin,
+      text: 'daffaabhipraya',
+      href: 'https://linkedin.com/in/daffaabhipraya',
+    },
+    {
+      icon: IconBrandGithub,
+      text: 'absolutepraya',
+      href: 'https://github.com/absolutepraya',
+    },
+    {
+      icon: IconNotebook,
+      text: 'blog.abhipraya.dev',
+      href: 'https://blog.abhipraya.dev',
+    },
+  ];
+
   return (
     <BlurFade
-      className='flex flex-col items-center justify-center space-y-2 p-6 xl:w-128 xl:p-4'
+      className='flex flex-col items-center justify-center space-y-2 p-6'
       delay={0.3}
       offset={30}
     >
       {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
       <div
         ref={cardRef}
-        className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:min-w-145 md:max-w-145 md:scale-90 lg:scale-100 xl:min-w-120 xl:max-w-120 ${ready && !isHovered ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
+        className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:min-w-145 md:max-w-145 md:scale-90 lg:scale-100 ${ready && !isHovered ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
         style={{
           aspectRatio: '3 / 2',
           background:

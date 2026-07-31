@@ -135,15 +135,17 @@ const RichButton = React.forwardRef<HTMLButtonElement, RichButtonProps>(
       >
         {asChild ? (
           children
+        ) : typeof children === 'string' ? (
+          <span className={cn('relative', textShadowClasses)}>{children}</span>
         ) : (
-          <span
+          <div
             className={cn(
               'relative flex items-center gap-2',
               textShadowClasses,
             )}
           >
             {children}
-          </span>
+          </div>
         )}
       </Comp>
     );

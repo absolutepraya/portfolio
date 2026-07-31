@@ -4,7 +4,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useMemo,
   useState,
 } from 'react';
 
@@ -36,16 +35,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleTheme = useCallback(() => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-
     document.documentElement.classList.add('theme-transitioning');
-    localStorage.setItem('theme', next);
-    applyTheme(next);
-    setTheme(next);
+    setTheme((prev) => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+      return next;
+    });
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
     }, 300);
-  }, [applyTheme, theme]);
+  }, [applyTheme]);
 
   useEffect(() => {
     applyTheme(theme);
@@ -63,13 +63,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return () => mq.removeEventListener('change', handler);
   }, [applyTheme]);
 
-  const value = useMemo(
-    () => ({ theme, toggleTheme, isDark: theme === 'dark' }),
-    [theme, toggleTheme],
-  );
-
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, isDark: theme === 'dark' }}
+    >
+      {children}
+    </ThemeContext.Provider>
   );
 }
 

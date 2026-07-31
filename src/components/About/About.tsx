@@ -13,21 +13,21 @@ const About = () => {
 
   return (
     <section
-      className='relative mt-14! flex flex-col items-center content-canvas md:mt-30! xl:mt-34!'
+      className='relative mt-14! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-34! xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
-      <div className='mt-12 mb-10 flex w-full flex-col items-center gap-6 md:mb-14 xl:flex-row xl:items-center xl:justify-between xl:gap-12'>
+      <div className='mt-12 mb-10 flex w-full flex-col items-center gap-6 md:mb-14 lg:flex-row lg:items-center lg:justify-around lg:gap-12'>
         {/* LEFT: Profile card */}
         <ProfileCard />
 
         {/* RIGHT: Hero text */}
-        <div className='-mt-26 flex flex-col items-start justify-center md:mt-0 lg:w-full lg:max-w-116 lg:self-start xl:min-w-0 xl:max-w-116 xl:flex-1 xl:self-auto'>
+        <div className='-mt-26 flex flex-col items-start justify-center md:mt-0'>
           <SlideUpText
             split='words'
             delay={0.5}
             stagger={0.06}
-            className='pb-1 text-left font-instrument text-4xl leading-[2.6rem] md:text-4xl md:leading-[2.8rem] xl:text-5xl xl:leading-[3.2rem]'
+            className='pb-1 text-left font-instrument text-4xl leading-[2.6rem] md:text-4xl md:leading-[2.8rem] lg:text-5xl lg:leading-[3.2rem]'
             animatedClass='text-customwhite'
           >
             I build software that thinks, scales, and ships.
@@ -43,12 +43,12 @@ const About = () => {
           </SlideUpText>
         </div>
       </div>
-      <div className='flex h-auto w-full flex-col space-y-6 xl:flex-row xl:space-x-6 xl:space-y-0'>
+      <div className='flex h-auto w-full flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0'>
         <BlurFade
           delay={0.2}
           offset={40}
           duration={0.5}
-          className='w-full xl:w-[40%] xl:shrink-0'
+          className='w-full lg:w-[40%]'
         >
           <div className='flex h-full flex-col space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg'>
             <div className='relative flex items-center justify-center overflow-visible lg:h-46'>
@@ -85,7 +85,7 @@ const About = () => {
           delay={0.2}
           offset={40}
           duration={0.5}
-          className='w-full xl:min-w-0 xl:flex-1'
+          className='w-full lg:w-[39.3rem]'
         >
           <div className='relative flex h-full flex-col items-center space-y-6 rounded-3xl border border-customgray bg-customblack p-6 shadow-lg'>
             <div className='relative flex w-full flex-col gap-y-5 lg:space-y-[0.24rem]'>

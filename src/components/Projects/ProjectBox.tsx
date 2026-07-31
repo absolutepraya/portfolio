@@ -1,5 +1,5 @@
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import NoImage from '../../assets/projects/noimage.webp';
 import Azure from '../../assets/stacks/azure.svg';
@@ -244,7 +244,7 @@ const ProjectBox = ({
                       (chunkIndex + 1) * STACKS_PER_LINE,
                     )
                     .map((stack) => (
-                      <m.div
+                      <motion.div
                         key={stack}
                         className='relative hover:cursor-pointer'
                         onHoverStart={() => setHovered(stack)}
@@ -252,7 +252,7 @@ const ProjectBox = ({
                       >
                         <AnimatePresence>
                           {hovered === stack && (
-                            <m.div
+                            <motion.div
                               initial={{ opacity: 0, y: -3 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -3 }}
@@ -265,7 +265,7 @@ const ProjectBox = ({
                               <p className='text-nowrap'>
                                 {stackIcons[stack].name}
                               </p>
-                            </m.div>
+                            </motion.div>
                           )}
                         </AnimatePresence>
                         <img
@@ -278,7 +278,7 @@ const ProjectBox = ({
                           }
                           draggable='false'
                         />
-                      </m.div>
+                      </motion.div>
                     ))}
                 </div>
               ))}

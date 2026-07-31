@@ -1,11 +1,11 @@
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import DesktopView from '../../lib/DesktopView';
 
 const LineShort = () => {
   const desktopView = DesktopView();
 
   return (
-    <m.div
+    <motion.div
       className='flex flex-col items-center'
       initial={{ opacity: 0 }}
       whileInView={{
@@ -23,7 +23,7 @@ const LineShort = () => {
         <div className='h-[2.5px] w-5 bg-customlightgray' />
         <div className='h-[2.5px] w-5 bg-linear-to-l from-transparent to-customlightgray' />
       </div>
-    </m.div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 import achievementsData from '../../data/achievements_data.js';
@@ -15,12 +15,12 @@ const Achievements = () => {
 
   return (
     <section
-      className='relative flex-col space-y-12 content-canvas'
+      className='relative w-[90vw] flex-col space-y-12 xl:w-272'
       id='achievementssec'
     >
       <div id='achievements' className='absolute -top-36' />
-      <div className='flex flex-col items-center xl:flex-row xl:space-x-8'>
-        <m.h2
+      <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
+        <motion.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
@@ -36,15 +36,15 @@ const Achievements = () => {
           }}
         >
           Victory laps
-        </m.h2>
+        </motion.h2>
         <div
-          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 xl:mt-3 xl:w-auto xl:max-w-4000 xl:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
+          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
-          <m.div
-            className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall xl:-top-2 xl:h-4 xl:shadow-glowcustomblack'
+          <motion.div
+            className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
-              transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
+              transition: { duration: 1.2, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
               margin: desktopView
@@ -58,7 +58,7 @@ const Achievements = () => {
 
       <div className='relative w-fit rounded-3xl'>
         {tabletView && (
-          <m.div
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -72,7 +72,7 @@ const Achievements = () => {
               flickerChance={0.2}
               className={'absolute top-0 left-0 z-0! h-full w-full'}
             />
-          </m.div>
+          </motion.div>
         )}
         <div
           className='absolute top-0 left-0 z-0! h-full w-full'

@@ -110,7 +110,7 @@ const NavBar = () => {
       <div className='hidden flex-row items-center justify-end gap-2 lg:flex lg:w-1/3'>
         {desktopView && (
           <RichButton
-            className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-[color,transform,filter,opacity] hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'
+            className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-all hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'
             shadow={false}
             asChild
           >

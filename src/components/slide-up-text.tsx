@@ -1,10 +1,11 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: char-level animation keys need index */
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: generated component */
 
-import { type AnimationOptions, m } from 'framer-motion';
+import { type AnimationOptions, motion } from 'motion/react';
 import {
   forwardRef,
   useCallback,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useState,
@@ -40,21 +41,6 @@ interface WordObject {
   needsSpace: boolean;
 }
 
-const graphemeSegmenter =
-  typeof Intl !== 'undefined' && 'Segmenter' in Intl
-    ? new Intl.Segmenter('en', { granularity: 'grapheme' })
-    : null;
-
-const splitIntoCharacters = (text: string): string[] => {
-  if (graphemeSegmenter) {
-    return Array.from(
-      graphemeSegmenter.segment(text),
-      ({ segment }) => segment,
-    );
-  }
-  return Array.from(text);
-};
-
 const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
   (
     {
@@ -83,7 +69,15 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
   ) => {
     const text =
       typeof children === 'string' ? children : children?.toString() || '';
-    const [isAnimating, setIsAnimating] = useState(() => autoStart && !inView);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    const splitIntoCharacters = (text: string): string[] => {
+      if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+        const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
+        return Array.from(segmenter.segment(text), ({ segment }) => segment);
+      }
+      return Array.from(text);
+    };
 
     const elements = useMemo(() => {
       const words = text.split(' ');
@@ -94,7 +88,7 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
         }));
       }
       return split === 'words' ? text.split(' ') : text.split('\n');
-    }, [text, split]);
+    }, [text, split, splitIntoCharacters]);
 
     const getStaggerDelay = useCallback(
       (index: number) => {
@@ -131,6 +125,12 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
       reset: () => setIsAnimating(false),
     }));
 
+    useEffect(() => {
+      if (autoStart && !inView) {
+        startAnimation();
+      }
+    }, [autoStart, inView, startAnimation]);
+
     const variants = {
       hidden: { y: '100%' },
       visible: (i: number) => ({
@@ -144,7 +144,7 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
     };
 
     return (
-      <m.span
+      <motion.span
         className={cn(
           className,
           'flex flex-wrap whitespace-pre-wrap',
@@ -189,7 +189,7 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
                   )}
                   key={charIndex}
                 >
-                  <m.span
+                  <motion.span
                     custom={previousCharsCount + charIndex}
                     initial='hidden'
                     animate={isAnimating ? 'visible' : 'hidden'}
@@ -203,12 +203,12 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
                     className={cn('inline-block', animatedClass)}
                   >
                     {char}
-                  </m.span>
+                  </motion.span>
                 </span>
               ))}
               {wordObj.needsSpace && (
                 <span className='relative overflow-hidden'>
-                  <m.span
+                  <motion.span
                     custom={previousCharsCount + wordObj.characters.length}
                     initial='hidden'
                     animate={isAnimating ? 'visible' : 'hidden'}
@@ -216,13 +216,13 @@ const SlideUpText = forwardRef<SlideUpTextRef, SlideUpTextProps>(
                     className='inline-block'
                   >
                     {' '}
-                  </m.span>
+                  </motion.span>
                 </span>
               )}
             </span>
           );
         })}
-      </m.span>
+      </motion.span>
     );
   },
 );

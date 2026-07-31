@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   type ReactNode,
   useCallback,
@@ -92,7 +92,7 @@ export default function HoverBorderGradient({
       >
         {children}
       </div>
-      <m.div
+      <motion.div
         className={cn(
           'absolute inset-0 z-0 flex-none overflow-hidden rounded-[inherit]',
         )}

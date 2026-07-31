@@ -1,4 +1,9 @@
-import { AnimatePresence, m, useInView, type Variants } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  type Variants,
+} from 'framer-motion';
 import { type ReactNode, useRef } from 'react';
 
 interface BlurFadeProps {
@@ -54,7 +59,7 @@ export default function BlurFade({
   const combinedVariants = variant || defaultVariants;
   return (
     <AnimatePresence>
-      <m.div
+      <motion.div
         ref={ref}
         initial='hidden'
         animate={isInView ? 'visible' : 'hidden'}
@@ -69,7 +74,7 @@ export default function BlurFade({
         style={style}
       >
         {children}
-      </m.div>
+      </motion.div>
     </AnimatePresence>
   );
 }
