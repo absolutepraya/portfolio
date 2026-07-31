@@ -59,7 +59,25 @@ bun run build
 
 ## Production
 
-Deployed on Cloudflare Workers Static Assets. To serve the production build locally:
+Deployed on Cloudflare Workers Static Assets. `abhipraya-portfolio` serves the complete prerendered `dist/` output at `abhipraya.dev` and `www.abhipraya.dev`, with SPA fallback and no application Worker runtime.
+
+```bash
+bun run build
+bun run start
+bun run smoke:deployment -- https://example.workers.dev
+```
+
+The deployment workflow verifies the full quality suite and builds `dist/` once. Same-repository pull requests deploy that verified artifact to a public preview Worker and smoke-test it. A push to `core` deploys the same artifact through the `absolutepraya-portfolio` GitHub environment, then smoke-tests production. Closed pull requests remove their preview Worker.
+
+`core` is protected: changes require a pull request with the `Verify` check passing. Force pushes and branch deletion are blocked, but an approval is not required.
+
+`public/_headers` is the versioned Cloudflare cache and security policy: HTML and mutable root files revalidate, while fingerprinted `/assets/*` files cache immutably for one year. It also sets HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and `Permissions-Policy`.
+
+Cloudflare Web Analytics is already enabled through automatic setup. It collects portfolio visitors, page views, referrers, page-load data, and Core Web Vitals without a third-party tracker. Do not add another analytics beacon.
+
+For an exceptional stale root asset, use a targeted purge in Cloudflare's Caching settings. Routine publishes do not require a whole-cache purge.
+
+To serve the production build locally:
 
 ```bash
 bun run start
