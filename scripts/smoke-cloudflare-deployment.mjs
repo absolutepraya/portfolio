@@ -5,7 +5,7 @@ import { join, relative, sep } from 'node:path';
 const args = process.argv.slice(2);
 const target = args.find((value) => !value.startsWith('--'));
 const isProduction = args.includes('--production');
-const deploymentAttempts = 30;
+const deploymentAttempts = 60;
 
 if (!target) {
   throw new Error(
