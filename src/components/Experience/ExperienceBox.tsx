@@ -7,8 +7,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import ReactMarkdown from 'react-markdown';
 import DesktopView from '../../lib/DesktopView';
+import ExperienceMarkdown from './ExperienceMarkdown';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem — fixed height for all collapsed cards
 
@@ -238,7 +238,7 @@ const ExperienceBox = ({
             ref={descContentRef}
             className={`markdown-content text-sm transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
           >
-            <ReactMarkdown>{desc}</ReactMarkdown>
+            <ExperienceMarkdown>{desc}</ExperienceMarkdown>
           </div>
         </div>
         {needsCollapse && (

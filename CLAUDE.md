@@ -31,8 +31,8 @@ src/
 ├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
 ├── components/           # Page sections
 │   ├── NavBar/           # Floating nav with IntersectionObserver + signature
-│   ├── About/            # Hero + profile card + skills/stacks marquees
-│   ├── Experience/       # Work timeline with markdown descriptions
+│   ├── About/            # Hero + profile card (legacy marquee components retained)
+│   ├── Experience/       # Work timeline with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
 │   ├── Projects/         # Project cards with badge filtering
 │   ├── Footer/           # Copyright + Jakarta clock + shimmer pill
@@ -60,6 +60,7 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
+- Experience descriptions use explicit Markdown links for linked technologies and exact bold tokens for unlinked language icons.
 
 ## Design System
 
