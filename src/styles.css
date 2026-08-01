@@ -255,8 +255,8 @@
   --color-shadow-black-glow: -41px 30px 35px 23px rgba(245, 245, 247, 1);
   --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(245, 245, 247, 1);
   --color-marquee-gradient: #ffffff;
-  --color-markdown-link: #3643fc;
-  --color-markdown-link-hover: #2a35d4;
+  --color-markdown-link: #2196f3;
+  --color-markdown-link-hover: #1976d2;
   --color-button-bg: #e8e8f0;
   --color-inset-shadow: rgba(245, 245, 247, 1);
   --color-placeholder: #e0e0e8;
@@ -325,8 +325,8 @@
   --color-shadow-black-glow: -41px 30px 35px 23px rgba(13, 13, 13, 1);
   --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(13, 13, 13, 1);
   --color-marquee-gradient: #0d0d0d;
-  --color-markdown-link: #6a62ff;
-  --color-markdown-link-hover: #5b6eae;
+  --color-markdown-link: #2196f3;
+  --color-markdown-link-hover: #1976d2;
   --color-button-bg: #2c2c32;
   --color-inset-shadow: rgba(5, 4, 14, 1);
   --color-placeholder: #2d2d2d;
@@ -462,6 +462,34 @@ body {
 }
 
 .markdown-content a:hover {
+  color: var(--color-markdown-link-hover);
+}
+
+.technology-link {
+  color: var(--color-markdown-link);
+  position: relative;
+  transition: color 150ms ease-in-out;
+}
+
+.technology-link::after {
+  background-image: radial-gradient(
+    circle,
+    currentColor 1px,
+    transparent 1.1px
+  );
+  background-position: left center;
+  background-repeat: repeat-x;
+  background-size: 0.22em 2px;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.technology-link:hover {
   color: var(--color-markdown-link-hover);
 }
 

@@ -15,9 +15,7 @@ const TechnologyMention = ({
 }: TechnologyMentionProps) => {
   const content = (
     <>
-      <span className={href ? 'underline underline-offset-3' : undefined}>
-        {children}
-      </span>
+      <span>{children}</span>
       {logo && (
         <img
           src={logo}
@@ -38,7 +36,7 @@ const TechnologyMention = ({
 
   return (
     <a
-      className={`${className} text-inherit no-underline transition-opacity hover:opacity-70 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-blurple focus-visible:outline-offset-3`}
+      className={`${className} technology-link no-underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-blurple focus-visible:outline-offset-3`}
       href={href}
       target='_blank'
       rel='noreferrer'

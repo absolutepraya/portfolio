@@ -536,7 +536,7 @@ const AchievementsBox = ({
                                       href={achievement.articles?.[index].url}
                                       target='_blank'
                                       rel='noreferrer'
-                                      className='text-blue-600 hover:underline'
+                                      className='text-[#2196F3] hover:text-[#1976D2] hover:underline'
                                     >
                                       {achievement.articles?.[index].platform}
                                     </a>

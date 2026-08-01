@@ -14,7 +14,7 @@ interface Experience {
 }
 
 import CO80 from '../assets/orgs/80co.webp';
-import Aiccountant from '../assets/orgs/aiccountant.webp';
+import Aiccountant from '../assets/orgs/aiccountant-rounded.webp';
 import Avanade from '../assets/orgs/avanade.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
 import DDP0 from '../assets/orgs/ddp0.svg';
