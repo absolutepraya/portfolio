@@ -7,6 +7,7 @@ import AzureSql from '../assets/stacks/azure/sql.svg';
 import AzureSreAgent from '../assets/stacks/azure/sre-agent.png';
 import AzureVirtualMachine from '../assets/stacks/azure/virtual-machine.svg';
 import Azure from '../assets/stacks/azure.svg';
+import Brave from '../assets/stacks/brave.svg';
 import Cloudflare from '../assets/stacks/cloudflare.svg';
 import Dify from '../assets/stacks/dify.svg';
 import Firebase from '../assets/stacks/firebase.svg';
@@ -23,8 +24,11 @@ import RabbitMQ from '../assets/stacks/rabbitmq.svg';
 import React from '../assets/stacks/react.svg';
 import Redis from '../assets/stacks/redis.svg';
 import Remix from '../assets/stacks/remix.svg';
+import Sentry from '../assets/stacks/sentry.svg';
 import Tailwind from '../assets/stacks/tailwind.svg';
+import Telegram from '../assets/stacks/telegram.svg';
 import Vercel from '../assets/stacks/vercel.svg';
+import WhatsApp from '../assets/stacks/whatsapp.svg';
 
 interface TechnologyMention {
   href?: string;
@@ -80,14 +84,45 @@ const technologies: readonly TechnologyMention[] = [
     logo: AzureSreAgent,
   },
   {
+    href: 'https://developers.cloudflare.com/agents/',
+    labels: ['Cloudflare Agents SDK'],
+    logo: Cloudflare,
+  },
+  {
+    href: 'https://developers.cloudflare.com/queues/',
+    labels: ['Cloudflare Queues'],
+    logo: Cloudflare,
+  },
+  {
     href: 'https://www.cloudflare.com/',
     labels: ['Cloudflare'],
     logo: Cloudflare,
   },
   { href: 'https://ai-sdk.dev/', labels: ['Vercel AI SDK'], logo: Vercel },
   { href: 'https://gemini.google.com/', labels: ['Gemini'], logo: Gemini },
+  {
+    href: 'https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001',
+    labels: ['Gemini Embedding 001'],
+    logo: Gemini,
+  },
+  {
+    href: 'https://brave.com/search/api/',
+    labels: ['Brave Search API'],
+    logo: Brave,
+  },
+  {
+    href: 'https://core.telegram.org/bots/api',
+    labels: ['Telegram Bot API'],
+    logo: Telegram,
+  },
+  {
+    href: 'https://whatsappbusiness.com/developers/developer-hub/',
+    labels: ['Meta WhatsApp Business API'],
+    logo: WhatsApp,
+  },
   { href: 'https://openai.com/', labels: ['OpenAI'], logo: OpenAI },
   { href: 'https://posthog.com/', labels: ['PostHog'], logo: PostHog },
+  { href: 'https://sentry.io/', labels: ['Sentry'], logo: Sentry },
   { href: 'https://remix.run/', labels: ['Remix'], logo: Remix },
   {
     href: 'https://www.powersync.com/',
