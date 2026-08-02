@@ -227,7 +227,9 @@ const ProjectBox = ({
               </Badge>
             ))}
           </div>
-          <p className='text-justify text-[0.925rem]'>{subtitle}</p>
+          <p className='text-justify text-sm leading-relaxed md:text-base'>
+            {subtitle}
+          </p>
           <div className='flex grow' />
           <div className='mt-4! flex min-h-12 w-full flex-row items-center justify-between'>
             <div className='flex w-fit flex-col space-y-2 rounded-sm'>

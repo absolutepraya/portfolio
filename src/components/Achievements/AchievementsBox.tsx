@@ -430,7 +430,12 @@ const AchievementsBox = ({
                     </h2>
                     <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                       {achievement.organizer && achievement.organizerUrl && (
-                        <RichButton size='sm' color='default' asChild>
+                        <RichButton
+                          size='sm'
+                          color='default'
+                          className='h-7 px-2.5 md:h-8 md:px-3'
+                          asChild
+                        >
                           <a
                             className='text-xs md:text-sm'
                             href={achievement.organizerUrl}
@@ -451,11 +456,11 @@ const AchievementsBox = ({
                     </div>
                   </div>
                   {achievement.desc && (
-                    <div className='markdown-content text'>
+                    <div className='markdown-content text-justify text-sm leading-relaxed md:text-base'>
                       <ReactMarkdown>{achievement.desc}</ReactMarkdown>
                     </div>
                   )}
-                  <div className='flex flex-col space-y-1 font-jetbrainsmono'>
+                  <div className='flex flex-col space-y-1 font-jetbrainsmono text-sm md:text-base'>
                     {achievement.award && (
                       <div
                         className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}

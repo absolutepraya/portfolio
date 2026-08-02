@@ -68,6 +68,7 @@ src/
 - Dark: bg `#03020F`, cards `#0d0d0d`–`#131313`; Light: bg `#f5f5f5`, cards `#e8e8e8`–`#f0f0f0`
 - Accent: blurple `#3643FC` (active states, hovers, glows, gradients)
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
+- Description copy in Experience, Achievements, and Projects, plus Victory Laps metadata, uses `text-sm` on mobile and `text-base` from `md`, with justified, relaxed body copy where appropriate.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 

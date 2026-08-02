@@ -236,7 +236,7 @@ const ExperienceBox = ({
         >
           <div
             ref={descContentRef}
-            className={`markdown-content text-sm transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
+            className={`markdown-content text-sm leading-relaxed transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
           >
             <ExperienceMarkdown>{desc}</ExperienceMarkdown>
           </div>
