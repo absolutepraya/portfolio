@@ -220,9 +220,15 @@ const ProjectBox = ({
             </p>
           </div>
           <div className='flex flex-row flex-wrap gap-1.5'>
-            <Badge variant='default'>{projectKindLabels[kind]}</Badge>
+            <Badge variant='raised' className='h-7 rounded-md px-2 text-xs'>
+              {projectKindLabels[kind]}
+            </Badge>
             {tags.map((tag) => (
-              <Badge key={tag} variant='default'>
+              <Badge
+                key={tag}
+                variant='raised'
+                className='h-7 rounded-md px-2 text-xs'
+              >
                 {projectTagLabels[tag]}
               </Badge>
             ))}

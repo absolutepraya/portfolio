@@ -12,7 +12,6 @@ import projectsData, {
   projectKindLabels,
 } from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
-import { Badge } from '../badge';
 import { PopButton } from '../pop-button';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
@@ -123,26 +122,20 @@ const Projects = () => {
         <div className='flex w-full flex-wrap justify-center gap-3 lg:px-24'>
           {filterOptions.map((option) => {
             return (
-              <button
+              <PopButton
                 key={option}
                 type='button'
-                className='cursor-pointer transition-transform duration-75 hover:scale-105 active:scale-95'
+                size='sm'
+                color='default'
+                aria-pressed={selectedFilter === option}
+                className={`font-jetbrainsmono md:h-10 md:px-4 md:text-base ${selectedFilter === option ? 'border-neutral-700 bg-customblack text-customwhite hover:bg-customblack dark:border-neutral-700 dark:bg-customblack dark:text-customwhite dark:hover:bg-customblack' : ''}`}
                 onClick={() => {
                   setSelectedFilter(option);
                   setShowAll(false);
                 }}
               >
-                <Badge
-                  size='lg'
-                  className={
-                    selectedFilter === option
-                      ? 'bg-customwhite px-3 py-2 text-customblack text-sm md:px-4 md:py-2.5 md:text-base'
-                      : 'border border-customgray bg-customblack px-3 py-2 text-customwhite text-sm opacity-80 md:px-4 md:py-2.5 md:text-base'
-                  }
-                >
-                  {option === 'all' ? 'All' : projectKindLabels[option]}
-                </Badge>
-              </button>
+                {option === 'all' ? 'All' : projectKindLabels[option]}
+              </PopButton>
             );
           })}
         </div>

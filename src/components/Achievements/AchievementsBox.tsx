@@ -25,7 +25,6 @@ import CountUp from '../../blocks/TextAnimations/CountUp';
 import type { Achievement } from '../../data/achievements_data';
 import DesktopView from '../../lib/DesktopView';
 import { PopButton } from '../pop-button';
-import { RichButton } from '../rich-button';
 import BotBorder from './BotBorder';
 
 interface AchievementsBoxProps {
@@ -430,14 +429,13 @@ const AchievementsBox = ({
                     </h2>
                     <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
                       {achievement.organizer && achievement.organizerUrl && (
-                        <RichButton
+                        <PopButton
                           size='sm'
                           color='default'
-                          className='h-7 px-2.5 md:h-8 md:px-3'
+                          className='h-7 gap-3 px-2.5 font-jetbrainsmono text-xs md:h-8 md:px-3 md:text-sm'
                           asChild
                         >
                           <a
-                            className='text-xs md:text-sm'
                             href={achievement.organizerUrl}
                             target='_blank'
                             rel='noreferrer'
@@ -451,7 +449,7 @@ const AchievementsBox = ({
                               />
                             )}
                           </a>
-                        </RichButton>
+                        </PopButton>
                       )}
                     </div>
                   </div>
