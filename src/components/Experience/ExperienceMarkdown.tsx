@@ -22,44 +22,56 @@ const getTextContent = (children: ReactNode) => {
   return children.join('');
 };
 
-const components: Components = {
-  a: ({ children, href, node: _node, ...props }) => {
-    const technology = href ? getTechnologyByHref(href) : undefined;
+const createComponents = (): Components => {
+  const linkedTechnologyHrefs = new Set<string>();
 
-    if (technology) {
+  return {
+    a: ({ children, href, node: _node, ...props }) => {
+      const technology = href ? getTechnologyByHref(href) : undefined;
+
+      if (technology && href) {
+        if (linkedTechnologyHrefs.has(href)) {
+          return <>{children}</>;
+        }
+
+        linkedTechnologyHrefs.add(href);
+
+        return (
+          <TechnologyMention
+            href={href}
+            label={getTextContent(children)}
+            logo={technology.logo}
+          >
+            {children}
+          </TechnologyMention>
+        );
+      }
+
       return (
-        <TechnologyMention
-          href={href}
-          label={getTextContent(children)}
-          logo={technology.logo}
-        >
+        <a href={href} {...props}>
           {children}
-        </TechnologyMention>
+        </a>
       );
-    }
+    },
+    strong: ({ children, node: _node, ...props }) => {
+      const text = getTextContent(children);
+      const technology = text ? getPlainTechnologyByLabel(text) : undefined;
 
-    return (
-      <a href={href} {...props}>
-        {children}
-      </a>
-    );
-  },
-  strong: ({ children, node: _node, ...props }) => {
-    const text = getTextContent(children);
-    const technology = text ? getPlainTechnologyByLabel(text) : undefined;
+      if (technology) {
+        return (
+          <TechnologyMention logo={technology.logo}>
+            {children}
+          </TechnologyMention>
+        );
+      }
 
-    if (technology) {
-      return (
-        <TechnologyMention logo={technology.logo}>{children}</TechnologyMention>
-      );
-    }
-
-    return <strong {...props}>{children}</strong>;
-  },
+      return <strong {...props}>{children}</strong>;
+    },
+  };
 };
 
 const ExperienceMarkdown = ({ children }: ExperienceMarkdownProps) => (
-  <ReactMarkdown components={components}>{children}</ReactMarkdown>
+  <ReactMarkdown components={createComponents()}>{children}</ReactMarkdown>
 );
 
 export default ExperienceMarkdown;

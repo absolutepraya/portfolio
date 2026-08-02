@@ -60,7 +60,7 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
-- Experience descriptions use explicit Markdown links for linked technologies and exact bold tokens for unlinked language icons.
+- Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
 
 ## Design System
 

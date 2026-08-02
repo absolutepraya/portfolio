@@ -11,20 +11,31 @@ test('resolves linked technologies by their official homepage', () => {
   expect(cloudflare?.logo).toBeDefined();
 });
 
-test('keeps Microsoft Foundry and Fabric as text links until licensed logos arrive', () => {
+test('resolves Microsoft Foundry to its official Azure Architecture Icon', () => {
   expect(
     getTechnologyByHref('https://azure.microsoft.com/en-us/products/ai-foundry')
       ?.logo,
-  ).toBeUndefined();
+  ).toBeDefined();
+});
+
+test('resolves Microsoft Fabric and Azure service icons individually', () => {
   expect(
     getTechnologyByHref('https://www.microsoft.com/en-us/microsoft-fabric')
       ?.logo,
-  ).toBeUndefined();
+  ).toBeDefined();
+  expect(
+    getTechnologyByHref('https://azure.microsoft.com/en-us/products/functions')
+      ?.logo,
+  ).toBeDefined();
+  expect(
+    getTechnologyByHref('https://azure.microsoft.com/en-us/products/monitor')
+      ?.logo,
+  ).toBeDefined();
 });
 
-test('resolves languages as non-linked technology mentions', () => {
-  expect(getPlainTechnologyByLabel('Python')?.href).toBeUndefined();
-  expect(getPlainTechnologyByLabel('Go')?.href).toBeUndefined();
+test('leaves languages as ordinary text without linked or icon treatment', () => {
+  expect(getPlainTechnologyByLabel('Python')).toBeUndefined();
+  expect(getPlainTechnologyByLabel('Go')).toBeUndefined();
 });
 
 test('leaves unmapped labels and URLs alone', () => {

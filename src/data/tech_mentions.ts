@@ -1,3 +1,11 @@
+import AzureAIFoundry from '../assets/stacks/azure/ai-foundry.svg';
+import ApplicationInsights from '../assets/stacks/azure/application-insights.svg';
+import ContainerApps from '../assets/stacks/azure/container-apps.svg';
+import AzureFunctions from '../assets/stacks/azure/functions.svg';
+import AzureMonitor from '../assets/stacks/azure/monitor.svg';
+import AzureSql from '../assets/stacks/azure/sql.svg';
+import AzureSreAgent from '../assets/stacks/azure/sre-agent.png';
+import AzureVirtualMachine from '../assets/stacks/azure/virtual-machine.svg';
 import Azure from '../assets/stacks/azure.svg';
 import Cloudflare from '../assets/stacks/cloudflare.svg';
 import Dify from '../assets/stacks/dify.svg';
@@ -6,12 +14,11 @@ import Flask from '../assets/stacks/flask.svg';
 import Flutter from '../assets/stacks/flutter.svg';
 import GCP from '../assets/stacks/gcp.svg';
 import Gemini from '../assets/stacks/gemini.svg';
-import Go from '../assets/stacks/go.svg';
+import MicrosoftFabric from '../assets/stacks/microsoft-fabric.svg';
 import Next from '../assets/stacks/nextjs.svg';
 import OpenAI from '../assets/stacks/openai.svg';
 import PostHog from '../assets/stacks/posthog.svg';
 import PowerSync from '../assets/stacks/powersync.svg';
-import Python from '../assets/stacks/python.svg';
 import RabbitMQ from '../assets/stacks/rabbitmq.svg';
 import React from '../assets/stacks/react.svg';
 import Redis from '../assets/stacks/redis.svg';
@@ -30,35 +37,47 @@ const technologies: readonly TechnologyMention[] = [
   {
     href: 'https://azure.microsoft.com/en-us/products/ai-foundry',
     labels: ['Microsoft Foundry'],
+    logo: AzureAIFoundry,
   },
   {
     href: 'https://www.microsoft.com/en-us/microsoft-fabric',
     labels: ['Microsoft Fabric', 'Microsoft Fabric Power BI Copilot'],
+    logo: MicrosoftFabric,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/functions',
     labels: ['Azure Functions'],
-    logo: Azure,
+    logo: AzureFunctions,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/azure-sql',
     labels: ['Azure SQL'],
-    logo: Azure,
+    logo: AzureSql,
+  },
+  {
+    href: 'https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview',
+    labels: ['App Insights'],
+    logo: ApplicationInsights,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/virtual-machines',
     labels: ['Azure VM'],
-    logo: Azure,
+    logo: AzureVirtualMachine,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/container-apps',
     labels: ['Azure Container Apps'],
-    logo: Azure,
+    logo: ContainerApps,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/monitor',
     labels: ['Azure Monitor'],
-    logo: Azure,
+    logo: AzureMonitor,
+  },
+  {
+    href: 'https://azure.microsoft.com/en-us/products/sre-agent',
+    labels: ['Azure SRE Agent'],
+    logo: AzureSreAgent,
   },
   {
     href: 'https://www.cloudflare.com/',
@@ -115,8 +134,6 @@ const technologies: readonly TechnologyMention[] = [
   },
   { href: 'https://flutter.dev/', labels: ['Flutter'], logo: Flutter },
   { href: 'https://react.dev/', labels: ['React.js'], logo: React },
-  { labels: ['Go'], logo: Go },
-  { labels: ['Python'], logo: Python },
 ];
 
 export const getTechnologyByHref = (href: string) =>
