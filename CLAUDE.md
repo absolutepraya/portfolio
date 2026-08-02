@@ -70,7 +70,9 @@ src/
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
 - Description copy in Experience, Achievements, and Projects, plus Victory Laps metadata, uses `text-sm` on mobile and `text-base` from `md`, with justified, relaxed body copy where appropriate.
 - Project type filters use interactive `PopButton` controls, with the active filter black and inactive filters light. Project kind and tag labels use a compact raised treatment with a smaller radius, but remain static, non-interactive badges.
+- The Project filter icon and label share the same subdued foreground color.
 - Victory Laps organizer links use a compact `PopButton` treatment while remaining external anchors with their organizer logo.
+- Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 

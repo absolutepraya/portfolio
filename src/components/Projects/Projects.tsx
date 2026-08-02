@@ -114,7 +114,7 @@ const Projects = () => {
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold text-base text-customlightgray'>
+          <p className='font-semibold text-base text-foreground/40'>
             Filter by type:
           </p>
         </div>
