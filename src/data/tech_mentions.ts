@@ -18,6 +18,7 @@ import Gemini from '../assets/stacks/gemini.svg';
 import MicrosoftFabric from '../assets/stacks/microsoft-fabric.svg';
 import Next from '../assets/stacks/nextjs.svg';
 import OpenAI from '../assets/stacks/openai.svg';
+import OpenClaw from '../assets/stacks/openclaw.svg';
 import PostHog from '../assets/stacks/posthog.svg';
 import PowerSync from '../assets/stacks/powersync.svg';
 import RabbitMQ from '../assets/stacks/rabbitmq.svg';
@@ -94,6 +95,11 @@ const technologies: readonly TechnologyMention[] = [
     logo: Cloudflare,
   },
   {
+    href: 'https://docs.openclaw.ai/automation/cron-jobs',
+    labels: ['OpenClaw cron'],
+    logo: OpenClaw,
+  },
+  {
     href: 'https://www.cloudflare.com/',
     labels: ['Cloudflare'],
     logo: Cloudflare,
@@ -112,7 +118,7 @@ const technologies: readonly TechnologyMention[] = [
   },
   {
     href: 'https://core.telegram.org/bots/api',
-    labels: ['Telegram Bot API'],
+    labels: ['Telegram'],
     logo: Telegram,
   },
   {
