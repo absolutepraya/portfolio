@@ -60,6 +60,7 @@
     "knip": "^5.84.1",
     "puppeteer": "^24.37.4",
     "react-doctor": "0.8.3",
+    "react-grab": "0.1.50",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
     "vite": "^6.4.1"
