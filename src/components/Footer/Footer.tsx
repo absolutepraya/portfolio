@@ -27,7 +27,7 @@ const Copyright = () => {
       className='relative flex w-full flex-col overflow-hidden border-customgray border-t font-jetbrainsmono text-xs'
       style={{ backgroundColor: 'var(--color-footer-bg)' }}
     >
-      <div className='relative z-10 grid w-full grid-cols-1 justify-items-center gap-y-3 px-6 pt-4 pb-2 md:grid-cols-[1fr_auto_1fr] md:px-12 md:pt-5 md:pb-3'>
+      <div className='relative z-10 grid w-full grid-cols-1 justify-items-center gap-y-3 px-6 pt-4 pb-0 md:grid-cols-[1fr_auto_1fr] md:px-12 md:pt-5 md:pb-0'>
         <div className='order-2 flex items-center justify-center space-x-2 md:order-1 md:justify-start'>
           <p>Jakarta, ID</p>
           <IconClock size={desktopView ? 16 : 14} />
@@ -62,7 +62,7 @@ const Copyright = () => {
         </div>
       </div>
       <div
-        className='relative h-32 w-full md:h-52'
+        className='relative h-16 w-full md:h-[8.667rem]'
         aria-hidden='true'
         style={{ backgroundColor: 'var(--color-footer-bg)' }}
       >
@@ -78,7 +78,7 @@ const Copyright = () => {
           className='pointer-events-none absolute inset-0 z-10'
           style={{
             backgroundImage:
-              'linear-gradient(to bottom, var(--color-footer-bg) 0%, var(--color-footer-bg) 35%, transparent 100%)',
+              'linear-gradient(to bottom, var(--color-footer-bg) 0%, var(--color-footer-bg) 8%, transparent 100%)',
           }}
         />
       </div>

@@ -97,7 +97,7 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-5 text-foreground/40'>
+        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 whitespace-nowrap bg-page-bg px-5 text-foreground/40'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='22'
@@ -108,13 +108,13 @@ const Projects = () => {
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
-            className='lucide lucide-list-filter-icon lucide-list-filter'
+            className='lucide lucide-list-filter-icon lucide-list-filter shrink-0'
           >
             <path d='M3 6h18' />
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold text-base text-foreground/40'>
+          <p className='text-nowrap font-semibold text-base text-foreground/40'>
             Filter by type:
           </p>
         </div>
