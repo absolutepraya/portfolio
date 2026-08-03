@@ -64,6 +64,7 @@ src/
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
 - Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
 - Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
+- Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
 - Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
 - Wrapped Experience role titles use a compact `0.95` line-height on mobile and normal line-height from `md`.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.

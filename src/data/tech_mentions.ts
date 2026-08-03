@@ -18,11 +18,14 @@ import Flask from '../assets/stacks/flask.svg';
 import Flutter from '../assets/stacks/flutter.svg';
 import GCP from '../assets/stacks/gcp.svg';
 import Gemini from '../assets/stacks/gemini.svg';
+import MicrosoftCopilot from '../assets/stacks/microsoft-copilot.png';
 import MicrosoftFabric from '../assets/stacks/microsoft-fabric.svg';
+import MicrosoftTeams from '../assets/stacks/microsoft-teams.webp';
 import Next from '../assets/stacks/nextjs.svg';
 import OpenAI from '../assets/stacks/openai.svg';
 import OpenClaw from '../assets/stacks/openclaw.svg';
 import PostHog from '../assets/stacks/posthog.svg';
+import PowerBi from '../assets/stacks/power-bi.svg';
 import PowerSync from '../assets/stacks/powersync.svg';
 import RabbitMQ from '../assets/stacks/rabbitmq.svg';
 import React from '../assets/stacks/react.svg';
@@ -74,6 +77,21 @@ const technologies: readonly TechnologyMention[] = [
     href: 'https://www.microsoft.com/en-us/microsoft-fabric',
     labels: ['Microsoft Fabric', 'Microsoft Fabric Power BI Copilot'],
     logo: MicrosoftFabric,
+  },
+  {
+    href: 'https://www.microsoft.com/en-us/power-platform/products/power-bi',
+    labels: ['Power BI'],
+    logo: PowerBi,
+  },
+  {
+    href: 'https://www.microsoft.com/en-us/microsoft-365/copilot',
+    labels: ['Microsoft Copilot'],
+    logo: MicrosoftCopilot,
+  },
+  {
+    href: 'https://www.microsoft.com/en-us/microsoft-teams/group-chat-software',
+    labels: ['Microsoft Teams'],
+    logo: MicrosoftTeams,
   },
   {
     href: 'https://azure.microsoft.com/en-us/products/functions',
