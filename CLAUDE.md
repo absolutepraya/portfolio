@@ -63,6 +63,8 @@ src/
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
 - Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
+- Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
+- Experience company metadata is pulled `0.25rem` toward the role title on mobile. Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System
 

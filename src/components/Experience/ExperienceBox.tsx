@@ -178,11 +178,11 @@ const ExperienceBox = ({
       </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p
-          className={`relative font-instrument text-4xl md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+          className={`relative font-instrument text-[2rem] md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
         >
           {title}
         </p>
-        <div className='flex flex-col items-center justify-center md:flex-row md:space-x-2 md:text-lg'>
+        <div className='-mt-1 flex flex-col items-center justify-center md:mt-0 md:flex-row md:space-x-2 md:text-lg'>
           {desktopView ? (
             <a
               className={`relative w-45% font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
@@ -233,7 +233,7 @@ const ExperienceBox = ({
             />
           )}
           <p
-            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono transition-all duration-380 ease-in-out`}
+            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono text-sm transition-all duration-380 ease-in-out md:text-base`}
           >
             {date}
           </p>

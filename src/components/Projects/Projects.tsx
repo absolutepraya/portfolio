@@ -115,7 +115,7 @@ const Projects = () => {
           <p className='text-nowrap font-semibold'>Filter by type:</p>
         </div>
 
-        <div className='flex w-full flex-wrap justify-center gap-3 lg:px-24'>
+        <div className='flex w-full flex-wrap justify-center gap-2 lg:px-24'>
           {filterOptions.map((option) => {
             return (
               <PopButton
@@ -124,7 +124,7 @@ const Projects = () => {
                 size='sm'
                 color='default'
                 aria-pressed={selectedFilter === option}
-                className={`font-jetbrainsmono md:h-10 md:px-4 md:text-base ${selectedFilter === option ? 'border-neutral-700 bg-customblack text-customwhite hover:bg-customblack dark:border-neutral-700 dark:bg-customblack dark:text-customwhite dark:hover:bg-customblack' : ''}`}
+                className={`font-jetbrainsmono md:h-9 md:px-3 md:text-sm ${selectedFilter === option ? 'border-neutral-700 bg-customblack text-customwhite hover:bg-customblack dark:border-neutral-700 dark:bg-customblack dark:text-customwhite dark:hover:bg-customblack' : ''}`}
                 onClick={() => {
                   setSelectedFilter(option);
                   setShowAll(false);

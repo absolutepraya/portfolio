@@ -432,7 +432,7 @@ const AchievementsBox = ({
                         <PopButton
                           size='sm'
                           color='default'
-                          className='h-7 gap-3 px-2.5 font-jetbrainsmono text-xs md:h-8 md:px-3 md:text-sm'
+                          className='h-7 gap-3 rounded-md px-2.5 font-jetbrainsmono text-xs md:h-8 md:px-3 md:text-sm'
                           asChild
                         >
                           <a
