@@ -31,8 +31,8 @@ src/
 ├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
 ├── components/           # Page sections
 │   ├── NavBar/           # Floating nav with IntersectionObserver + signature
-│   ├── About/            # Hero + profile card + skills/stacks marquees
-│   ├── Experience/       # Work timeline with markdown descriptions
+│   ├── About/            # Hero + profile card (legacy marquee components retained)
+│   ├── Experience/       # Work timeline with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
 │   ├── Projects/         # Project cards with badge filtering
 │   ├── Footer/           # Copyright + Jakarta clock + shimmer pill
@@ -60,6 +60,18 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
+- Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
+- Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
+- Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
+- Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
+- `orgShort` controls the oversized background label on Experience cards, such as `SBG` for Sobat Bisnis Group.
+- Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
+- In the vertical Hero layout (`768px` to `1023px`), ProfileCard keeps its fixed 580px composition and uses a ResizeObserver-derived scale, capped at 1.2, to fill available width without triggering a separate tablet layout. The Hero title and subtitle step up to `text-5xl` and `text-lg`, with a compact `1rem` gap.
+- Experience retains its original `6rem` heading-line-to-content rhythm, including a `2rem` first-card spacer from `md`. Its heading underline spans the full section width in the vertical layout and sits `0.5rem` below the title from `md`.
+- Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
+- Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
+- Experience role titles use compact line-height, `0.95` on mobile and `1.05` from `md`, to avoid excess title-to-metadata space.
+- Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System
 
@@ -67,6 +79,11 @@ src/
 - Dark: bg `#03020F`, cards `#0d0d0d`–`#131313`; Light: bg `#f5f5f5`, cards `#e8e8e8`–`#f0f0f0`
 - Accent: blurple `#3643FC` (active states, hovers, glows, gradients)
 - Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
+- Description copy in Experience, Achievements, and Projects, plus Victory Laps metadata, uses `text-sm` on mobile and `text-base` from `md`, with justified, relaxed body copy where appropriate.
+- Project type filters use interactive `PopButton` controls, with the active filter black and inactive filters light. Project kind and tag labels use a compact raised treatment with a smaller radius, but remain static, non-interactive badges.
+- The Project filter icon and label share the same subdued foreground color and stay on one line.
+- Victory Laps organizer links use a compact `PopButton` treatment while remaining external anchors with their organizer logo.
+- Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its compact, shorter mobile Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 

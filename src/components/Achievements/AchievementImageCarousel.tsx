@@ -27,39 +27,36 @@ const AchievementImageCarousel = ({
   const [loadingImageIndex, setLoadingImageIndex] = useState<number | null>(
     null,
   );
-  const loadedImageIndexes = useRef(new Set<number>());
-  const loadingImageIndexes = useRef(new Set<number>());
+  const loadedIndexes = useRef(new Set<number>());
+  const loadingIndexes = useRef(new Set<number>());
 
   const loadImageAtIndex = useCallback(
-    async (imageIndex: number) => {
-      const imagePath = imagePaths[imageIndex];
+    async (index: number) => {
+      const path = imagePaths[index];
       if (
-        !imagePath ||
-        loadedImageIndexes.current.has(imageIndex) ||
-        loadingImageIndexes.current.has(imageIndex)
-      ) {
+        !path ||
+        loadedIndexes.current.has(index) ||
+        loadingIndexes.current.has(index)
+      )
         return;
-      }
-
-      loadingImageIndexes.current.add(imageIndex);
-      setLoadingImageIndex(imageIndex);
-
+      loadingIndexes.current.add(index);
+      setLoadingImageIndex(index);
       try {
-        const imageUrl = await loadAchievementImage(imagePath);
-        loadedImageIndexes.current.add(imageIndex);
-        setImageUrls((previous) =>
-          previous.map((url, index) => (index === imageIndex ? imageUrl : url)),
+        const imageUrl = await loadAchievementImage(path);
+        loadedIndexes.current.add(index);
+        setImageUrls((current) =>
+          current.map((url, imageIndex) =>
+            imageIndex === index ? imageUrl : url,
+          ),
         );
       } catch (error) {
         console.error(
-          `Error loading image ${imageIndex} for ${achievement.title}:`,
+          `Error loading image ${index} for ${achievement.title}:`,
           error,
         );
       } finally {
-        loadingImageIndexes.current.delete(imageIndex);
-        setLoadingImageIndex((current) =>
-          current === imageIndex ? null : current,
-        );
+        loadingIndexes.current.delete(index);
+        setLoadingImageIndex((current) => (current === index ? null : current));
       }
     },
     [achievement.title, imagePaths],
@@ -71,9 +68,9 @@ const AchievementImageCarousel = ({
 
   if (imagePaths.length === 0) return null;
 
-  const goToImage = (imageIndex: number) => {
-    setCurrentImageIndex(imageIndex);
-    void loadImageAtIndex(imageIndex);
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index);
+    void loadImageAtIndex(index);
   };
   const currentImageUrl = imageUrls[currentImageIndex];
 
@@ -94,7 +91,7 @@ const AchievementImageCarousel = ({
         <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
           <button
             type='button'
-            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-[color,opacity,transform] duration-100 ease-in-out hover:text-customwhite md:w-10'
+            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-colors duration-100 hover:text-customwhite md:w-10'
             onClick={() =>
               goToImage(
                 currentImageIndex === 0
@@ -111,9 +108,9 @@ const AchievementImageCarousel = ({
             />
           </button>
           <div className='flex flex-row items-center space-x-2'>
-            {imagePaths.map((imagePath, index) => (
+            {imagePaths.map((path, index) => (
               <button
-                key={imagePath}
+                key={path}
                 type='button'
                 aria-label={`Show image ${index + 1} of ${achievement.title}`}
                 aria-current={index === currentImageIndex ? 'true' : undefined}
@@ -124,7 +121,7 @@ const AchievementImageCarousel = ({
           </div>
           <button
             type='button'
-            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-[color,opacity,transform] duration-100 ease-in-out hover:text-customwhite md:w-10'
+            className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-colors duration-100 hover:text-customwhite md:w-10'
             onClick={() =>
               goToImage(
                 currentImageIndex === imagePaths.length - 1

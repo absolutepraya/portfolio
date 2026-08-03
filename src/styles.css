@@ -255,14 +255,15 @@
   --color-shadow-black-glow: -41px 30px 35px 23px rgba(245, 245, 247, 1);
   --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(245, 245, 247, 1);
   --color-marquee-gradient: #ffffff;
-  --color-markdown-link: #3643fc;
-  --color-markdown-link-hover: #2a35d4;
+  --color-markdown-link: #2196f3;
+  --color-markdown-link-hover: #1976d2;
   --color-button-bg: #e8e8f0;
   --color-inset-shadow: rgba(245, 245, 247, 1);
   --color-placeholder: #e0e0e8;
   --color-about-card-border: #e8e8ef;
   --color-button-active-bg: #ededf2;
   --color-nav-bg: rgba(200, 200, 210, 0.4);
+  --color-footer-bg: rgb(227, 227, 232);
   --color-nav-border: rgba(200, 200, 210, 0.4);
   --color-nav-button-bg: rgba(255, 255, 255, 0.7);
   --color-nav-button-active-bg: rgba(200, 200, 210, 0.6);
@@ -325,14 +326,15 @@
   --color-shadow-black-glow: -41px 30px 35px 23px rgba(13, 13, 13, 1);
   --color-shadow-black-glow-sm: -56px -1px 40px -8px rgba(13, 13, 13, 1);
   --color-marquee-gradient: #0d0d0d;
-  --color-markdown-link: #6a62ff;
-  --color-markdown-link-hover: #5b6eae;
+  --color-markdown-link: #2196f3;
+  --color-markdown-link-hover: #1976d2;
   --color-button-bg: #2c2c32;
   --color-inset-shadow: rgba(5, 4, 14, 1);
   --color-placeholder: #2d2d2d;
   --color-about-card-border: #131313;
   --color-button-active-bg: #0f0f0f;
   --color-nav-bg: rgba(63, 63, 63, 0.4);
+  --color-footer-bg: rgb(27, 26, 34);
   --color-nav-border: rgba(66, 66, 66, 0.4);
   --color-nav-button-bg: rgba(13, 13, 13, 0.7);
   --color-nav-button-active-bg: rgba(63, 63, 63, 0.85);
@@ -383,17 +385,6 @@ html.theme-transitioning * {
     box-shadow 0.3s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    scroll-behavior: auto;
-    transition-duration: 0.01ms;
-  }
-}
-
 @font-face {
   font-family: "Inter";
   src: url("/src/assets/fonts/Inter/Inter-VariableFont.woff2") format("woff2");
@@ -440,6 +431,17 @@ body {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}
+
 @keyframes spinner-blade {
   0% {
     opacity: 0.85;
@@ -453,6 +455,14 @@ body {
 }
 
 /* Markdown styles for ReactMarkdown */
+.markdown-content p:has(+ :is(ul, ol)) {
+  margin-bottom: 0;
+}
+
+.markdown-content p + :is(ul, ol) {
+  margin-top: 0.375rem;
+}
+
 .markdown-content ul {
   list-style-type: disc;
   padding-left: 1rem;
@@ -473,6 +483,34 @@ body {
 }
 
 .markdown-content a:hover {
+  color: var(--color-markdown-link-hover);
+}
+
+.technology-link {
+  color: var(--color-markdown-link);
+  position: relative;
+  transition: color 150ms ease-in-out;
+}
+
+.technology-link::after {
+  background-image: radial-gradient(
+    circle,
+    currentColor 1px,
+    transparent 1.1px
+  );
+  background-position: left center;
+  background-repeat: repeat-x;
+  background-size: 0.22em 2px;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.technology-link:hover {
   color: var(--color-markdown-link-hover);
 }
 

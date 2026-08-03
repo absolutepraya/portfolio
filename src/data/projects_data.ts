@@ -68,8 +68,6 @@ import NuSantap from '../assets/projects/nusantap.webp';
 import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import PintaruIcon from '../assets/projects/pintaru-icon.png';
-import Portfolio from '../assets/projects/portfolio.webp';
-import PortfolioIcon from '../assets/projects/portfolio-icon.svg';
 import Rumble from '../assets/projects/rumble.webp';
 import SIRAVideo from '../assets/projects/sira.mp4';
 
@@ -92,17 +90,17 @@ const projectsData: Project[] = [
     url: 'https://keep.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/karakeep',
   },
-  {
-    title: 'Hermes Agent',
-    kind: 'agent',
-    tags: ['ai', 'automation', 'personal-assistant'],
-    date: '05/2026',
-    subtitle:
-      'A 24/7 AI agent I built and operate on my VPS, available through Telegram, Discord, and WhatsApp. It combines a configurable LLM with custom skills and MCP integrations for charts, finance, weather, Google Workspace, and RSS, plus identity-aware permissions and risk-based approvals.',
-    stacks: ['python', 'claude', 'openai', 'docker'],
-    url: '',
-    github: '',
-  },
+  // {
+  //   title: 'Hermes Agent',
+  //   kind: 'agent',
+  //   tags: ['ai', 'automation', 'personal-assistant'],
+  //   date: '05/2026',
+  //   subtitle:
+  //     'A 24/7 AI agent I built and operate on my VPS, available through Telegram, Discord, and WhatsApp. It combines a configurable LLM with custom skills and MCP integrations for charts, finance, weather, Google Workspace, and RSS, plus identity-aware permissions and risk-based approvals.',
+  //   stacks: ['python', 'claude', 'openai', 'docker'],
+  //   url: '',
+  //   github: '',
+  // },
   {
     preview: SIRAVideo,
     isVideo: true,
@@ -279,46 +277,46 @@ const projectsData: Project[] = [
     url: 'https://rumble-landing.vercel.app/',
     github: '',
   },
-  {
-    preview: null,
-    title: 'SwiftCash',
-    kind: 'web',
-    tags: ['full-stack'],
-    date: '02/2025',
-    subtitle:
-      'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system. Built by maxxing out Next.js performance optimizations.',
-    stacks: [
-      'bun',
-      'nextjs',
-      'typescript',
-      'tailwindcss',
-      'supabase',
-      'postgresql',
-    ],
-    url: 'https://swiftcash.abhipraya.dev/',
-    github: 'https://github.com/absolutepraya/swiftcash',
-  },
-  {
-    preview: null,
-    title: 'NuSantap Dashboard',
-    kind: 'web',
-    tags: ['full-stack', 'ai'],
-    date: '11/2024',
-    subtitle:
-      'A dashboard for NuSantap, featuring analytics graphs, user meal QR scans, and a stunting prevalence map at both provincial and national levels, with the ability to generate and manage weekly meal plans.',
-    stacks: [
-      'nodejs',
-      'npm',
-      'nextjs',
-      'typescript',
-      'tailwindcss',
-      'firebase',
-      'azure',
-      'openai',
-    ],
-    url: 'https://nusantap-dashboard.vercel.app/',
-    github: '',
-  },
+  // {
+  //   preview: null,
+  //   title: 'SwiftCash',
+  //   kind: 'web',
+  //   tags: ['full-stack'],
+  //   date: '02/2025',
+  //   subtitle:
+  //     'A fast, secure, and reliable web-based digital banking app with dynamic account management and a powerful admin system. Built by maxxing out Next.js performance optimizations.',
+  //   stacks: [
+  //     'bun',
+  //     'nextjs',
+  //     'typescript',
+  //     'tailwindcss',
+  //     'supabase',
+  //     'postgresql',
+  //   ],
+  //   url: 'https://swiftcash.abhipraya.dev/',
+  //   github: 'https://github.com/absolutepraya/swiftcash',
+  // },
+  // {
+  //   preview: null,
+  //   title: 'NuSantap Dashboard',
+  //   kind: 'web',
+  //   tags: ['full-stack', 'ai'],
+  //   date: '11/2024',
+  //   subtitle:
+  //     'A dashboard for NuSantap, featuring analytics graphs, user meal QR scans, and a stunting prevalence map at both provincial and national levels, with the ability to generate and manage weekly meal plans.',
+  //   stacks: [
+  //     'nodejs',
+  //     'npm',
+  //     'nextjs',
+  //     'typescript',
+  //     'tailwindcss',
+  //     'firebase',
+  //     'azure',
+  //     'openai',
+  //   ],
+  //   url: 'https://nusantap-dashboard.vercel.app/',
+  //   github: '',
+  // },
   {
     preview: Ngandung,
     title: 'Ngandung: Ngemil di Bandung',
@@ -352,27 +350,27 @@ const projectsData: Project[] = [
     github: 'https://github.com/absolutepraya/desa-kedisan',
     favicon: DesaKedisanIcon,
   },
-  {
-    preview: Portfolio,
-    title: 'Personal Portfolio',
-    kind: 'web',
-    tags: ['frontend'],
-    date: '08/2024',
-    subtitle:
-      'Personal portfolio website, showcasing skills, experiences, achievements, and projects. Contents are to be updated regularly. Feel free to explore and reach out!',
-    stacks: [
-      'bun',
-      'npm',
-      'vitejs',
-      'reactjs',
-      'javascript',
-      'tailwindcss',
-      'cloudflare',
-    ],
-    url: 'https://abhipraya.dev/',
-    github: 'https://github.com/absolutepraya/portfolio',
-    favicon: PortfolioIcon,
-  },
+  // {
+  //   preview: Portfolio,
+  //   title: 'Personal Portfolio',
+  //   kind: 'web',
+  //   tags: ['frontend'],
+  //   date: '08/2024',
+  //   subtitle:
+  //     'Personal portfolio website, showcasing skills, experiences, achievements, and projects. Contents are to be updated regularly. Feel free to explore and reach out!',
+  //   stacks: [
+  //     'bun',
+  //     'npm',
+  //     'vitejs',
+  //     'reactjs',
+  //     'javascript',
+  //     'tailwindcss',
+  //     'cloudflare',
+  //   ],
+  //   url: 'https://abhipraya.dev/',
+  //   github: 'https://github.com/absolutepraya/portfolio',
+  //   favicon: PortfolioIcon,
+  // },
   {
     preview: MIPAOpenHouse,
     title: 'Open House FMIPA UI 2024',

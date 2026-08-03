@@ -6,6 +6,7 @@ interface Experience {
   orgShort?: string;
   url: string;
   logo: string;
+  logoRounded?: boolean;
   date: string;
   desc: string;
   alignCenter?: boolean;
@@ -13,57 +14,43 @@ interface Experience {
   previousDates?: string[];
 }
 
-import CO80 from '../assets/orgs/80co.webp';
-import Aiccountant from '../assets/orgs/aiccountant.webp';
-// import Avanade from '../assets/orgs/avanade.webp'; // TODO: re-enable with Avanade experience below
+import CO80 from '../assets/orgs/80co.svg';
+import Aiccountant from '../assets/orgs/aiccountant-rounded.webp';
+import Avanade from '../assets/orgs/avanade.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
-import DDP0 from '../assets/orgs/ddp0.svg';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
-import GDG from '../assets/orgs/gdg.svg';
 import RISTEK from '../assets/orgs/ristek.svg';
-import SB from '../assets/orgs/sb.webp';
-import TVI from '../assets/orgs/tvi.webp';
+import SobatBisnis from '../assets/orgs/sobatbisnis.jpeg';
 
 const experienceData: Experience[] = [
-  // TODO: Avanade experience temporarily hidden. Re-enable by removing this
-  // block comment wrapper and uncommenting the Avanade import above.
-  /*
   {
-    title: 'AI Solution Intern',
+    title: 'AI Engineer (GTM) Intern',
     org: 'Avanade',
     orgShort: 'Avanade',
     url: 'https://www.avanade.com/',
     logo: Avanade,
     date: '03/2026 - Present',
-    desc: '- Designed and pitched **Microsoft-stack AI** solution architectures to enterprise clients (**a leading Indonesian bank** and **a major pulp & paper group**) as the technical partner alongside Business Development, turning business problems into **Azure** designs, PoC proposals, business cases, and live demos across procurement and HR\n- For the pulp & paper group, architected a **Microsoft Fabric Power BI Copilot** PoC for natural-language procurement analytics (semantic model, hybrid on-prem data-tiering, RLS/CLS) and a **three-agent MRO sourcing system** on **Microsoft Foundry** automating SAP S/4HANA to Ariba, re-architected from low-code to **pro-code (Azure Functions)** after client discovery\n- Built an end-to-end **Azure SRE Agent** demo: a sample FSI loan API (**Node.js/Express**, **Azure SQL**, App Insights) with 7 fault-injection types, deployable to both **Azure VM** and **Azure Container Apps**, where the agent autonomously remediates safe incidents and proposes human-approved fixes on **Azure Monitor** alerts',
+    desc: "AI Engineer intern supporting Go-to-Market, translating enterprise discovery into Microsoft AI architectures, prototype demos, and business cases to deliver practical AI solutions.\n\n- Partnered with Business Development on 4 enterprise AI engagements, translating discovery into Microsoft solution architectures, business cases, and live demos for procurement, document operations, analytics, and financial-services workflows\n- Built a procurement and sourcing agent on [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) using [SAP Cloud SDK](https://sap.github.io/cloud-sdk/) to connect to the client's SAP ECC, S/4HANA, and Ariba APIs, with specialist review and an audit trail; validated 25 model calls on a curated 494-line procurement snapshot, producing 147 proposed RFQ groups in 147.6 seconds\n- Developed a Python evaluation harness for multi-format invoice extraction, benchmarking Microsoft Foundry, [Azure Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/), and [Azure Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) across 10 invoices and 3 repeated runs; recommended gpt-5.4 at 83% precision and recall, 8.9s median latency, and Rp792 per invoice\n- Architected an automated IT-maintenance solution leveraging [Azure SRE Agent](https://azure.microsoft.com/en-us/products/sre-agent) to apply OS, dependency, and in-server software updates against compliance checklists, verifying each maintenance step before completion\n- Architected a [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot) solution in [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) for division leads, connected to a [Power BI](https://www.microsoft.com/en-us/power-platform/products/power-bi) model to deliver daily priorities and announcements, answer KPI questions, and provide conversational reporting without opening a dashboard",
     alignCenter: false,
   },
-  */
   {
     title: 'Fullstack & AI Engineer',
     org: 'Aiccountant',
     url: 'https://aiccountant.id/',
     logo: Aiccountant,
     date: '01/2026 - 06/2026',
-    desc: '- Led the **WhatsApp Customer Service AI Agent** rewrite on **Cloudflare** (**Agents SDK**, **Durable Objects**, **Workflows**) and **Vercel AI SDK** with 10+ tools (knowledge-base search, transaction logging, spending analytics, support tickets, human escalation) and multimodal receipt reading from photo uploads; cut its **LLM cost** by roughly 50% with prompt-cache-optimized prompts, and re-architected messaging onto a **channel-agnostic** schema so Telegram and other channels plug in without a rewrite\n- Designed and shipped the **user categorization rules engine** that auto-categorizes new transactions by merchant name and short-circuits the LLM pipeline on hit. Pattern matching combines **word-boundary substring**, **trigram**, and **Gemini embedding** similarity to survive messy bank-descriptor variants, with system-suggested rules and atomic retroactive application across historical transactions, cutting manual rule-saves from 3-10s to under half a second\n- Built the **merchant normalization pipeline** that turns inconsistent bank-statement counterparties into canonical merchants. Async enrichment runs through **Brave Search** (Indonesia-geo) and **Gemini 2.5 Flash** structured output, gated by a Telegram admin review queue before promotion to a canonical merchants table backed by **OpenAI embeddings**, plus folding brand extraction into the email classifier to drop a per-email LLM call\n- Powered **45,000+ AI workflow runs at 96.2% success rate** across Gmail ingestion, email classification, and agent execution, and instrumented the rule-suggestion adoption funnel and time-to-prompt latency in **PostHog**\n- Designed the **marketing landing page** end-to-end (animated phone-simulation hero auto-cycling through product tabs, interactive product demos, testimonial carousel, multilingual ID/EN, **PostHog** CTA funnel tracking; built on **Remix** + **Framer Motion**) and the **budgeting feature** (Smart Budget AI-suggested monthly limits, Manual Budget income-based allocation, per-category traffic-light indicators), backed by **PowerSync** offline-first reactive queries computing budget vs. actual in real time',
+    desc: '- Built the WhatsApp Customer Service AI Agent via the [Meta WhatsApp Business API](https://whatsappbusiness.com/developers/developer-hub/) on the [Cloudflare Agents SDK](https://developers.cloudflare.com/agents/) with 10+ tools, multimodal receipt reading, and a channel-agnostic schema; cut LLM cost by roughly 50% through prompt-cache optimization\n- Built user-configured transaction recategorization rules using multi-stage similarity matching across substring, fuzzy, trigram, and [Gemini Embedding 001](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001); after 3 consistent corrections for the same merchant and category, [Cloudflare Queues](https://developers.cloudflare.com/queues/) triggers an LLM suggestion of a reusable brand pattern for dialog approval\n- Designed a merchant-enrichment workflow that identifies high-frequency transaction counterparties through a daily [OpenClaw cron](https://docs.openclaw.ai/automation/cron-jobs), then uses the [Brave Search API](https://brave.com/search/api/) and web scraping to create reviewable merchant context for downstream LLM categorization\n- Extended the agent architecture to [Telegram](https://core.telegram.org/bots/api), enabling proactive budget alerts and conversational financial assistance alongside WhatsApp\n- Built the [Remix](https://remix.run/) product landing page, made every user-facing workflow I developed available offline with [PowerSync](https://www.powersync.com/) local-first sync, and instrumented telemetry and error monitoring with [PostHog](https://posthog.com/) and [Sentry](https://sentry.io/) dashboards',
     alignCenter: false,
   },
   {
-    title: 'AI Engineer (R&D)',
-    org: 'Technet Vision Indonesia',
-    orgShort: 'Technet',
-    url: 'https://tekvision.co.id/',
-    logo: TVI,
-    date: '08/2025 - 12/2025',
-    desc: '- Automated insurance-claims processing for a client using **OCR** and **multimodal LLMs**, cutting manual review time and improving fraud-detection accuracy for faster, fairer claim approvals\n- Researched the feasibility of **photoplethysmogram (PPG)** signals for AI-based medical applications',
-  },
-  {
     title: 'Product Engineer Intern',
-    org: 'SobatBisnis',
+    org: 'Sobat Bisnis Group',
+    orgShort: 'SBG',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
-    logo: SB,
+    logo: SobatBisnis,
+    logoRounded: true,
     date: '06/2025 - 09/2025',
-    desc: '- Implemented zero-trust IAM across microservices (Auth, LMS, Shopee) by building endpoint-permission mapping and middleware in Go with JWT RS256 and Redis sessions, enforcing per-endpoint authorization and immediate revocation\n- Delivered the product Listing Management Service with tenant default inheritance/overrides, product CRUD + variants, CSV/XLSX import/export via RabbitMQ workers and S3/MinIO presigned uploads, enabling reliable bulk operations with job tracking\n- Built Shopee platform connection module with OAuth 2.0 flow, HMAC-signed token exchange, encrypted token storage, Redis caching, and background refresh, providing multi-shop support with status and health endpoints\n- Established versioned database migrations (Goose) and standardized API response envelopes across services, improving schema evolution safety and client integration consistency',
+    desc: '- Implemented zero-trust IAM across 3 microservices using Go, JWT RS256, and [Redis](https://redis.io/), enforcing endpoint-level authorization and immediate session revocation\n- Delivered the listing-management service with tenant defaults and overrides, product and variant CRUD, plus asynchronous CSV/XLSX bulk operations with job tracking\n- Built a [Shopee platform connection module](https://open.shopee.com/developer-guide/4) with OAuth 2.0, encrypted token storage, caching, and background refresh, enabling multi-shop connection health and status visibility\n- Established versioned database migrations and standardized API response contracts across services, improving schema-change safety and client integration consistency',
     alignCenter: false,
   },
   {
@@ -72,7 +59,7 @@ const experienceData: Experience[] = [
     url: 'https://compfest.id/',
     logo: COMPFEST,
     date: '03/2025 - 09/2025',
-    desc: '- Co-led COMPFEST CTF 2025: prelims 1900+ participants (~650 teams) → finals 45 participants (15 teams) → 15 winners (5 winning teams)\n- Led a 3-month architectural revamp and deployment of a CTF gameserver on Google Kubernetes Engine (GKE), secured with a VPN server, to support 45 finalists\n  - Backend: Flask, SocketIO, Redis, RabbitMQ, MySQL\n  - Frontend: Next.js, Tailwind CSS\n- Implemented a new gameserver service mode on Google Compute Engine (GCE) by provisioning 7 VMs per team (one challenge per VM) in the Attack & Defense environment, resulting in stronger isolation and predictable performance alongside the GKE mode\n- Mitigated a DDoS attack (~300k requests in 1 hour from rotating mobile proxies across regions) by tightening Nginx rate limiting and Cloudflare filtering, resulting in minimal platform downtime while keeping all challenge instances online\n- Managed servers handling 500+ RPS with <100ms average response time via strategic GCP resource allocation\n- During COMPFEST 2024, designed and maintained a CTF platform hosting 1600+ participants (~550 teams) with 99.9% uptime during a 9-hour event',
+    desc: '- Co-led COMPFEST CTF 2025 from 1,900+ preliminary participants across ~650 teams to 45 finalists and 15 winners\n- Re-architected and deployed [Ailurus](https://github.com/ctfcompfest/ailurus-frontend), a COMPFEST-inherited Attack and Defence CTF gameserver for the final round, on [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), supporting 45 finalists through a 3-month infrastructure revamp\n- Built a custom [CTFd](https://ctfd.io/) frontend interface plugin with SCSS for the preliminary competition, carrying the COMPFEST visual theme across ~650 teams\n- Provisioned 7 [Google Compute Engine (GCE)](https://cloud.google.com/products/compute) challenge VMs for each of 15 finalist teams, strengthening isolation and predictable performance in the Attack & Defense environment\n- Mitigated a DDoS event of ~300,000 requests in 1 hour with Nginx rate limits and [Cloudflare](https://developers.cloudflare.com/dns/) filtering, while sustaining 500+ RPS at under 100ms average response time\n- Previously maintained the 2024 CTF platform for 1,600+ participants at 99.9% uptime during its 9-hour event',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],
@@ -84,20 +71,8 @@ const experienceData: Experience[] = [
     url: 'https://80and.co/en/company/',
     logo: CO80,
     date: '01/2025 - 08/2025',
-    desc: '- Led frontend development for a salon booking platform, increasing mobile conversion by 15% with a new responsive UI\n- Optimized **GraphQL queries** by implementing caching, pagination, and lazy loading, resulting in a **50-60% reduction** in data retrieval time\n- Increased application stability by 40% by resolving 10+ critical bugs related to state collisions and race conditions\n- Developed a **BaaS AI voice-call** system with a Dify + OpenAI backend workflow and Python service to extract customer insights\n- Improved page load speed by 30% on a blockchain app by optimizing Next.js **SSR**',
+    desc: '- Led frontend development for a salon booking platform, increasing mobile conversion by 15% with a new responsive UI\n- Optimized GraphQL queries by implementing caching, pagination, and lazy loading, resulting in a 50-60% reduction in data retrieval time\n- Increased application stability by 40% by resolving 10+ critical bugs related to state collisions and race conditions\n- Developed a BaaS AI voice-call system with a [Dify](https://dify.ai/) + [OpenAI](https://openai.com/) backend workflow and Python service to extract customer insights\n- Improved page load speed by 30% on a blockchain app by optimizing [Next.js](https://nextjs.org/) SSR',
     alignCenter: false,
-  },
-  {
-    title: 'Software Engineering Team',
-    org: 'Google Dev Group (GDG) UI',
-    orgShort: 'GDGoC UI',
-    url: 'https://gdg.community.dev/gdg-on-campus-universitas-indonesia-jakarta-indonesia/',
-    logo: GDG,
-    date: '11/2024 - 06/2025',
-    desc: '- Teaching and mentoring across multiple batches about **Google Technologies**\n  - **Firebase**, **Flutter**, **Google Cloud**\n- Developing learning modules and live web apps\n  - Hands-on demos during Study Jam sessions\n  - Using **Google Technologies** and **React.js**\n- Co-organizing **GDGoC UI National Hackathon**\n  - Guidebook author and judge alongside industry professionals',
-    alignCenter: false,
-    previousTitles: ['Member'],
-    previousDates: ['09/2023 - 08/2024'],
   },
   {
     title: 'Lead of NetSOS SIG',
@@ -106,7 +81,7 @@ const experienceData: Experience[] = [
     url: 'https://www.ristek.cs.ui.ac.id/',
     logo: RISTEK,
     date: '03/2024 - Present',
-    desc: '- Selected from competitive batch for RISTEK membership and promoted to lead position\n- Deployed an **Attack/Defense CTF** platform for 20 internal members in GCP with GKE using Ansible automation:\n  - [https://github.com/ctfcompfest/ailurus-frontend](https://github.com/ctfcompfest/ailurus-frontend)\n  - [https://github.com/ctfcompfest/ailurus-backend](https://github.com/ctfcompfest/ailurus-backend)\n- Contributed as **Next.js Frontend Developer** to cross-SIG **RISTEK Capstone Project**, collaborating with multiple teams to deliver integrated solutions\n- Led open classes on **Web Penetration** and **Cryptography** topic for 50+ participants on cybersecurity fundamentals, mainly in the form of CTF (Capture The Flag)',
+    desc: '- Advanced from competitive RISTEK member selection to lead the NetSOS SIG\n- Deployed an Attack/Defense CTF platform for 20 internal members on [Google Cloud Platform (GCP)](https://cloud.google.com/) and [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), automated with Ansible\n- Contributed the [Next.js](https://nextjs.org/) frontend to a cross-SIG RISTEK capstone project, integrating work across multiple teams\n- Led Web Penetration and Cryptography open classes for 50+ participants, teaching cybersecurity fundamentals through Capture The Flag exercises',
     alignCenter: false,
     previousTitles: [
       'Member of NetSOS SIG',
@@ -129,16 +104,6 @@ const experienceData: Experience[] = [
     alignCenter: false,
     previousTitles: ['TA for Discrete Math 1'],
     previousDates: ['07/2024 - 12/2024'],
-  },
-  {
-    title: 'Python Mentor',
-    org: 'Dasar-Dasar Pemrograman 0',
-    orgShort: 'DDP-0',
-    url: 'https://www.linkedin.com/company/ddp-0/mycompany/',
-    logo: DDP0,
-    date: '06/2024 - 09/2024',
-    desc: "- Mentored 30 freshmen in foundational **Python** to prepare them for the university's introductory course\n- Developed a 4-week Python curriculum, leading to their score increase of up to 20% on the final project",
-    alignCenter: false,
   },
 ];
 

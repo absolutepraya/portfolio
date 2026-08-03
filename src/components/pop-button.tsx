@@ -36,7 +36,7 @@ interface PopButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
 }
 
-const colorClasses: Record<Color, string> = {
+const colors: Record<Color, string> = {
   default:
     'bg-white hover:bg-gray-50 border-neutral-300 text-neutral-900 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-neutral-600 dark:text-neutral-100',
   blue: 'bg-blue-500 hover:bg-blue-600 border-blue-800 text-white',
@@ -63,7 +63,7 @@ const colorClasses: Record<Color, string> = {
   emerald: 'bg-emerald-500 hover:bg-emerald-600 border-emerald-800 text-white',
 };
 
-const sizeClasses: Record<SizeVariant, string> = {
+const sizes: Record<SizeVariant, string> = {
   sm: 'h-9 px-2 py-1 text-sm',
   default: 'h-10 px-4 py-2',
   lg: 'h-14 px-8 py-3 text-lg',
@@ -84,17 +84,12 @@ const PopButton = React.forwardRef<HTMLButtonElement, PopButtonProps>(
     const Comp = asChild ? Slot : 'button';
 
     const baseClasses =
-      'font-pop inline-flex select-none transition-all items-center justify-center whitespace-nowrap rounded-xl ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground active:border-b-2 active:scale-y-95 border-x-2 border-t-2 border-b-4 origin-bottom';
+      'font-pop inline-flex select-none transition-[transform,border-width] items-center justify-center whitespace-nowrap rounded-xl ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground active:border-b-2 active:scale-y-95 border-x-2 border-t-2 border-b-4 origin-bottom';
 
     return (
       <Comp
         ref={ref}
-        className={cn(
-          baseClasses,
-          colorClasses[color],
-          sizeClasses[size],
-          className,
-        )}
+        className={cn(baseClasses, colors[color], sizes[size], className)}
         {...props}
       >
         {children}

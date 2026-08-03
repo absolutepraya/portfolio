@@ -4,20 +4,7 @@ interface IosSpinnerProps {
   [key: string]: unknown;
 }
 
-const blades = [
-  'blade-0',
-  'blade-1',
-  'blade-2',
-  'blade-3',
-  'blade-4',
-  'blade-5',
-  'blade-6',
-  'blade-7',
-  'blade-8',
-  'blade-9',
-  'blade-10',
-  'blade-11',
-];
+const BLADES = Array.from({ length: 12 }, (_, index) => `blade-${index}`);
 
 const IosSpinner = ({
   className = '',
@@ -42,7 +29,7 @@ const IosSpinner = ({
       className={`relative inline-block ${getSizeClasses()} ${className}`}
       {...props}
     >
-      {blades.map((blade) => (
+      {BLADES.map((blade) => (
         <div key={blade} className='spinner-blade' />
       ))}
     </div>

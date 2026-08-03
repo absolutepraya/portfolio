@@ -12,7 +12,6 @@ import projectsData, {
   projectKindLabels,
 } from '../../data/projects_data';
 import DesktopView from '../../lib/DesktopView';
-import { Badge } from '../badge';
 import { PopButton } from '../pop-button';
 import ProjectBox from './ProjectBox';
 import SepBorder from './SepBorder';
@@ -81,7 +80,7 @@ const Projects = () => {
           Stuff I&apos;ve built
         </m.h2>
         <div
-          className={`relative mt-1 w-full max-w-140 rounded-full md:mt-8 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
+          className={`relative mt-1 w-full max-w-none rounded-full md:mt-2 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
           <m.div
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
@@ -98,51 +97,41 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 bg-page-bg px-5 text-foreground/40'>
+        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-1.5 whitespace-nowrap bg-page-bg px-5 text-foreground/40 text-sm md:text-base'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='22'
-            height='22'
             viewBox='0 0 24 24'
             fill='none'
             stroke='currentColor'
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
-            className='lucide lucide-list-filter-icon lucide-list-filter'
+            className='lucide lucide-list-filter-icon lucide-list-filter h-[1em] w-[1em] shrink-0'
           >
             <path d='M3 6h18' />
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='font-semibold text-base text-customlightgray'>
-            Filter by type:
-          </p>
+          <p className='text-nowrap font-semibold'>Filter by type:</p>
         </div>
 
-        <div className='flex w-full flex-wrap justify-center gap-3 lg:px-24'>
+        <div className='flex w-full flex-wrap justify-center gap-2 lg:px-24'>
           {filterOptions.map((option) => {
             return (
-              <button
+              <PopButton
                 key={option}
                 type='button'
-                className='cursor-pointer transition-transform duration-75 hover:scale-105 active:scale-95'
+                size='sm'
+                color='default'
+                aria-pressed={selectedFilter === option}
+                className={`font-jetbrainsmono md:h-9 md:px-3 md:text-sm ${selectedFilter === option ? 'border-neutral-700 bg-customblack text-customwhite hover:bg-customblack dark:border-neutral-700 dark:bg-customblack dark:text-customwhite dark:hover:bg-customblack' : ''}`}
                 onClick={() => {
                   setSelectedFilter(option);
                   setShowAll(false);
                 }}
               >
-                <Badge
-                  size='lg'
-                  className={
-                    selectedFilter === option
-                      ? 'bg-customwhite px-3 py-2 text-customblack text-sm md:px-4 md:py-2.5 md:text-base'
-                      : 'border border-customgray bg-customblack px-3 py-2 text-customwhite text-sm opacity-80 md:px-4 md:py-2.5 md:text-base'
-                  }
-                >
-                  {option === 'all' ? 'All' : projectKindLabels[option]}
-                </Badge>
-              </button>
+                {option === 'all' ? 'All' : projectKindLabels[option]}
+              </PopButton>
             );
           })}
         </div>

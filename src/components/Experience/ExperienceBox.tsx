@@ -7,10 +7,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import ReactMarkdown from 'react-markdown';
 import DesktopView from '../../lib/DesktopView';
+import ExperienceMarkdown from './ExperienceMarkdown';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem — fixed height for all collapsed cards
+const DEFAULT_LOGO_UNDERLINE =
+  'linear-gradient(to right, rgb(29, 78, 216), rgb(37, 99, 235), rgb(29, 78, 216))';
 
 interface ExperienceBoxProps {
   title: string;
@@ -23,6 +25,7 @@ interface ExperienceBoxProps {
   previousTitles?: string[];
   previousDates?: string[];
   alignCenter?: boolean;
+  logoRounded?: boolean;
 }
 
 const ExperienceBox = ({
@@ -36,11 +39,12 @@ const ExperienceBox = ({
   previousTitles,
   previousDates,
   alignCenter,
+  logoRounded = false,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
-  const [logoColor, setLogoColor] = useState('rgb(37, 99, 235)');
+  const [logoUnderline, setLogoUnderline] = useState(DEFAULT_LOGO_UNDERLINE);
   const divRef = useRef<HTMLDivElement>(null);
   const descContentRef = useRef<HTMLDivElement>(null);
   const desktopView = DesktopView();
@@ -79,21 +83,40 @@ const ExperienceBox = ({
       if (!ctx) return;
       ctx.drawImage(img, 0, 0);
       const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-      let r = 0;
-      let g = 0;
-      let b = 0;
+      let red = 0;
+      let green = 0;
+      let blue = 0;
       let count = 0;
       for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] < 128) continue;
-        r += data[i];
-        g += data[i + 1];
-        b += data[i + 2];
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const max = Math.max(r, g, b) / 255;
+        const min = Math.min(r, g, b) / 255;
+        const lightness = (max + min) / 2;
+        const saturation =
+          max === min ? 0 : (max - min) / (1 - Math.abs(2 * lightness - 1));
+
+        // Ignore white and pastel logo pixels, which otherwise wash out the accent.
+        if (lightness > 0.72 || saturation < 0.12) continue;
+
+        red += r;
+        green += g;
+        blue += b;
         count++;
       }
       if (count > 0) {
-        setLogoColor(
-          `rgb(${Math.round(r / count)}, ${Math.round(g / count)}, ${Math.round(b / count)})`,
+        const r = Math.round(red / count);
+        const g = Math.round(green / count);
+        const b = Math.round(blue / count);
+        const darker = `rgb(${Math.round(r * 0.75)}, ${Math.round(g * 0.75)}, ${Math.round(b * 0.75)})`;
+        const color = `rgb(${r}, ${g}, ${b})`;
+        setLogoUnderline(
+          `linear-gradient(to right, ${darker}, ${color}, ${darker})`,
         );
+      } else {
+        setLogoUnderline(DEFAULT_LOGO_UNDERLINE);
       }
     };
     img.src = src;
@@ -157,7 +180,7 @@ const ExperienceBox = ({
       </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p
-          className={`relative font-instrument text-4xl md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+          className={`relative font-instrument text-[2rem] leading-[0.95] md:text-5xl md:leading-[1.05] ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
         >
           {title}
         </p>
@@ -174,7 +197,7 @@ const ExperienceBox = ({
               <div
                 className='absolute bottom-[0.11rem] h-[1.8px] w-full rounded-full'
                 style={{
-                  background: logoColor,
+                  background: logoUnderline,
                 }}
               />
             </a>
@@ -182,7 +205,7 @@ const ExperienceBox = ({
             <div className='flex flex-row items-center space-x-2'>
               <img
                 src={logo}
-                className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+                className={`h-5 w-5 ${logoRounded ? 'rounded-lg' : ''} ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
                 alt={org}
                 draggable='false'
               />
@@ -197,7 +220,7 @@ const ExperienceBox = ({
                 <div
                   className={`absolute bottom-[0.040rem] h-[1.8px] w-full rounded-full opacity-0 transition-all duration-480 ease-in ${isInView ? 'opacity-100' : ''}`}
                   style={{
-                    background: logoColor,
+                    background: logoUnderline,
                   }}
                 />
               </a>
@@ -206,13 +229,13 @@ const ExperienceBox = ({
           {desktopView && (
             <img
               src={logo}
-              className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+              className={`h-5 w-5 ${logoRounded ? 'rounded-lg' : ''} ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
               alt={org}
               draggable='false'
             />
           )}
           <p
-            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono transition-all duration-380 ease-in-out`}
+            className={`w-45% font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono text-sm transition-all duration-380 ease-in-out md:text-base`}
           >
             {date}
           </p>
@@ -236,9 +259,9 @@ const ExperienceBox = ({
         >
           <div
             ref={descContentRef}
-            className={`markdown-content text-sm transition-[opacity] duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
+            className={`markdown-content text-sm leading-relaxed transition-all duration-380 ease-in-out md:px-6 md:text-base ${isInView ? 'opacity-90' : 'opacity-70'} ${alignCenter ? 'text-center' : 'text-justify'}`}
           >
-            <ReactMarkdown>{desc}</ReactMarkdown>
+            <ExperienceMarkdown>{desc}</ExperienceMarkdown>
           </div>
         </div>
         {needsCollapse && (
@@ -270,26 +293,23 @@ const ExperienceBox = ({
             Previous/other roles:
           </p>
           <div className='flex w-full flex-col space-y-2'>
-            {previousTitles.map((title, index) => {
-              const date = previousDates[index];
-              return (
-                <div
-                  className='flex w-full flex-row items-center justify-between'
-                  key={`${title}-${date ?? ''}`}
+            {previousTitles.map((title, index) => (
+              <div
+                className='flex w-full flex-row items-center justify-between'
+                key={`${title}-${previousDates[index] ?? ''}`}
+              >
+                <p
+                  className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-380 ease-in-out md:text-2xl`}
                 >
-                  <p
-                    className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-380 ease-in-out md:text-2xl`}
-                  >
-                    {title}
-                  </p>
-                  <p
-                    className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} text-sm transition-all duration-380 ease-in-out md:text-base`}
-                  >
-                    {date}
-                  </p>
-                </div>
-              );
-            })}
+                  {title}
+                </p>
+                <p
+                  className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} font-jetbrainsmono text-sm transition-all duration-380 ease-in-out md:text-base`}
+                >
+                  {previousDates[index]}
+                </p>
+              </div>
+            ))}
           </div>
         </m.div>
       )}

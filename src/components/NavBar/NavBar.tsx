@@ -110,7 +110,7 @@ const NavBar = () => {
       <div className='hidden flex-row items-center justify-end gap-2 lg:flex lg:w-1/3'>
         {desktopView && (
           <RichButton
-            className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-[color,transform,filter,opacity] hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'
+            className='h-14 rounded-2xl pr-3 pl-4 text-text-secondary transition-[transform,color,filter,opacity] hover:scale-103 hover:text-customwhite hover:brightness-100 active:opacity-50 [&_svg]:size-5'
             shadow={false}
             asChild
           >
@@ -126,7 +126,7 @@ const NavBar = () => {
               <p className='text text-end font-semibold leading-4'>Reach out</p>
               <div className='relative mr-1! h-5 w-5 overflow-hidden'>
                 <div
-                  className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-all duration-200`}
+                  className={`absolute ${isHover ? '-translate-y-40' : 'translate-y-0'} transition-transform duration-200`}
                 >
                   <IconBrandLinkedin size={20} stroke={2} />
                 </div>

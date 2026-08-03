@@ -8,7 +8,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 import CountUp from '../../blocks/TextAnimations/CountUp';
 import type { Achievement } from '../../data/achievements_data';
-import { RichButton } from '../rich-button';
+import { PopButton } from '../pop-button';
 
 interface AchievementDetailsProps {
   achievement: Achievement;
@@ -22,35 +22,35 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
       </h2>
       <div className='mb-[7px] flex w-fit flex-row items-center space-x-2'>
         {achievement.organizer && achievement.organizerUrl && (
-          <RichButton size='sm' color='default' asChild>
-            <a
-              className='text-xs md:text-sm'
-              href={achievement.organizerUrl}
-              target='_blank'
-              rel='noreferrer'
-            >
+          <PopButton
+            size='sm'
+            color='default'
+            className='h-7 gap-3 rounded-md px-2.5 font-jetbrainsmono text-xs md:h-8 md:px-3 md:text-sm'
+            asChild
+          >
+            <a href={achievement.organizerUrl} target='_blank' rel='noreferrer'>
               by {achievement.organizer}
               {achievement.organizerLogo && (
                 <img
-                  src={`${achievement.organizerLogo}`}
+                  src={achievement.organizerLogo}
                   alt={achievement.organizer}
                   className='h-4 w-4 object-contain'
                 />
               )}
             </a>
-          </RichButton>
+          </PopButton>
         )}
       </div>
     </div>
     {achievement.desc && (
-      <div className='markdown-content text'>
+      <div className='markdown-content text-justify text-sm leading-relaxed md:text-base'>
         <ReactMarkdown>{achievement.desc}</ReactMarkdown>
       </div>
     )}
-    <div className='flex flex-col space-y-1 font-jetbrainsmono'>
+    <div className='flex flex-col space-y-1 font-jetbrainsmono text-sm md:text-base'>
       {achievement.award && (
         <div
-          className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 2 ? '' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}
+          className={`flex items-center space-x-2 ${achievement.awardInt === 1 ? 'text-yellow-500' : achievement.awardInt === 3 ? 'text-amber-700' : ''}`}
         >
           <IconAward size={20} stroke={1.5} />
           <p>{achievement.award}</p>
@@ -107,7 +107,7 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
                       href={article.url}
                       target='_blank'
                       rel='noreferrer'
-                      className='text-blue-600 hover:underline'
+                      className='text-[#2196F3] hover:text-[#1976D2] hover:underline'
                     >
                       {article.platform}
                     </a>
