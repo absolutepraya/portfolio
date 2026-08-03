@@ -61,6 +61,7 @@ src/
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
+- Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
 
 ## Design System
 

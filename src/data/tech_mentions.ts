@@ -1,6 +1,7 @@
 import AzureAIFoundry from '../assets/stacks/azure/ai-foundry.svg';
 import ApplicationInsights from '../assets/stacks/azure/application-insights.svg';
 import ContainerApps from '../assets/stacks/azure/container-apps.svg';
+import DocumentIntelligence from '../assets/stacks/azure/document-intelligence.svg';
 import AzureFunctions from '../assets/stacks/azure/functions.svg';
 import AzureMonitor from '../assets/stacks/azure/monitor.svg';
 import AzureSql from '../assets/stacks/azure/sql.svg';
@@ -25,6 +26,7 @@ import RabbitMQ from '../assets/stacks/rabbitmq.svg';
 import React from '../assets/stacks/react.svg';
 import Redis from '../assets/stacks/redis.svg';
 import Remix from '../assets/stacks/remix.svg';
+import SAP from '../assets/stacks/sap.svg';
 import Sentry from '../assets/stacks/sentry.svg';
 import Tailwind from '../assets/stacks/tailwind.svg';
 import Telegram from '../assets/stacks/telegram.svg';
@@ -43,6 +45,16 @@ const technologies: readonly TechnologyMention[] = [
     href: 'https://azure.microsoft.com/en-us/products/ai-foundry',
     labels: ['Microsoft Foundry'],
     logo: AzureAIFoundry,
+  },
+  {
+    href: 'https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/',
+    labels: ['Azure Content Understanding'],
+    logo: Azure,
+  },
+  {
+    href: 'https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0',
+    labels: ['Azure Document Intelligence'],
+    logo: DocumentIntelligence,
   },
   {
     href: 'https://www.microsoft.com/en-us/microsoft-fabric',
@@ -83,6 +95,11 @@ const technologies: readonly TechnologyMention[] = [
     href: 'https://azure.microsoft.com/en-us/products/sre-agent',
     labels: ['Azure SRE Agent'],
     logo: AzureSreAgent,
+  },
+  {
+    href: 'https://sap.github.io/cloud-sdk/',
+    labels: ['SAP Cloud SDK'],
+    logo: SAP,
   },
   {
     href: 'https://developers.cloudflare.com/agents/',
