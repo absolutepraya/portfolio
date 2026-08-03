@@ -45,6 +45,7 @@ const experienceData: Experience[] = [
   {
     title: 'Product Engineer Intern',
     org: 'Sobat Bisnis Group',
+    orgShort: 'SBG',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SobatBisnis,
     logoRounded: true,
