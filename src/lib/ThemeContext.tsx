@@ -36,16 +36,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const toggleTheme = useCallback(() => {
     document.documentElement.classList.add('theme-transitioning');
-    setTheme((prev) => {
-      const next = prev === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next);
-      applyTheme(next);
-      return next;
-    });
+    const next = theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+    setTheme(next);
     setTimeout(() => {
       document.documentElement.classList.remove('theme-transitioning');
     }, 300);
-  }, [applyTheme]);
+  }, [applyTheme, theme]);
 
   useEffect(() => {
     applyTheme(theme);

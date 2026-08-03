@@ -124,6 +124,7 @@ const AchievementsBox = ({
   );
 
   useEffect(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
     const initializeImageStates = async () => {
       const imagesData: Record<string, (string | null)[]> = {};
       const loadingStates: Record<string, boolean[]> = {};
@@ -185,14 +186,19 @@ const AchievementsBox = ({
 
       for (const achievement of achievementData) {
         if (achievement.imagesPath && imagesData[achievement.title]) {
-          setTimeout(() => {
-            loadFirstImage(achievement.title);
-          }, 0);
+          timers.push(
+            setTimeout(() => {
+              loadFirstImage(achievement.title);
+            }, 0),
+          );
         }
       }
     };
 
-    initializeImageStates();
+    void initializeImageStates();
+    return () => {
+      timers.forEach(clearTimeout);
+    };
   }, [achievementData, loadFirstImage]);
 
   const loadImageAtIndex = async (
