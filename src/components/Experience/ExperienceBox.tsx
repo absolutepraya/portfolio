@@ -180,7 +180,7 @@ const ExperienceBox = ({
       </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p
-          className={`relative font-instrument text-[2rem] leading-[0.95] md:text-5xl md:leading-normal ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+          className={`relative font-instrument text-[2rem] leading-[0.95] md:text-5xl md:leading-[1.05] ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
         >
           {title}
         </p>

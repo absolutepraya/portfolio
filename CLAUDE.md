@@ -66,7 +66,7 @@ src/
 - Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
 - Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
 - Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
-- Wrapped Experience role titles use a compact `0.95` line-height on mobile and normal line-height from `md`.
+- Experience role titles use compact line-height, `0.95` on mobile and `1.05` from `md`, to avoid excess title-to-metadata space.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System
