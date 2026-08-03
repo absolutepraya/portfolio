@@ -2,7 +2,7 @@ import {
   IconArrowNarrowDownDashed,
   IconArrowNarrowUpDashed,
 } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import DesktopView from '../../lib/DesktopView';
@@ -44,7 +44,7 @@ const Experience = () => {
     >
       <div id='experience' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
-        <motion.h2
+        <m.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
@@ -60,15 +60,15 @@ const Experience = () => {
           }}
         >
           The road so far
-        </motion.h2>
+        </m.h2>
         <div
           className={`relative mt-1 w-full max-w-none rounded-full md:mt-2 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
-          <motion.div
+          <m.div
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
-              transition: { duration: 1.2, ease: 'circInOut', delay: 0.3 },
+              transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
               margin: desktopView
@@ -111,7 +111,7 @@ const Experience = () => {
           <>
             {!showAll && <Line />}
             {showAll && <LineShort />}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -129,7 +129,7 @@ const Experience = () => {
                   <IconArrowNarrowDownDashed size={20} stroke={2} />
                 )}
               </PopButton>
-            </motion.div>
+            </m.div>
           </>
         )}
       </div>

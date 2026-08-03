@@ -17,6 +17,30 @@ import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 
+const links = [
+  {
+    icon: IconMail,
+    text: 'daffa@abhipraya.dev',
+    href: 'mailto:daffa@abhipraya.dev',
+    copyable: true,
+  },
+  {
+    icon: IconBrandLinkedin,
+    text: 'daffaabhipraya',
+    href: 'https://linkedin.com/in/daffaabhipraya',
+  },
+  {
+    icon: IconBrandGithub,
+    text: 'absolutepraya',
+    href: 'https://github.com/absolutepraya',
+  },
+  {
+    icon: IconNotebook,
+    text: 'blog.abhipraya.dev',
+    href: 'https://blog.abhipraya.dev',
+  },
+];
+
 const ProfileCard = () => {
   const CARD_WIDTH_PX = 580;
   const _CARD_HEIGHT_PX = 387;
@@ -99,30 +123,6 @@ const ProfileCard = () => {
   const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
   const tabletTransform =
     tabletScale === 1 ? undefined : `scale(${tabletScale})`;
-
-  const links = [
-    {
-      icon: IconMail,
-      text: 'daffa@abhipraya.dev',
-      href: 'mailto:daffa@abhipraya.dev',
-      copyable: true,
-    },
-    {
-      icon: IconBrandLinkedin,
-      text: 'daffaabhipraya',
-      href: 'https://linkedin.com/in/daffaabhipraya',
-    },
-    {
-      icon: IconBrandGithub,
-      text: 'absolutepraya',
-      href: 'https://github.com/absolutepraya',
-    },
-    {
-      icon: IconNotebook,
-      text: 'blog.abhipraya.dev',
-      href: 'https://blog.abhipraya.dev',
-    },
-  ];
 
   return (
     <BlurFade

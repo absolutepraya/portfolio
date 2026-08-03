@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState } from 'react';
 import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
 import achievementsData from '../../data/achievements_data.js';
@@ -20,7 +20,7 @@ const Achievements = () => {
     >
       <div id='achievements' className='absolute -top-36' />
       <div className='flex flex-col items-center lg:flex-row lg:space-x-8'>
-        <motion.h2
+        <m.h2
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
           initial={{ opacity: 0, y: '40px' }}
           whileInView={{
@@ -36,15 +36,15 @@ const Achievements = () => {
           }}
         >
           Victory laps
-        </motion.h2>
+        </m.h2>
         <div
           className={`relative mt-1 w-full max-w-none rounded-full md:mt-2 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
         >
-          <motion.div
+          <m.div
             className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
             whileInView={{
               x: '1000px',
-              transition: { duration: 1.2, ease: 'circInOut', delay: 0.3 },
+              transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
             }}
             viewport={{
               margin: desktopView
@@ -58,7 +58,7 @@ const Achievements = () => {
 
       <div className='relative w-fit rounded-3xl'>
         {tabletView && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -72,7 +72,7 @@ const Achievements = () => {
               flickerChance={0.2}
               className={'absolute top-0 left-0 z-0! h-full w-full'}
             />
-          </motion.div>
+          </m.div>
         )}
         <div
           className='absolute top-0 left-0 z-0! h-full w-full'

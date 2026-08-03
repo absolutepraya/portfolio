@@ -4,6 +4,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -61,12 +62,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return () => mq.removeEventListener('change', handler);
   }, [applyTheme]);
 
+  const value = useMemo(
+    () => ({ theme, toggleTheme, isDark: theme === 'dark' }),
+    [theme, toggleTheme],
+  );
+
   return (
-    <ThemeContext.Provider
-      value={{ theme, toggleTheme, isDark: theme === 'dark' }}
-    >
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 }
 

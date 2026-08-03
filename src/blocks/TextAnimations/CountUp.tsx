@@ -4,7 +4,12 @@
 	02-02-2025
 */
 
-import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import {
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
+  useSpring,
+} from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 interface CountUpProps {
@@ -16,8 +21,6 @@ interface CountUpProps {
   className?: string;
   startWhen?: boolean;
   separator?: string;
-  onStart?: () => void;
-  onEnd?: () => void;
 }
 
 export default function CountUp({
@@ -29,8 +32,6 @@ export default function CountUp({
   className = '',
   startWhen = true,
   separator = '',
-  onStart,
-  onEnd,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === 'down' ? to : from);
@@ -56,63 +57,30 @@ export default function CountUp({
   // Start the animation when in view and startWhen is true
   useEffect(() => {
     if (isInView && startWhen) {
-      if (typeof onStart === 'function') {
-        onStart();
-      }
-
       const timeoutId = setTimeout(() => {
         motionValue.set(direction === 'down' ? from : to);
       }, delay * 1000);
 
-      const durationTimeoutId = setTimeout(
-        () => {
-          if (typeof onEnd === 'function') {
-            onEnd();
-          }
-        },
-        delay * 1000 + duration * 1000,
-      );
-
       return () => {
         clearTimeout(timeoutId);
-        clearTimeout(durationTimeoutId);
       };
     }
-  }, [
-    isInView,
-    startWhen,
-    motionValue,
-    direction,
-    from,
-    to,
-    delay,
-    onStart,
-    onEnd,
-    duration,
-  ]);
+  }, [isInView, startWhen, motionValue, direction, from, to, delay]);
 
-  // Update text content with formatted number on spring value change
-  useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest) => {
-      if (ref.current) {
-        const options = {
-          useGrouping: !!separator,
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        };
-
-        const formattedNumber = Intl.NumberFormat('en-US', options).format(
-          Number.parseFloat(latest.toFixed(0)),
-        );
-
-        ref.current.textContent = separator
-          ? formattedNumber.replace(/,/g, separator)
-          : formattedNumber;
-      }
-    });
-
-    return unsubscribe;
-  }, [springValue, separator]);
+  useMotionValueEvent(springValue, 'change', (latest) => {
+    if (!ref.current) return;
+    const options = {
+      useGrouping: !!separator,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    };
+    const formattedNumber = Intl.NumberFormat('en-US', options).format(
+      Number.parseFloat(latest.toFixed(0)),
+    );
+    ref.current.textContent = separator
+      ? formattedNumber.replace(/,/g, separator)
+      : formattedNumber;
+  });
 
   return <span className={`${className}`} ref={ref} />;
 }
