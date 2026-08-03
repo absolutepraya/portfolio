@@ -11,6 +11,8 @@ import DesktopView from '../../lib/DesktopView';
 import ExperienceMarkdown from './ExperienceMarkdown';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem — fixed height for all collapsed cards
+const DEFAULT_LOGO_UNDERLINE =
+  'linear-gradient(to right, rgb(29, 78, 216), rgb(37, 99, 235), rgb(29, 78, 216))';
 
 interface ExperienceBoxProps {
   title: string;
@@ -40,7 +42,7 @@ const ExperienceBox = ({
   const [isInView, setIsInView] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
-  const [logoColor, setLogoColor] = useState('rgb(37, 99, 235)');
+  const [logoUnderline, setLogoUnderline] = useState(DEFAULT_LOGO_UNDERLINE);
   const divRef = useRef<HTMLDivElement>(null);
   const descContentRef = useRef<HTMLDivElement>(null);
   const desktopView = DesktopView();
@@ -79,21 +81,40 @@ const ExperienceBox = ({
       if (!ctx) return;
       ctx.drawImage(img, 0, 0);
       const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-      let r = 0;
-      let g = 0;
-      let b = 0;
+      let red = 0;
+      let green = 0;
+      let blue = 0;
       let count = 0;
       for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] < 128) continue;
-        r += data[i];
-        g += data[i + 1];
-        b += data[i + 2];
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const max = Math.max(r, g, b) / 255;
+        const min = Math.min(r, g, b) / 255;
+        const lightness = (max + min) / 2;
+        const saturation =
+          max === min ? 0 : (max - min) / (1 - Math.abs(2 * lightness - 1));
+
+        // Ignore white and pastel logo pixels, which otherwise wash out the accent.
+        if (lightness > 0.72 || saturation < 0.12) continue;
+
+        red += r;
+        green += g;
+        blue += b;
         count++;
       }
       if (count > 0) {
-        setLogoColor(
-          `rgb(${Math.round(r / count)}, ${Math.round(g / count)}, ${Math.round(b / count)})`,
+        const r = Math.round(red / count);
+        const g = Math.round(green / count);
+        const b = Math.round(blue / count);
+        const darker = `rgb(${Math.round(r * 0.75)}, ${Math.round(g * 0.75)}, ${Math.round(b * 0.75)})`;
+        const color = `rgb(${r}, ${g}, ${b})`;
+        setLogoUnderline(
+          `linear-gradient(to right, ${darker}, ${color}, ${darker})`,
         );
+      } else {
+        setLogoUnderline(DEFAULT_LOGO_UNDERLINE);
       }
     };
     img.src = src;
@@ -174,7 +195,7 @@ const ExperienceBox = ({
               <div
                 className='absolute bottom-[0.11rem] h-[1.8px] w-full rounded-full'
                 style={{
-                  background: logoColor,
+                  background: logoUnderline,
                 }}
               />
             </a>
@@ -197,7 +218,7 @@ const ExperienceBox = ({
                 <div
                   className={`absolute bottom-[0.040rem] h-[1.8px] w-full rounded-full opacity-0 transition-all duration-480 ease-in ${isInView ? 'opacity-100' : ''}`}
                   style={{
-                    background: logoColor,
+                    background: logoUnderline,
                   }}
                 />
               </a>

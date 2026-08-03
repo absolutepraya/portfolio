@@ -97,26 +97,22 @@ const Projects = () => {
       </div>
 
       <div className='relative flex w-full flex-col items-center py-6'>
-        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-2 whitespace-nowrap bg-page-bg px-5 text-foreground/40'>
+        <div className='absolute -top-6 right-1/2 flex translate-x-1/2 flex-row items-center justify-center space-x-1.5 whitespace-nowrap bg-page-bg px-5 text-foreground/40 text-sm md:text-base'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='22'
-            height='22'
             viewBox='0 0 24 24'
             fill='none'
             stroke='currentColor'
             strokeWidth='2'
             strokeLinecap='round'
             strokeLinejoin='round'
-            className='lucide lucide-list-filter-icon lucide-list-filter shrink-0'
+            className='lucide lucide-list-filter-icon lucide-list-filter h-[1em] w-[1em] shrink-0'
           >
             <path d='M3 6h18' />
             <path d='M7 12h10' />
             <path d='M10 18h4' />
           </svg>
-          <p className='text-nowrap font-semibold text-base text-foreground/40'>
-            Filter by type:
-          </p>
+          <p className='text-nowrap font-semibold'>Filter by type:</p>
         </div>
 
         <div className='flex w-full flex-wrap justify-center gap-3 lg:px-24'>
