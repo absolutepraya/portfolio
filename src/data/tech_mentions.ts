@@ -1,3 +1,4 @@
+import Ailurus from '../assets/stacks/ailurus.png';
 import AzureAIFoundry from '../assets/stacks/azure/ai-foundry.svg';
 import ApplicationInsights from '../assets/stacks/azure/application-insights.svg';
 import ContainerApps from '../assets/stacks/azure/container-apps.svg';
@@ -10,6 +11,7 @@ import AzureVirtualMachine from '../assets/stacks/azure/virtual-machine.svg';
 import Azure from '../assets/stacks/azure.svg';
 import Brave from '../assets/stacks/brave.svg';
 import Cloudflare from '../assets/stacks/cloudflare.svg';
+import CTFd from '../assets/stacks/ctfd.png';
 import Dify from '../assets/stacks/dify.svg';
 import Firebase from '../assets/stacks/firebase.svg';
 import Flask from '../assets/stacks/flask.svg';
@@ -28,6 +30,7 @@ import Redis from '../assets/stacks/redis.svg';
 import Remix from '../assets/stacks/remix.svg';
 import SAP from '../assets/stacks/sap.svg';
 import Sentry from '../assets/stacks/sentry.svg';
+import Shopee from '../assets/stacks/shopee.svg';
 import Tailwind from '../assets/stacks/tailwind.svg';
 import Telegram from '../assets/stacks/telegram.svg';
 import Vercel from '../assets/stacks/vercel.svg';
@@ -40,6 +43,17 @@ interface TechnologyMention {
 }
 
 const technologies: readonly TechnologyMention[] = [
+  {
+    href: 'https://open.shopee.com/developer-guide/4',
+    labels: ['Shopee platform connection module'],
+    logo: Shopee,
+  },
+  {
+    href: 'https://github.com/ctfcompfest/ailurus-frontend',
+    labels: ['Ailurus'],
+    logo: Ailurus,
+  },
+  { href: 'https://ctfd.io/', labels: ['CTFd'], logo: CTFd },
   { href: 'https://azure.microsoft.com/', labels: ['Azure'], logo: Azure },
   {
     href: 'https://azure.microsoft.com/en-us/products/ai-foundry',
@@ -118,6 +132,11 @@ const technologies: readonly TechnologyMention[] = [
   },
   {
     href: 'https://www.cloudflare.com/',
+    labels: ['Cloudflare'],
+    logo: Cloudflare,
+  },
+  {
+    href: 'https://developers.cloudflare.com/dns/',
     labels: ['Cloudflare'],
     logo: Cloudflare,
   },

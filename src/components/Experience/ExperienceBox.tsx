@@ -25,6 +25,7 @@ interface ExperienceBoxProps {
   previousTitles?: string[];
   previousDates?: string[];
   alignCenter?: boolean;
+  logoRounded?: boolean;
 }
 
 const ExperienceBox = ({
@@ -38,6 +39,7 @@ const ExperienceBox = ({
   previousTitles,
   previousDates,
   alignCenter,
+  logoRounded = false,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -178,11 +180,11 @@ const ExperienceBox = ({
       </div>
       <div className='z-20 flex flex-col items-center space-y-0 text-center md:space-y-0'>
         <p
-          className={`relative font-instrument text-[2rem] md:text-5xl ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+          className={`relative font-instrument text-[2rem] leading-[0.95] md:text-5xl md:leading-normal ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
         >
           {title}
         </p>
-        <div className='-mt-1 flex flex-col items-center justify-center md:mt-0 md:flex-row md:space-x-2 md:text-lg'>
+        <div className='flex flex-col items-center justify-center md:flex-row md:space-x-2 md:text-lg'>
           {desktopView ? (
             <a
               className={`relative w-45% font-inter font-semibold ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
@@ -203,7 +205,7 @@ const ExperienceBox = ({
             <div className='flex flex-row items-center space-x-2'>
               <img
                 src={logo}
-                className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+                className={`h-5 w-5 ${logoRounded ? 'rounded-lg' : ''} ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
                 alt={org}
                 draggable='false'
               />
@@ -227,7 +229,7 @@ const ExperienceBox = ({
           {desktopView && (
             <img
               src={logo}
-              className={`h-5 w-5 ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+              className={`h-5 w-5 ${logoRounded ? 'rounded-lg' : ''} ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
               alt={org}
               draggable='false'
             />

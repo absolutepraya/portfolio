@@ -6,6 +6,7 @@ interface Experience {
   orgShort?: string;
   url: string;
   logo: string;
+  logoRounded?: boolean;
   date: string;
   desc: string;
   alignCenter?: boolean;
@@ -13,13 +14,13 @@ interface Experience {
   previousDates?: string[];
 }
 
-import CO80 from '../assets/orgs/80co.webp';
+import CO80 from '../assets/orgs/80co.svg';
 import Aiccountant from '../assets/orgs/aiccountant-rounded.webp';
 import Avanade from '../assets/orgs/avanade.webp';
 import COMPFEST from '../assets/orgs/compfest.webp';
 import Fasilkom from '../assets/orgs/fasilkom.svg';
 import RISTEK from '../assets/orgs/ristek.svg';
-import SB from '../assets/orgs/sb.webp';
+import SobatBisnis from '../assets/orgs/sobatbisnis.jpeg';
 
 const experienceData: Experience[] = [
   {
@@ -43,11 +44,12 @@ const experienceData: Experience[] = [
   },
   {
     title: 'Product Engineer Intern',
-    org: 'SobatBisnis',
+    org: 'Sobat Bisnis Group',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
-    logo: SB,
+    logo: SobatBisnis,
+    logoRounded: true,
     date: '06/2025 - 09/2025',
-    desc: '- Implemented zero-trust IAM across 3 microservices using Go, JWT RS256, and [Redis](https://redis.io/), enforcing endpoint-level authorization and immediate session revocation\n- Delivered the listing-management service with tenant defaults and overrides, product and variant CRUD, plus asynchronous CSV/XLSX bulk operations with job tracking\n- Built a Shopee platform connection module with OAuth 2.0, encrypted token storage, caching, and background refresh, enabling multi-shop connection health and status visibility\n- Established versioned database migrations and standardized API response contracts across services, improving schema-change safety and client integration consistency',
+    desc: '- Implemented zero-trust IAM across 3 microservices using Go, JWT RS256, and [Redis](https://redis.io/), enforcing endpoint-level authorization and immediate session revocation\n- Delivered the listing-management service with tenant defaults and overrides, product and variant CRUD, plus asynchronous CSV/XLSX bulk operations with job tracking\n- Built a [Shopee platform connection module](https://open.shopee.com/developer-guide/4) with OAuth 2.0, encrypted token storage, caching, and background refresh, enabling multi-shop connection health and status visibility\n- Established versioned database migrations and standardized API response contracts across services, improving schema-change safety and client integration consistency',
     alignCenter: false,
   },
   {
@@ -56,7 +58,7 @@ const experienceData: Experience[] = [
     url: 'https://compfest.id/',
     logo: COMPFEST,
     date: '03/2025 - 09/2025',
-    desc: '- Co-led COMPFEST CTF 2025 from 1,900+ preliminary participants across ~650 teams to 45 finalists and 15 winners\n- Re-architected and deployed the CTF gameserver on [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), supporting 45 finalists through a 3-month infrastructure revamp\n- Provisioned 7 [Google Compute Engine (GCE)](https://cloud.google.com/products/compute) challenge VMs for each of 15 finalist teams, strengthening isolation and predictable performance in the Attack & Defense environment\n- Mitigated a DDoS event of ~300,000 requests in 1 hour with Nginx rate limits and [Cloudflare](https://www.cloudflare.com/) filtering, while sustaining 500+ RPS at under 100ms average response time\n- Previously maintained the 2024 CTF platform for 1,600+ participants at 99.9% uptime during its 9-hour event',
+    desc: '- Co-led COMPFEST CTF 2025 from 1,900+ preliminary participants across ~650 teams to 45 finalists and 15 winners\n- Re-architected and deployed [Ailurus](https://github.com/ctfcompfest/ailurus-frontend), a COMPFEST-inherited Attack and Defence CTF gameserver for the final round, on [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), supporting 45 finalists through a 3-month infrastructure revamp\n- Built a custom [CTFd](https://ctfd.io/) frontend interface plugin with SCSS for the preliminary competition, carrying the COMPFEST visual theme across ~650 teams\n- Provisioned 7 [Google Compute Engine (GCE)](https://cloud.google.com/products/compute) challenge VMs for each of 15 finalist teams, strengthening isolation and predictable performance in the Attack & Defense environment\n- Mitigated a DDoS event of ~300,000 requests in 1 hour with Nginx rate limits and [Cloudflare](https://developers.cloudflare.com/dns/) filtering, while sustaining 500+ RPS at under 100ms average response time\n- Previously maintained the 2024 CTF platform for 1,600+ participants at 99.9% uptime during its 9-hour event',
     alignCenter: false,
     previousTitles: ['Staff of Web Infra.'],
     previousDates: ['03/2024 - 11/2024'],

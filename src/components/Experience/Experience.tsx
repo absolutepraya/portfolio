@@ -96,6 +96,7 @@ const Experience = () => {
               orgShort={experience.orgShort}
               url={experience.url}
               logo={experience.logo}
+              logoRounded={experience.logoRounded}
               date={experience.date}
               desc={experience.desc}
               previousTitles={experience.previousTitles}
