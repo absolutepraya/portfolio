@@ -18,7 +18,7 @@ const About = () => {
             split='words'
             delay={0.5}
             stagger={0.06}
-            className='pb-1 text-left font-instrument text-4xl leading-[2.6rem] md:text-4xl md:leading-[2.8rem] lg:text-5xl lg:leading-[3.2rem]'
+            className='pb-1 text-left font-instrument text-4xl leading-[2.6rem] md:text-5xl md:leading-[3.2rem]'
             animatedClass='text-customwhite'
           >
             I build software that thinks, scales, and ships.
@@ -27,7 +27,7 @@ const About = () => {
             split='words'
             delay={1}
             stagger={0.04}
-            className='mt-3 max-w-200 text-left text-sm opacity-90 md:mt-6 md:text-base'
+            className='mt-3 max-w-200 text-left text-sm opacity-90 md:mt-4 md:text-lg'
           >
             Fullstack apps, AI agents, cloud infrastructure. I build the whole
             thing, start to finish, and I've won hackathons doing it.
