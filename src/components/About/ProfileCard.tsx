@@ -202,18 +202,18 @@ const ProfileCard = () => {
             />
 
             {/* Card content */}
-            <div className='relative z-5 flex h-full flex-col p-8 lg:p-10'>
+            <div className='relative z-5 flex h-full flex-col p-7 lg:p-8'>
               {/* Top: PFP + Name/Title */}
               <div className='flex items-center space-x-4'>
                 <img
                   src={PFP}
                   alt='Profile'
-                  className='h-18 w-18 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-22 md:w-22'
+                  className='h-20 w-20 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-24 md:w-24'
                   draggable='false'
                 />
                 <div>
                   <h3
-                    className='inline-block font-bold font-instrument text-[2.75rem] text-transparent leading-[1.1] md:text-[3.5rem]'
+                    className='inline-block font-bold font-instrument text-[3rem] text-transparent leading-[1.1] md:text-[3.75rem]'
                     style={{
                       backgroundImage:
                         'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
@@ -223,8 +223,8 @@ const ProfileCard = () => {
                   >
                     Daffa Abhipraya
                   </h3>
-                  <p className='mt-1.5 font-inter text-sm text-white uppercase tracking-widest md:text-lg'>
-                    Software & AI Engineer
+                  <p className='mt-1.5 whitespace-nowrap font-inter text-[0.9375rem] text-white tracking-normal md:text-[1.1875rem]'>
+                    AI Engineer, 6x Hackathon Winner
                   </p>
                 </div>
               </div>
@@ -253,14 +253,14 @@ const ProfileCard = () => {
                         title='Copy email'
                       >
                         {copied ? (
-                          <IconCheck size={18} stroke={1.8} />
+                          <IconCheck size={20} stroke={1.8} />
                         ) : (
-                          <IconCopy size={18} stroke={1.8} />
+                          <IconCopy size={20} stroke={1.8} />
                         )}
                       </button>
                     ) : (
                       <link.icon
-                        size={18}
+                        size={20}
                         stroke={1.8}
                         className='shrink-0 text-white/70'
                       />
@@ -269,7 +269,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className='font-jetbrainsmono text-base text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-lg'
+                      className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}
                     </a>
@@ -282,7 +282,7 @@ const ProfileCard = () => {
 
             {/* Bottom: dithered wave graphic, flush to edges */}
             <div
-              className='absolute inset-x-0 bottom-0 h-28 opacity-55 mix-blend-screen'
+              className='absolute inset-x-0 bottom-0 h-32 opacity-55 mix-blend-screen'
               style={{
                 maskImage:
                   'linear-gradient(to bottom, transparent 0%, black 100%)',
@@ -294,7 +294,7 @@ const ProfileCard = () => {
                 colorNum={3}
                 enableMouseInteraction={false}
                 mouseRadius={0.35}
-                pixelSize={6}
+                pixelSize={5}
                 waveAmplitude={0.25}
                 waveColor={[0.9, 0.9, 0.9]}
                 waveFrequency={2.2}
