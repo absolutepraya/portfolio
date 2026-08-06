@@ -6,7 +6,7 @@
 
 React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
 
-Other key deps: @react-spring/web (CountUp animations), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
+Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
 
 ## Commands
 
@@ -44,7 +44,7 @@ src/
 │   ├── signature.tsx     # SVG signature via opentype.js
 │   └── slide-up-text.tsx # Word/char slide-up animation
 ├── blocks/               # Reusable animation components
-│   └── Animations/       # BlurFade, FlickeringGrid, HoverBorderGradient, IosSpinner
+│   └── Animations/       # BlurFade, Dither, FlickeringGrid, HoverBorderGradient, IosSpinner
 │   └── TextAnimations/   # CountUp (from reactbits.dev)
 ├── data/                 # Static data (experiences, projects, achievements, stacks)
 ├── lib/                  # Hooks (DesktopView, TabletView), ThemeContext, utils (cn)
@@ -117,6 +117,8 @@ src/
 ## Deployment
 
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
+
+- **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 browser capture of the existing hero `ProfileCard` with the existing `FlickeringGrid`, not a separate card design.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
 - **Deployment contract:** `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `.github/workflows/deploy-cloudflare.yml`, and `scripts/smoke-cloudflare-deployment.mjs` must remain aligned.

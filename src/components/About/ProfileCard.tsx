@@ -15,7 +15,7 @@ import {
 } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
-import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
+import Dither from '../../blocks/Animations/Dither';
 
 const links = [
   {
@@ -280,15 +280,25 @@ const ProfileCard = () => {
               <div className='flex-1' />
             </div>
 
-            {/* Bottom: FlickeringGrid graphic — flush to edges */}
-            <div className='absolute inset-x-0 bottom-0 h-28'>
-              <FlickeringGrid
-                squareSize={6}
-                gridGap={5}
-                flickerChance={0.3}
-                color='rgb(255, 255, 255)'
-                maxOpacity={0.3}
-                className='h-full w-full'
+            {/* Bottom: dithered wave graphic, flush to edges */}
+            <div
+              className='absolute inset-x-0 bottom-0 h-28 opacity-55 mix-blend-screen'
+              style={{
+                maskImage:
+                  'linear-gradient(to bottom, transparent 0%, black 100%)',
+                WebkitMaskImage:
+                  'linear-gradient(to bottom, transparent 0%, black 100%)',
+              }}
+            >
+              <Dither
+                colorNum={3}
+                enableMouseInteraction={false}
+                mouseRadius={0.35}
+                pixelSize={6}
+                waveAmplitude={0.25}
+                waveColor={[0.9, 0.9, 0.9]}
+                waveFrequency={2.2}
+                waveSpeed={0.025}
               />
             </div>
           </div>
