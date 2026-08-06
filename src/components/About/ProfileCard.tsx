@@ -7,6 +7,8 @@ import {
   IconNotebook,
 } from '@tabler/icons-react';
 import {
+  lazy,
+  Suspense,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -15,7 +17,8 @@ import {
 } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
-import Dither from '../../blocks/Animations/Dither';
+
+const Dither = lazy(() => import('../../blocks/Animations/Dither'));
 
 const links = [
   {
@@ -302,16 +305,18 @@ const ProfileCard = () => {
                   'linear-gradient(to bottom, transparent 0%, black 100%)',
               }}
             >
-              <Dither
-                colorNum={3}
-                enableMouseInteraction={false}
-                mouseRadius={0.35}
-                pixelSize={5}
-                waveAmplitude={0.25}
-                waveColor={[0.9, 0.9, 0.9]}
-                waveFrequency={2.2}
-                waveSpeed={0.025}
-              />
+              <Suspense fallback={null}>
+                <Dither
+                  colorNum={3}
+                  enableMouseInteraction={false}
+                  mouseRadius={0.35}
+                  pixelSize={5}
+                  waveAmplitude={0.25}
+                  waveColor={[0.9, 0.9, 0.9]}
+                  waveFrequency={2.2}
+                  waveSpeed={0.025}
+                />
+              </Suspense>
             </div>
           </div>
           {/* end inner card */}
