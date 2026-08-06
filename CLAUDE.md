@@ -118,7 +118,7 @@ src/
 
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
-- **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 browser capture of the existing hero `ProfileCard` with the existing `FlickeringGrid`, not a separate card design.
+- **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 production-browser capture of the existing hero `ProfileCard` against the plain page background, with its idle wobble frozen for the static capture, not a separate card design.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
 - **Deployment contract:** `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `.github/workflows/deploy-cloudflare.yml`, and `scripts/smoke-cloudflare-deployment.mjs` must remain aligned.
