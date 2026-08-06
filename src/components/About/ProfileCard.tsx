@@ -142,11 +142,11 @@ const ProfileCard = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 md:origin-top md:scale-100 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && tabletScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
+          className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[4px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 md:origin-top md:scale-100 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && tabletScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
           style={{
             aspectRatio: '3 / 2',
             background:
-              'linear-gradient(135deg, #6a6a6a, #9a9a9a, #757575, #909090)',
+              'linear-gradient(135deg, #919191 0%, #dedede 18%, #fafafa 31%, #b3b3b3 46%, #f0f0f0 62%, #9d9d9d 82%, #cecece 100%)',
             transform: tabletTransform,
             ...(!ready && {
               transition: 'transform 0.4s ease-out, box-shadow 0.3s ease',
@@ -164,9 +164,21 @@ const ProfileCard = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          {/* Border reflection stays beneath the inner card, so it only catches the silver bevel. */}
+          <div
+            aria-hidden='true'
+            className='pointer-events-none absolute inset-0 z-0 rounded-2xl'
+            style={{
+              background: isHovered
+                ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.24) 30%, transparent 62%)`
+                : 'none',
+              transition: 'opacity 0.3s ease',
+            }}
+          />
+
           {/* Inner card — clips content inside border */}
           <div
-            className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
+            className='absolute inset-[4px] z-5 overflow-hidden rounded-xl'
             style={{
               background:
                 'linear-gradient(145deg, #666666, #a0a0a0, #747474, #959595)',
