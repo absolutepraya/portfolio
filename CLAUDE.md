@@ -6,7 +6,7 @@
 
 React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
 
-Other key deps: @react-spring/web (CountUp animations), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
+Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
 
 ## Commands
 
@@ -44,7 +44,7 @@ src/
 │   ├── signature.tsx     # SVG signature via opentype.js
 │   └── slide-up-text.tsx # Word/char slide-up animation
 ├── blocks/               # Reusable animation components
-│   └── Animations/       # BlurFade, FlickeringGrid, HoverBorderGradient, IosSpinner
+│   └── Animations/       # BlurFade, Dither, FlickeringGrid, HoverBorderGradient, IosSpinner
 │   └── TextAnimations/   # CountUp (from reactbits.dev)
 ├── data/                 # Static data (experiences, projects, achievements, stacks)
 ├── lib/                  # Hooks (DesktopView, TabletView), ThemeContext, utils (cn)
@@ -86,6 +86,7 @@ src/
 - Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its compact, shorter mobile Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
+- Profile card: the WebGL dither accent is lazy-loaded so its renderer stays out of the main application bundle.
 
 ## Conventions
 
@@ -117,6 +118,8 @@ src/
 ## Deployment
 
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
+
+- **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 production-browser capture of the existing hero `ProfileCard` against the plain page background, with its idle wobble frozen for the static capture, not a separate card design.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
 - **Deployment contract:** `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `.github/workflows/deploy-cloudflare.yml`, and `scripts/smoke-cloudflare-deployment.mjs` must remain aligned.

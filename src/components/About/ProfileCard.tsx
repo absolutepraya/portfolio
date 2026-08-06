@@ -7,6 +7,8 @@ import {
   IconNotebook,
 } from '@tabler/icons-react';
 import {
+  lazy,
+  Suspense,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -15,7 +17,8 @@ import {
 } from 'react';
 import PFP from '../../assets/creds/pfp.webp';
 import BlurFade from '../../blocks/Animations/BlurFade';
-import { FlickeringGrid } from '../../blocks/Animations/FlickeringGrid';
+
+const Dither = lazy(() => import('../../blocks/Animations/Dither'));
 
 const links = [
   {
@@ -142,11 +145,11 @@ const ProfileCard = () => {
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[3px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 md:origin-top md:scale-100 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && tabletScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
+          className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[4px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 md:origin-top md:scale-100 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && tabletScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
           style={{
             aspectRatio: '3 / 2',
             background:
-              'linear-gradient(135deg, #6a6a6a, #9a9a9a, #757575, #909090)',
+              'linear-gradient(135deg, #919191 0%, #dedede 18%, #fafafa 31%, #b3b3b3 46%, #f0f0f0 62%, #9d9d9d 82%, #cecece 100%)',
             transform: tabletTransform,
             ...(!ready && {
               transition: 'transform 0.4s ease-out, box-shadow 0.3s ease',
@@ -164,9 +167,21 @@ const ProfileCard = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          {/* Border reflection stays beneath the inner card, so it only catches the silver bevel. */}
+          <div
+            aria-hidden='true'
+            className='pointer-events-none absolute inset-0 z-0 rounded-2xl'
+            style={{
+              background: isHovered
+                ? `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.24) 30%, transparent 62%)`
+                : 'none',
+              transition: 'opacity 0.3s ease',
+            }}
+          />
+
           {/* Inner card — clips content inside border */}
           <div
-            className='absolute inset-[3px] z-5 overflow-hidden rounded-xl'
+            className='absolute inset-[4px] z-5 overflow-hidden rounded-xl'
             style={{
               background:
                 'linear-gradient(145deg, #666666, #a0a0a0, #747474, #959595)',
@@ -202,18 +217,18 @@ const ProfileCard = () => {
             />
 
             {/* Card content */}
-            <div className='relative z-5 flex h-full flex-col p-8 lg:p-10'>
+            <div className='relative z-5 flex h-full flex-col p-7 lg:p-8'>
               {/* Top: PFP + Name/Title */}
               <div className='flex items-center space-x-4'>
                 <img
                   src={PFP}
                   alt='Profile'
-                  className='h-18 w-18 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-22 md:w-22'
+                  className='h-20 w-20 shrink-0 rounded-xl object-cover grayscale transition duration-200 hover:grayscale-0 md:h-24 md:w-24'
                   draggable='false'
                 />
                 <div>
                   <h3
-                    className='inline-block font-bold font-instrument text-[2.75rem] text-transparent leading-[1.1] md:text-[3.5rem]'
+                    className='inline-block font-bold font-instrument text-[3rem] text-transparent leading-[1.1] md:text-[3.75rem]'
                     style={{
                       backgroundImage:
                         'linear-gradient(135deg, #ffffff, #e8e8e8, #ffffff, #f0f0f0)',
@@ -223,8 +238,8 @@ const ProfileCard = () => {
                   >
                     Daffa Abhipraya
                   </h3>
-                  <p className='mt-1.5 font-inter text-sm text-white uppercase tracking-widest md:text-lg'>
-                    Software & AI Engineer
+                  <p className='mt-1.5 whitespace-nowrap font-inter text-[0.9375rem] text-white tracking-normal md:text-[1.1875rem]'>
+                    AI Engineer, 6x Hackathon Winner
                   </p>
                 </div>
               </div>
@@ -253,14 +268,14 @@ const ProfileCard = () => {
                         title='Copy email'
                       >
                         {copied ? (
-                          <IconCheck size={18} stroke={1.8} />
+                          <IconCheck size={20} stroke={1.8} />
                         ) : (
-                          <IconCopy size={18} stroke={1.8} />
+                          <IconCopy size={20} stroke={1.8} />
                         )}
                       </button>
                     ) : (
                       <link.icon
-                        size={18}
+                        size={20}
                         stroke={1.8}
                         className='shrink-0 text-white/70'
                       />
@@ -269,7 +284,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className='font-jetbrainsmono text-base text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-lg'
+                      className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}
                     </a>
@@ -280,16 +295,28 @@ const ProfileCard = () => {
               <div className='flex-1' />
             </div>
 
-            {/* Bottom: FlickeringGrid graphic — flush to edges */}
-            <div className='absolute inset-x-0 bottom-0 h-28'>
-              <FlickeringGrid
-                squareSize={6}
-                gridGap={5}
-                flickerChance={0.3}
-                color='rgb(255, 255, 255)'
-                maxOpacity={0.3}
-                className='h-full w-full'
-              />
+            {/* Bottom: dithered wave graphic, flush to edges */}
+            <div
+              className='absolute inset-x-0 bottom-0 h-32 opacity-55 mix-blend-screen'
+              style={{
+                maskImage:
+                  'linear-gradient(to bottom, transparent 0%, black 100%)',
+                WebkitMaskImage:
+                  'linear-gradient(to bottom, transparent 0%, black 100%)',
+              }}
+            >
+              <Suspense fallback={null}>
+                <Dither
+                  colorNum={3}
+                  enableMouseInteraction={false}
+                  mouseRadius={0.35}
+                  pixelSize={5}
+                  waveAmplitude={0.25}
+                  waveColor={[0.9, 0.9, 0.9]}
+                  waveFrequency={2.2}
+                  waveSpeed={0.025}
+                />
+              </Suspense>
             </div>
           </div>
           {/* end inner card */}

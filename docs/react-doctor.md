@@ -30,5 +30,6 @@ The full scan against the pre-remediation `core` source recorded 60 diagnostics 
 | Maintainability | `only-export-components` | warning | `SliderStacks.tsx`, `SliderTools.tsx` | resolved |
 | Maintainability | `no-giant-component`, `no-array-index-as-key` | warning | `AchievementsBox.tsx`, `Projects.tsx` | resolved |
 | Maintainability | `no-polymorphic-children`, `prefer-module-scope-pure-function` | warning | `rich-button.tsx`, `slide-up-text.tsx` | resolved |
+| Dither integration | `rerender-lazy-ref-init`, `r3f-no-advancing-clock-in-use-frame`, `js-length-check-first` | warning | `Dither.jsx` | resolved |
 
 The final full scan reports score 100 with zero diagnostics.

@@ -57,12 +57,14 @@ async function prerender() {
   const page = await browser.newPage();
 
   await page.goto(`http://localhost:${PORT}/`, {
-    waitUntil: 'networkidle0',
+    waitUntil: 'domcontentloaded',
     timeout: 30000,
   });
 
-  // Wait for React to render and animations to settle
+  // The page has persistent animated media, so network idle is not a stable
+  // signal. Wait for the application and its local fonts instead.
   await page.waitForSelector('#aboutsec', { timeout: 15000 });
+  await page.evaluate(() => document.fonts.ready);
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const html = await page.content();
