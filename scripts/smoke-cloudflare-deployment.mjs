@@ -70,7 +70,13 @@ async function assertResponse(pathname, expectedStatus, expectedContentType) {
   let response;
   for (let attempt = 1; attempt <= deploymentAttempts; attempt += 1) {
     response = await request(pathname);
-    if (response.status === expectedStatus || attempt === deploymentAttempts)
+    const hasExpectedContentType =
+      !expectedContentType ||
+      response.headers.get('content-type')?.includes(expectedContentType);
+    if (
+      (response.status === expectedStatus && hasExpectedContentType) ||
+      attempt === deploymentAttempts
+    )
       break;
     await new Promise((resolve) => setTimeout(resolve, 2_000));
   }
