@@ -67,6 +67,7 @@ src/
 - `orgShort` controls the oversized background label on Experience cards, such as `SBG` for Sobat Bisnis Group.
 - Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
 - In the vertical Hero layout (`768px` to `1023px`), ProfileCard keeps its fixed 580px composition and uses a ResizeObserver-derived scale, capped at 1.2, to fill available width without triggering a separate tablet layout. The Hero title and subtitle step up to `text-5xl` and `text-lg`, with a compact `1rem` gap.
+- On mobile, ProfileCard measures its hero-stage width and scales its 520px composition to fit within it. The stage reserves the corresponding rendered height, preventing edge-to-edge overflow, empty vertical space, and the hero-copy overlap caused by the former compensating offset.
 - Experience retains its original `6rem` heading-line-to-content rhythm, including a `2rem` first-card spacer from `md`. Its heading underline spans the full section width in the vertical layout and sits `0.5rem` below the title from `md`.
 - Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
 - Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
@@ -87,6 +88,7 @@ src/
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 - Profile card: the WebGL dither accent is lazy-loaded so its renderer stays out of the main application bundle.
+- Profile card: the Dither canvas fills its full card-region wrapper instead of its default intrinsic bitmap size.
 
 ## Conventions
 

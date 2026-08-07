@@ -13,7 +13,7 @@ const About = () => {
         <ProfileCard />
 
         {/* RIGHT: Hero text */}
-        <div className='-mt-26 flex flex-col items-start justify-center md:mt-0'>
+        <div className='flex flex-col items-start justify-center'>
           <SlideUpText
             split='words'
             delay={0.5}
