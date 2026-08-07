@@ -20,6 +20,11 @@ import BlurFade from '../../blocks/Animations/BlurFade';
 
 const Dither = lazy(() => import('../../blocks/Animations/Dither'));
 
+const MOBILE_CARD_WIDTH_PX = 520;
+const MOBILE_CARD_HEIGHT_PX = (MOBILE_CARD_WIDTH_PX * 2) / 3;
+const CARD_WIDTH_PX = 580;
+const CARD_HEIGHT_PX = 387;
+
 const links = [
   {
     icon: IconMail,
@@ -45,15 +50,14 @@ const links = [
 ];
 
 const ProfileCard = () => {
-  const CARD_WIDTH_PX = 580;
-  const _CARD_HEIGHT_PX = 387;
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const cardStageRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const [isHovered, setIsHovered] = useState(false);
   const [ready, setReady] = useState(false);
-  const [tabletScale, setTabletScale] = useState(1);
+  const [cardScale, setCardScale] = useState(1);
+  const [stageHeight, setStageHeight] = useState<number>();
 
   useEffect(() => {
     const timer = setTimeout(() => setReady(true), 2000);
@@ -65,11 +69,20 @@ const ProfileCard = () => {
 
     const updateScale = () => {
       const width = cardStageRef.current?.clientWidth ?? CARD_WIDTH_PX;
-      setTabletScale(
-        window.innerWidth >= 768 && window.innerWidth < 1024
-          ? Math.min(width / CARD_WIDTH_PX, 1.2)
-          : 1,
+      const viewportWidth = window.innerWidth;
+      const baseWidth =
+        viewportWidth < 768 ? MOBILE_CARD_WIDTH_PX : CARD_WIDTH_PX;
+      const baseHeight =
+        viewportWidth < 768 ? MOBILE_CARD_HEIGHT_PX : CARD_HEIGHT_PX;
+      const maximumScale =
+        viewportWidth < 640 ? 0.7 : viewportWidth < 768 ? 0.8 : 1.2;
+      const nextScale =
+        viewportWidth < 1024 ? Math.min(width / baseWidth, maximumScale) : 1;
+
+      setCardScale((currentScale) =>
+        currentScale === nextScale ? currentScale : nextScale,
       );
+      setStageHeight(viewportWidth < 1024 ? baseHeight * nextScale : undefined);
     };
 
     updateScale();
@@ -124,39 +137,38 @@ const ProfileCard = () => {
 
   const tiltX = isHovered ? (mousePos.y - 0.5) * -20 : 0;
   const tiltY = isHovered ? (mousePos.x - 0.5) * 20 : 0;
-  const tabletTransform =
-    tabletScale === 1 ? undefined : `scale(${tabletScale})`;
+  const cardTransform = cardScale === 1 ? undefined : `scale(${cardScale})`;
 
   return (
     <BlurFade
-      className='flex w-full flex-col items-center justify-center space-y-2 p-6 lg:w-auto'
+      className='flex w-full flex-col items-center justify-center space-y-2 p-3 sm:p-6 lg:w-auto'
       delay={0.3}
       offset={30}
     >
       <div
         ref={cardStageRef}
-        className='relative flex w-full justify-center md:h-[calc(387px*var(--tablet-card-scale))] lg:h-auto'
+        className='relative flex w-full items-start justify-center'
         style={
           {
-            '--tablet-card-scale': tabletScale,
+            height: stageHeight ? `${stageHeight}px` : undefined,
           } as React.CSSProperties
         }
       >
         {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse events are decorative visual effects */}
         <div
           ref={cardRef}
-          className={`relative w-full min-w-130 max-w-130 origin-top scale-[0.7] cursor-default select-none rounded-2xl p-[4px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] sm:scale-[0.8] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 md:origin-top md:scale-100 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && tabletScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
+          className={`relative w-full min-w-130 max-w-130 origin-top cursor-default select-none rounded-2xl p-[4px] shadow-2xl transition-shadow duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] md:h-[387px] md:w-145 md:min-w-145 md:max-w-145 lg:h-auto lg:w-full lg:min-w-145 lg:max-w-145 ${ready && !isHovered && cardScale === 1 ? 'animate-[cardHint_4s_linear_infinite]' : ''}`}
           style={{
             aspectRatio: '3 / 2',
             background:
               'linear-gradient(135deg, #919191 0%, #dedede 18%, #fafafa 31%, #b3b3b3 46%, #f0f0f0 62%, #9d9d9d 82%, #cecece 100%)',
-            transform: tabletTransform,
+            transform: cardTransform,
             ...(!ready && {
               transition: 'transform 0.4s ease-out, box-shadow 0.3s ease',
             }),
             ...(ready &&
               isHovered && {
-                transform: `${tabletTransform ?? ''} perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`,
+                transform: `${cardTransform ?? ''} perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`,
                 transition: 'transform 0.1s ease-out, box-shadow 0.3s ease',
               }),
           }}
