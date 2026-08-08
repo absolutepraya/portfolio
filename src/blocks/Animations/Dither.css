@@ -6,6 +6,8 @@
 
 .dither-container canvas {
   display: block;
-  height: 100%;
-  width: 100%;
+  /* biome-ignore lint/complexity/noImportantStyles: R3F can write a smaller inline canvas size on mobile. */
+  height: 100% !important;
+  /* biome-ignore lint/complexity/noImportantStyles: R3F can write a smaller inline canvas size on mobile. */
+  width: 100% !important;
 }
