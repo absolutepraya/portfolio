@@ -309,10 +309,12 @@ const ProfileCard = () => {
 
             {/* Bottom: dithered wave graphic, flush to edges */}
             <div
-              className='absolute inset-x-0 bottom-0 h-32 opacity-55 mix-blend-screen'
+              className='absolute inset-x-0 bottom-0 h-32 overflow-hidden rounded-b-xl opacity-55 mix-blend-screen'
               style={{
+                clipPath: 'inset(0 round 0 0 0.75rem 0.75rem)',
                 maskImage:
                   'linear-gradient(to bottom, transparent 0%, black 100%)',
+                WebkitClipPath: 'inset(0 round 0 0 0.75rem 0.75rem)',
                 WebkitMaskImage:
                   'linear-gradient(to bottom, transparent 0%, black 100%)',
               }}
