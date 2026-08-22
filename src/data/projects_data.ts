@@ -73,12 +73,12 @@ import SIRAVideo from '../assets/projects/sira.mp4';
 
 const projectsData: Project[] = [
   {
-    title: 'Karakeep',
+    title: 'Marka',
     kind: 'web',
     tags: ['full-stack', 'ai', 'open-source'],
     date: '06/2025',
     subtitle:
-      'A maintained fork of Karakeep, an open-source bookmark-everything app for links, notes, and images with AI tagging and full-text search. I run my own production build and deployment pipeline, tailored Docker services, and a private instance.',
+      'Marka is an open-source bookmark-everything app for links, notes, and images with AI tagging and full-text search. I run my own production build and deployment pipeline, tailored Docker services, and a private instance.',
     stacks: [
       'nextjs',
       'nodejs',
@@ -87,8 +87,8 @@ const projectsData: Project[] = [
       'meilisearch',
       'openai',
     ],
-    url: 'https://keep.abhipraya.dev/',
-    github: 'https://github.com/absolutepraya/karakeep',
+    url: 'https://marka.abhipraya.dev/',
+    github: 'https://github.com/absolutepraya/marka',
   },
   // {
   //   title: 'Hermes Agent',
