@@ -50,6 +50,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -98,7 +99,7 @@ jobs:
               '',
               `[Open preview](${previewUrl})`,
               '',
-              `Deployed from commit \`${context.sha.slice(0, 7)}\`.`,
+              `Deployed from commit \`${context.payload.pull_request.head.sha.slice(0, 7)}\`.`,
             ].join('\n');
             const issue = {
               owner: context.repo.owner,
