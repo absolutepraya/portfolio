@@ -1,34 +1,35 @@
+import {
+  IconArrowNarrowDownDashed,
+  IconArrowNarrowUpDashed,
+} from '@tabler/icons-react';
 import { m } from 'framer-motion';
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import DesktopView from '../../lib/DesktopView';
+import { PopButton } from '../pop-button';
 import ExperienceBox from './ExperienceBox';
-import Line from './Line';
-
-const getExperienceKey = (title: string, org: string, date: string) =>
-  `${title}-${org}-${date}`;
 
 const Experience = () => {
   const desktopView = DesktopView();
-  const [openExperienceKey, setOpenExperienceKey] = useState(() => {
-    const firstExperience = experienceData[0];
-    return firstExperience
-      ? getExperienceKey(
-          firstExperience.title,
-          firstExperience.org,
-          firstExperience.date,
-        )
-      : null;
-  });
-  const [expandedDescriptionKey, setExpandedDescriptionKey] = useState<
-    string | null
-  >(null);
+  const [showAll, setShowAll] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const displayedExperiences = showAll
+    ? experienceData
+    : experienceData.slice(0, 3);
 
-  const handleExperienceToggle = (experienceKey: string) => {
-    setOpenExperienceKey((currentKey) =>
-      currentKey === experienceKey ? null : experienceKey,
-    );
-    setExpandedDescriptionKey(null);
+  const handleToggle = () => {
+    if (showAll) {
+      setShowAll(false);
+      setTimeout(() => {
+        buttonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }, 100);
+      return;
+    }
+
+    setShowAll(true);
   };
 
   return (
@@ -74,25 +75,20 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className='z-50 mt-16 flex flex-col items-center space-y-2 md:mt-20 md:px-6'>
-        {experienceData.map((experience, index) => {
-          const experienceKey = getExperienceKey(
-            experience.title,
-            experience.org,
-            experience.date,
-          );
-
-          return (
-            <React.Fragment key={experienceKey}>
-              {index === 0 ? (
-                <div className='h-0 md:h-8' />
-              ) : (
-                <div className='h-2 md:h-3' />
-              )}
+      <div className='relative mt-16 w-full rounded-3xl md:mt-20'>
+        <div
+          className='pointer-events-none absolute top-0 left-0 z-0! h-full w-full'
+          style={{
+            boxShadow: 'inset 0px 0px 40px 50px var(--color-inset-shadow)',
+          }}
+        />
+        <div className='relative z-40! flex h-auto w-full flex-col items-center justify-center rounded-lg transition-[color,background-color,box-shadow,opacity,transform] duration-200 md:p-20'>
+          <div className='flex h-full w-full flex-col divide-y divide-customgray/60 overflow-hidden rounded-3xl border border-customgray bg-customblack shadow-lg'>
+            {displayedExperiences.map((experience) => (
               <ExperienceBox
+                key={`${experience.title}-${experience.org}-${experience.date}`}
                 title={experience.title}
                 org={experience.org}
-                orgShort={experience.orgShort}
                 url={experience.url}
                 logo={experience.logo}
                 logoRounded={experience.logoRounded}
@@ -100,20 +96,30 @@ const Experience = () => {
                 desc={experience.desc}
                 previousTitles={experience.previousTitles}
                 previousDates={experience.previousDates}
-                isOpen={openExperienceKey === experienceKey}
-                onToggle={() => handleExperienceToggle(experienceKey)}
-                isDescriptionExpanded={expandedDescriptionKey === experienceKey}
-                onDescriptionToggle={() =>
-                  setExpandedDescriptionKey((currentKey) =>
-                    currentKey === experienceKey ? null : experienceKey,
-                  )
-                }
-                // alignCenter={experience.alignCenter}
+                alignCenter={experience.alignCenter}
               />
-              {index < experienceData.length - 1 && <Line compact />}
-            </React.Fragment>
-          );
-        })}
+            ))}
+
+            {experienceData.length > 3 && (
+              <m.div
+                className='flex w-full items-center justify-center pt-4 pb-8'
+                ref={buttonRef}
+              >
+                <PopButton
+                  onClick={handleToggle}
+                  className='gap-2 pr-3 font-jetbrainsmono'
+                >
+                  <span>{showAll ? 'Show Less' : 'Show More'}</span>
+                  {showAll ? (
+                    <IconArrowNarrowUpDashed size={20} stroke={2} />
+                  ) : (
+                    <IconArrowNarrowDownDashed size={20} stroke={2} />
+                  )}
+                </PopButton>
+              </m.div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

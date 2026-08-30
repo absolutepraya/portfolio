@@ -28,7 +28,7 @@ const ExperienceDetails = ({
   previousTitles,
   previousDates,
 }: ExperienceDetailsProps) => (
-  <>
+  <div className='min-w-0'>
     <div className='z-20 flex w-full flex-col items-center'>
       <div
         className='w-full overflow-hidden'
@@ -101,7 +101,7 @@ const ExperienceDetails = ({
         </div>
       </m.div>
     )}
-  </>
+  </div>
 );
 
 export default ExperienceDetails;

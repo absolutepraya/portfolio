@@ -3,7 +3,6 @@
 interface Experience {
   title: string;
   org: string;
-  orgShort?: string;
   url: string;
   logo: string;
   logoRounded?: boolean;
@@ -26,7 +25,6 @@ const experienceData: Experience[] = [
   {
     title: 'AI Engineer (GTM) Intern',
     org: 'Avanade',
-    orgShort: 'Avanade',
     url: 'https://www.avanade.com/',
     logo: Avanade,
     date: '03/2026 - Present',
@@ -45,7 +43,6 @@ const experienceData: Experience[] = [
   {
     title: 'Product Engineer Intern',
     org: 'Sobat Bisnis Group',
-    orgShort: 'SBG',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SobatBisnis,
     logoRounded: true,
@@ -67,7 +64,6 @@ const experienceData: Experience[] = [
   {
     title: 'Fullstack Engineer',
     org: '80&Company',
-    orgShort: '80&Co.',
     url: 'https://80and.co/en/company/',
     logo: CO80,
     date: '01/2025 - 08/2025',
@@ -77,7 +73,6 @@ const experienceData: Experience[] = [
   {
     title: 'Lead of NetSOS SIG',
     org: 'RISTEK Fasilkom UI',
-    orgShort: 'RISTEK UI',
     url: 'https://www.ristek.cs.ui.ac.id/',
     logo: RISTEK,
     date: '03/2025 - 03/2026',
