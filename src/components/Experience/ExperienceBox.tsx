@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import BotBorder from '../Achievements/BotBorder';
 import ExperienceDetails from './ExperienceDetails';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem, fixed height for collapsed descriptions
@@ -23,6 +24,7 @@ interface ExperienceBoxProps {
   previousDates?: string[];
   alignCenter?: boolean;
   logoRounded?: boolean;
+  showDivider?: boolean;
 }
 
 const ExperienceBox = ({
@@ -36,6 +38,7 @@ const ExperienceBox = ({
   previousDates,
   alignCenter,
   logoRounded = false,
+  showDivider = false,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
@@ -206,6 +209,7 @@ const ExperienceBox = ({
         previousTitles={previousTitles}
         previousDates={previousDates}
       />
+      {showDivider && <BotBorder />}
     </m.div>
   );
 };

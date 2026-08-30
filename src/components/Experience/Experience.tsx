@@ -75,16 +75,16 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className='relative mt-16 w-full rounded-3xl md:mt-20'>
+      <div className='relative mt-16 w-fit rounded-3xl md:mt-20'>
         <div
           className='pointer-events-none absolute top-0 left-0 z-0! h-full w-full'
           style={{
             boxShadow: 'inset 0px 0px 40px 50px var(--color-inset-shadow)',
           }}
         />
-        <div className='relative z-40! flex h-auto w-full flex-col items-center justify-center rounded-lg transition-[color,background-color,box-shadow,opacity,transform] duration-200 md:p-20'>
-          <div className='flex h-full w-full flex-col divide-y divide-customgray/60 overflow-hidden rounded-3xl border border-customgray bg-customblack shadow-lg'>
-            {displayedExperiences.map((experience) => (
+        <div className='relative z-40! flex h-auto w-full flex-col items-center justify-center rounded-lg transition-[color,background-color,box-shadow,opacity,transform] duration-200'>
+          <div className='flex h-full w-full flex-col overflow-hidden rounded-3xl border border-customgray bg-customblack shadow-lg'>
+            {displayedExperiences.map((experience, index) => (
               <ExperienceBox
                 key={`${experience.title}-${experience.org}-${experience.date}`}
                 title={experience.title}
@@ -97,6 +97,7 @@ const Experience = () => {
                 previousTitles={experience.previousTitles}
                 previousDates={experience.previousDates}
                 alignCenter={experience.alignCenter}
+                showDivider={index < displayedExperiences.length - 1}
               />
             ))}
 

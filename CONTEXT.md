@@ -20,7 +20,7 @@ This context defines the vocabulary for the portfolio's experience section and i
  _Avoid_: rewritten copy, generated summary
 
 **Framed experience list**:
- The presentation where visible experience rows share one rounded bordered frame, with horizontal dividers between rows and no vertical timeline connectors.
+ The presentation where visible experience rows share one rounded bordered frame matching the desktop width of the Victory Laps grid, with the shared three-part `BotBorder` treatment between rows and no vertical timeline connectors.
  _Avoid_: stacked cards, disclosure timeline, carousel
 
 **More roles disclosure**:
