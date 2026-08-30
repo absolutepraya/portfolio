@@ -163,7 +163,7 @@ const ExperienceBox = ({
     >
       <div className='flex min-w-0 flex-col items-center text-center md:items-start md:pt-1 md:text-left'>
         <p
-          className={`font-instrument text-2xl leading-[0.95] transition-all duration-380 ease-in-out md:text-4xl md:leading-[1.05] ${isInView ? 'opacity-90' : 'opacity-70'}`}
+          className={`font-instrument text-3xl leading-[0.95] transition-all duration-380 ease-in-out md:text-4xl md:leading-[1.05] ${isInView ? 'opacity-90' : 'opacity-70'}`}
         >
           {title}
         </p>
