@@ -1,8 +1,13 @@
 import { m } from 'framer-motion';
 import DesktopView from '../../lib/DesktopView';
 
-const Line = () => {
+interface LineProps {
+  compact?: boolean;
+}
+
+const Line = ({ compact = false }: LineProps) => {
   const desktopView = DesktopView();
+  const segmentHeight = compact ? 'h-4' : 'h-12';
 
   return (
     <m.div
@@ -17,9 +22,13 @@ const Line = () => {
         once: true,
       }}
     >
-      <div className='h-12 w-[2.5px] bg-linear-to-b from-transparent to-customlightgray' />
-      <div className='h-12 w-[2.5px] bg-customlightgray' />
-      <div className='h-12 w-[2.5px] bg-linear-to-t from-transparent to-customlightgray' />
+      <div
+        className={`${segmentHeight} w-[2.5px] bg-linear-to-b from-transparent to-customlightgray`}
+      />
+      <div className={`${segmentHeight} w-[2.5px] bg-customlightgray`} />
+      <div
+        className={`${segmentHeight} w-[2.5px] bg-linear-to-t from-transparent to-customlightgray`}
+      />
     </m.div>
   );
 };

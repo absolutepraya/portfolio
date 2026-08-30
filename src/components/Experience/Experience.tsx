@@ -1,40 +1,34 @@
-import {
-  IconArrowNarrowDownDashed,
-  IconArrowNarrowUpDashed,
-} from '@tabler/icons-react';
 import { m } from 'framer-motion';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import DesktopView from '../../lib/DesktopView';
-import { PopButton } from '../pop-button';
 import ExperienceBox from './ExperienceBox';
 import Line from './Line';
-import LineShort from './LineShort';
+
+const getExperienceKey = (title: string, org: string, date: string) =>
+  `${title}-${org}-${date}`;
 
 const Experience = () => {
   const desktopView = DesktopView();
-  const [showAll, setShowAll] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [openExperienceKey, setOpenExperienceKey] = useState(() => {
+    const firstExperience = experienceData[0];
+    return firstExperience
+      ? getExperienceKey(
+          firstExperience.title,
+          firstExperience.org,
+          firstExperience.date,
+        )
+      : null;
+  });
+  const [expandedDescriptionKey, setExpandedDescriptionKey] = useState<
+    string | null
+  >(null);
 
-  const displayedExperiences = showAll
-    ? experienceData
-    : experienceData.slice(0, 3);
-
-  const handleToggle = () => {
-    if (showAll) {
-      setShowAll(false);
-
-      setTimeout(() => {
-        if (buttonRef.current) {
-          buttonRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
-      }, 100);
-    } else {
-      setShowAll(true);
-    }
+  const handleExperienceToggle = (experienceKey: string) => {
+    setOpenExperienceKey((currentKey) =>
+      currentKey === experienceKey ? null : experienceKey,
+    );
+    setExpandedDescriptionKey(null);
   };
 
   return (
@@ -80,58 +74,46 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className='z-50 mt-24 flex flex-col items-center space-y-4 md:px-6'>
-        {displayedExperiences.map((experience, index) => (
-          <React.Fragment
-            key={`${experience.title}-${experience.org}-${experience.date}`}
-          >
-            {index === 0 ? (
-              <div className='h-0 md:h-8' />
-            ) : (
-              <div className='h-6 md:h-10' />
-            )}
-            <ExperienceBox
-              title={experience.title}
-              org={experience.org}
-              orgShort={experience.orgShort}
-              url={experience.url}
-              logo={experience.logo}
-              logoRounded={experience.logoRounded}
-              date={experience.date}
-              desc={experience.desc}
-              previousTitles={experience.previousTitles}
-              previousDates={experience.previousDates}
-              // alignCenter={experience.alignCenter}
-            />
-            {index < displayedExperiences.length - 1 && <Line />}
-          </React.Fragment>
-        ))}
+      <div className='z-50 mt-16 flex flex-col items-center space-y-2 md:mt-20 md:px-6'>
+        {experienceData.map((experience, index) => {
+          const experienceKey = getExperienceKey(
+            experience.title,
+            experience.org,
+            experience.date,
+          );
 
-        {experienceData.length > 3 && (
-          <>
-            {!showAll && <Line />}
-            {showAll && <LineShort />}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'circOut' }}
-            >
-              <PopButton
-                ref={buttonRef}
-                onClick={handleToggle}
-                className='gap-2 pr-3 font-jetbrainsmono'
-              >
-                <span>{showAll ? 'Show Less' : 'Show More'}</span>
-                {showAll ? (
-                  <IconArrowNarrowUpDashed size={20} stroke={2} />
-                ) : (
-                  <IconArrowNarrowDownDashed size={20} stroke={2} />
-                )}
-              </PopButton>
-            </m.div>
-          </>
-        )}
+          return (
+            <React.Fragment key={experienceKey}>
+              {index === 0 ? (
+                <div className='h-0 md:h-8' />
+              ) : (
+                <div className='h-2 md:h-3' />
+              )}
+              <ExperienceBox
+                title={experience.title}
+                org={experience.org}
+                orgShort={experience.orgShort}
+                url={experience.url}
+                logo={experience.logo}
+                logoRounded={experience.logoRounded}
+                date={experience.date}
+                desc={experience.desc}
+                previousTitles={experience.previousTitles}
+                previousDates={experience.previousDates}
+                isOpen={openExperienceKey === experienceKey}
+                onToggle={() => handleExperienceToggle(experienceKey)}
+                isDescriptionExpanded={expandedDescriptionKey === experienceKey}
+                onDescriptionToggle={() =>
+                  setExpandedDescriptionKey((currentKey) =>
+                    currentKey === experienceKey ? null : experienceKey,
+                  )
+                }
+                // alignCenter={experience.alignCenter}
+              />
+              {index < experienceData.length - 1 && <Line compact />}
+            </React.Fragment>
+          );
+        })}
       </div>
     </section>
   );
