@@ -161,13 +161,13 @@ const ExperienceBox = ({
       layout
       className='relative grid w-full grid-cols-1 gap-5 p-6 transition-[opacity,transform] duration-480 ease-in-out md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] md:gap-8 md:p-8'
     >
-      <div className='flex min-w-0 flex-col items-start text-left md:pt-1'>
+      <div className='flex min-w-0 flex-col items-center text-center md:items-start md:pt-1 md:text-left'>
         <p
           className={`font-instrument text-2xl leading-[0.95] transition-all duration-380 ease-in-out md:text-4xl md:leading-[1.05] ${isInView ? 'opacity-90' : 'opacity-70'}`}
         >
           {title}
         </p>
-        <div className='mt-2 flex flex-row items-center space-x-2 text-base md:text-lg'>
+        <div className='mt-2 flex flex-row items-center justify-center space-x-2 text-base md:justify-start md:text-lg'>
           <img
             src={logo}
             className={`h-5 w-5 shrink-0 ${logoRounded ? 'rounded-lg' : ''} ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
