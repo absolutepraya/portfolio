@@ -56,7 +56,7 @@ const Projects = () => {
 
   return (
     <section
-      className='relative z-10! w-[90vw] flex-col space-y-12 xl:w-272'
+      className='relative z-10! w-full flex-col space-y-12 md:w-[90vw] xl:w-272'
       id='projectssec'
     >
       <div id='projects' className='absolute -top-36' />

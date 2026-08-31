@@ -34,7 +34,7 @@ const Experience = () => {
 
   return (
     <section
-      className='relative flex w-[90vw] flex-col xl:w-272'
+      className='relative flex w-full flex-col md:w-[90vw] xl:w-272'
       id='experiencesec'
     >
       <div id='experience' className='absolute -top-36' />
@@ -75,7 +75,7 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className='relative mt-16 w-fit rounded-3xl md:mt-20'>
+      <div className='relative mt-16 w-full rounded-3xl md:mt-20 md:w-fit'>
         <div
           className='pointer-events-none absolute top-0 left-0 z-0! h-full w-full'
           style={{

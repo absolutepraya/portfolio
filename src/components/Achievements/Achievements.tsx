@@ -15,7 +15,7 @@ const Achievements = () => {
 
   return (
     <section
-      className='relative w-[90vw] flex-col space-y-12 xl:w-272'
+      className='relative w-full flex-col space-y-12 md:w-[90vw] xl:w-272'
       id='achievementssec'
     >
       <div id='achievements' className='absolute -top-36' />
@@ -56,7 +56,7 @@ const Achievements = () => {
         </div>
       </div>
 
-      <div className='relative w-fit rounded-3xl'>
+      <div className='relative w-full rounded-3xl md:w-fit'>
         {tabletView && (
           <m.div
             initial={{ opacity: 0 }}
