@@ -47,6 +47,10 @@ jobs:
     name: Deploy preview
     needs: verify
     if: github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -67,6 +71,7 @@ jobs:
           wranglerVersion: "4.113.0"
           command: deploy --env preview --name abhipraya-portfolio-pr-${{ github.event.pull_request.number }}
       - name: Smoke-test preview
+        id: smoke
         env:
           WRANGLER_OUTPUT: ${{ steps.deploy.outputs.command-output }}
         run: |
@@ -74,11 +79,56 @@ jobs:
           preview_url="$(printf '%s\n' "$WRANGLER_OUTPUT" | grep -Eo 'https://[^[:space:]]+\.workers\.dev' | head -n 1)"
           test -n "$preview_url"
           bun scripts/smoke-cloudflare-deployment.mjs "$preview_url"
-          echo "preview_url=$preview_url" >> "$GITHUB_ENV"
+          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
       - name: Publish preview URL
         run: |
           echo '## Cloudflare preview' >> "$GITHUB_STEP_SUMMARY"
-          echo "$preview_url" >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.smoke.outputs.preview_url }}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Comment preview URL on pull request
+        uses: actions/github-script@v7
+        env:
+          PREVIEW_URL: ${{ steps.smoke.outputs.preview_url }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- cloudflare-preview -->';
+            const previewUrl = process.env.PREVIEW_URL;
+            const commitSha = context.payload.pull_request.head.sha;
+            const body = [
+              marker,
+              'preview:',
+              `[${previewUrl}](${previewUrl})`,
+              '',
+              `deployed from commit [\`${commitSha.slice(0, 7)}\`](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}).`,
+            ].join('\n');
+            const issue = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            };
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              {
+                ...issue,
+                per_page: 100,
+              },
+            );
+            const existing = comments.find(
+              (comment) =>
+                comment.user?.type === 'Bot' && comment.body?.includes(marker),
+            );
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...issue,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...issue,
+                body,
+              });
+            }
 
   deploy-production:
     name: Deploy production

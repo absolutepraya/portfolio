@@ -51,24 +51,14 @@ interface Project {
   favicon?: string;
 }
 
-import ALSAEcomp from '../assets/projects/alsaecomp.webp';
-import ALSAEcompIcon from '../assets/projects/alsaecomp-icon.webp';
 import AurumVideo from '../assets/projects/aurum.mp4';
 import BKUIVideo from '../assets/projects/bkui.mp4';
-import DesaKedisan from '../assets/projects/desakedisan.webp';
 // Import favicon icons
-import DesaKedisanIcon from '../assets/projects/desakedisan-icon.svg';
-import DM2Calc from '../assets/projects/dm2calc.webp';
 import GrabAuto from '../assets/projects/grabauto.webp';
-import GusDur from '../assets/projects/gusdur.webp';
-import MIPAOpenHouse from '../assets/projects/mipaopenhouse.webp';
-import MIPAOpenHouseIcon from '../assets/projects/mipaopenhouse-icon.webp';
-import Ngandung from '../assets/projects/ngandung.webp';
 import NuSantap from '../assets/projects/nusantap.webp';
 import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import PintaruIcon from '../assets/projects/pintaru-icon.png';
-import Rumble from '../assets/projects/rumble.webp';
 import SIRAVideo from '../assets/projects/sira.mp4';
 
 const projectsData: Project[] = [
@@ -78,7 +68,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'open-source'],
     date: '06/2025',
     subtitle:
-      'Marka is an open-source bookmark-everything app for links, notes, and images with AI tagging and full-text search. I run my own production build and deployment pipeline, tailored Docker services, and a private instance.',
+      'Maintain and extend an open-source bookmark-everything app for links, notes, images, and AI-assisted organization. I own its production deployment, Docker services, and ongoing product work.',
     stacks: [
       'nextjs',
       'nodejs',
@@ -89,6 +79,17 @@ const projectsData: Project[] = [
     ],
     url: 'https://marka.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/marka',
+  },
+  {
+    title: 'wt',
+    kind: 'cli',
+    tags: ['automation', 'open-source'],
+    date: '2026',
+    subtitle:
+      'An agent-first Git worktree manager for running multiple LLM coding agents on the same project without stepping on each other. It provides one workflow for isolated worktrees, numbered slots, port offsets, setup and teardown, locking, and safety checks, regardless of which coding agent or CLI you use.',
+    stacks: ['python'],
+    url: '',
+    github: 'https://github.com/absolutepraya/wt',
   },
   // {
   //   title: 'Hermes Agent',
@@ -107,9 +108,9 @@ const projectsData: Project[] = [
     title: 'SIRA: Smart Invoice Reminder AI',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
-    date: '06/2026',
+    date: '04/2026',
     subtitle:
-      "SIRA is an accounts-receivable automation platform built for a real client. It scores each client's payment risk daily from their payment history and sends tone-graded reminder emails (polite, firm, or warning) based on the risk, with a finance dashboard, an admin approval workflow, and internal Telegram alerts.",
+      'Built an accounts-receivable automation platform for a client that scores payment risk daily and sends approval-gated reminder emails with tone based on risk. Includes invoice and payment workflows, a finance dashboard, and internal Telegram alerts.',
     stacks: [
       'reactjs',
       'vitejs',
@@ -132,7 +133,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'knowledge-graph'],
     date: '11/2025',
     subtitle:
-      'Aurum is an AI-powered knowledge graph platform that revolutionizes art exploration. It combines a semantic search engine for finding artworks by description, an interactive force-directed graph to visualize complex relationships between artists and movements, and a RAG-based "Museum Guide" chatbot that provides context-aware educational insights by synthesizing internal graph data with external Wikidata enrichment.',
+      'Built an AI art-exploration app that combines semantic search, a Neo4j relationship graph, and a RAG museum guide grounded in graph data and Wikidata.',
     stacks: [
       'bun',
       'nextjs',
@@ -154,10 +155,10 @@ const projectsData: Project[] = [
     tags: ['full-stack'],
     date: '11/2025',
     subtitle:
-      'A comprehensive event platform for Bedah Kampus UI 2025 featuring a high-performance landing page, an integrated ticketing and merchandise store with Midtrans payment gateway, and a robust admin dashboard. The system also includes a mobile-optimized QR code check-in tool, enabling the committee to scan tickets and verify participants in real-time at the venue.',
+      'Built an event-commerce platform for Bedah Kampus UI 2025, covering ticket sales, merchandise orders, Midtrans payments, QR check-in, and organizer operations.',
     stacks: ['nextjs', 'typescript', 'bun', 'supabase', 'midtrans'],
     url: 'https://dev.bedahkampusui.com/tickets',
-    github: '',
+    github: 'https://github.com/absolutepraya/bkui',
   },
   // {
   //   preview: null,
@@ -178,7 +179,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai'],
     date: '04/2025',
     subtitle:
-      'PINTARU is an AI-powered platform with 2 features: 1) AI-generated video explanations that answer questions from text, photos, or PDFs for students, and 2) AI-generated storybooks with interactive visuals, custom moral values, and custom characters for kids.',
+      'Developed an AI learning platform that turns student questions from text, images, or PDFs into narrated explanation videos, and generates illustrated storybooks for children.',
     stacks: [
       'bun',
       'nextjs',
@@ -205,7 +206,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai'],
     date: '11/2024',
     subtitle:
-      'NuSantap is an app that uses AI and Computer Vision to provide personalized meal recommendations based on nutritional needs and local food availability, optimizing the "Makan Bergizi Gratis" program.',
+      "Built an AI and computer-vision meal recommendation app for Indonesia's Makan Bergizi Gratis program, using nutritional needs and local food availability to personalize recommendations.",
     stacks: [
       'nodejs',
       'npm',
@@ -227,7 +228,7 @@ const projectsData: Project[] = [
     tags: ['frontend', 'ai'],
     date: '07/2024',
     subtitle:
-      "Grab feature that uses gen-AI to diagnose vehicle issues (even when the user has no idea what's wrong), find the nearest mechanics, book a repair service, and predict the cost. Built in 23 hours during hackjakarta.",
+      'Built a prototype Grab vehicle-assistance flow in 23 hours: AI diagnosis, nearby mechanic discovery, repair booking, and cost prediction.',
     stacks: [
       'nodejs',
       'npm',
@@ -239,43 +240,6 @@ const projectsData: Project[] = [
     ],
     url: '',
     github: 'https://github.com/Tianrider/GrabAuto',
-  },
-  {
-    preview: DM2Calc,
-    title: 'Discrete Math Calculator',
-    kind: 'cli',
-    tags: [],
-    date: '02/2024',
-    subtitle:
-      "A collection of tools for solving Discrete Math problems that doesn't just give out the final result, but also provides a step-by-step solution. The available solvers are for modular exponentiation, Euclidean's algorithm, CRT, and many more.",
-    stacks: ['python'],
-    url: '',
-    github: 'https://github.com/absolutepraya/dm2-calculator',
-  },
-  {
-    favicon: ALSAEcompIcon,
-    preview: ALSAEcomp,
-    title: 'ALSA LC FH UI E-Comp Portal',
-    kind: 'web',
-    tags: ['frontend'],
-    date: '02/2025',
-    subtitle:
-      'This website serves as the portal for ALSA FH UI E-Comp, a national competition held by ALSA LC UI. It features information about the competition categories, timeline, participants accomodation, etc.',
-    stacks: ['nodejs', 'npm', 'nextjs', 'javascript', 'tailwindcss'],
-    url: 'https://alsaecomp.id/',
-    github: 'https://github.com/absolutepraya/alsa-ecomp',
-  },
-  {
-    preview: Rumble,
-    title: 'Rumble Backend',
-    kind: 'backend',
-    tags: [],
-    date: '01/2025',
-    subtitle:
-      'Rumble is an On-Chain Solana Battle Royale Game. This is the backend server for Rumble, handling user authentication, game logic, player management, etc. Game announcements are sent via X (Twitter) Bot using X API v2.',
-    stacks: ['nodejs', 'npm', 'express', 'javascript', 'supabase', 'x'],
-    url: 'https://rumble-landing.vercel.app/',
-    github: '',
   },
   // {
   //   preview: null,
@@ -317,39 +281,6 @@ const projectsData: Project[] = [
   //   url: 'https://nusantap-dashboard.vercel.app/',
   //   github: '',
   // },
-  {
-    preview: Ngandung,
-    title: 'Ngandung: Ngemil di Bandung',
-    kind: 'mobile',
-    tags: ['full-stack'],
-    date: '11/2024',
-    subtitle:
-      'Ngandung is an application that makes it easy for users to find information about foods and stores in Bandung, leave reviews, and save favorite stores.',
-    stacks: [
-      'django',
-      'python',
-      'javascript',
-      'tailwindcss',
-      'flutter',
-      'dart',
-    ],
-    url: '',
-    github:
-      'https://github.com/Kelompok-9-PBP-Ganjil-2024-2025/ngandung-mobile',
-  },
-  {
-    preview: DesaKedisan,
-    title: 'Desa Kedisan Tourism Portal',
-    kind: 'web',
-    tags: ['frontend'],
-    date: '10/2024',
-    subtitle:
-      'A front-end website that serves as information center of Desa Kedisan, a small tourism village in Gianyar, Bali. This website showcases the essence of the village, its culture, and its tourism spots.',
-    stacks: ['nodejs', 'npm', 'vitejs', 'reactjs', 'javascript', 'tailwindcss'],
-    url: 'https://desa-kedisan.vercel.app/',
-    github: 'https://github.com/absolutepraya/desa-kedisan',
-    favicon: DesaKedisanIcon,
-  },
   // {
   //   preview: Portfolio,
   //   title: 'Personal Portfolio',
@@ -371,40 +302,6 @@ const projectsData: Project[] = [
   //   github: 'https://github.com/absolutepraya/portfolio',
   //   favicon: PortfolioIcon,
   // },
-  {
-    preview: MIPAOpenHouse,
-    title: 'Open House FMIPA UI 2024',
-    kind: 'web',
-    tags: ['full-stack'],
-    date: '06/2024',
-    subtitle:
-      'Event website that showcases details about the FMIPA UI 2024 Open House, including the event details and the faculty and its departments, while also functions as a payment platform for participants.',
-    stacks: [
-      'nodejs',
-      'npm',
-      'vitejs',
-      'reactjs',
-      'javascript',
-      'tailwindcss',
-      'nestjs',
-      'supabase',
-    ],
-    url: 'https://mipaopenhouse.com',
-    github: '',
-    favicon: MIPAOpenHouseIcon,
-  },
-  {
-    preview: GusDur,
-    title: 'The Legend of Gus Dur: EoTR',
-    kind: 'game',
-    tags: [],
-    date: '12/2022',
-    subtitle:
-      "A plotful 2D video game as the final project for the History of Indonesia subject in grade 12, with the theme being the presidency of Gus Dur. It tells a story about a young man going back in time to learn about Gus Dur's presidency.",
-    stacks: ['rpgmaker'],
-    url: '',
-    github: '',
-  },
 ];
 
 export default projectsData;

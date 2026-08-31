@@ -3,7 +3,6 @@
 interface Experience {
   title: string;
   org: string;
-  orgShort?: string;
   url: string;
   logo: string;
   logoRounded?: boolean;
@@ -26,11 +25,10 @@ const experienceData: Experience[] = [
   {
     title: 'AI Engineer (GTM) Intern',
     org: 'Avanade',
-    orgShort: 'Avanade',
     url: 'https://www.avanade.com/',
     logo: Avanade,
     date: '03/2026 - Present',
-    desc: "AI Engineer intern supporting Go-to-Market, translating enterprise discovery into Microsoft AI architectures, prototype demos, and business cases to deliver practical AI solutions.\n\n- Partnered with Business Development on 4 enterprise AI engagements, translating discovery into Microsoft solution architectures, business cases, and live demos for procurement, document operations, analytics, and financial-services workflows\n- Built a procurement and sourcing agent on [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) using [SAP Cloud SDK](https://sap.github.io/cloud-sdk/) to connect to the client's SAP ECC, S/4HANA, and Ariba APIs, with specialist review and an audit trail; validated 25 model calls on a curated 494-line procurement snapshot, producing 147 proposed RFQ groups in 147.6 seconds\n- Developed a Python evaluation harness for multi-format invoice extraction, benchmarking Microsoft Foundry, [Azure Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/), and [Azure Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) across 10 invoices and 3 repeated runs; recommended gpt-5.4 at 83% precision and recall, 8.9s median latency, and Rp792 per invoice\n- Architected an automated IT-maintenance solution leveraging [Azure SRE Agent](https://azure.microsoft.com/en-us/products/sre-agent) to apply OS, dependency, and in-server software updates against compliance checklists, verifying each maintenance step before completion\n- Architected a [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot) solution in [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) for division leads, connected to a [Power BI](https://www.microsoft.com/en-us/power-platform/products/power-bi) model to deliver daily priorities and announcements, answer KPI questions, and provide conversational reporting without opening a dashboard",
+    desc: "AI Engineer intern supporting Go-to-Market, translating enterprise discovery into Microsoft AI architectures, prototype demos, and business cases to deliver practical AI solutions.\n\n- Partnered with Business Development on 4 enterprise AI engagements, translating discovery into Microsoft solution architectures, business cases, pitch materials, and live demos for procurement, document operations, analytics, and financial-services workflows\n- Built a procurement and sourcing agent on [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) using [SAP Cloud SDK](https://sap.github.io/cloud-sdk/) to connect to the client's SAP ECC, S/4HANA, and Ariba APIs, with specialist review and an audit trail; validated 25 model calls on a curated 494-line procurement snapshot, producing 147 proposed RFQ groups in 147.6 seconds\n- Developed a Python evaluation harness for multi-format invoice extraction, benchmarking Microsoft Foundry, [Azure Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/), and [Azure Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) across 10 invoices and 3 repeated runs; recommended gpt-5.4 at 83% precision and recall, 8.9s median latency, and Rp792 per invoice\n- Built an end-to-end [Azure SRE Agent](https://azure.microsoft.com/en-us/products/sre-agent) demo that applies OS, dependency, and in-server updates against compliance checklists and verifies each maintenance step before completion\n- Architected a [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot) solution in [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) for division leads, connected to a [Power BI](https://www.microsoft.com/en-us/power-platform/products/power-bi) model to deliver daily priorities and announcements, answer KPI questions, and provide conversational reporting without opening a dashboard",
     alignCenter: false,
   },
   {
@@ -38,19 +36,18 @@ const experienceData: Experience[] = [
     org: 'Aiccountant',
     url: 'https://aiccountant.id/',
     logo: Aiccountant,
-    date: '01/2026 - 06/2026',
-    desc: '- Built the WhatsApp Customer Service AI Agent via the [Meta WhatsApp Business API](https://whatsappbusiness.com/developers/developer-hub/) on the [Cloudflare Agents SDK](https://developers.cloudflare.com/agents/) with 10+ tools, multimodal receipt reading, and a channel-agnostic schema; cut LLM cost by roughly 50% through prompt-cache optimization\n- Built user-configured transaction recategorization rules using multi-stage similarity matching across substring, fuzzy, trigram, and [Gemini Embedding 001](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001); after 3 consistent corrections for the same merchant and category, [Cloudflare Queues](https://developers.cloudflare.com/queues/) triggers an LLM suggestion of a reusable brand pattern for dialog approval\n- Designed a merchant-enrichment workflow that identifies high-frequency transaction counterparties through a daily [OpenClaw cron](https://docs.openclaw.ai/automation/cron-jobs), then uses the [Brave Search API](https://brave.com/search/api/) and web scraping to create reviewable merchant context for downstream LLM categorization\n- Extended the agent architecture to [Telegram](https://core.telegram.org/bots/api), enabling proactive budget alerts and conversational financial assistance alongside WhatsApp\n- Built the [Remix](https://remix.run/) product landing page, made every user-facing workflow I developed available offline with [PowerSync](https://www.powersync.com/) local-first sync, and instrumented telemetry and error monitoring with [PostHog](https://posthog.com/) and [Sentry](https://sentry.io/) dashboards',
+    date: '01/2026 - 07/2026',
+    desc: '- Built the WhatsApp Customer Service AI Agent via the [Meta WhatsApp Business API](https://whatsappbusiness.com/developers/developer-hub/) on the [Cloudflare Agents SDK](https://developers.cloudflare.com/agents/) with 10+ tools and multimodal receipt workflows; cut LLM cost by roughly 50% through prompt-cache optimization\n- Built user-configured transaction recategorization rules using multi-stage similarity matching across substring, fuzzy, trigram, and [Gemini Embedding 001](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001); after 3 consistent corrections for the same merchant and category, [Cloudflare Queues](https://developers.cloudflare.com/queues/) triggers an LLM suggestion of a reusable brand pattern for dialog approval\n- Designed a scheduled merchant-enrichment workflow using search and web scraping to create reviewable context for downstream LLM categorization\n- Extended the agent architecture to [Telegram](https://core.telegram.org/bots/api), enabling proactive budget alerts and conversational financial assistance alongside WhatsApp\n- Powered 45,000+ AI workflow runs at a 96.2% success rate across Gmail ingestion, email classification, and agent execution, with telemetry and error monitoring through [PostHog](https://posthog.com/) and [Sentry](https://sentry.io/)\n- Built the [Remix](https://remix.run/) product landing page and made every user-facing workflow I developed available offline with [PowerSync](https://www.powersync.com/) local-first sync',
     alignCenter: false,
   },
   {
     title: 'Product Engineer Intern',
     org: 'Sobat Bisnis Group',
-    orgShort: 'SBG',
     url: 'https://www.linkedin.com/company/sobatbisnis/posts/?feedView=all',
     logo: SobatBisnis,
     logoRounded: true,
     date: '06/2025 - 09/2025',
-    desc: '- Implemented zero-trust IAM across 3 microservices using Go, JWT RS256, and [Redis](https://redis.io/), enforcing endpoint-level authorization and immediate session revocation\n- Delivered the listing-management service with tenant defaults and overrides, product and variant CRUD, plus asynchronous CSV/XLSX bulk operations with job tracking\n- Built a [Shopee platform connection module](https://open.shopee.com/developer-guide/4) with OAuth 2.0, encrypted token storage, caching, and background refresh, enabling multi-shop connection health and status visibility\n- Established versioned database migrations and standardized API response contracts across services, improving schema-change safety and client integration consistency',
+    desc: '- Implemented endpoint-level IAM across 3 microservices using Go, JWT RS256, and [Redis](https://redis.io/), with immediate session revocation\n- Delivered the listing-management service with tenant defaults and overrides, product and variant CRUD, plus asynchronous CSV/XLSX bulk operations with job tracking\n- Built a [Shopee platform connection module](https://open.shopee.com/developer-guide/4) with OAuth 2.0, encrypted token storage, caching, and background refresh, enabling multi-shop connection health and status visibility\n- Established versioned database migrations and standardized API response contracts across services, improving schema-change safety and client integration consistency',
     alignCenter: false,
   },
   {
@@ -67,7 +64,6 @@ const experienceData: Experience[] = [
   {
     title: 'Fullstack Engineer',
     org: '80&Company',
-    orgShort: '80&Co.',
     url: 'https://80and.co/en/company/',
     logo: CO80,
     date: '01/2025 - 08/2025',
@@ -77,10 +73,9 @@ const experienceData: Experience[] = [
   {
     title: 'Lead of NetSOS SIG',
     org: 'RISTEK Fasilkom UI',
-    orgShort: 'RISTEK UI',
     url: 'https://www.ristek.cs.ui.ac.id/',
     logo: RISTEK,
-    date: '03/2024 - Present',
+    date: '03/2025 - 03/2026',
     desc: '- Advanced from competitive RISTEK member selection to lead the NetSOS SIG\n- Deployed an Attack/Defense CTF platform for 20 internal members on [Google Cloud Platform (GCP)](https://cloud.google.com/) and [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine), automated with Ansible\n- Contributed the [Next.js](https://nextjs.org/) frontend to a cross-SIG RISTEK capstone project, integrating work across multiple teams\n- Led Web Penetration and Cryptography open classes for 50+ participants, teaching cybersecurity fundamentals through Capture The Flag exercises',
     alignCenter: false,
     previousTitles: [

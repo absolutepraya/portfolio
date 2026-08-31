@@ -67,7 +67,7 @@ bun run start
 bun run smoke:deployment -- https://example.workers.dev
 ```
 
-The deployment workflow verifies the full quality suite and builds `dist/` once. Same-repository pull requests deploy that verified artifact to a public preview Worker and smoke-test it. A push to `core` deploys the same artifact through the `absolutepraya-portfolio` GitHub environment, then smoke-tests production. Closed pull requests remove their preview Worker.
+The deployment workflow verifies the full quality suite and builds `dist/` once. Same-repository pull requests deploy that verified artifact to a public preview Worker, smoke-test it, and update a preview URL comment on the pull request. A push to `core` deploys the same artifact through the `absolutepraya-portfolio` GitHub environment, then smoke-tests production. Closed pull requests remove their preview Worker.
 
 `core` is protected: changes require a pull request with the `Verify` check passing. Force pushes and branch deletion are blocked, but an approval is not required.
 

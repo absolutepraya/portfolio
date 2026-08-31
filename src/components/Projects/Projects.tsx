@@ -18,12 +18,9 @@ import SepBorder from './SepBorder';
 
 const filterOptions: Array<ProjectKind | 'all'> = [
   'all',
-  'web',
-  'mobile',
-  'backend',
-  'cli',
-  'game',
-  'agent',
+  ...(Object.keys(projectKindLabels) as ProjectKind[]).filter((kind) =>
+    projectsData.some((project) => project.kind === kind),
+  ),
 ];
 
 const Projects = () => {
@@ -77,7 +74,7 @@ const Projects = () => {
             once: true,
           }}
         >
-          Stuff I&apos;ve built
+          Selected works
         </m.h2>
         <div
           className={`relative mt-1 w-full max-w-none rounded-full md:mt-2 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}

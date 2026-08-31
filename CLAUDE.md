@@ -32,7 +32,7 @@ src/
 ├── components/           # Page sections
 │   ├── NavBar/           # Floating nav with IntersectionObserver + signature
 │   ├── About/            # Hero + profile card (legacy marquee components retained)
-│   ├── Experience/       # Work timeline with Markdown and inline tech mentions
+│   ├── Experience/       # Framed work list with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
 │   ├── Projects/         # Project cards with badge filtering
 │   ├── Footer/           # Copyright + Jakarta clock + shimmer pill
@@ -64,14 +64,12 @@ src/
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
 - Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
 - Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
-- `orgShort` controls the oversized background label on Experience cards, such as `SBG` for Sobat Bisnis Group.
 - Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
 - In the vertical Hero layout (`768px` to `1023px`), ProfileCard keeps its fixed 580px composition and uses a ResizeObserver-derived scale, capped at 1.2, to fill available width without triggering a separate tablet layout. The Hero title and subtitle step up to `text-5xl` and `text-lg`, with a compact `1rem` gap.
 - On mobile, ProfileCard measures its hero-stage width and scales its 520px composition to fit within it. The stage reserves the corresponding rendered height, preventing edge-to-edge overflow, empty vertical space, and the hero-copy overlap caused by the former compensating offset.
-- Experience retains its original `6rem` heading-line-to-content rhythm, including a `2rem` first-card spacer from `md`. Its heading underline spans the full section width in the vertical layout and sits `0.5rem` below the title from `md`.
+- Experience uses a single bordered rounded frame matching the desktop width of the Victory Laps FlickeringGrid, without FlickeringGrid or vertical timeline connectors. Rows use a 1:3 metadata-to-description grid from `md`, stack on mobile, use the shared `BotBorder` treatment between entries, and show the first three roles before the bottom `Show More` control reveals the rest.
 - Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
-- Experience role dates follow description copy sizing (`text-sm` on mobile and `text-base` from `md`); role titles are `2rem` on mobile and `3rem` from `md`.
-- Experience role titles use compact line-height, `0.95` on mobile and `1.05` from `md`, to avoid excess title-to-metadata space.
+- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System

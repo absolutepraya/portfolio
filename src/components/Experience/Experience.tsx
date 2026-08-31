@@ -3,19 +3,16 @@ import {
   IconArrowNarrowUpDashed,
 } from '@tabler/icons-react';
 import { m } from 'framer-motion';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import experienceData from '../../data/experience_data.js';
 import DesktopView from '../../lib/DesktopView';
 import { PopButton } from '../pop-button';
 import ExperienceBox from './ExperienceBox';
-import Line from './Line';
-import LineShort from './LineShort';
 
 const Experience = () => {
   const desktopView = DesktopView();
   const [showAll, setShowAll] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
+  const buttonRef = useRef<HTMLDivElement>(null);
   const displayedExperiences = showAll
     ? experienceData
     : experienceData.slice(0, 3);
@@ -23,18 +20,16 @@ const Experience = () => {
   const handleToggle = () => {
     if (showAll) {
       setShowAll(false);
-
       setTimeout(() => {
-        if (buttonRef.current) {
-          buttonRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
+        buttonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
       }, 100);
-    } else {
-      setShowAll(true);
+      return;
     }
+
+    setShowAll(true);
   };
 
   return (
@@ -80,58 +75,52 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className='z-50 mt-24 flex flex-col items-center space-y-4 md:px-6'>
-        {displayedExperiences.map((experience, index) => (
-          <React.Fragment
-            key={`${experience.title}-${experience.org}-${experience.date}`}
-          >
-            {index === 0 ? (
-              <div className='h-0 md:h-8' />
-            ) : (
-              <div className='h-6 md:h-10' />
-            )}
-            <ExperienceBox
-              title={experience.title}
-              org={experience.org}
-              orgShort={experience.orgShort}
-              url={experience.url}
-              logo={experience.logo}
-              logoRounded={experience.logoRounded}
-              date={experience.date}
-              desc={experience.desc}
-              previousTitles={experience.previousTitles}
-              previousDates={experience.previousDates}
-              // alignCenter={experience.alignCenter}
-            />
-            {index < displayedExperiences.length - 1 && <Line />}
-          </React.Fragment>
-        ))}
+      <div className='relative mt-16 w-fit rounded-3xl md:mt-20'>
+        <div
+          className='pointer-events-none absolute top-0 left-0 z-0! h-full w-full'
+          style={{
+            boxShadow: 'inset 0px 0px 40px 50px var(--color-inset-shadow)',
+          }}
+        />
+        <div className='relative z-40! flex h-auto w-full flex-col items-center justify-center rounded-lg transition-[color,background-color,box-shadow,opacity,transform] duration-200'>
+          <div className='flex h-full w-full flex-col overflow-hidden rounded-3xl border border-customgray bg-customblack shadow-lg'>
+            {displayedExperiences.map((experience, index) => (
+              <ExperienceBox
+                key={`${experience.title}-${experience.org}-${experience.date}`}
+                title={experience.title}
+                org={experience.org}
+                url={experience.url}
+                logo={experience.logo}
+                logoRounded={experience.logoRounded}
+                date={experience.date}
+                desc={experience.desc}
+                previousTitles={experience.previousTitles}
+                previousDates={experience.previousDates}
+                alignCenter={experience.alignCenter}
+                showDivider={index < displayedExperiences.length - 1}
+              />
+            ))}
 
-        {experienceData.length > 3 && (
-          <>
-            {!showAll && <Line />}
-            {showAll && <LineShort />}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'circOut' }}
-            >
-              <PopButton
+            {experienceData.length > 3 && (
+              <m.div
+                className='flex w-full items-center justify-center pt-4 pb-8'
                 ref={buttonRef}
-                onClick={handleToggle}
-                className='gap-2 pr-3 font-jetbrainsmono'
               >
-                <span>{showAll ? 'Show Less' : 'Show More'}</span>
-                {showAll ? (
-                  <IconArrowNarrowUpDashed size={20} stroke={2} />
-                ) : (
-                  <IconArrowNarrowDownDashed size={20} stroke={2} />
-                )}
-              </PopButton>
-            </m.div>
-          </>
-        )}
+                <PopButton
+                  onClick={handleToggle}
+                  className='gap-2 pr-3 font-jetbrainsmono'
+                >
+                  <span>{showAll ? 'Show Less' : 'Show More'}</span>
+                  {showAll ? (
+                    <IconArrowNarrowUpDashed size={20} stroke={2} />
+                  ) : (
+                    <IconArrowNarrowDownDashed size={20} stroke={2} />
+                  )}
+                </PopButton>
+              </m.div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

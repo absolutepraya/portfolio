@@ -29,8 +29,8 @@ const About = () => {
             stagger={0.04}
             className='mt-3 max-w-200 text-left text-sm opacity-90 md:mt-4 md:text-lg'
           >
-            Fullstack apps, AI agents, cloud infrastructure. I build the whole
-            thing, start to finish, and I've won hackathons doing it.
+            Fullstack apps, AI agents, cloud infrastructure. I build from
+            prototype to deployment, and I&apos;ve won hackathons doing it.
           </SlideUpText>
         </div>
       </div>
