@@ -4,7 +4,7 @@ import ProfileCard from './ProfileCard';
 const About = () => {
   return (
     <section
-      className='relative mt-14! flex w-full flex-col items-center md:mt-30! md:w-[90vw] lg:mt-0! lg:min-h-dvh lg:justify-center xl:w-272'
+      className='relative mt-14! flex w-[90vw] flex-col items-center md:mt-30! lg:mt-0! lg:min-h-dvh lg:justify-center xl:w-272'
       id='aboutsec'
     >
       <div id='about' className='absolute -top-40' />
