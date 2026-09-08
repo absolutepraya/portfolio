@@ -30,7 +30,7 @@ src/
 ├── styles.css            # Global CSS (@theme, @font-face, CSS variables, animations)
 ├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
 ├── components/           # Page sections
-│   ├── NavBar/           # Floating nav with IntersectionObserver + signature
+│   ├── NavBar/           # Compact top nav with IntersectionObserver + signature
 │   ├── About/            # Hero + profile card (legacy marquee components retained)
 │   ├── Experience/       # Framed work list with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
@@ -54,7 +54,7 @@ src/
 ## Architecture
 
 - Single-page app with anchor-based scroll navigation (no React Router)
-- NavBar uses IntersectionObserver to highlight active section
+- NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions.
 - Sections: About → Experience → Achievements → Projects. The project list
   includes original work and materially maintained open-source forks, but not
   generic services that are only self-hosted.
@@ -83,6 +83,7 @@ src/
 - The Project filter icon and label share the same subdued foreground color and stay on one line.
 - Victory Laps organizer links use a compact `PopButton` treatment while remaining external anchors with their organizer logo.
 - Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its compact, shorter mobile Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
+- The `wt` project card provides separate GitHub and npm actions.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 - Profile card: the WebGL dither accent is lazy-loaded so its renderer stays out of the main application bundle.

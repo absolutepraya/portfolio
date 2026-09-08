@@ -17,7 +17,7 @@ export interface Achievement {
   prizeCurr?: string;
   prizeInt?: number;
   bonus?: string[];
-  location: string;
+  location?: string;
   articles?: Article[];
   imagesPath?: string;
 }
@@ -36,13 +36,12 @@ const achievementsData: Achievement[] = [
     organizerUrl: 'https://www.kemenkeu.go.id/',
     organizerLogo: Kemenkeu,
     date: '11/2024',
-    desc: 'Won **1st place** among **500+ participants** from **3 countries** after proposal and pitch rounds with an **AI-driven solution**.',
+    desc: 'Built **NuSantap** and won **1st place** among **500+ participants** from **3 countries** after proposal and pitch rounds.',
     award: '1st Place',
     awardInt: 1,
     prizeCurr: 'IDR',
     prizeInt: 50000000,
     bonus: ['Soundcore TWS', 'Merchandises'],
-    location: 'Jakarta, Indonesia',
     articles: [
       {
         platform: 'Microsoft News',
@@ -87,7 +86,6 @@ const achievementsData: Achievement[] = [
     prizeCurr: 'IDR',
     prizeInt: 8000000,
     bonus: ['IDR 400.000 Voucher', 'Merchandises'],
-    location: 'Jakarta, Indonesia',
     articles: [
       {
         platform: 'The Jakarta Post',
@@ -106,13 +104,12 @@ const achievementsData: Achievement[] = [
     organizerUrl: 'https://www.microsoft.com/',
     organizerLogo: Microsoft,
     date: '06/2025',
-    desc: "Won **3rd place** in Microsoft's **elevAIte Indonesia** AI hackathon with a solution built using **Azure services**. The team advanced to the national final.",
+    desc: "Won **3rd place** in Microsoft's **elevAIte Indonesia** AI hackathon with an **Azure-based AI solution** focused on sustainability and community impact.",
     award: '3rd Place',
     awardInt: 3,
     prizeCurr: 'US$',
     prizeInt: 400,
     bonus: ['Merchandises', 'Microsoft Voucher'],
-    location: 'Tangerang, Indonesia',
     imagesPath: 'src/assets/achievements/elevaite',
     articles: [
       {
@@ -138,7 +135,6 @@ const achievementsData: Achievement[] = [
       'Alibaba Merchandises',
       'GoTo Merchandises',
     ],
-    location: 'Jakarta, Indonesia',
     imagesPath: 'src/assets/achievements/alibaba',
   },
   {
@@ -147,14 +143,13 @@ const achievementsData: Achievement[] = [
     organizerUrl: 'https://www.microsoft.com/',
     organizerLogo: Microsoft,
     date: '06/2025',
-    desc: 'Won **2nd place** with **PINTARU**, an adaptive study helper and digital storybook solution for children with dyslexia. The team used **Azure OpenAI**, **Azure Search**, and **Azure Speech**, competing against 46 teams with 10 finalists.',
+    desc: 'Won **2nd place** with **PINTARU**, an AI learning platform for kids and teens with ADHD using **Azure OpenAI**, **Azure Search**, and **Azure Speech**.',
     award: '2nd Place',
     awardInt: 2,
     bonus: [
       'Dinner with President of Microsoft Indonesia, Dharma Simorangkir',
       'Merchandises',
     ],
-    location: 'FT UI, Depok, Indonesia',
     imagesPath: 'src/assets/achievements/ai4a',
   },
   {
@@ -166,7 +161,6 @@ const achievementsData: Achievement[] = [
     desc: "Named one of **4 champions** in ASSI's satellite innovation competition with an AI-powered solution addressing fraud against bank customers in Indonesia.",
     award: '1 of 4 Champions',
     awardInt: 1,
-    location: 'Jakarta, Indonesia',
   },
   {
     title: 'Hackfest UC 2025',
@@ -177,7 +171,6 @@ const achievementsData: Achievement[] = [
     desc: 'Reached the final stage before the team was ultimately **disqualified**.',
     award: '1st Place [Disqualified]',
     awardInt: 0,
-    location: 'Surabaya, Indonesia',
   },
 ];
 

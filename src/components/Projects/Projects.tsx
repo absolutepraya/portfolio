@@ -167,6 +167,7 @@ const Projects = () => {
                   stacks={project.stacks}
                   url={project.url}
                   github={project.github}
+                  npm={project.npm}
                   favicon={project.favicon}
                   disableHover={shouldMask}
                 />

@@ -47,7 +47,7 @@ const NavBar = () => {
 
   return (
     <BlurFade
-      className='fixed top-4 right-4 left-4 z-100! flex h-15 flex-row items-center justify-between rounded-2xl border px-2 backdrop-blur-md md:top-8 md:h-[4.9rem] md:rounded-3xl md:px-2.5 lg:right-auto lg:left-auto lg:w-220'
+      className='fixed top-4 right-4 left-4 z-100! flex h-15 flex-row items-center justify-between rounded-2xl border px-2 backdrop-blur-md md:top-6 md:h-[4.9rem] md:rounded-3xl md:px-2.5 lg:right-auto lg:left-auto lg:w-220'
       style={{
         backgroundColor: 'var(--color-nav-bg)',
         borderColor: 'var(--color-nav-border)',
@@ -56,7 +56,7 @@ const NavBar = () => {
       offset={40}
       duration={0.5}
       direction='down'
-      scale={1}
+      scale={0.82}
     >
       {/* LEFT: Signature (mobile + desktop) */}
       <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>

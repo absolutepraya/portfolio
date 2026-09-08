@@ -1,4 +1,8 @@
-import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
+import {
+  IconArrowUpRight,
+  IconBrandGithub,
+  IconBrandNpm,
+} from '@tabler/icons-react';
 import { AnimatePresence, m } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import NoImage from '../../assets/projects/noimage.webp';
@@ -68,6 +72,7 @@ interface ProjectBoxProps {
   stacks?: string[];
   url?: string | null;
   github?: string | null;
+  npm?: string | null;
   favicon?: string | null;
   disableHover?: boolean;
 }
@@ -124,6 +129,7 @@ const ProjectBox = ({
   stacks = [],
   url = null,
   github = null,
+  npm = null,
   favicon = null,
   disableHover = false,
 }: ProjectBoxProps) => {
@@ -321,6 +327,19 @@ const ProjectBox = ({
                       stroke={1.5}
                       size={desktopView ? 20 : 18}
                     />
+                  </a>
+                </PopButton>
+              )}
+              {npm && (
+                <PopButton className='aspect-square p-0' asChild>
+                  <a
+                    href={npm}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label={`View ${title} on npm`}
+                    title={`View ${title} on npm`}
+                  >
+                    <IconBrandNpm stroke={1.5} size={desktopView ? 20 : 18} />
                   </a>
                 </PopButton>
               )}

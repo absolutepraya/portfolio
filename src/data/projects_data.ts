@@ -48,6 +48,7 @@ interface Project {
   stacks: string[];
   url: string;
   github: string;
+  npm?: string;
   favicon?: string;
 }
 
@@ -66,9 +67,9 @@ const projectsData: Project[] = [
     title: 'Marka',
     kind: 'web',
     tags: ['full-stack', 'ai', 'open-source'],
-    date: '06/2025',
+    date: '06/2026 - Present',
     subtitle:
-      'Maintain and extend an open-source bookmark-everything app for links, notes, images, and AI-assisted organization. I own its production deployment, Docker services, and ongoing product work.',
+      'Maintain and extend a self-hostable bookmark-everything product across web, mobile, browser extension, CLI/API, and MCP surfaces, including search, AI-assisted organization, focused reading, collaboration, and multi-format ingestion for cross-device access.',
     stacks: [
       'nextjs',
       'nodejs',
@@ -84,12 +85,13 @@ const projectsData: Project[] = [
     title: 'wt',
     kind: 'cli',
     tags: ['automation', 'open-source'],
-    date: '2026',
+    date: '07/2026 - Present',
     subtitle:
-      'An agent-first Git worktree manager for running multiple LLM coding agents on the same project without stepping on each other. It provides one workflow for isolated worktrees, numbered slots, port offsets, setup and teardown, locking, and safety checks, regardless of which coding agent or CLI you use.',
+      'An agent-first Git worktree manager with isolated slots, port offsets, automatic setup and teardown, concurrency locking, safety checks, and shell navigation for running multiple coding agents on one project without collisions.',
     stacks: ['python'],
     url: '',
     github: 'https://github.com/absolutepraya/wt',
+    npm: 'https://www.npmjs.com/package/@absolutepraya/wt',
   },
   // {
   //   title: 'Hermes Agent',
@@ -108,9 +110,9 @@ const projectsData: Project[] = [
     title: 'SIRA: Smart Invoice Reminder AI',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
-    date: '04/2026',
+    date: '01/2026 - 05/2026',
     subtitle:
-      'Built an accounts-receivable automation platform for a client that scores payment risk daily and sends approval-gated reminder emails with tone based on risk. Includes invoice and payment workflows, a finance dashboard, and internal Telegram alerts.',
+      'Led a team of 8 to build a production accounts-receivable platform that scores payment risk daily and dispatches approval-gated reminder emails with risk-based tone. Shipped invoice and payment workflows, finance dashboards, Telegram alerts, and CI-backed testing, observability, error handling, and logging, earning the faculty Tech Wizard award.',
     stacks: [
       'reactjs',
       'vitejs',
@@ -177,9 +179,9 @@ const projectsData: Project[] = [
     title: 'PINTARU',
     kind: 'web',
     tags: ['full-stack', 'ai'],
-    date: '04/2025',
+    date: '03/2025 - 04/2025',
     subtitle:
-      'Developed an AI learning platform that turns student questions from text, images, or PDFs into narrated explanation videos, and generates illustrated storybooks for children.',
+      'Built an AI learning platform that turns text, image, and PDF questions into narrated explanation videos, with real-time conversation and a kids mode that generates illustrated storybooks using Manim under the hood.',
     stacks: [
       'bun',
       'nextjs',
