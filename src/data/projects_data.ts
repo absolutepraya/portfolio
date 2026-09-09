@@ -61,6 +61,7 @@ import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import PintaruIcon from '../assets/projects/pintaru-icon.png';
 import SIRAVideo from '../assets/projects/sira.mp4';
+import SIRAIcon from '../assets/projects/sira-icon.png';
 
 const projectsData: Project[] = [
   {
@@ -69,7 +70,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'open-source'],
     date: '06/2026 - Present',
     subtitle:
-      'Maintain and extend a self-hostable bookmark-everything product across web, mobile, browser extension, CLI/API, and MCP surfaces, including search, AI-assisted organization, focused reading, collaboration, and multi-format ingestion for cross-device access.',
+      'Maintain and extend a self-hostable bookmark library for links, notes, images, PDFs, web pages, and highlights across web, mobile, browser extension, CLI/API, and MCP surfaces. Own background ingestion, full-text search, AI-assisted organization, focused reading, collaboration, and PWA behavior for cross-device access.',
     stacks: [
       'nextjs',
       'nodejs',
@@ -107,12 +108,12 @@ const projectsData: Project[] = [
   {
     preview: SIRAVideo,
     isVideo: true,
-    title: 'SIRA: Smart Invoice Reminder AI',
+    title: 'SIRA',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
     date: '01/2026 - 05/2026',
     subtitle:
-      'Led a team of 8 to build a production accounts-receivable platform that scores payment risk daily and dispatches approval-gated reminder emails with risk-based tone. Shipped invoice and payment workflows, finance dashboards, Telegram alerts, and CI-backed testing, observability, error handling, and logging, earning the faculty Tech Wizard award.',
+      'SIRA (Smart Invoice Reminder AI) is a production accounts-receivable platform. Led a team of 8 to build daily payment-risk scoring and approval-gated reminder emails with risk-based tone, plus invoice and payment workflows, finance dashboards, Telegram alerts, and CI-backed testing, observability, error handling, and logging, earning the faculty Tech Wizard award.',
     stacks: [
       'reactjs',
       'vitejs',
@@ -125,6 +126,7 @@ const projectsData: Project[] = [
     ],
     url: '',
     github: '',
+    favicon: SIRAIcon,
   },
   {
     preview: AurumVideo,
@@ -135,7 +137,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'knowledge-graph'],
     date: '11/2025',
     subtitle:
-      'Built an AI art-exploration app that combines semantic search, a Neo4j relationship graph, and a RAG museum guide grounded in graph data and Wikidata.',
+      'A historic-art exploration app built on a Neo4j knowledge graph. It seeds artwork and artist records, enriches artist relationships from Wikidata, and generates embeddings for semantic artwork search and a Gemini-powered museum guide grounded in retrieved collection context. Visitors can explore a force-directed graph connecting artists, artworks, and artistic movements.',
     stacks: [
       'bun',
       'nextjs',
@@ -157,7 +159,7 @@ const projectsData: Project[] = [
     tags: ['full-stack'],
     date: '11/2025',
     subtitle:
-      'Built an event-commerce platform for Bedah Kampus UI 2025, covering ticket sales, merchandise orders, Midtrans payments, QR check-in, and organizer operations.',
+      'Built the Bedah Kampus UI 2025 platform for attendee onboarding, profile and education management, category-based ticket sales, merchandise ordering, and QR ticket generation and scanning. Integrated Midtrans payments, confirmation emails with ticket details, and role-aware auth/RLS for secure organizer operations.',
     stacks: ['nextjs', 'typescript', 'bun', 'supabase', 'midtrans'],
     url: 'https://dev.bedahkampusui.com/tickets',
     github: 'https://github.com/absolutepraya/bkui',
@@ -181,7 +183,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai'],
     date: '03/2025 - 04/2025',
     subtitle:
-      'Built an AI learning platform that turns text, image, and PDF questions into narrated explanation videos, with real-time conversation and a kids mode that generates illustrated storybooks using Manim under the hood.',
+      'Built an AI study-video pipeline that turns text, image, and PDF questions into narrated explanations. Gemini and OpenAI generate lesson content, [Manim](https://github.com/3b1b/manim) renders visual explanations, Azure Speech produces narration, and Bull/Redis coordinates background video jobs backed by Supabase.',
     stacks: [
       'bun',
       'nextjs',
@@ -208,7 +210,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai'],
     date: '11/2024',
     subtitle:
-      "Built an AI and computer-vision meal recommendation app for Indonesia's Makan Bergizi Gratis program, using nutritional needs and local food availability to personalize recommendations.",
+      "Built a meal-recommendation app for Indonesia's Makan Bergizi Gratis program that turns camera scans into a 14-nutrient-deficiency probability vector, refines it with three adaptive questions, then selects meals and calculates daily nutrition fulfillment. Includes QR redemption, an admin dashboard, Tableau stunting maps, and regional weekly-menu generation.",
     stacks: [
       'nodejs',
       'npm',
@@ -230,7 +232,7 @@ const projectsData: Project[] = [
     tags: ['frontend', 'ai'],
     date: '07/2024',
     subtitle:
-      'Built a prototype Grab vehicle-assistance flow in 23 hours: AI diagnosis, nearby mechanic discovery, repair booking, and cost prediction.',
+      'Built a 23-hour breakdown-assistance prototype where drivers describe symptoms and Gemini classifies the issue against a curated set of common failures. The guided flow then provides an analysis screen, map-based nearby-mechanic discovery, and a locally contextualized repair-cost estimate with materials, on-site service fee, and total range.',
     stacks: [
       'nodejs',
       'npm',
