@@ -28,8 +28,8 @@ const CARD_HEIGHT_PX = 387;
 const links = [
   {
     icon: IconMail,
-    text: 'daffaabhiprayaputra@gmail.com',
-    href: 'mailto:daffaabhiprayaputra@gmail.com',
+    text: 'daffa@abhipraya.dev',
+    href: 'mailto:daffa@abhipraya.dev',
     copyable: true,
   },
   {
@@ -96,7 +96,7 @@ const ProfileCard = () => {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('daffaabhiprayaputra@gmail.com');
+    navigator.clipboard.writeText('daffa@abhipraya.dev');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -270,7 +270,7 @@ const ProfileCard = () => {
                 {links.map((link) => (
                   <div
                     key={link.text}
-                    className={`flex items-center space-x-1.5 ${link.copyable ? 'col-span-2' : ''}`}
+                    className='flex items-center space-x-1.5'
                   >
                     {link.copyable ? (
                       <button
@@ -296,7 +296,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className={`font-jetbrainsmono text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline ${link.copyable ? 'text-[0.75rem] md:text-[0.875rem]' : 'text-[1.0625rem] md:text-[1.1875rem]'}`}
+                      className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}
                     </a>
