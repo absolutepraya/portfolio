@@ -1,6 +1,11 @@
-import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
+import {
+  IconArrowUpRight,
+  IconBrandGithub,
+  IconBrandNpm,
+} from '@tabler/icons-react';
 import { AnimatePresence, m } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import NoImage from '../../assets/projects/noimage.webp';
 import Azure from '../../assets/stacks/azure.svg';
 import Bun from '../../assets/stacks/bun.svg';
@@ -68,6 +73,7 @@ interface ProjectBoxProps {
   stacks?: string[];
   url?: string | null;
   github?: string | null;
+  npm?: string | null;
   favicon?: string | null;
   disableHover?: boolean;
 }
@@ -124,6 +130,7 @@ const ProjectBox = ({
   stacks = [],
   url = null,
   github = null,
+  npm = null,
   favicon = null,
   disableHover = false,
 }: ProjectBoxProps) => {
@@ -233,9 +240,17 @@ const ProjectBox = ({
               </Badge>
             ))}
           </div>
-          <p className='text-justify text-sm leading-relaxed md:text-base'>
-            {subtitle}
-          </p>
+          <div className='markdown-content text-justify text-sm leading-relaxed md:text-base'>
+            <ReactMarkdown
+              components={{
+                a: ({ node: _node, ...props }) => (
+                  <a {...props} target='_blank' rel='noreferrer' />
+                ),
+              }}
+            >
+              {subtitle}
+            </ReactMarkdown>
+          </div>
           <div className='flex grow' />
           <div className='mt-4! flex min-h-12 w-full flex-row items-center justify-between'>
             <div className='flex w-fit flex-col space-y-2 rounded-sm'>
@@ -321,6 +336,19 @@ const ProjectBox = ({
                       stroke={1.5}
                       size={desktopView ? 20 : 18}
                     />
+                  </a>
+                </PopButton>
+              )}
+              {npm && (
+                <PopButton className='aspect-square p-0' asChild>
+                  <a
+                    href={npm}
+                    target='_blank'
+                    rel='noreferrer'
+                    aria-label={`View ${title} on npm`}
+                    title={`View ${title} on npm`}
+                  >
+                    <IconBrandNpm stroke={1.5} size={desktopView ? 20 : 18} />
                   </a>
                 </PopButton>
               )}

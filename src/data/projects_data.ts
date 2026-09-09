@@ -48,6 +48,7 @@ interface Project {
   stacks: string[];
   url: string;
   github: string;
+  npm?: string;
   favicon?: string;
 }
 
@@ -60,15 +61,16 @@ import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
 import PintaruIcon from '../assets/projects/pintaru-icon.png';
 import SIRAVideo from '../assets/projects/sira.mp4';
+import SIRAIcon from '../assets/projects/sira-icon.png';
 
 const projectsData: Project[] = [
   {
     title: 'Marka',
     kind: 'web',
     tags: ['full-stack', 'ai', 'open-source'],
-    date: '06/2025',
+    date: '06/2026 - Present',
     subtitle:
-      'Maintain and extend an open-source bookmark-everything app for links, notes, images, and AI-assisted organization. I own its production deployment, Docker services, and ongoing product work.',
+      'Maintain and extend a self-hostable bookmark library for links, notes, images, PDFs, web pages, and highlights across web, mobile, browser extension, CLI/API, and MCP surfaces. Own background ingestion, full-text search, AI-assisted organization, focused reading, collaboration, and PWA behavior for cross-device access.',
     stacks: [
       'nextjs',
       'nodejs',
@@ -84,12 +86,13 @@ const projectsData: Project[] = [
     title: 'wt',
     kind: 'cli',
     tags: ['automation', 'open-source'],
-    date: '2026',
+    date: '07/2026 - Present',
     subtitle:
-      'An agent-first Git worktree manager for running multiple LLM coding agents on the same project without stepping on each other. It provides one workflow for isolated worktrees, numbered slots, port offsets, setup and teardown, locking, and safety checks, regardless of which coding agent or CLI you use.',
+      'An agent-first Git worktree manager with isolated slots, port offsets, automatic setup and teardown, concurrency locking, safety checks, and shell navigation for running multiple coding agents on one project without collisions.',
     stacks: ['python'],
     url: '',
     github: 'https://github.com/absolutepraya/wt',
+    npm: 'https://www.npmjs.com/package/@absolutepraya/wt',
   },
   // {
   //   title: 'Hermes Agent',
@@ -105,12 +108,12 @@ const projectsData: Project[] = [
   {
     preview: SIRAVideo,
     isVideo: true,
-    title: 'SIRA: Smart Invoice Reminder AI',
+    title: 'SIRA',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
-    date: '04/2026',
+    date: '01/2026 - 05/2026',
     subtitle:
-      'Built an accounts-receivable automation platform for a client that scores payment risk daily and sends approval-gated reminder emails with tone based on risk. Includes invoice and payment workflows, a finance dashboard, and internal Telegram alerts.',
+      'SIRA (Smart Invoice Reminder AI) is a production accounts-receivable platform. Led a team of 8 to build daily payment-risk scoring and approval-gated reminder emails with risk-based tone, plus invoice and payment workflows, finance dashboards, Telegram alerts, and CI-backed testing, observability, error handling, and logging, earning the faculty Tech Wizard award.',
     stacks: [
       'reactjs',
       'vitejs',
@@ -123,6 +126,7 @@ const projectsData: Project[] = [
     ],
     url: '',
     github: '',
+    favicon: SIRAIcon,
   },
   {
     preview: AurumVideo,
@@ -133,7 +137,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'knowledge-graph'],
     date: '11/2025',
     subtitle:
-      'Built an AI art-exploration app that combines semantic search, a Neo4j relationship graph, and a RAG museum guide grounded in graph data and Wikidata.',
+      'A historic-art exploration app built on a Neo4j knowledge graph. It seeds artwork and artist records, enriches artist relationships from Wikidata, and generates embeddings for semantic artwork search and a Gemini-powered museum guide grounded in retrieved collection context. Visitors can explore a force-directed graph connecting artists, artworks, and artistic movements.',
     stacks: [
       'bun',
       'nextjs',
@@ -155,7 +159,7 @@ const projectsData: Project[] = [
     tags: ['full-stack'],
     date: '11/2025',
     subtitle:
-      'Built an event-commerce platform for Bedah Kampus UI 2025, covering ticket sales, merchandise orders, Midtrans payments, QR check-in, and organizer operations.',
+      'Built the Bedah Kampus UI 2025 platform for attendee onboarding, profile and education management, category-based ticket sales, merchandise ordering, and QR ticket generation and scanning. Integrated Midtrans payments, confirmation emails with ticket details, and role-aware auth/RLS for secure organizer operations.',
     stacks: ['nextjs', 'typescript', 'bun', 'supabase', 'midtrans'],
     url: 'https://dev.bedahkampusui.com/tickets',
     github: 'https://github.com/absolutepraya/bkui',
@@ -177,9 +181,9 @@ const projectsData: Project[] = [
     title: 'PINTARU',
     kind: 'web',
     tags: ['full-stack', 'ai'],
-    date: '04/2025',
+    date: '03/2025 - 04/2025',
     subtitle:
-      'Developed an AI learning platform that turns student questions from text, images, or PDFs into narrated explanation videos, and generates illustrated storybooks for children.',
+      'Built an AI study-video pipeline that turns text, image, and PDF questions into narrated explanations. Gemini and OpenAI generate lesson content, [Manim](https://github.com/3b1b/manim) renders visual explanations, Azure Speech produces narration, and Bull/Redis coordinates background video jobs backed by Supabase.',
     stacks: [
       'bun',
       'nextjs',
@@ -206,7 +210,7 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai'],
     date: '11/2024',
     subtitle:
-      "Built an AI and computer-vision meal recommendation app for Indonesia's Makan Bergizi Gratis program, using nutritional needs and local food availability to personalize recommendations.",
+      "Built a meal-recommendation app for Indonesia's Makan Bergizi Gratis program that turns camera scans into a 14-nutrient-deficiency probability vector, refines it with three adaptive questions, then selects meals and calculates daily nutrition fulfillment. Includes QR redemption, an admin dashboard, Tableau stunting maps, and regional weekly-menu generation.",
     stacks: [
       'nodejs',
       'npm',
@@ -228,7 +232,7 @@ const projectsData: Project[] = [
     tags: ['frontend', 'ai'],
     date: '07/2024',
     subtitle:
-      'Built a prototype Grab vehicle-assistance flow in 23 hours: AI diagnosis, nearby mechanic discovery, repair booking, and cost prediction.',
+      'Built a 23-hour breakdown-assistance prototype where drivers describe symptoms and Gemini classifies the issue against a curated set of common failures. The guided flow then provides an analysis screen, map-based nearby-mechanic discovery, and a locally contextualized repair-cost estimate with materials, on-site service fee, and total range.',
     stacks: [
       'nodejs',
       'npm',

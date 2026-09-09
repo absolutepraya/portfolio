@@ -30,7 +30,7 @@ src/
 ├── styles.css            # Global CSS (@theme, @font-face, CSS variables, animations)
 ├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
 ├── components/           # Page sections
-│   ├── NavBar/           # Floating nav with IntersectionObserver + signature
+│   ├── NavBar/           # Compact top nav with IntersectionObserver + signature
 │   ├── About/            # Hero + profile card (legacy marquee components retained)
 │   ├── Experience/       # Framed work list with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
@@ -54,13 +54,14 @@ src/
 ## Architecture
 
 - Single-page app with anchor-based scroll navigation (no React Router)
-- NavBar uses IntersectionObserver to highlight active section
+- NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions.
 - Sections: About → Experience → Achievements → Projects. The project list
   includes original work and materially maintained open-source forks, but not
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
+- Project descriptions support Markdown links and open them in a new tab. Use this only for specific external products that help explain a project, such as PINTARU's Manim renderer.
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
 - Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
 - Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
@@ -83,6 +84,7 @@ src/
 - The Project filter icon and label share the same subdued foreground color and stay on one line.
 - Victory Laps organizer links use a compact `PopButton` treatment while remaining external anchors with their organizer logo.
 - Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its compact, shorter mobile Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
+- The `wt` project card provides separate GitHub and npm actions.
 - Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
 - Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
 - Profile card: the WebGL dither accent is lazy-loaded so its renderer stays out of the main application bundle.
