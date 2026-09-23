@@ -56,6 +56,7 @@ import AurumVideo from '../assets/projects/aurum.mp4';
 import BKUIVideo from '../assets/projects/bkui.mp4';
 // Import favicon icons
 import GrabAuto from '../assets/projects/grabauto.webp';
+import MarkaPreview from '../assets/projects/marka.png';
 import NuSantap from '../assets/projects/nusantap.webp';
 import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
@@ -65,12 +66,13 @@ import SIRAIcon from '../assets/projects/sira-icon.png';
 
 const projectsData: Project[] = [
   {
+    preview: MarkaPreview,
     title: 'Marka',
     kind: 'web',
     tags: ['full-stack', 'ai', 'open-source'],
     date: '06/2026 - Present',
     subtitle:
-      'Maintain and extend a self-hostable bookmark library for links, notes, images, PDFs, web pages, and highlights across web, mobile, browser extension, CLI/API, and MCP surfaces. Own background ingestion, full-text search, AI-assisted organization, focused reading, collaboration, and PWA behavior for cross-device access.',
+      'Building Marka, an open-source, self-hostable personal library for everything people want to save and revisit, from movie watchlists and shopping wishlists to social posts, articles, design references, and course files. Marka brings these scattered saves into one searchable, cross-device archive and preserves their context with visual previews, tags, and reader views.',
     stacks: [
       'nextjs',
       'nodejs',
