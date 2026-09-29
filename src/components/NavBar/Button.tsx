@@ -22,6 +22,7 @@ const Button = ({ icon = null, text, link, isActive }: ButtonProps) => {
     >
       <a
         href={link}
+        data-cuelume-hover='tick'
         aria-label={`Scroll to ${text}`}
         title={`Scroll to ${text}`}
         onMouseEnter={() => setIsHovered(true)}

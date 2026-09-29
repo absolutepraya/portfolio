@@ -6,6 +6,7 @@ import {
   IconMail,
   IconNotebook,
 } from '@tabler/icons-react';
+import { play } from 'cuelume';
 import {
   lazy,
   Suspense,
@@ -95,10 +96,16 @@ const ProfileCard = () => {
     };
   }, []);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText('daffa@abhipraya.dev');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    setCopied(false);
+    try {
+      await navigator.clipboard.writeText('daffa@abhipraya.dev');
+      setCopied(true);
+      play('success');
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   const updatePosition = useCallback((clientX: number, clientY: number) => {
@@ -296,6 +303,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
+                      data-cuelume-hover='tick'
                       className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}

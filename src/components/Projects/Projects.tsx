@@ -118,6 +118,7 @@ const Projects = () => {
               <PopButton
                 key={option}
                 type='button'
+                data-cuelume-toggle='tick'
                 size='sm'
                 color='default'
                 aria-pressed={selectedFilter === option}
@@ -188,6 +189,7 @@ const Projects = () => {
               <PopButton
                 ref={buttonRef}
                 onClick={handleToggle}
+                data-cuelume-toggle='toggle'
                 className='gap-2 pr-3 font-jetbrainsmono'
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>
