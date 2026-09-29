@@ -56,7 +56,7 @@ const Copyright = () => {
             href='https://github.com/absolutepraya/portfolio'
             target='_blank'
             rel='noreferrer'
-            data-cuelume-hover='tick'
+            data-cuelume-toggle='tick'
             className='underline underline-offset-2'
           >
             Source code

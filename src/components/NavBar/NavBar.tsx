@@ -116,7 +116,7 @@ const NavBar = () => {
           >
             <a
               href='https://www.linkedin.com/in/daffaabhipraya/'
-              data-cuelume-hover='tick'
+              data-cuelume-toggle='page'
               target='_blank'
               aria-label='Reach out on LinkedIn'
               title='Reach out on LinkedIn'

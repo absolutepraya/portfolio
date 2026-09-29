@@ -32,7 +32,7 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
               href={achievement.organizerUrl}
               target='_blank'
               rel='noreferrer'
-              data-cuelume-hover='tick'
+              data-cuelume-toggle='tick'
             >
               by {achievement.organizer}
               {achievement.organizerLogo && (
@@ -112,7 +112,7 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
                       href={article.url}
                       target='_blank'
                       rel='noreferrer'
-                      data-cuelume-hover='tick'
+                      data-cuelume-toggle='tick'
                       className='text-[#2196F3] hover:text-[#1976D2] hover:underline'
                     >
                       {article.platform}

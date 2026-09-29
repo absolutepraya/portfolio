@@ -180,7 +180,7 @@ const ExperienceBox = ({
             target='_blank'
             rel='noreferrer'
             title={`Open ${org} website`}
-            data-cuelume-hover='tick'
+            data-cuelume-toggle='tick'
           >
             {org}
             <div

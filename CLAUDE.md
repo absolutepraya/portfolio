@@ -60,7 +60,7 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
-- Cuelume binds once in `main.tsx`: native buttons use click cues, prominent navigation and action links use hover cues, and inline Markdown links, button hovers, anchor clicks, and page load stay silent. Email copy plays success only after the clipboard write resolves; no sound preference or control is stored.
+- Cuelume binds once in `main.tsx`: navbar links use the `page` cue, show-more and collapse/expand controls use `toggle`, and all other anchors and buttons use `tick` on click. It has no hover sounds or stored sound preference.
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
 - Project descriptions support Markdown links and open them in a new tab. Use this only for specific external products that help explain a project, such as PINTARU's Manim renderer.
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.

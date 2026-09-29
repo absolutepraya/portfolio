@@ -6,7 +6,6 @@ import {
   IconMail,
   IconNotebook,
 } from '@tabler/icons-react';
-import { play } from 'cuelume';
 import {
   lazy,
   Suspense,
@@ -101,7 +100,6 @@ const ProfileCard = () => {
     try {
       await navigator.clipboard.writeText('daffa@abhipraya.dev');
       setCopied(true);
-      play('success');
       setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
@@ -282,6 +280,7 @@ const ProfileCard = () => {
                     {link.copyable ? (
                       <button
                         type='button'
+                        data-cuelume-toggle='tick'
                         className='shrink-0 text-white/70 transition-colors hover:cursor-pointer hover:text-white'
                         onClick={handleCopy}
                         title='Copy email'
@@ -303,7 +302,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      data-cuelume-hover='tick'
+                      data-cuelume-toggle='tick'
                       className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}
