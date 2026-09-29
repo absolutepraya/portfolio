@@ -16,6 +16,33 @@ interface ExperienceDetailsProps {
   previousDates?: string[];
 }
 
+interface ExperienceDescriptionToggleProps {
+  isExpanded: boolean;
+  onClick: () => void;
+  className?: string;
+}
+
+export const ExperienceDescriptionToggle = ({
+  isExpanded,
+  onClick,
+  className = '',
+}: ExperienceDescriptionToggleProps) => (
+  <button
+    type='button'
+    data-cuelume-toggle='toggle'
+    onClick={onClick}
+    aria-expanded={isExpanded}
+    className={`mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite ${className}`}
+  >
+    {isExpanded ? (
+      <IconChevronUp size={16} stroke={2} />
+    ) : (
+      <IconChevronDown size={16} stroke={2} />
+    )}
+    <span>{isExpanded ? 'Read less' : 'Read more'}</span>
+  </button>
+);
+
 const ExperienceDetails = ({
   desc,
   descContentRef,
@@ -53,20 +80,11 @@ const ExperienceDetails = ({
         </div>
       </div>
       {needsCollapse && (
-        <button
-          type='button'
-          data-cuelume-toggle='toggle'
+        <ExperienceDescriptionToggle
+          isExpanded={isDescriptionExpanded}
           onClick={onDescriptionToggle}
-          aria-expanded={isDescriptionExpanded}
-          className='mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite'
-        >
-          {isDescriptionExpanded ? (
-            <IconChevronUp size={16} stroke={2} />
-          ) : (
-            <IconChevronDown size={16} stroke={2} />
-          )}
-          <span>{isDescriptionExpanded ? 'Read less' : 'Read more'}</span>
-        </button>
+          className='md:hidden'
+        />
       )}
     </div>
 

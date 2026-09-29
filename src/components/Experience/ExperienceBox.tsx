@@ -7,7 +7,9 @@ import {
   useState,
 } from 'react';
 import BotBorder from '../Achievements/BotBorder';
-import ExperienceDetails from './ExperienceDetails';
+import ExperienceDetails, {
+  ExperienceDescriptionToggle,
+} from './ExperienceDetails';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem, fixed height for collapsed descriptions
 const DEFAULT_LOGO_UNDERLINE =
@@ -196,6 +198,13 @@ const ExperienceBox = ({
         >
           {date}
         </p>
+        {needsCollapse && (
+          <ExperienceDescriptionToggle
+            isExpanded={isDescriptionExpanded}
+            onClick={() => setIsDescriptionExpanded((prev) => !prev)}
+            className='hidden md:flex'
+          />
+        )}
       </div>
 
       <ExperienceDetails
