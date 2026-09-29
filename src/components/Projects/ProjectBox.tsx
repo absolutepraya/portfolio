@@ -311,6 +311,7 @@ const ProjectBox = ({
                 <PopButton className='aspect-square p-0' asChild>
                   <a
                     href={url}
+                    data-cuelume-hover='tick'
                     target='_blank'
                     rel='noreferrer'
                     aria-label='Open deployed project URL'
@@ -327,6 +328,7 @@ const ProjectBox = ({
                 <PopButton className='aspect-square p-0' asChild>
                   <a
                     href={github}
+                    data-cuelume-hover='tick'
                     target='_blank'
                     rel='noreferrer'
                     aria-label='View project source code on GitHub'
@@ -343,6 +345,7 @@ const ProjectBox = ({
                 <PopButton className='aspect-square p-0' asChild>
                   <a
                     href={npm}
+                    data-cuelume-hover='tick'
                     target='_blank'
                     rel='noreferrer'
                     aria-label={`View ${title} on npm`}

@@ -177,6 +177,7 @@ const ExperienceBox = ({
           <a
             className={`relative font-inter font-semibold transition-all duration-380 ease-in-out ${isInView ? 'opacity-90' : 'opacity-70'}`}
             href={url}
+            data-cuelume-hover='tick'
             target='_blank'
             rel='noreferrer'
             title={`Open ${org} website`}

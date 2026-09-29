@@ -74,6 +74,7 @@ const AchievementsBox = ({
             >
               <PopButton
                 onClick={handleToggle}
+                data-cuelume-toggle='toggle'
                 className='gap-2 pr-3 font-jetbrainsmono'
               >
                 <span>{showAll ? 'Show Less' : 'Show More'}</span>

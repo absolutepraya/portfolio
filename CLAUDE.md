@@ -6,7 +6,7 @@
 
 React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
 
-Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
+Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding), cuelume (interaction sounds)
 
 ## Commands
 
@@ -60,6 +60,7 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
+- Cuelume binds once in `src/main.tsx`. It plays `tick` on button activation and fine-pointer hover for prominent anchors, and `toggle` for disclosure buttons. Page load, button hover, anchor click, and inline prose links stay silent. Email copy shows success and plays `success` only after the clipboard promise resolves. There is no sound setting or saved preference.
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
 - Project descriptions support Markdown links and open them in a new tab. Use this only for specific external products that help explain a project, such as PINTARU's Manim renderer.
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
