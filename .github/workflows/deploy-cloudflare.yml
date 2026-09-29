@@ -96,7 +96,7 @@ jobs:
             const commitSha = context.payload.pull_request.head.sha;
             const body = [
               marker,
-              'preview:',
+              'Preview:',
               `[${previewUrl}](${previewUrl})`,
               '',
               `deployed from commit [\`${commitSha.slice(0, 7)}\`](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/commit/${commitSha}).`,
