@@ -55,8 +55,8 @@ const ExperienceDetails = ({
       {needsCollapse && (
         <button
           type='button'
-          onClick={onDescriptionToggle}
           data-cuelume-toggle='toggle'
+          onClick={onDescriptionToggle}
           aria-expanded={isDescriptionExpanded}
           className='mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite'
         >

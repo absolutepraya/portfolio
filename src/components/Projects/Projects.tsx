@@ -118,9 +118,9 @@ const Projects = () => {
               <PopButton
                 key={option}
                 type='button'
+                data-cuelume-toggle='tick'
                 size='sm'
                 color='default'
-                data-cuelume-toggle='tick'
                 aria-pressed={selectedFilter === option}
                 className={`font-jetbrainsmono md:h-9 md:px-3 md:text-sm ${selectedFilter === option ? 'border-neutral-700 bg-customblack text-customwhite hover:bg-customblack dark:border-neutral-700 dark:bg-customblack dark:text-customwhite dark:hover:bg-customblack' : ''}`}
                 onClick={() => {

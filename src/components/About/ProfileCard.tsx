@@ -301,9 +301,9 @@ const ProfileCard = () => {
                     )}
                     <a
                       href={link.href}
-                      data-cuelume-hover='tick'
                       target='_blank'
                       rel='noreferrer'
+                      data-cuelume-hover='tick'
                       className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}

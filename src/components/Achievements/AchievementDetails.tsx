@@ -30,9 +30,9 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
           >
             <a
               href={achievement.organizerUrl}
-              data-cuelume-hover='tick'
               target='_blank'
               rel='noreferrer'
+              data-cuelume-hover='tick'
             >
               by {achievement.organizer}
               {achievement.organizerLogo && (
@@ -110,9 +110,9 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
                   <li key={`${achievement.title}-article-${article.url}`}>
                     <a
                       href={article.url}
-                      data-cuelume-hover='tick'
                       target='_blank'
                       rel='noreferrer'
+                      data-cuelume-hover='tick'
                       className='text-[#2196F3] hover:text-[#1976D2] hover:underline'
                     >
                       {article.platform}
