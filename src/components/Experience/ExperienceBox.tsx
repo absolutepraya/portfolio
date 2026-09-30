@@ -7,9 +7,11 @@ import {
   useState,
 } from 'react';
 import BotBorder from '../Achievements/BotBorder';
-import ExperienceDetails from './ExperienceDetails';
+import ExperienceDetails, {
+  ExperiencePreviousRoles,
+} from './ExperienceDetails';
 
-const COLLAPSED_HEIGHT_PX = 320; // 20rem, fixed height for collapsed descriptions
+const COLLAPSED_HEIGHT_PX = 320; // 20rem, fixed height for collapsed details
 const DEFAULT_LOGO_UNDERLINE =
   'linear-gradient(to right, rgb(29, 78, 216), rgb(37, 99, 235), rgb(29, 78, 216))';
 
@@ -41,33 +43,32 @@ const ExperienceBox = ({
   showDivider = false,
 }: ExperienceBoxProps) => {
   const [isInView, setIsInView] = useState(false);
-  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
   const [logoUnderline, setLogoUnderline] = useState(DEFAULT_LOGO_UNDERLINE);
   const divRef = useRef<HTMLDivElement>(null);
-  const descContentRef = useRef<HTMLDivElement>(null);
+  const detailsContentRef = useRef<HTMLDivElement>(null);
 
-  // Measure the natural description height so long rows retain the existing
-  // gradient collapse while short rows stay fully visible.
+  // Include mobile previous roles in the measured expandable content.
   useLayoutEffect(() => {
-    if (!descContentRef.current) return;
+    if (!detailsContentRef.current) return;
 
     const measure = () => {
-      if (descContentRef.current) {
-        setContentHeight(descContentRef.current.scrollHeight);
+      if (detailsContentRef.current) {
+        setContentHeight(detailsContentRef.current.scrollHeight);
       }
     };
     measure();
     const observer = new ResizeObserver(measure);
-    observer.observe(descContentRef.current);
+    observer.observe(detailsContentRef.current);
     return () => observer.disconnect();
   }, []);
 
   const needsCollapse =
     contentHeight !== null && contentHeight > COLLAPSED_HEIGHT_PX;
-  const currentDescHeight: number | 'auto' = !needsCollapse
+  const currentContentHeight: number | 'auto' = !needsCollapse
     ? 'auto'
-    : isDescriptionExpanded
+    : isDetailsExpanded
       ? (contentHeight as number)
       : COLLAPSED_HEIGHT_PX;
 
@@ -180,6 +181,7 @@ const ExperienceBox = ({
             target='_blank'
             rel='noreferrer'
             title={`Open ${org} website`}
+            data-cuelume-toggle='tick'
           >
             {org}
             <div
@@ -195,15 +197,24 @@ const ExperienceBox = ({
         >
           {date}
         </p>
+        {previousTitles && previousDates && (
+          <ExperiencePreviousRoles
+            previousTitles={previousTitles}
+            previousDates={previousDates}
+            isInView={isInView}
+            variant='desktop'
+            className='hidden md:flex'
+          />
+        )}
       </div>
 
       <ExperienceDetails
         desc={desc}
-        descContentRef={descContentRef}
-        currentDescHeight={currentDescHeight}
+        detailsContentRef={detailsContentRef}
+        currentContentHeight={currentContentHeight}
         needsCollapse={needsCollapse}
-        isDescriptionExpanded={isDescriptionExpanded}
-        onDescriptionToggle={() => setIsDescriptionExpanded((prev) => !prev)}
+        isDetailsExpanded={isDetailsExpanded}
+        onDetailsToggle={() => setIsDetailsExpanded((prev) => !prev)}
         isInView={isInView}
         alignCenter={alignCenter}
         previousTitles={previousTitles}

@@ -48,7 +48,7 @@ const createComponents = (): Components => {
       }
 
       return (
-        <a href={href} {...props}>
+        <a href={href} data-cuelume-toggle='tick' {...props}>
           {children}
         </a>
       );

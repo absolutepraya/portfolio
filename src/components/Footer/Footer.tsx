@@ -38,6 +38,7 @@ const Copyright = () => {
             containerClassName='rounded-full'
             as='button'
             className='flex cursor-pointer items-center text-xs'
+            data-cuelume-toggle='tick'
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <ShimmerText
@@ -55,6 +56,7 @@ const Copyright = () => {
             href='https://github.com/absolutepraya/portfolio'
             target='_blank'
             rel='noreferrer'
+            data-cuelume-toggle='tick'
             className='underline underline-offset-2'
           >
             Source code

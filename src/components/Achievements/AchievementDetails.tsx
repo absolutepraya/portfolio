@@ -28,7 +28,12 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
             className='h-7 gap-3 rounded-md px-2.5 font-jetbrainsmono text-xs md:h-8 md:px-3 md:text-sm'
             asChild
           >
-            <a href={achievement.organizerUrl} target='_blank' rel='noreferrer'>
+            <a
+              href={achievement.organizerUrl}
+              target='_blank'
+              rel='noreferrer'
+              data-cuelume-toggle='tick'
+            >
               by {achievement.organizer}
               {achievement.organizerLogo && (
                 <img
@@ -107,6 +112,7 @@ const AchievementDetails = ({ achievement }: AchievementDetailsProps) => (
                       href={article.url}
                       target='_blank'
                       rel='noreferrer'
+                      data-cuelume-toggle='tick'
                       className='text-[#2196F3] hover:text-[#1976D2] hover:underline'
                     >
                       {article.platform}

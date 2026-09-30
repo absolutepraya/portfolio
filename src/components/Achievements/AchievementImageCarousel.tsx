@@ -91,6 +91,7 @@ const AchievementImageCarousel = ({
         <div className='absolute -bottom-10 flex h-fit w-full flex-row justify-around'>
           <button
             type='button'
+            data-cuelume-toggle='tick'
             className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-colors duration-100 hover:text-customwhite md:w-10'
             onClick={() =>
               goToImage(
@@ -112,6 +113,7 @@ const AchievementImageCarousel = ({
               <button
                 key={path}
                 type='button'
+                data-cuelume-toggle='tick'
                 aria-label={`Show image ${index + 1} of ${achievement.title}`}
                 aria-current={index === currentImageIndex ? 'true' : undefined}
                 className={`cursor-pointer rounded-full transition-[width,background-color] duration-300 ${index === currentImageIndex ? 'h-2 w-5 bg-customwhite' : 'h-2 w-2 bg-customwhite/20 hover:bg-customwhite/40'}`}
@@ -121,6 +123,7 @@ const AchievementImageCarousel = ({
           </div>
           <button
             type='button'
+            data-cuelume-toggle='tick'
             className='flex h-full w-fit cursor-pointer items-center justify-center rounded-lg transition-colors duration-100 hover:text-customwhite md:w-10'
             onClick={() =>
               goToImage(

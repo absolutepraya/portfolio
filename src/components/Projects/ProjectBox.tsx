@@ -244,7 +244,12 @@ const ProjectBox = ({
             <ReactMarkdown
               components={{
                 a: ({ node: _node, ...props }) => (
-                  <a {...props} target='_blank' rel='noreferrer' />
+                  <a
+                    {...props}
+                    target='_blank'
+                    rel='noreferrer'
+                    data-cuelume-toggle='tick'
+                  />
                 ),
               }}
             >
@@ -313,6 +318,7 @@ const ProjectBox = ({
                     href={url}
                     target='_blank'
                     rel='noreferrer'
+                    data-cuelume-toggle='tick'
                     aria-label='Open deployed project URL'
                     title='Open deployed project URL'
                   >
@@ -329,6 +335,7 @@ const ProjectBox = ({
                     href={github}
                     target='_blank'
                     rel='noreferrer'
+                    data-cuelume-toggle='tick'
                     aria-label='View project source code on GitHub'
                     title='View project source code on GitHub'
                   >
@@ -345,6 +352,7 @@ const ProjectBox = ({
                     href={npm}
                     target='_blank'
                     rel='noreferrer'
+                    data-cuelume-toggle='tick'
                     aria-label={`View ${title} on npm`}
                     title={`View ${title} on npm`}
                   >

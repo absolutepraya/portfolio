@@ -38,6 +38,7 @@ const TechnologyMention = ({
     <a
       className={`${className} technology-link no-underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-blurple focus-visible:outline-offset-3`}
       href={href}
+      data-cuelume-toggle='tick'
       target='_blank'
       rel='noreferrer'
       aria-label={label ? `Open ${label} homepage` : undefined}

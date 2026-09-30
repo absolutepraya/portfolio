@@ -95,10 +95,15 @@ const ProfileCard = () => {
     };
   }, []);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText('daffa@abhipraya.dev');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    setCopied(false);
+    try {
+      await navigator.clipboard.writeText('daffa@abhipraya.dev');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   const updatePosition = useCallback((clientX: number, clientY: number) => {
@@ -275,6 +280,7 @@ const ProfileCard = () => {
                     {link.copyable ? (
                       <button
                         type='button'
+                        data-cuelume-toggle='tick'
                         className='shrink-0 text-white/70 transition-colors hover:cursor-pointer hover:text-white'
                         onClick={handleCopy}
                         title='Copy email'
@@ -296,6 +302,7 @@ const ProfileCard = () => {
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
+                      data-cuelume-toggle='tick'
                       className='font-jetbrainsmono text-[1.0625rem] text-white underline-offset-3 transition-colors hover:text-white/70 hover:underline md:text-[1.1875rem]'
                     >
                       {link.text}

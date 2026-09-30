@@ -6,7 +6,7 @@
 
 React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
 
-Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding)
+Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding), cuelume (interaction sounds)
 
 ## Commands
 
@@ -60,6 +60,7 @@ src/
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
 - ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
+- Cuelume binds once in `main.tsx`: navbar links use the `page` cue, show-more and collapse/expand controls use `toggle`, and all other anchors and buttons use `tick` on click. It has no hover sounds or stored sound preference.
 - Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
 - Project descriptions support Markdown links and open them in a new tab. Use this only for specific external products that help explain a project, such as PINTARU's Manim renderer.
 - Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
@@ -70,7 +71,7 @@ src/
 - On mobile, ProfileCard measures its hero-stage width and scales its 520px composition to fit within it. The stage reserves the corresponding rendered height, preventing edge-to-edge overflow, empty vertical space, and the hero-copy overlap caused by the former compensating offset.
 - Experience uses a single bordered rounded frame matching the desktop width of the Victory Laps FlickeringGrid, without FlickeringGrid or vertical timeline connectors. Rows use a 1:3 metadata-to-description grid from `md`, stack on mobile, use the shared `BotBorder` treatment between entries, and show the first three roles before the bottom `Show More` control reveals the rest.
 - Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
-- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column.
+- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column. Previous/other roles appear below the current role metadata on desktop and inside the mobile description's Read more/Read less disclosure, which stays below the expandable content.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System
