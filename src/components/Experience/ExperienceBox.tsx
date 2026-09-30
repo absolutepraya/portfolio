@@ -8,7 +8,7 @@ import {
 } from 'react';
 import BotBorder from '../Achievements/BotBorder';
 import ExperienceDetails, {
-  ExperienceDescriptionToggle,
+  ExperiencePreviousRoles,
 } from './ExperienceDetails';
 
 const COLLAPSED_HEIGHT_PX = 320; // 20rem, fixed height for collapsed descriptions
@@ -198,10 +198,12 @@ const ExperienceBox = ({
         >
           {date}
         </p>
-        {needsCollapse && (
-          <ExperienceDescriptionToggle
-            isExpanded={isDescriptionExpanded}
-            onClick={() => setIsDescriptionExpanded((prev) => !prev)}
+        {previousTitles && previousDates && (
+          <ExperiencePreviousRoles
+            previousTitles={previousTitles}
+            previousDates={previousDates}
+            isInView={isInView}
+            variant='desktop'
             className='hidden md:flex'
           />
         )}

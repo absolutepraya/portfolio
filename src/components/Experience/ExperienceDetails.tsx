@@ -16,32 +16,55 @@ interface ExperienceDetailsProps {
   previousDates?: string[];
 }
 
-interface ExperienceDescriptionToggleProps {
-  isExpanded: boolean;
-  onClick: () => void;
+interface ExperiencePreviousRolesProps {
+  previousTitles: string[];
+  previousDates: string[];
+  isInView: boolean;
+  variant: 'desktop' | 'mobile';
   className?: string;
 }
 
-export const ExperienceDescriptionToggle = ({
-  isExpanded,
-  onClick,
+export const ExperiencePreviousRoles = ({
+  previousTitles,
+  previousDates,
+  isInView,
+  variant,
   className = '',
-}: ExperienceDescriptionToggleProps) => (
-  <button
-    type='button'
-    data-cuelume-toggle='toggle'
-    onClick={onClick}
-    aria-expanded={isExpanded}
-    className={`mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite ${className}`}
-  >
-    {isExpanded ? (
-      <IconChevronUp size={16} stroke={2} />
-    ) : (
-      <IconChevronDown size={16} stroke={2} />
-    )}
-    <span>{isExpanded ? 'Read less' : 'Read more'}</span>
-  </button>
-);
+}: ExperiencePreviousRolesProps) => {
+  const isDesktop = variant === 'desktop';
+
+  return (
+    <m.div className={`flex w-full flex-col ${className}`}>
+      <div
+        className={`${isDesktop ? 'mt-4 mb-3' : 'mt-2 mb-4'} h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
+      />
+      <p
+        className={`${isInView ? 'opacity-90' : 'opacity-70'} mb-2 text-sm transition-all duration-380 ease-in-out ${isDesktop ? 'md:text-sm' : 'md:text-base'}`}
+      >
+        Previous/other roles:
+      </p>
+      <div className='flex w-full flex-col space-y-2'>
+        {previousTitles.map((previousTitle, index) => (
+          <div
+            className={`${isDesktop ? 'flex-col items-start gap-1' : 'flex-row items-center justify-between'} flex w-full`}
+            key={`${previousTitle}-${previousDates[index] ?? ''}`}
+          >
+            <p
+              className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument transition-all duration-380 ease-in-out ${isDesktop ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'}`}
+            >
+              {previousTitle}
+            </p>
+            <p
+              className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} transition-all duration-380 ease-in-out ${isDesktop ? 'text-xs md:text-sm' : 'text-sm md:text-base'}`}
+            >
+              {previousDates[index]}
+            </p>
+          </div>
+        ))}
+      </div>
+    </m.div>
+  );
+};
 
 const ExperienceDetails = ({
   desc,
@@ -80,44 +103,31 @@ const ExperienceDetails = ({
         </div>
       </div>
       {needsCollapse && (
-        <ExperienceDescriptionToggle
-          isExpanded={isDescriptionExpanded}
+        <button
+          type='button'
+          data-cuelume-toggle='toggle'
           onClick={onDescriptionToggle}
-          className='md:hidden'
-        />
+          aria-expanded={isDescriptionExpanded}
+          className='mt-6 flex items-center space-x-1 text-sm text-text-secondary transition-colors duration-200 hover:text-customwhite'
+        >
+          {isDescriptionExpanded ? (
+            <IconChevronUp size={16} stroke={2} />
+          ) : (
+            <IconChevronDown size={16} stroke={2} />
+          )}
+          <span>{isDescriptionExpanded ? 'Read less' : 'Read more'}</span>
+        </button>
       )}
     </div>
 
     {previousTitles && previousDates && (
-      <m.div className='flex w-full flex-col'>
-        <div
-          className={`mt-2 mb-4 h-0.5 w-full rounded-full bg-customlightgray ${isInView ? 'opacity-90' : 'opacity-70'} transition-all duration-380 ease-in-out`}
-        />
-        <p
-          className={`${isInView ? 'opacity-90' : 'opacity-70'} mb-2 text-sm transition-all duration-380 ease-in-out md:text-base`}
-        >
-          Previous/other roles:
-        </p>
-        <div className='flex w-full flex-col space-y-2'>
-          {previousTitles.map((previousTitle, index) => (
-            <div
-              className='flex w-full flex-row items-center justify-between'
-              key={`${previousTitle}-${previousDates[index] ?? ''}`}
-            >
-              <p
-                className={`${isInView ? 'opacity-90' : 'opacity-70'} font-instrument text-xl transition-all duration-380 ease-in-out md:text-2xl`}
-              >
-                {previousTitle}
-              </p>
-              <p
-                className={`font-jetbrainsmono font-semibold ${isInView ? 'opacity-75' : 'opacity-60'} text-sm transition-all duration-380 ease-in-out md:text-base`}
-              >
-                {previousDates[index]}
-              </p>
-            </div>
-          ))}
-        </div>
-      </m.div>
+      <ExperiencePreviousRoles
+        previousTitles={previousTitles}
+        previousDates={previousDates}
+        isInView={isInView}
+        variant='mobile'
+        className='md:hidden'
+      />
     )}
   </div>
 );

@@ -71,7 +71,7 @@ src/
 - On mobile, ProfileCard measures its hero-stage width and scales its 520px composition to fit within it. The stage reserves the corresponding rendered height, preventing edge-to-edge overflow, empty vertical space, and the hero-copy overlap caused by the former compensating offset.
 - Experience uses a single bordered rounded frame matching the desktop width of the Victory Laps FlickeringGrid, without FlickeringGrid or vertical timeline connectors. Rows use a 1:3 metadata-to-description grid from `md`, stack on mobile, use the shared `BotBorder` treatment between entries, and show the first three roles before the bottom `Show More` control reveals the rest.
 - Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
-- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column. Long descriptions place their Read more/Read less control beneath the date on desktop and beneath the description on mobile.
+- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column. Previous/other roles appear below the current role metadata on desktop and below the description on mobile. Read more/Read less stays below the description.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
 
 ## Design System
