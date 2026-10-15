@@ -23,7 +23,7 @@ import SobatBisnis from '../assets/orgs/sobatbisnis.jpeg';
 
 const experienceData: Experience[] = [
   {
-    title: 'AI Engineer Intern',
+    title: 'Forward Deployed AI Engineer (FDE) Intern',
     org: 'Avanade',
     url: 'https://www.avanade.com/',
     logo: Avanade,
