@@ -1,6 +1,9 @@
+import './Blog.css';
 import { IconArrowUpRight } from '@tabler/icons-react';
+import { m, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { PopButton } from '../pop-button';
+import BlogFavicon from '../../assets/blog-favicon.png';
+import DesktopView from '../../lib/DesktopView';
 import { type BlogPost, readBlogFeed } from './feed';
 
 type FeedState =
@@ -19,54 +22,51 @@ function BlogCard({ post }: { post: BlogPost }) {
   const [imageFailed, setImageFailed] = useState(false);
 
   return (
-    <article className='h-full min-w-0'>
-      <a
-        className='group flex h-full flex-col overflow-hidden rounded-2xl border border-customwhite/10 bg-customwhite/3 transition-colors hover:border-customwhite/30 focus-visible:outline-2 focus-visible:outline-blurple focus-visible:outline-offset-4'
-        href={post.url}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <div className='aspect-1200/630 w-full overflow-hidden border-customwhite/10 border-b bg-customwhite/5'>
-          {imageFailed ? (
-            <div className='flex h-full items-center justify-center font-instrument text-3xl text-text-secondary'>
-              ~/abhipraya
-            </div>
-          ) : (
-            <img
-              className='h-full w-full object-contain'
-              src={post.image}
-              alt=''
-              width={1200}
-              height={630}
-              loading='lazy'
-              decoding='async'
-              onError={() => setImageFailed(true)}
-            />
-          )}
-        </div>
-        <div className='flex grow flex-col gap-4 p-6'>
-          <time
-            dateTime={post.date}
-            className='font-jetbrainsmono text-text-secondary text-xs'
-          >
-            {dateFormat.format(new Date(post.date))}
-          </time>
-          <h3 className='break-words font-instrument text-3xl leading-tight transition-colors group-hover:text-blurple'>
+    <article className='blog-card'>
+      <div className='blog-preview'>
+        {imageFailed ? (
+          <span>~/abhipraya</span>
+        ) : (
+          <img
+            src={post.image}
+            alt=''
+            width={1200}
+            height={630}
+            loading='lazy'
+            decoding='async'
+            onError={() => setImageFailed(true)}
+          />
+        )}
+      </div>
+      <div className='blog-copy'>
+        <h3>
+          <a href={post.url} target='_blank' rel='noopener noreferrer'>
             {post.title}
-          </h3>
-          <p className='line-clamp-3 break-words text-sm text-text-secondary leading-relaxed md:text-base'>
-            {post.description}
-          </p>
-          <span className='mt-auto flex items-center gap-1 pt-2 font-jetbrainsmono text-sm'>
-            Read article <IconArrowUpRight size={18} aria-hidden='true' />
-          </span>
-        </div>
-      </a>
+          </a>
+        </h3>
+        <p>{post.description}</p>
+      </div>
+      <div className='blog-card-footer'>
+        <time dateTime={post.date}>
+          {dateFormat.format(new Date(post.date))}
+        </time>
+        <a
+          className='blog-read-link'
+          href={post.url}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label={`Read article: ${post.title}`}
+        >
+          Read article <IconArrowUpRight size={18} aria-hidden='true' />
+        </a>
+      </div>
     </article>
   );
 }
 
 export default function Blog() {
+  const desktopView = DesktopView();
+  const reducedMotion = useReducedMotion();
   const [feed, setFeed] = useState<FeedState>({ status: 'loading' });
 
   useEffect(() => {
@@ -106,54 +106,93 @@ export default function Blog() {
     <section
       id='blogsec'
       aria-labelledby='blog-heading'
-      className='relative z-10 w-[90vw] space-y-10 xl:w-272'
+      className='blog-gallery relative z-10 w-[90vw] xl:w-272'
     >
       <div id='blog' className='absolute -top-36' />
-      <div className='flex flex-col items-center lg:flex-row lg:gap-8'>
-        <h2
+      <div className='blog-heading flex flex-col items-center lg:flex-row lg:space-x-8'>
+        <m.h2
           id='blog-heading'
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
+          initial={{
+            opacity: reducedMotion ? 1 : 0,
+            y: reducedMotion ? 0 : '40px',
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: reducedMotion ? 0 : 0.8, ease: 'circOut' },
+          }}
+          viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
         >
-          Blog
-        </h2>
-        <div className='mt-1 h-0.5 w-full bg-linear-to-r from-customwhite to-text-secondary opacity-60 md:mt-2 lg:mt-3 lg:w-auto lg:grow lg:bg-customwhite lg:opacity-20' />
+          Writings to share
+        </m.h2>
+        <div
+          aria-hidden='true'
+          className={`relative mt-1 w-full max-w-none rounded-full md:mt-2 lg:mt-3 lg:w-auto lg:max-w-4000 lg:grow ${desktopView ? 'h-0.5 bg-customwhite opacity-20' : 'h-0.5 bg-linear-to-r from-customwhite to-text-secondary opacity-60'}`}
+        >
+          {!reducedMotion && (
+            <m.div
+              className='absolute h-1 w-full bg-page-bg shadow-glowcustomblacksmall lg:-top-2 lg:h-4 lg:shadow-glowcustomblack'
+              whileInView={{
+                x: '1000px',
+                transition: { duration: 0.9, ease: 'circInOut', delay: 0.3 },
+              }}
+              viewport={{
+                margin: desktopView ? '-100px' : '-14px',
+                once: true,
+              }}
+            />
+          )}
+        </div>
       </div>
-      <div className='flex flex-col items-center justify-between gap-4 sm:flex-row'>
-        <p className='text-sm text-text-secondary md:text-base'>
-          Thoughts on software, systems, and stuff.
+      <div className='blog-intro'>
+        <p>
+          What I’m building, what I’m learning, and the things worth writing
+          down.
         </p>
-        <PopButton asChild size='sm' className='gap-1 font-jetbrainsmono'>
-          <a
-            href='https://blog.abhipraya.dev/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            All articles <IconArrowUpRight size={18} aria-hidden='true' />
-          </a>
-        </PopButton>
+        <a
+          href='https://blog.abhipraya.dev/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <span className='blog-all-label'>
+            <img
+              src={BlogFavicon}
+              alt=''
+              width={20}
+              height={20}
+              className='blog-favicon'
+            />
+            All articles
+          </span>
+          <IconArrowUpRight size={18} aria-hidden='true' />
+        </a>
       </div>
-      <div aria-live='polite' aria-busy={feed.status === 'loading'}>
+      <div
+        className='blog-frame rounded-3xl border border-customgray bg-customblack shadow-lg'
+        aria-live='polite'
+        aria-busy={feed.status === 'loading'}
+      >
         {feed.status === 'loading' && (
-          <p className='py-12 text-center text-text-secondary'>
-            Loading the latest articles…
-          </p>
+          <p className='blog-message'>Loading the latest articles…</p>
         )}
         {feed.status === 'error' && (
-          <p className='py-12 text-center text-text-secondary'>
-            The latest articles couldn’t load. You can still read them on the
-            blog.
+          <p className='blog-message'>
+            The articles couldn’t load.{' '}
+            <a href='https://blog.abhipraya.dev/'>Read them on the blog</a>.
           </p>
         )}
         {feed.status === 'ready' &&
           (feed.posts.length ? (
-            <div className='grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='blog-cards'>
               {feed.posts.map((post) => (
                 <BlogCard key={post.url} post={post} />
               ))}
             </div>
           ) : (
-            <p className='py-12 text-center text-text-secondary'>
-              New articles are on their way.
+            <p className='blog-message'>
+              New articles are on their way.{' '}
+              <a href='https://blog.abhipraya.dev/'>Visit the blog</a>.
             </p>
           ))}
       </div>
