@@ -54,6 +54,7 @@ interface Project {
 
 import AurumVideo from '../assets/projects/aurum.mp4';
 import BKUIVideo from '../assets/projects/bkui.mp4';
+import BursawatchVideo from '../assets/projects/bursawatch.mp4';
 // Import favicon icons
 import GrabAuto from '../assets/projects/grabauto.webp';
 import MarkaPreview from '../assets/projects/marka.png';
@@ -83,6 +84,19 @@ const projectsData: Project[] = [
     ],
     url: 'https://marka.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/marka',
+  },
+  {
+    preview: BursawatchVideo,
+    isVideo: true,
+    title: 'Bursawatch',
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'automation'],
+    date: '2026 - Present',
+    subtitle:
+      'Built an Indonesian equity intelligence platform that filters multi-source market updates with AI and delivers source-linked news and analyst trade plans to Discord. Python pipelines handle ingestion, deduplication, retries, and delivery receipts, with Supabase-backed configuration and Next.js web apps for operators and readers.',
+    stacks: ['nextjs', 'typescript', 'python', 'supabase'],
+    url: '',
+    github: 'https://github.com/absolutepraya/bursawatch-engine',
   },
   {
     title: 'wt',
