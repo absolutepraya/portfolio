@@ -152,14 +152,17 @@ export default function Blog() {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img
-            src={BlogFavicon}
-            alt=''
-            width={20}
-            height={20}
-            className='blog-favicon'
-          />
-          All articles <IconArrowUpRight size={18} aria-hidden='true' />
+          <span className='blog-all-label'>
+            <img
+              src={BlogFavicon}
+              alt=''
+              width={20}
+              height={20}
+              className='blog-favicon'
+            />
+            All articles
+          </span>
+          <IconArrowUpRight size={18} aria-hidden='true' />
         </a>
       </div>
       <div

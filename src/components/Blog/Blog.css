@@ -35,8 +35,14 @@
   padding: 10px 0;
   font-family: var(--font-jetbrainsmono);
   font-size: 0.875rem;
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration: none;
+}
+.blog-all-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-block-end: 2px;
+  border-block-end: 1px solid currentColor;
 }
 .blog-favicon {
   flex-shrink: 0;
@@ -115,7 +121,8 @@
   justify-content: space-between;
   gap: 12px;
   width: 100%;
-  margin-block-start: 8px;
+  margin-block-start: auto;
+  padding-block-start: 8px;
 }
 .blog-card-footer time {
   font-family: var(--font-jetbrainsmono);
