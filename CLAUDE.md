@@ -34,6 +34,7 @@ src/
 │   ├── About/            # Hero + profile card (legacy marquee components retained)
 │   ├── Experience/       # Framed work list with Markdown and inline tech mentions
 │   ├── Achievements/     # Hackathon wins with image galleries
+│   ├── Blog/             # Latest three public blog posts, fetched on page load
 │   ├── Projects/         # Project cards with badge filtering
 │   ├── Footer/           # Copyright + Jakarta clock + shimmer pill
 │   ├── badge.tsx         # Badge component (CVA variants)
@@ -55,7 +56,7 @@ src/
 
 - Single-page app with anchor-based scroll navigation (no React Router)
 - NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions.
-- Sections: About → Experience → Achievements → Projects. The project list
+- Sections: About → Experience → Achievements → Projects → Blog. The project list
   includes original work and materially maintained open-source forks, but not
   generic services that are only self-hosted.
 - Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
@@ -74,6 +75,10 @@ src/
 - Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
 - Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column. Previous/other roles appear below the current role metadata on desktop and inside the mobile description's Read more/Read less disclosure, which stays below the expandable content.
 - Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
+
+## Blog Feed
+
+`src/components/Blog/Blog.tsx` fetches `https://blog.abhipraya.dev/feed.json` directly in the browser on every page load, with a 12-second timeout and no credentials. The blog's Hugo build publishes the latest three public posts with their existing OG images. New posts require only the normal blog publish flow, never a portfolio rebuild or a manually maintained article list. The feed is CORS-enabled on the blog; no scraping proxy or portfolio server is required. Feed failures and empty results have explicit states and an always-visible blog link. Cards show publication date in Jakarta time, description, and uncropped 1200 by 630 social previews, with a fallback if an image fails. Blog follows Projects and has its own navbar anchor. Set `VITE_BLOG_FEED_URL` only when testing an undeployed blog feed locally or against its PR preview.
 
 ## Design System
 

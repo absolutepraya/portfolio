@@ -1,4 +1,5 @@
 import {
+  IconBook2,
   IconBox,
   IconBrandLinkedin,
   IconBriefcase2,
@@ -103,6 +104,12 @@ const NavBar = () => {
           text='Projects'
           link='#projects'
           isActive={activeSection === 'projectssec'}
+        />
+        <Button
+          icon={<IconBook2 />}
+          text='Blog'
+          link='#blog'
+          isActive={activeSection === 'blogsec'}
         />
       </div>
 

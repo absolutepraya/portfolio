@@ -1,5 +1,6 @@
 import About from './components/About/About';
 import Achievements from './components/Achievements/Achievements';
+import Blog from './components/Blog/Blog';
 import Experience from './components/Experience/Experience';
 import Copyright from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
@@ -15,6 +16,7 @@ const App = () => {
         <Experience />
         <Achievements />
         <Projects />
+        <Blog />
       </main>
       <div className='w-full bg-page-bg'>
         <Copyright />
