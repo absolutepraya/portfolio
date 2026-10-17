@@ -1,11 +1,11 @@
 import {
-  IconBook2,
   IconBox,
   IconBrandLinkedin,
   IconBriefcase2,
   IconHome,
   IconSend,
   IconTrophy,
+  IconWriting,
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import BlurFade from '../../blocks/Animations/BlurFade';
@@ -106,7 +106,7 @@ const NavBar = () => {
           isActive={activeSection === 'projectssec'}
         />
         <Button
-          icon={<IconBook2 />}
+          icon={<IconWriting />}
           text='Blog'
           link='#blog'
           isActive={activeSection === 'blogsec'}
