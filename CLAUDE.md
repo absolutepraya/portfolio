@@ -55,7 +55,7 @@ src/
 ## Architecture
 
 - Single-page app with anchor-based scroll navigation (no React Router)
-- NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions.
+- NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions. Below 375px, the signature contracts to 36px and navigation gaps to 2px so all five section buttons fit at 320px.
 - Sections: About → Experience → Achievements → Projects → Blog. The project list
   includes original work and materially maintained open-source forks, but not
   generic services that are only self-hosted.

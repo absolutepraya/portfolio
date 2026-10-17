@@ -60,27 +60,27 @@ const NavBar = () => {
       scale={0.82}
     >
       {/* LEFT: Signature (mobile + desktop) */}
-      <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight lg:w-1/3'>
-        <div className='relative ml-2 h-9 max-w-20 lg:ml-4 lg:h-14 lg:max-w-40'>
+      <div className='flex flex-row items-center space-x-4 font-jetbrainsmono tracking-tight max-[374px]:w-9 max-[374px]:shrink-0 lg:w-1/3'>
+        <div className='relative ml-2 h-9 max-w-20 max-[374px]:ml-0 max-[374px]:w-9 lg:ml-4 lg:h-14 lg:max-w-40'>
           <Signature
             text={desktopView ? 'Abhipraya' : 'Abhip'}
             fontSize={desktopView ? 42 : 28}
             color='var(--color-page-bg)'
             duration={1.5}
-            className='absolute top-[3px] left-[0.5px] h-9 max-w-20 lg:h-14 lg:max-w-40'
+            className='absolute top-[3px] left-[0.5px] h-9 max-w-20 max-[374px]:max-w-9 lg:h-14 lg:max-w-40'
           />
           <Signature
             text={desktopView ? 'Abhipraya' : 'Abhip'}
             fontSize={desktopView ? 42 : 28}
             color='var(--color-text-primary)'
             duration={1.5}
-            className='relative z-10 h-9 max-w-20 lg:h-14 lg:max-w-40'
+            className='relative z-10 h-9 max-w-20 max-[374px]:max-w-9 lg:h-14 lg:max-w-40'
           />
         </div>
       </div>
 
       {/* CENTER: Nav buttons */}
-      <div className='flex flex-row justify-center space-x-1.5 md:space-x-3 lg:w-1/3'>
+      <div className='flex flex-row justify-center space-x-1.5 max-[374px]:space-x-0.5 md:space-x-3 lg:w-1/3'>
         <Button
           icon={<IconHome />}
           text='Home'

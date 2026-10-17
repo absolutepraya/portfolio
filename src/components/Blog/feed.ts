@@ -48,9 +48,9 @@ export function readBlogFeed(data: unknown): BlogPost[] {
   });
 
   return posts
+    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
     .filter(
       (post, index) => posts.findIndex((p) => p.url === post.url) === index,
     )
-    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
     .slice(0, 3);
 }

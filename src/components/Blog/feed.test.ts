@@ -17,6 +17,7 @@ test('keeps the three newest unique published articles', () => {
     readBlogFeed({
       posts: [
         post('oldest'),
+        { ...post('newest', '2026-01-01'), description: 'Outdated metadata.' },
         post('second', '2026-02-01'),
         newest,
         newest,
@@ -24,6 +25,17 @@ test('keeps the three newest unique published articles', () => {
       ],
     }).map((item) => item.title),
   ).toEqual(['newest', 'second', 'third']);
+  expect(
+    readBlogFeed({
+      posts: [
+        post('duplicate'),
+        {
+          ...post('duplicate', '2026-02-01'),
+          description: 'Current metadata.',
+        },
+      ],
+    })[0].description,
+  ).toBe('Current metadata.');
 });
 
 test('rejects malformed responses and skips unsafe or unpublished entries', () => {
