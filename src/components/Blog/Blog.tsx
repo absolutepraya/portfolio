@@ -113,11 +113,14 @@ export default function Blog() {
         <m.h2
           id='blog-heading'
           className='bg-linear-to-br from-customwhite to-text-secondary bg-clip-text font-instrument text-6xl text-transparent md:text-7xl'
-          initial={{ opacity: 0, y: reducedMotion ? 0 : '40px' }}
+          initial={{
+            opacity: reducedMotion ? 1 : 0,
+            y: reducedMotion ? 0 : '40px',
+          }}
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: 'circOut' },
+            transition: { duration: reducedMotion ? 0 : 0.8, ease: 'circOut' },
           }}
           viewport={{ margin: desktopView ? '-100px' : '-14px', once: true }}
         >
