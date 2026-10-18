@@ -19,6 +19,7 @@ import Express from '../../assets/stacks/express.svg';
 import Firebase from '../../assets/stacks/firebase.svg';
 import Flutter from '../../assets/stacks/flutter.svg';
 import Gemini from '../../assets/stacks/gemini.svg';
+import HermesAgent from '../../assets/stacks/hermes-agent.svg';
 import JavaScript from '../../assets/stacks/javascript.svg';
 import Jest from '../../assets/stacks/jest.svg';
 import Meilisearch from '../../assets/stacks/meilisearch.svg';
@@ -79,6 +80,7 @@ interface ProjectBoxProps {
 }
 
 const stackIcons: Record<string, StackIcon> = {
+  hermes: { src: HermesAgent, name: 'Hermes Agent' },
   docker: { src: Docker, name: 'Docker' },
   express: { src: Express, name: 'Express' },
   javascript: { src: JavaScript, name: 'JavaScript' },

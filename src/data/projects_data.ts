@@ -54,6 +54,7 @@ interface Project {
 
 import AurumVideo from '../assets/projects/aurum.mp4';
 import BKUIVideo from '../assets/projects/bkui.mp4';
+import BursawatchVideo from '../assets/projects/bursawatch.mp4';
 // Import favicon icons
 import GrabAuto from '../assets/projects/grabauto.webp';
 import MarkaPreview from '../assets/projects/marka.png';
@@ -83,6 +84,19 @@ const projectsData: Project[] = [
     ],
     url: 'https://marka.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/marka',
+  },
+  {
+    preview: BursawatchVideo,
+    isVideo: true,
+    title: 'Bursawatch',
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'automation'],
+    date: '09/2026',
+    subtitle:
+      'Built an Indonesian equity intelligence platform that filters multi-source market updates with AI and delivers source-linked news and analyst trade plans to Discord. Under the hood, Hermes cron jobs use [Hermes Agent](https://github.com/NousResearch/hermes-agent) to process and deliver market updates, backed by Python pipelines for ingestion, deduplication, retries, and delivery receipts, Supabase configuration, and Next.js web apps for operators and readers.',
+    stacks: ['hermes', 'nextjs', 'typescript', 'python', 'supabase'],
+    url: '',
+    github: 'https://github.com/absolutepraya/bursawatch-engine',
   },
   {
     title: 'wt',
