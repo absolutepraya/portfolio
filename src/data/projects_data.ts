@@ -93,8 +93,8 @@ const projectsData: Project[] = [
     tags: ['full-stack', 'ai', 'automation'],
     date: '09/2026',
     subtitle:
-      'Built an Indonesian equity intelligence platform that filters multi-source market updates with AI and delivers source-linked news and analyst trade plans to Discord. Python pipelines handle ingestion, deduplication, retries, and delivery receipts, with Supabase-backed configuration and Next.js web apps for operators and readers.',
-    stacks: ['nextjs', 'typescript', 'python', 'supabase'],
+      'Built an Indonesian equity intelligence platform that filters multi-source market updates with AI and delivers source-linked news and analyst trade plans to Discord. Under the hood, Hermes cron jobs use [Hermes Agent](https://github.com/NousResearch/hermes-agent) to process and deliver market updates, backed by Python pipelines for ingestion, deduplication, retries, and delivery receipts, Supabase configuration, and Next.js web apps for operators and readers.',
+    stacks: ['hermes', 'nextjs', 'typescript', 'python', 'supabase'],
     url: '',
     github: 'https://github.com/absolutepraya/bursawatch-engine',
   },
