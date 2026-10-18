@@ -91,7 +91,7 @@ const projectsData: Project[] = [
     title: 'Bursawatch',
     kind: 'web',
     tags: ['full-stack', 'ai', 'automation'],
-    date: '2026 - Present',
+    date: '09/2026',
     subtitle:
       'Built an Indonesian equity intelligence platform that filters multi-source market updates with AI and delivers source-linked news and analyst trade plans to Discord. Python pipelines handle ingestion, deduplication, retries, and delivery receipts, with Supabase-backed configuration and Next.js web apps for operators and readers.',
     stacks: ['nextjs', 'typescript', 'python', 'supabase'],
