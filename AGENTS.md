@@ -1,6 +1,113 @@
-# Portfolio Agent Guide
+# Portfolio — abhipraya.dev
 
-Read `CLAUDE.md` before editing this repository. It contains the project structure, commands, deployment contract, and required verification.
+**Always keep this file up to date whenever anything changes in the codebase.**
+
+## Tech Stack
+
+React 18 + Vite 6 + Tailwind CSS 4 + Framer Motion + Bun + TypeScript
+
+Other key deps: @react-spring/web (CountUp animations), @react-three/fiber + @react-three/postprocessing + three + postprocessing (Dither), @tabler/icons-react, react-markdown, moment-timezone, clsx + tailwind-merge (`cn()` utility), class-variance-authority + @radix-ui/react-slot (component variants), opentype.js (signature SVG rendering), shadcn (UI component scaffolding), cuelume (interaction sounds)
+
+## Commands
+
+```bash
+bun install          # Install dependencies
+bun run dev          # Dev server (Vite)
+bun run build        # Production build
+bun run check        # Lint + format (Biome)
+bun run verify       # Full blocking CI-equivalent quality suite
+bun run react-doctor # Advisory full React Doctor scan
+bun run start        # Serve production build (serve -s dist)
+bun run knip         # Dead code detection
+```
+
+## Project Structure
+
+```
+src/
+├── main.tsx              # Entry point
+├── App.tsx               # Root layout
+├── styles.css            # Global CSS (@theme, @font-face, CSS variables, animations)
+├── vite-env.d.ts         # Asset module declarations (.webp, .png, .svg, .mp4)
+├── components/           # Page sections
+│   ├── NavBar/           # Compact top nav with IntersectionObserver + signature
+│   ├── About/            # Hero + profile card (legacy marquee components retained)
+│   ├── Experience/       # Framed work list with Markdown and inline tech mentions
+│   ├── Achievements/     # Hackathon wins with image galleries
+│   ├── Blog/             # Latest three public blog posts, fetched on page load
+│   ├── Projects/         # Project cards with badge filtering
+│   ├── Footer/           # Copyright + Jakarta clock + shimmer pill
+│   ├── badge.tsx         # Badge component (CVA variants)
+│   ├── marquee.tsx       # Custom marquee with fade edges
+│   ├── pop-button.tsx    # Animated pop button
+│   ├── rich-button.tsx   # Rich button with shadow/color variants
+│   ├── shimmer-text.tsx  # Animated shimmer text effect
+│   ├── signature.tsx     # SVG signature via opentype.js
+│   └── slide-up-text.tsx # Word/char slide-up animation
+├── blocks/               # Reusable animation components
+│   └── Animations/       # BlurFade, Dither, FlickeringGrid, HoverBorderGradient, IosSpinner
+│   └── TextAnimations/   # CountUp (from reactbits.dev)
+├── data/                 # Static data (experiences, projects, achievements, stacks)
+├── lib/                  # Hooks (DesktopView, TabletView), ThemeContext, utils (cn)
+└── assets/               # Images, fonts, org logos, project previews
+```
+
+## Architecture
+
+- Single-page app with anchor-based scroll navigation (no React Router)
+- NavBar uses IntersectionObserver to highlight the active section. It is fixed at the top and scales to 82% for a compact footprint without changing its underlying layout dimensions. Below 375px, the signature contracts to 36px and navigation gaps to 2px so all five section buttons fit at 320px.
+- Sections: About → Experience → Achievements → Projects → Blog. The project list
+  includes original work and materially maintained open-source forks, but not
+  generic services that are only self-hosted.
+- Each section has paired IDs: `id="aboutsec"` (section) + `id="about"` (scroll anchor)
+- ThemeContext provides light/dark mode toggle (localStorage + system preference fallback)
+- Cuelume binds once in `main.tsx`: navbar links use the `page` cue, show-more and collapse/expand controls use `toggle`, and all other anchors and buttons use `tick` on click. It has no hover sounds or stored sound preference.
+- Experience descriptions use explicit Markdown links for named products and platforms. The renderer gives only the first occurrence of each mapped technology in an experience an icon and link; languages remain ordinary text.
+- Avanade's Experience entry uses the title `Forward Deployed AI Engineer (FDE) Intern` and organization label `Avanade`. Omit the joint-venture parenthetical on the portfolio.
+- Bursawatch appears after Marka with the supplied teaser encoded as a 10:7 H.264 preview: the full-width foreground is centered over a height-filling, blurred and darkened copy. It uses the existing muted, looping, inline video behavior and links to `absolutepraya/bursawatch-engine`. Its first stack icon is Hermes Agent, sourced from the official NousResearch/hermes-agent `assets/icon-master.svg`; the description explains its Hermes cron and agent foundation.
+- Project descriptions support Markdown links and open them in a new tab. Use this only for specific external products that help explain a project, such as PINTARU's Manim renderer.
+- Experience Markdown uses a compact `0.375rem` gap between a paragraph and its immediately following ordered or unordered list.
+- Experience organization underlines derive a three-stop gradient from opaque, saturated logo pixels below 72% lightness, avoiding washed-out white and pastel artwork.
+- Experience data may opt a supplied organization logo into rounded corners with `logoRounded`.
+- Experience maps Microsoft Copilot, Teams, and Power BI to their dedicated production assets.
+- In the vertical Hero layout (`768px` to `1023px`), ProfileCard keeps its fixed 580px composition and uses a ResizeObserver-derived scale, capped at 1.2, to fill available width without triggering a separate tablet layout. The Hero title and subtitle step up to `text-5xl` and `text-lg`, with a compact `1rem` gap.
+- On mobile, ProfileCard measures its hero-stage width and scales its 520px composition to fit within it. The stage reserves the corresponding rendered height, preventing edge-to-edge overflow, empty vertical space, and the hero-copy overlap caused by the former compensating offset.
+- Experience uses a single bordered rounded frame matching the desktop width of the Victory Laps FlickeringGrid, without FlickeringGrid or vertical timeline connectors. Rows use a 1:3 metadata-to-description grid from `md`, stack on mobile, use the shared `BotBorder` treatment between entries, and show the first three roles before the bottom `Show More` control reveals the rest.
+- Experience, Achievements, and Projects use full-width heading underlines in vertical layouts, with a `0.5rem` title-to-underline gap from `md`.
+- Experience metadata keeps the Instrument Serif role title, organization logo/link, JetBrains Mono date, and existing logo-derived underline treatment in the left column. Previous/other roles appear below the current role metadata on desktop and inside the mobile description's Read more/Read less disclosure, which stays below the expandable content.
+- Project filters use compact `h-9` controls with `0.5rem` gaps, and Achievement organizer pills use the project tag `rounded-md` radius.
+
+## Blog Feed
+
+`src/components/Blog/Blog.tsx` fetches `https://blog.abhipraya.dev/feed.json` directly in the browser on every page load, with a 12-second timeout and no credentials. The blog's Hugo build publishes the latest three public posts with their existing OG images. New posts require only the normal blog publish flow, never a portfolio rebuild or a manually maintained article list. The feed is CORS-enabled on the blog; no scraping proxy or portfolio server is required. Feed failures and empty results have explicit states and an always-visible blog link. Cards show publication date in Jakarta time, description, and uncropped 1200 by 630 social previews, with a fallback if an image fails. Blog follows Projects and has its own navbar anchor with the Tabler Writing icon. The selected Editorial rows layout places each article’s text on the left and its large social preview on the right, stacking the preview above the text on narrow screens. Rows have static separators. The layout adapts the public visual reference at https://21st.dev/@shadcnblockscom/components/blog8 without third-party code or dependencies. All three articles sit inside one static frame matching the Victory laps rounded border, surface, and shadow. The blue All articles link includes the blog favicon inline on its left inside one continuous underline, sourced from the blog’s static/favicon.png and imported from src/assets/blog-favicon.png. Dates and blue Read article links share one footer line below each description, with the date on the left and the link on the right. The Blog heading copies the Projects heading element, responsive gradient typography, underline, and entrance treatment, with reduced-motion protection. The section heading is Writings to share. Set `VITE_BLOG_FEED_URL` only when testing an undeployed blog feed locally or against its PR preview.
+
+## Design System
+
+- Light/dark theme support via CSS variables and `.dark` class on `<html>`
+- Dark: bg `#03020F`, cards `#0d0d0d`–`#131313`; Light: bg `#f5f5f5`, cards `#e8e8e8`–`#f0f0f0`
+- Accent: blurple `#3643FC` (active states, hovers, glows, gradients)
+- Fonts (self-hosted variable): Inter (body), Instrument Serif (headings), JetBrains Mono (monospace), Maple Mono (footer/pills)
+- Description copy in Experience, Achievements, and Projects, plus Victory Laps metadata, uses `text-sm` on mobile and `text-base` from `md`, with justified, relaxed body copy where appropriate.
+- Project type filters use interactive `PopButton` controls, with the active filter black and inactive filters light. Project kind and tag labels use a compact raised treatment with a smaller radius, but remain static, non-interactive badges.
+- The Project filter icon and label share the same subdued foreground color and stay on one line.
+- Victory Laps organizer links use a compact `PopButton` treatment while remaining external anchors with their organizer logo.
+- Footer uses Jakarta time on the left, the scroll-to-top call-to-action in the center, and Source code on the right. On mobile it stacks the call-to-action, Jakarta time, then Source code. Its compact, shorter mobile Victory Laps-style grid uses a slightly darker light-theme tint and fades in through the opaque `--color-footer-bg` overlay to become fully visible at the bottom.
+- The `wt` project card provides separate GitHub and npm actions.
+- Glow effects via custom `--shadow-*` tokens in `@theme` (`shadow-glowblurple*`)
+- Profile card: metallic 3D tilt (perspective + rotateX/Y), holographic shimmer, touch support, idle wobble hint animation
+- Profile card: the WebGL dither accent is lazy-loaded so its renderer stays out of the main application bundle.
+- Profile card: the Dither canvas fills its full card-region wrapper instead of its default intrinsic bitmap size.
+
+## Conventions
+
+- TypeScript strict mode — tsconfig.json with `@/*` path alias
+- Tailwind v4 CSS-based config (`@theme` in styles.css, no tailwind.config.js)
+- `@tailwindcss/vite` plugin (no PostCSS config needed)
+- Biome is the sole linter + formatter (with Tailwind class sorting via `useSortedClasses` + `tailwindDirectives` CSS parsing)
+- Husky pre-commit hook runs `bun run check`
+- Single quotes, 2-space indent
+- Tailwind utility classes + custom responsive hooks (`DesktopView.ts` >= 1024px, `TabletView.ts` >= 768px)
+- CI runs distinct blocking format, lint, typecheck, test, React Doctor (minimum score 99), build, and main-bundle budget checks. `knip` is advisory because its static analysis can need manual review.
 
 ## Experience Copy
 
@@ -17,3 +124,42 @@ Read `CLAUDE.md` before editing this repository. It contains the project structu
 - Production assets belong in `src/assets/` and must be explicitly imported by `tech_mentions.ts`.
 - The complete Azure reference library is under `references/microsoft-azure-icons/`. It is reference-only and must never be imported wholesale or exposed in the production build. See its `README.md` and `CATALOG.txt` before selecting a service mark.
 - Preserve source provenance for vendor assets. Prefer an official product source or official architecture icon pack over recreated or scraped logos.
+
+## Agent Rules
+
+- After every turn where files are edited, always run `bun run check` and `bun run knip` to ensure lint/format compliance and no dead code is introduced.
+
+## Vanity Redirects
+
+`redirects.json` at the repo root maps slugs to external URLs (e.g. `tracklist-buat-gina` → Spotify playlist) and is the single source of truth. `scripts/generate-redirects.js` reads it and writes two files:
+
+- **`public/_redirects`** (generated, committed) — production. Cloudflare Workers Static Assets parses these temporary `302` rules before serving assets. It emits both `/slug` and `/slug/` forms.
+- **`dist/serve.json`** (when `dist/` exists) — local-only, for previewing the production build via `bun run start` (`serve`/serve-handler). It emits the same two forms.
+
+- Status: 302 (temporary, so destinations can change without browser cache lock-in).
+- Add a new redirect: edit `redirects.json`, then `bun run build`. No code changes.
+- ⚠️ Slugs must not collide with real static paths (e.g. `assets`) — redirects match before static files.
+- ⚠️ Vite dev server does NOT honor either file; redirects work after `bun run build && bun run start` or on Cloudflare production.
+
+## Deployment
+
+**Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
+
+- **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 production-browser capture of the existing hero `ProfileCard` against the plain page background, with its idle wobble frozen for the static capture, not a separate card design.
+
+- **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
+- **Deployment contract:** `wrangler.jsonc`, `public/_headers`, `public/_redirects`, `.github/workflows/deploy-cloudflare.yml`, and `scripts/smoke-cloudflare-deployment.mjs` must remain aligned.
+- **Local verification:** run `bun run build`, `bun run start`, then `bun run smoke:deployment -- https://example.workers.dev`. Validate the generated redirect rules and prerendered homepage before pushing.
+- **CI release flow:** `Verify` runs the full `bun run verify` suite, validates the generated `dist/` files, and uploads that directory as the only deployable artifact. Same-repository pull requests deploy and smoke-test public `workers.dev` previews. A `core` push deploys the same artifact through the `absolutepraya-portfolio` GitHub environment, then smoke-tests `https://abhipraya.dev`. Closing a same-repository pull request deletes its preview Worker.
+- **Branch protection:** `core` requires a pull request and the `Verify` check. No approval is mandatory; force pushes and branch deletion are blocked.
+- **Fork safety:** fork pull requests receive verification only, never Cloudflare credentials.
+- **Cache and security policy:** `public/_headers` revalidates HTML and mutable root files. All fingerprinted Vite files in `/assets/*` are immutable for one year. The policy also sets HSTS, `nosniff`, strict referrer handling, frame denial, and a restrictive permissions policy. Do not add CSP, Rocket Loader, Auto Minify, or broad zone-level cache settings without a separate compatibility audit.
+- **Analytics:** Cloudflare Web Analytics is already enabled by automatic setup for the zone. Do not add a manual beacon or third-party analytics. Confirm live analytics with the browser network requests to `static.cloudflareinsights.com` and `/cdn-cgi/rum`.
+- **Purge:** use a targeted Cloudflare cache purge for an exceptional stale root asset. Routine deploys use the Worker asset manifest and do not need a whole-cache purge.
+- **Rollback:** remove the two Cloudflare custom-domain routes and restore only the observed Vercel apex A record and `www` CNAME. Do not change other DNS records.
+- **CI credentials:** GitHub Actions uses its own scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets. Never reuse, commit, or print local credentials.
+- **DNSSEC:** DNSSEC for `abhipraya.dev` is pending the Registrar.eu transfer from Hostinger. Do not add a DS record at Hostinger, cancel the current Cloudflare DNSSEC setup, or enable multi-signer or multi-provider DNS. After the transfer completes, add Cloudflare's displayed DS record at Registrar.eu and verify the public DS record before declaring DNSSEC active.
+
+### Legacy: Heroku (being retired)
+
+Was Heroku (`git push heroku core:main`, `Procfile` → `bun run start`, `chrome-for-testing` buildpack for the prerender). GitHub Student credits expire **2026-07-31**; after that any usage is billed. The `heroku` git remote and `heroku-prebuild`/`heroku-postbuild` scripts remain for rollback during transition. **To decommission before 7/31:** delete the app (`heroku apps:destroy -a absolutepraya-portfolio`), then remove the card in the billing dashboard so nothing accrues.
