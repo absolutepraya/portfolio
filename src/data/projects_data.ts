@@ -97,7 +97,7 @@ const projectsData: Project[] = [
     subtitle:
       'Built an AI personal-finance assistant with a team of five. It reads supported bank emails into a ledger you review before anything counts, then tracks budgets, goals, and a month-end spending forecast. One Cloudflare Workers agent handles both in-app chat and WhatsApp, and it needs an explicit yes before deleting anything. My part was the architecture, the Gmail onboarding and import, the forecast, and the demo video.',
     stacks: ['nextjs', 'typescript', 'supabase', 'postgresql', 'cloudflare'],
-    url: 'https://monara-finance.vercel.app/demo',
+    url: '',
     github: 'https://github.com/ZoeMohamed/Monara',
     favicon: MonaraIcon,
   },
