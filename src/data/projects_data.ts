@@ -58,6 +58,8 @@ import BursawatchVideo from '../assets/projects/bursawatch.mp4';
 // Import favicon icons
 import GrabAuto from '../assets/projects/grabauto.webp';
 import MarkaPreview from '../assets/projects/marka.png';
+import MonaraVideo from '../assets/projects/monara.mp4';
+import MonaraIcon from '../assets/projects/monara-icon.png';
 import NuSantap from '../assets/projects/nusantap.webp';
 import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
@@ -84,6 +86,20 @@ const projectsData: Project[] = [
     ],
     url: 'https://marka.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/marka',
+  },
+  {
+    preview: MonaraVideo,
+    isVideo: true,
+    title: 'Monara (FinTechathon 2026)',
+    kind: 'web',
+    tags: ['full-stack', 'ai', 'open-source'],
+    date: '10/2026',
+    subtitle:
+      'Built, with a team of five, an AI personal-finance assistant that turns supported bank emails into a reviewable ledger, then tracks budgets, goals, and a month-end spending forecast. A shared Cloudflare Workers agent handles in-app chat and WhatsApp through tiered tools, with deletions gated behind explicit confirmation. I worked on the architecture, Gmail onboarding and import flow, spending forecast, and the demo video.',
+    stacks: ['nextjs', 'typescript', 'supabase', 'postgresql', 'cloudflare'],
+    url: 'https://monara-finance.vercel.app/demo',
+    github: 'https://github.com/ZoeMohamed/Monara',
+    favicon: MonaraIcon,
   },
   {
     preview: BursawatchVideo,
