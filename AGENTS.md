@@ -145,6 +145,7 @@ src/
 
 **Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
 
+- **Crawler policy:** `public/robots.txt` allows all crawlers and declares `Content-Signal: search=yes, ai-input=yes`. `ai-train` is deliberately omitted, which neither grants nor restricts it. Cloudflare Bot Fight Mode, AI-bot blocking, and managed robots.txt are off for the zone, so this file is the only crawler policy. The Worker's SPA fallback returns the homepage with HTTP 200 for unknown paths, so `/llms.txt` and `/.well-known/*` look present to scanners.
 - **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 production-browser capture of the existing hero `ProfileCard` against the plain page background, with its idle wobble frozen for the static capture, not a separate card design.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
