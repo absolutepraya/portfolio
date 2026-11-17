@@ -50,12 +50,12 @@ function deployedPath(file) {
   return `/${relative('dist', file).split(sep).join('/')}`;
 }
 
-async function request(pathname) {
+async function request(pathname, options = {}) {
   const url = new URL(pathname, baseUrl);
   let lastError;
   for (let attempt = 1; attempt <= deploymentAttempts; attempt += 1) {
     try {
-      const response = await fetch(url, { redirect: 'manual' });
+      const response = await fetch(url, { redirect: 'manual', ...options });
       if (response.status < 500 || attempt === deploymentAttempts)
         return response;
     } catch (error) {
@@ -115,6 +115,7 @@ async function assertHeaderEventually(
 
 await Promise.all([
   requireFile('dist/index.html'),
+  requireFile('dist/index.md'),
   requireFile('dist/robots.txt'),
   requireFile('dist/sitemap.xml'),
   requireFile('dist/_redirects'),
@@ -143,6 +144,37 @@ assert(
 assert(
   homeHtml.includes('Daffa Abhipraya Putra'),
   'Home page is missing portfolio content',
+);
+
+const markdownHome = await request('/', {
+  headers: { accept: 'text/markdown' },
+});
+assert(
+  markdownHome.status === 200,
+  `/ returned ${markdownHome.status} for Accept: text/markdown, expected 200`,
+);
+assert(
+  markdownHome.headers.get('content-type')?.includes('text/markdown'),
+  'Markdown negotiation did not return text/markdown',
+);
+assert(
+  markdownHome.headers.get('vary')?.toLowerCase().includes('accept'),
+  'Markdown response is missing Vary: Accept',
+);
+assert(
+  Number(markdownHome.headers.get('x-markdown-tokens')) > 0,
+  'Markdown response is missing x-markdown-tokens',
+);
+assert(
+  (await markdownHome.text()).startsWith('# Daffa Abhipraya'),
+  'Markdown home does not start with the portfolio heading',
+);
+const markdownMissing = await request('/__cloudflare-portfolio-missing__/', {
+  headers: { accept: 'text/markdown' },
+});
+assert(
+  markdownMissing.headers.get('content-type')?.includes('text/html'),
+  'Unknown paths must not be served as markdown',
 );
 
 const spaFallback = await assertResponse(

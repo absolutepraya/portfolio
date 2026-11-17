@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "abhipraya-portfolio",
   "compatibility_date": "2026-07-22",
+  "main": "worker/index.js",
   "preview_urls": true,
   "routes": [
     {
@@ -20,7 +21,9 @@
     }
   },
   "assets": {
+    "binding": "ASSETS",
     "directory": "./dist",
+    "run_worker_first": ["/*", "!/assets/*"],
     "not_found_handling": "single-page-application"
   }
 }
