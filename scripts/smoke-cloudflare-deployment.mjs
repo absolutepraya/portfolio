@@ -116,6 +116,7 @@ async function assertHeaderEventually(
 await Promise.all([
   requireFile('dist/index.html'),
   requireFile('dist/index.md'),
+  requireFile('dist/404.html'),
   requireFile('dist/robots.txt'),
   requireFile('dist/sitemap.xml'),
   requireFile('dist/_redirects'),
@@ -177,15 +178,17 @@ assert(
   'Unknown paths must not be served as markdown',
 );
 
-const spaFallback = await assertResponse(
+const missing = await assertResponse(
   '/__cloudflare-portfolio-missing__/',
-  200,
+  404,
   'text/html',
 );
 assert(
-  (await spaFallback.text()).includes('Daffa Abhipraya Putra'),
-  'SPA fallback does not serve the portfolio',
+  (await missing.text()).includes('Page not found'),
+  'Unknown paths do not serve the 404 page',
 );
+await assertResponse('/llms.txt', 404, 'text/html');
+await assertResponse('/.well-known/mcp/server-card.json', 404, 'text/html');
 
 await assertResponse('/robots.txt', 200, 'text/plain');
 await assertResponse('/sitemap.xml', 200, 'application/xml');
