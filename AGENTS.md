@@ -24,6 +24,8 @@ bun run knip         # Dead code detection
 ## Project Structure
 
 ```
+worker/               # Cloudflare Worker wrapper (Markdown content negotiation)
+scripts/              # Build, redirect, markdown generation, and smoke-test scripts
 src/
 ├── main.tsx              # Entry point
 ├── App.tsx               # Root layout
@@ -143,9 +145,10 @@ src/
 
 ## Deployment
 
-**Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback and has no application runtime code.
+**Cloudflare Workers Static Assets** — Worker `abhipraya-portfolio`. GitHub Actions builds and deploys production from `core`; trusted pull requests upload a preview Worker version. The Worker serves `dist/` with SPA fallback. Its only code is `worker/index.js`, a thin wrapper that answers `Accept: text/markdown` (see Markdown for Agents below); there is no server runtime.
 
 - **Crawler policy:** `public/robots.txt` allows all crawlers and declares `Content-Signal: search=yes, ai-input=yes`. `ai-train` is deliberately omitted, which neither grants nor restricts it. Cloudflare Bot Fight Mode, AI-bot blocking, and managed robots.txt are off for the zone, so this file is the only crawler policy. The Worker's SPA fallback returns the homepage with HTTP 200 for unknown paths, so `/llms.txt` and `/.well-known/*` look present to scanners.
+- **Markdown for Agents:** a request with `Accept: text/markdown` gets `dist/index.md` with `Content-Type: text/markdown`, `Vary: Accept` and an approximate `x-markdown-tokens` count. Browsers and `*/*` clients still get HTML. The zone is on the Cloudflare Free plan, which does not include Cloudflare's own Markdown for Agents feature, so this is done in the repo. `scripts/generate-markdown.js` builds `dist/index.md` from `src/data/experience_data.ts`, `projects_data.ts` and `achievements_data.ts` after the prerender, so it stays in sync with the page; the About tagline and social links are constants at the top of that script. `worker/index.js` runs first for everything except `/assets/*` (`run_worker_first` in `wrangler.jsonc`) and only serves a Markdown asset that is not HTML, so the SPA fallback is never returned as Markdown. Logic and generator are tested in `scripts/markdown-negotiation.test.js`; the smoke script checks it on every deploy. Worker requests count against the free plan's 100,000 daily invocations.
 - **Social preview:** `public/preview.webp` is the Open Graph and X image. It is a 1200 by 630 production-browser capture of the existing hero `ProfileCard` against the plain page background, with its idle wobble frozen for the static capture, not a separate card design.
 
 - **Verified production domains:** Cloudflare custom domains `abhipraya.dev` and `www.abhipraya.dev` only. `blog.abhipraya.dev` and all other zone records are out of scope.
