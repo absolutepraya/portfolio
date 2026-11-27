@@ -5,6 +5,7 @@ export type ProjectKind =
   | 'mobile'
   | 'backend'
   | 'cli'
+  | 'desktop'
   | 'game'
   | 'agent';
 
@@ -22,6 +23,7 @@ export const projectKindLabels: Record<ProjectKind, string> = {
   mobile: 'Mobile',
   backend: 'Backend',
   cli: 'CLI',
+  desktop: 'Desktop',
   game: 'Game',
   agent: 'Agent',
 };
@@ -60,6 +62,7 @@ import GrabAuto from '../assets/projects/grabauto.webp';
 import MarkaPreview from '../assets/projects/marka.png';
 import MonaraVideo from '../assets/projects/monara.mp4';
 import MonaraIcon from '../assets/projects/monara-icon.png';
+import MugiPreview from '../assets/projects/mugi.webp';
 import NuSantap from '../assets/projects/nusantap.webp';
 import NuSantapIcon from '../assets/projects/nusantap-icon.svg';
 import PintaruVideo from '../assets/projects/pintaru.mp4';
@@ -86,6 +89,18 @@ const projectsData: Project[] = [
     ],
     url: 'https://marka.abhipraya.dev/',
     github: 'https://github.com/absolutepraya/marka',
+  },
+  {
+    preview: MugiPreview,
+    title: 'Mugi',
+    kind: 'desktop',
+    tags: ['ai'],
+    date: '11/2026 - Present',
+    subtitle:
+      "Built Mugi, the upscaler for your AI-generated images. Image generators often return soft, low-resolution pictures, so Mugi enlarges them, and ordinary photos too, to 4K or 8K and rebuilds the fine detail entirely on your Mac, with nothing uploaded. A native SwiftUI app drives a local Python engine that runs [SeedVR2](https://github.com/ByteDance-Seed/SeedVR), DRCT-L, HAT-L, and Real-ESRGAN on the Mac's GPU, with side-by-side model comparison and a built-in updater that verifies every download before installing.",
+    stacks: ['swift', 'python', 'pytorch'],
+    url: '',
+    github: 'https://github.com/absolutepraya/mugi-upscale',
   },
   {
     preview: MonaraVideo,

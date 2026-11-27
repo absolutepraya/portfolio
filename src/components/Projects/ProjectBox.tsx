@@ -34,11 +34,13 @@ import OpenAI from '../../assets/stacks/openai.svg';
 import Postgres from '../../assets/stacks/postgresql.svg';
 import Prisma from '../../assets/stacks/prisma.svg';
 import Python from '../../assets/stacks/python.svg';
+import PyTorch from '../../assets/stacks/pytorch.svg';
 import RabbitMQ from '../../assets/stacks/rabbitmq.svg';
 import React from '../../assets/stacks/react.svg';
 import Redis from '../../assets/stacks/redis.svg';
 import RPGMaker from '../../assets/stacks/rpgmaker.png';
 import Supabase from '../../assets/stacks/supabase.svg';
+import Swift from '../../assets/stacks/swift.svg';
 import TailwindCSS from '../../assets/stacks/tailwind.svg';
 import TypeScript from '../../assets/stacks/typescript.svg';
 import Vercel from '../../assets/stacks/vercel.svg';
@@ -89,6 +91,8 @@ const stackIcons: Record<string, StackIcon> = {
   nodejs: { src: Node, name: 'Node.js' },
   npm: { src: NPM, name: 'NPM' },
   python: { src: Python, name: 'Python' },
+  pytorch: { src: PyTorch, name: 'PyTorch' },
+  swift: { src: Swift, name: 'Swift' },
   bun: { src: Bun, name: 'Bun' },
   reactjs: { src: React, name: 'React.js' },
   tailwindcss: { src: TailwindCSS, name: 'TailwindCSS' },
