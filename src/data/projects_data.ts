@@ -16,7 +16,8 @@ export type ProjectTag =
   | 'automation'
   | 'open-source'
   | 'knowledge-graph'
-  | 'personal-assistant';
+  | 'personal-assistant'
+  | 'macos';
 
 export const projectKindLabels: Record<ProjectKind, string> = {
   web: 'Web',
@@ -36,6 +37,7 @@ export const projectTagLabels: Record<ProjectTag, string> = {
   'open-source': 'Open source',
   'knowledge-graph': 'Knowledge graph',
   'personal-assistant': 'Personal assistant',
+  macos: 'macOS',
 };
 
 interface Project {
@@ -94,7 +96,7 @@ const projectsData: Project[] = [
     preview: MugiPreview,
     title: 'Mugi',
     kind: 'desktop',
-    tags: ['ai'],
+    tags: ['ai', 'macos'],
     date: '11/2026 - Present',
     subtitle:
       "Built Mugi, the upscaler for your AI-generated images. Image generators often return soft, low-resolution pictures, so Mugi enlarges them, and ordinary photos too, to 4K or 8K and rebuilds the fine detail entirely on your Mac, with nothing uploaded. A native SwiftUI app drives a local Python engine that runs [SeedVR2](https://github.com/ByteDance-Seed/SeedVR), DRCT-L, HAT-L, and Real-ESRGAN on the Mac's GPU, with side-by-side model comparison and a built-in updater that verifies every download before installing.",
